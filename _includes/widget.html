@@ -1,0 +1,64 @@
+<div class="row-fluid">
+    <h2>{{ page.name }}</h2>
+</div>
+<div class="row-fluid">
+    <h3 class="nospace">Description</h3>
+    <div>{{ page.description | markdownify }}</div>
+    <a href="{{ page.docs }}" target="_blank" >
+        <i class="icon-book"> </i>
+        Official Kendo UI {{ page.name }} documentation
+    </a>
+</div>
+<div class="row-fluid">
+    <h3>Examples</h3>
+    <div data-bind="kendoTabStrip: {}, stop: true">
+        <ul>
+            {% for example in page.examples %}
+            {% if example.selected %}
+            <li class="k-state-active">{{ example.title }}</li>
+            {% else %}
+            <li>{{ example.title }}</li>
+            {% endif %}
+
+            {% endfor %}
+        </ul>
+        {% for example in page.examples %}
+            <div>
+                <div class="row">
+                    <div class="span7 code">
+                        {{ example.description | markdownify }}
+                        <pre><code>{{ example.view | escape }}</code></pre>
+                        <pre><code>{{ example.js  | escape }}</code></pre>
+                    </div>
+                    <div class="span3 example" id="{{ example.id }}">
+                        {{ example.view }}
+
+                        <script type="text/javascript">
+                            $(function() {
+                                {{ example.js }}
+                                ko.applyBindings(new ViewModel(), document.getElementById("{{ example.id }}"));
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+<div class="row-fluid">
+    <h3>Live Options</h3>
+    <span>The <strong>kendo{{ page.name }}</strong> binding accepts all of the <a href="{{ page.docs }}">options</a> that can be specified for the widget.  However, when bound against an observable, these <em>live options</em> will update the widget or respond to updates from interactions with the widget.</span>
+    <div class="options well">
+        {% for option in page.liveOptions %}
+        <div class="row-fluid">
+            <div class="option span1">{{ option.name }}</div>
+            <div class="span9">{{ option.description | markdownify }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if page.futurePlans %}
+    <h3>Future Plans</h3>
+    {{ page.futurePlans }}
+    {% endif %}
+</div>

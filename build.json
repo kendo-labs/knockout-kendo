@@ -1,0 +1,20 @@
+{
+	"source": "src",
+	"output": "build",
+	"spec": "spec",
+	"ext": "ext",
+	"lint": {},
+	"uglify": {},
+	"gzip": false,
+	"wrap": {
+		"prefix": "//knockout-kendo v0.1.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license\n(function(ko, $, undefined) {",
+		"suffix": "})(ko, jQuery);"
+	},
+	"finalize": {
+		"header": "//knockout-kendo v0.1.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license"
+	},
+	"hosts": {
+		"/examples": "./examples",
+		"/build": "./build"
+	}
+}

@@ -38,7 +38,7 @@ ko.kendo.BindingFactory = function() {
             widget = self.getWidget(widgetConfig, options, $element);
 
             //step 4: set up computed observables to update the widget when observable model values change
-            self.handlewatch(widget, options, widgetConfig, element);
+            self.watchValues(widget, options, widgetConfig, element);
 
             //step 5: handle disposal, if there is a destroy method on the widget
             if(widget.destroy) {
@@ -89,7 +89,7 @@ ko.kendo.BindingFactory = function() {
     };
 
     //respond to changes in the view model
-    this.handlewatch = function(widget, options, widgetConfig, element) {
+    this.watchValues = function(widget, options, widgetConfig, element) {
         var watchProp, watchValues = widgetConfig.watch;
         if (watchValues) {
             for (watchProp in watchValues) {

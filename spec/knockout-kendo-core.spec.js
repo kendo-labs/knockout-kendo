@@ -220,7 +220,7 @@ describe("knockout-kendo-core", function(){
         });
     });
 
-    describe("handlewatch", function() {
+    describe("watchValues", function() {
         var widget, options, widgetConfig, $element, test;
 
         beforeEach(function() {
@@ -230,7 +230,7 @@ describe("knockout-kendo-core", function(){
                 optionTwo: ko.observable(true),
                 optionThree: ko.observable("valueThree"),
                 optionFour: ko.observable("valueFour"),
-                optionFive: "valueFive",
+                optionFive: "valueFive"
             };
             widgetConfig = {
                 watch: {
@@ -239,7 +239,7 @@ describe("knockout-kendo-core", function(){
                     optionThree: function() {},
                     optionFour: "missingMethod",
                     optionFive: "methodFive",
-                    optionSix: "methodSix",
+                    optionSix: "methodSix"
                 }
             };
 
@@ -258,7 +258,7 @@ describe("knockout-kendo-core", function(){
 
         var setup = function(widg, opt, config, el) {
             $("body").append(el || $element);
-            ko.kendo.bindingFactory.handlewatch(widg || widget, opt || options, config || widgetConfig, el || $element[0]);
+            ko.kendo.bindingFactory.watchValues(widg || widget, opt || options, config || widgetConfig, el || $element[0]);
         };
 
         describe("when bound from parent binding", function() {

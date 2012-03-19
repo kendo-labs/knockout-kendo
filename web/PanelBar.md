@@ -59,9 +59,6 @@ examples:
     - title: Using global options
       description: This example shows configuring global options for this widget
       view: |
-        <input data-bind="checked: isOpen" type="checkbox" /> Open<br/>
-        <input data-bind="checked: enabled" type="checkbox" /> Enabled
-        <hr/>
         <ul data-bind="kendoPanelBar: {}">
             <li>
                 <span>Test 1</span>

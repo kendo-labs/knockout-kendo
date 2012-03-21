@@ -6,11 +6,11 @@ description: The TimePicker widget allows a user to enter a date directly or ope
 docs: http://demos.kendoui.com/web/datepicker/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates passing a single option to bind against the value of the TimePicker widget.
       view: |
-        <div data-bind="text: startTime"> </div>
-        <hr/>
         <input data-bind="kendoTimePicker: startTime" />
+        <hr/>
+        <div data-bind="text: startTime"> </div>
       js: |
         var ViewModel = function() {
             this.startTime = ko.observable(new Date(2012, 11, 31, 11, 59, 59));
@@ -18,7 +18,7 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute with *value* now being explicitly specified. The *setToToday* button makes an update to the view model to show that the widget responds accordingly.
       view: |
         <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
         <input type="checkbox" data-bind="checked: enabled" /> Enabled<br/>
@@ -40,7 +40,7 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoTimePicker.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <input data-bind="kendoTimePicker: startTime" />
         <hr/>

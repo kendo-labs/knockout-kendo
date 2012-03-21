@@ -6,7 +6,7 @@ description: The Upload widget allows for a user-friendly experience for choosin
 docs: http://demos.kendoui.com/web/upload/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates initializing an Upload widget with no additional options specified.
       view: |
         <form method="post" data-bind="kendoUpload: {}">
             <div>
@@ -18,13 +18,13 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute.
       view: |
         <input type="checkbox" data-bind="checked: enabled" /> Enabled
         <hr/>
         <form method="post" data-bind="kendoUpload: { enabled: enabled }">
             <div>
-                <input name="files[]" type="file" />
+                <input class="btn" name="files[]" type="file" />
             </div>
         </form>
       js: |
@@ -33,7 +33,7 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoUpload.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <form method="post" data-bind="kendoUpload: {}">
             <div>

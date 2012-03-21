@@ -6,7 +6,7 @@ description: The AutoComplete widget offers suggestions as a user types that can
 docs: http://demos.kendoui.com/web/window/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates passing basic options to the Window plugin.
       view: |
           <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
           <div data-bind="kendoWindow: { isOpen: isOpen, visible: false }">
@@ -19,7 +19,7 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute.
       view: |
           <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
           <div data-bind="kendoWindow: { isOpen: isOpen, visible: false, actions: ['Close', 'Minimize', 'Maximize', 'Refresh'], modal: true }">
@@ -31,7 +31,7 @@ examples:
          };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoWindow.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
           <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
           <div data-bind="kendoWindow: { isOpen: isOpen }">

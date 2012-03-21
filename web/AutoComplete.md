@@ -6,11 +6,11 @@ description: The AutoComplete widget offers suggestions as a user types that can
 docs: http://demos.kendoui.com/web/autocomplete/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates passing the basic options required by the AutoComplete plugin.
       view: |
         <input data-bind="kendoAutoComplete: { data: choices, value: selectedChoice }" />
         <hr/>
-        <div data-bind="text: selectedChoice"> </div>
+        Selected: <strong data-bind="text: selectedChoice"> </strong>
       js: |
          var ViewModel = function() {
             this.choices = ko.observableArray(["apple", "orange", "banana"]);
@@ -19,16 +19,17 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates binding against objects for the source data and specifying the property to use for the value. The *addChoice* button also shows that the choices are kept in sync as the observableArray bound to the data receives new items.
       view: |
         <input type="checkbox" data-bind="checked: isEnabled" /> Enabled<br/>
         <input class="search-query" data-bind="value: search, valueUpdate: 'afterkeydown'" placeholder="enter search term" /><br/>
+        <hr/>
         <button class="btn" data-bind="click: addChoice">Add Choice</button>
         <hr/>
-        <input data-bind="kendoAutoComplete: { dataTextField: 'name', data: choices,
+        <input data-bind="kendoAutoComplete: { dataTextField: 'name', dataValueField: 'id', data: choices,
                        value: selectedChoice, search: search, enabled: isEnabled }" />
         <hr/>
-        <div data-bind="text: selectedChoice"> </div>
+        Selected: <strong data-bind="text: selectedChoice"> </strong>
 
       js: |
         var ViewModel = function() {
@@ -48,11 +49,11 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for the AutoComplete widget
+      description: This example demonstrates the ability to configure options globally by setting properties in *ko.bindingHandlers.kendoAutoComplete.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <input data-bind="kendoAutoComplete: { data: choices, value: selectedChoice }" />
         <hr/>
-        <div data-bind="text: selectedChoice"> </div>
+        Selected: <strong data-bind="text: selectedChoice"> </strong>
       js: |
          var ViewModel = function() {
             this.choices = ko.observableArray(["apple", "orange", "banana"]);

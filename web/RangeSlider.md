@@ -6,14 +6,15 @@ description: The RangeSlider widget allows a user to choose a start and end to a
 docs: http://demos.kendoui.com/web/slider/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates passing a single option to bind against the values array of the RangeSlider widget.
       view: |
         <div data-bind="kendoRangeSlider: myValues">
             <input />
             <input />
         </div>
         <hr/>
-        <div data-bind="text: myValues"> </div>
+        Low: <strong data-bind="text: myValues()[0]"> </strong>&nbsp;
+        High: <strong data-bind="text: myValues()[1]"> </strong>
       js: |
          var ViewModel = function() {
             this.myValues = ko.observableArray([2, 6]);
@@ -21,17 +22,18 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute with *values* now being explicitly specified. The *Set to 40, 60* button makes an update to the view model to show that the widget responds accordingly.
       view: |
-        <input data-bind="checked: enabled" type="checkbox" /><br/>
-        <button data-bind="click: setToDefault">Set to Default</button>
+        <input data-bind="checked: enabled" type="checkbox" /> Enabled<br/>
+        <button data-bind="click: setToDefault">Set to 40, 60</button>
         <hr/>
         <div data-bind="kendoRangeSlider: { values: myValues, enabled: enabled, min: 0, max: 100 }">
             <input />
             <input />
         </div>
         <hr/>
-        <div data-bind="text: myValues"> </div>
+        Low: <strong data-bind="text: myValues()[0]"> </strong>&nbsp;
+        High: <strong data-bind="text: myValues()[1]"> </strong>
       js: |
         var ViewModel = function() {
             this.myValues = ko.observableArray([20, 80]);
@@ -42,17 +44,18 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoRangeSlider.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <input data-bind="checked: enabled" type="checkbox" /><br/>
-        <button data-bind="click: setToDefault">Set to Default</button>
+        <button data-bind="click: setToDefault">Set to 40, 60</button>
         <hr/>
         <div data-bind="kendoRangeSlider: { values: myValues, enabled: enabled, min: 0, max: 100 }">
             <input />
             <input />
         </div>
         <hr/>
-        <div data-bind="text: myValues"> </div>
+        Low: <strong data-bind="text: myValues()[0]"> </strong>&nbsp;
+        High: <strong data-bind="text: myValues()[1]"> </strong>
       js: |
         var ViewModel = function() {
             this.myValues = ko.observableArray([20, 80]);

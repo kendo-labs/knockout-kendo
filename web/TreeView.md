@@ -6,7 +6,7 @@ description: The TreeView widget displays hierarchical data in a tree structure.
 docs: http://demos.kendoui.com/web/treeview/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates initializing a TreeView widget with no additional options specified.
       view: |
         <ul data-bind="kendoTreeView: {}">
             <li>
@@ -29,10 +29,10 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute. The **kendoTreeItem** binding can be applied to child elements to control the behavior of individual menu items.
       view: |
-        <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
-        <input type="checkbox" data-bind="checked: enabled" /> Enable
+        <input type="checkbox" data-bind="checked: isTwoOpen" /> Open 2<br/>
+        <input type="checkbox" data-bind="checked: twoEnabled" /> Enable 2
         <hr/>
         <ul data-bind="kendoTreeView: {}">
             <li>
@@ -48,7 +48,7 @@ examples:
                     <li>Test 1B</li>
                 </ul>
             </li>
-            <li data-bind="kendoTreeItem: { expanded: isOpen, enabled: enabled, selected: isSelected }">
+            <li data-bind="kendoTreeItem: { expanded: isTwoOpen, enabled: twoEnabled, selected: isSelected }">
                 <span>Test2</span>
                 <ul>
                     <li>Test 2A</li>
@@ -58,13 +58,13 @@ examples:
         </ul>
       js: |
         var ViewModel = function() {
-            this.enabled = ko.observable(true);
-            this.isOpen = ko.observable(false);
+            this.twoEnabled = ko.observable(true);
+            this.isTwoOpen = ko.observable(false);
             this.isSelected = ko.observable();
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoTreeView.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <ul data-bind="kendoTreeView: {}">
             <li>

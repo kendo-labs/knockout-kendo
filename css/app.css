@@ -26,6 +26,7 @@ footer p {
 
 .row-fluid p {
     margin-bottom: 5px;
+    margin-left: 2px;
 }
 
 .spacer {
@@ -43,6 +44,10 @@ footer p {
     border-right: solid 1px #EF652A;
     padding-right: 10px;
     margin-left: 20px;
+}
+
+.code p {
+    font-size: .9em;
 }
 
 .example {

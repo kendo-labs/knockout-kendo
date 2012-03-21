@@ -6,11 +6,11 @@ description: The DropDownList widget allows a user to select a single value from
 docs: http://demos.kendoui.com/web/dropdownlist/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates passing the basic options required by the DropDownList plugin.
       view: |
         <input data-bind="kendoDropDownList: { data: choices, value: selectedChoice }" />
         <hr/>
-        <div data-bind="text: selectedChoice"> </div>
+        Selected: <strong data-bind="text: selectedChoice"> </strong>
       js: |
          var ViewModel = function() {
             this.choices = ko.observableArray(["apple", "orange", "banana"]);
@@ -19,14 +19,14 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates binding against objects for the source data and specifying the properties to use for displaying in the field and for the value. The *addChoice* button and standard select show that the ComboBox is kept in sync with changes to the view model.
       view: |
         <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
         <input type="checkbox" data-bind="checked: enabled" /> Enable<br/>
         <hr/>
         <input data-bind="kendoDropDownList: { dataTextField: 'name', dataValueField: 'id', data: choices, value: selectedChoice, isOpen: isOpen, enabled: enabled }" />
         <hr/>
-        <div data-bind="text: selectedChoice"> </div>
+        Selected: <strong data-bind="text: selectedChoice"> </strong>
         <hr/>
         <select data-bind="options: choices, optionsText: 'name', optionsValue: 'id', value: selectedChoice"> </select>
         <button data-bind="click: addChoice">Add New Choice</button>
@@ -48,11 +48,11 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoDropDownList.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <input data-bind="kendoDropDownList: { data: choices, value: selectedChoice }" />
         <hr/>
-        <div data-bind="text: selectedChoice"> </div>
+        Selected: <strong data-bind="text: selectedChoice"> </strong>
       js: |
          var ViewModel = function() {
             this.choices = ko.observableArray(["apple", "orange", "banana"]);

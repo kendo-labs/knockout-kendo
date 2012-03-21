@@ -6,7 +6,7 @@ description: The TabStrip widget displays tabs that display associated content w
 docs: http://demos.kendoui.com/web/tabstrip/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates initializing a TabStrip widget with no additional options specified.
       view: |
         <div data-bind="kendoTabStrip: {}">
             <ul>
@@ -23,15 +23,15 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute. The **kendoTab** binding can be applied to child elements to control the behavior of individual menu items.
       view: |
-        <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
-        <input type="checkbox" data-bind="checked: enabled" /> Enabled
+        <input type="checkbox" data-bind="checked: isTwoOpen" /> Open 2<br/>
+        <input type="checkbox" data-bind="checked: twoEnabled" /> Enabled 2
         <hr/>
         <div data-bind="kendoTabStrip: {}">
             <ul>
                 <li class="k-state-active">tab one</li>
-                <li data-bind="kendoTab: { enabled: enabled, selected: isOpen }">tab two</li>
+                <li data-bind="kendoTab: { enabled: twoEnabled, selected: isTwoOpen }">tab two</li>
                 <li>tab three</li>
             </ul>
             <div>tab one content</div>
@@ -40,12 +40,12 @@ examples:
         </div>
       js: |
         var ViewModel = function() {
-            this.isOpen = ko.observable(false);
-            this.enabled = ko.observable(true);
+            this.isTwoOpen = ko.observable(false);
+            this.twoEnabled = ko.observable(true);
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoTabStrip.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <div data-bind="kendoTabStrip: {}">
             <ul>
@@ -68,7 +68,7 @@ liveOptions:
     - name: selected
       description: Controls whether a tab is currently selected
 
-futurePlans: Better support for selecting/deselecting tabs and inserting/removing tabs.
+futurePlans: Better support for selecting/deselecting tabs and data source integration.
 ---
 
 {% include widget.html %}

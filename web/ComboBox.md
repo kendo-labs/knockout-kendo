@@ -5,11 +5,11 @@ name: ComboBox
 description: The ComboBox widget allows a user to select from a list of values or enter a custom value.
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates passing the basic options required by the ComboBox plugin.
       view: |
         <input data-bind="kendoComboBox: { data: choices, value: selectedChoice }" />
         <hr/>
-        <div data-bind="text: selectedChoice"> </div>
+        Selected: <strong data-bind="text: selectedChoice"> </strong>
       js: |
          var ViewModel = function() {
             this.choices = ko.observableArray(["apple", "orange", "banana"]);
@@ -18,16 +18,15 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates binding against objects for the source data and specifying the properties to use for displaying in the field and for the value. The *addChoice* button shows that the ComboBox is kept in sync as the observableArray bound to the data receives new items.
       view: |
-        <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
+        <button data-bind="click: open, disable: isOpen">Open</button>
         <input type="checkbox" data-bind="checked: enabled" /> Enable<br/>
         <hr/>
         <input data-bind="kendoComboBox: { dataTextField: 'name', dataValueField: 'id', data: choices, value: selectedChoice, isOpen: isOpen, enabled: enabled }" />
         <hr/>
-        <div data-bind="text: selectedChoice"> </div>
+        Selected: <strong data-bind="text: selectedChoice"> </strong>
         <hr/>
-        <select data-bind="options: choices, optionsText: 'name', optionsValue: 'id', value: selectedChoice"> </select>
         <button data-bind="click: addChoice">Add New Choice</button>
       js: |
         var ViewModel = function() {
@@ -40,6 +39,9 @@ examples:
             this.selectedChoice = ko.observable();
             this.enabled = ko.observable(true);
             this.isOpen = ko.observable(false);
+            this.open = function() {
+                this.isOpen(true);
+            };
             this.addChoice = function() {
                 var num = this.choices().length + 1;
                 this.choices.push({ id: num, name: "new" + num});
@@ -47,10 +49,11 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates the ability to configure options globally by setting properties in ko.bindingHandlers.kendoComboBox.options. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <input data-bind="kendoComboBox: { data: choices, value: selectedChoice }" />
-        <div data-bind="text: selectedChoice"> </div>
+        <hr/>
+        Selected: <strong data-bind="text: selectedChoice"> </strong>
       js: |
          var ViewModel = function() {
             this.choices = ko.observableArray(["apple", "orange", "banana"]);

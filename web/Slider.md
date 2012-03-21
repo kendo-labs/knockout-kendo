@@ -6,11 +6,11 @@ description: The Slider widget allows a user to select a single value from a ran
 docs: http://demos.kendoui.com/web/slider/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates passing a single option to bind against the value of the Slider widget.
       view: |
         <input data-bind="kendoSlider: myValue" />
         <hr/>
-        <div data-bind="text: myValue"> </div>
+        Value: <strong data-bind="text: myValue"> </strong>
       js: |
          var ViewModel = function() {
             this.myValue = ko.observable(4);
@@ -18,14 +18,14 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute with *value* now being explicitly specified. The *Set to 50* button makes an update to the view model to show that the widget responds accordingly.
       view: |
-        <input data-bind="checked: enabled" type="checkbox" /><br/>
-        <button data-bind="click: setToDefault">Set to Default</button>
+        <input data-bind="checked: enabled" type="checkbox" /> Enabled<br/>
+        <button data-bind="click: setToDefault">Set to 50</button>
         <hr/>
         <input data-bind="kendoSlider: { value: myValue, enabled: enabled, min: 0, max: 100 }" />
         <hr/>
-        <div data-bind="text: myValue"> </div>
+        Value: <strong data-bind="text: myValue"> </strong>
       js: |
         var ViewModel = function() {
             this.myValue = ko.observable(40);
@@ -36,17 +36,14 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoSlider.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
-        <button data-bind="click: setToDefault">Set to Default</button>
         <input data-bind="kendoSlider: myValue" />
-        <div data-bind="text: myValue"> </div>
+        <hr/>
+        Value: <strong data-bind="text: myValue"> </strong>
       js: |
         var ViewModel = function() {
             this.myValue = ko.observable(40);
-            this.setToDefault  = function() {
-                this.myValue(50);
-            };
         };
         
         ko.bindingHandlers.kendoSlider.options = {

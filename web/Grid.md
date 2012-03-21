@@ -6,7 +6,7 @@ description: The Grid widget offers allows a user to interact with tabular data.
 docs: http://demos.kendoui.com/web/grid/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates passing a single option to bind data against the Grid widget.
       view: |
         <div data-bind="kendoGrid: items"> </div>
       js: |
@@ -20,7 +20,7 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute with *data* now being explicitly specified. The *Add Item* button updates the underlying data and shows that the Grid remains in sync.
       view: |
         <div data-bind="kendoGrid: { data: items, groupable: true, scrollable: true, sortable: true, pageable: true }"> </div>
         <button data-bind="click: addItem">Add Item</button>
@@ -39,7 +39,7 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoGrid.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <div data-bind="kendoGrid: items"> </div>
         <button data-bind="click: addItem">Add Item</button>

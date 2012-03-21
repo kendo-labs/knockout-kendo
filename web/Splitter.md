@@ -6,7 +6,7 @@ description: The Splitter widget allows for resizable panels that can be collaps
 docs: http://demos.kendoui.com/web/splitter/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates initializing a Splitter widget with no additional options specified.
       view: |
         <div data-bind="kendoSplitter: {}">
             <div>Pane One</div>
@@ -17,12 +17,12 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute. The **kendoSplitterPane** binding can be applied to child elements to control the behavior of individual menu items.
       view: |
         <input data-bind="checked: isOpen" type="checkbox" /> Open<br/>
-        <input class="span1" data-bind="value: minSize" /> Min<br/>
-        <input class="span1" data-bind="value: maxSize" /> Max<br/>
-        <input class="span1" data-bind="value: size" /> Size
+        <input class="span1" data-bind="value: minSize" /> Min 1<br/>
+        <input class="span1" data-bind="value: maxSize" /> Max 1<br/>
+        <input class="span1" data-bind="value: size" /> Size 1
         <hr/>
         <div data-bind="kendoSplitter: {}">
             <div data-bind="kendoSplitterPane: { expanded: isOpen, max: maxSize, min: minSize, size: size }">one</div>
@@ -37,7 +37,7 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoSplitter.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <div data-bind="kendoSplitter: {}">
             <div>Pane One</div>

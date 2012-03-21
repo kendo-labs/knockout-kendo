@@ -28,7 +28,8 @@
                     <div class="span7 code">
                         {{ example.description | markdownify }}
                         <pre><code>{{ example.view | escape }}</code></pre>
-                        <pre><code>{{ example.js  | escape }}</code></pre>
+                        <pre><code>{{ example.js  | escape }}
+ko.applyBindings(new ViewModel());</code></pre>
                     </div>
                     <div class="span3 example" id="{{ example.id }}">
                         {{ example.view }}

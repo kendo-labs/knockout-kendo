@@ -6,7 +6,7 @@ description: The Editor widget allows users to create and edit HTML in an user f
 docs: http://demos.kendoui.com/web/editor/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates passing a single option to bind against the value of the Editor widget.
       view: |
         <textarea rows="10" cols="20" data-bind="kendoEditor: content" > </textarea>
         <hr/>
@@ -18,7 +18,7 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute with *content* now being explicitly specified.
       view: |
         <textarea rows="10" cols="20" data-bind="kendoEditor: { value: content, tools: ['bold', 'italic'] }" > </textarea>
         <hr/>
@@ -29,7 +29,7 @@ examples:
          };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoEditor.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <textarea rows="10" cols="20" data-bind="kendoEditor: content" > </textarea>
         <hr/>

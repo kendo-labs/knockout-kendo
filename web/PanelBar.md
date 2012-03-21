@@ -6,7 +6,7 @@ description: The PanelBar widget displays hierarchical data in expandable sectio
 docs: http://demos.kendoui.com/web/panelbar/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates initializing a PanelBar widget with no additional options specified.
       view: |
         <ul data-bind="kendoPanelBar: {}">
             <li>
@@ -29,20 +29,20 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute. The **kendoPanelItem** binding can be applied to child elements to control the behavior of individual panels.
       view: |
-        <input data-bind="checked: isOpen" type="checkbox" /> Open<br/>
-        <input data-bind="checked: enabled" type="checkbox" /> Enabled
+        <input data-bind="checked: isTwoOpen" type="checkbox" /> Open 2<br/>
+        <input data-bind="checked: twoEnabled" type="checkbox" /> Enabled 2
         <hr/>
         <ul data-bind="kendoPanelBar: {}">
-            <li data-bind="kendoPanelItem: { expanded: isOpen, enabled: enabled }">
+            <li>
                 <span>Test 1</span>
                 <ul>
                     <li>Test 1A</li>
                     <li>Test 1B</li>
                 </ul>
             </li>
-            <li>
+            <li data-bind="kendoPanelItem: { expanded: isTwoOpen, enabled: twoEnabled }">
                 <span>Test2</span>
                 <ul>
                     <li>Test 2A</li>
@@ -52,12 +52,12 @@ examples:
         </ul>
       js: |
         var ViewModel = function() {
-            this.enabled = ko.observable(true);
-            this.isOpen = ko.observable(false);
+            this.twoEnabled = ko.observable(true);
+            this.isTwoOpen = ko.observable(false);
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoMenu.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <ul data-bind="kendoPanelBar: {}">
             <li>

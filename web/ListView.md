@@ -6,7 +6,7 @@ description: The ListView widget allows for a custom layout of a collection
 docs: http://demos.kendoui.com/web/listview/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates passing the basic options required by the ListView plugin.
       view: |
         <div data-bind="kendoListView: { data: items, template: template }"> </div>
       js: |
@@ -21,7 +21,7 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute. The *Add Item* button updates the underlying data and shows that the ListView remains in sync.
       view: |
         <div data-bind="kendoListView: { data: items, navigatable: true, selectable: true, value: selected, template: template }"> </div>
         <div data-bind="text: selected"> </div>
@@ -43,7 +43,7 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoListView.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <div data-bind="kendoGrid: items"> </div>
         <button data-bind="click: addItem">Add Item</button>

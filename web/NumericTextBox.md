@@ -6,11 +6,11 @@ description: The NumericTextBox widget allows for editing a variety of numeric v
 docs: http://demos.kendoui.com/web/numerictextbox/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates passing a single option to bind against the value of the NumericTextBox widget.
       view: |
         <input data-bind="kendoNumericTextBox: price" />
         <hr/>
-        <div data-bind="text: price"> </div>
+        Price: <strong data-bind="text: price"> </strong>
       js: |
          var ViewModel = function() {
             this.price = ko.observable(10.50);
@@ -18,13 +18,13 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute with *value* now being explicitly specified.
       view: |
         <input type="checkbox" data-bind="checked: enabled" /> Enabled<br/>
         <hr/>
         <input data-bind="kendoNumericTextBox: { value: price, enabled: enabled, min: 0, max: 100, format: 'c' }" />
         <hr/>
-        <div data-bind="text: price"> </div>
+        Price: <strong data-bind="text: price"> </strong>
       js: |
          var ViewModel = function() {
             this.price = ko.observable(10.50);
@@ -32,13 +32,13 @@ examples:
          };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoNumericTextBox.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <input type="checkbox" data-bind="checked: enabled" /> Enabled<br/>
         <hr/>
         <input data-bind="kendoNumericTextBox: { value: price, enabled: enabled }" />
         <hr/>
-        <div data-bind="text: price"> </div>
+        Price: <strong data-bind="text: price"> </strong>
       js: |
          var ViewModel = function() {
             this.price = ko.observable(10.50);

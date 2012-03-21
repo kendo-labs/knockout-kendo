@@ -6,7 +6,7 @@ description: The Calendar widget provides a visual calendar that supports naviga
 docs: http://demos.kendoui.com/web/calendar/index.html
 examples:
     - title: Basic Example
-      description: This is a basic example
+      description: This example demonstrates passing a single option to bind against the value of the Calendar widget.
       view: |
         <div data-bind="kendoCalendar: startDate"> </div>
         <hr/>
@@ -18,7 +18,7 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This is a sample that shows passing additional options in the data-bind attribute
+      description: This example demonstrates passing additional options in the data-bind attribute with *value* now being explicitly specified. The *setToToday* button makes an update to the view model to show that the widget responds accordingly.
       view: |
         <div data-bind="kendoCalendar: { value: startDate, max: maxDate, min: minDate }"> </div>
         <hr/>
@@ -36,7 +36,7 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example shows configuring global options for this widget
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoCalendar.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <div data-bind="kendoCalendar: startDate"> </div>
         <hr/>
@@ -56,6 +56,29 @@ examples:
             max: new Date(2012, 11, 31)
         };
       id: three
+    - title: Accessing the widget
+      description: This example demonstrates calling methods of the widget from the view model.
+      view: |
+        <div data-bind="kendoCalendar: { value: startDate, widget: calendar }"> </div>
+        <hr/>
+        <button data-bind="click: goPast">Navigate to Past</button><br/>
+        <button data-bind="click: goFuture">Navigate to Future</button>
+        <hr/>
+        <div data-bind="text: startDate"> </div>
+      js: |
+        var ViewModel = function() {
+            this.startDate = ko.observable(new Date(2012,10,30));
+            this.calendar = ko.observable();
+            this.goPast = function() {
+                this.calendar().navigateToPast();
+            };
+            this.goFuture = function() {
+                this.calendar().navigateToFuture();
+            };
+        };
+
+        ko.bindingHandlers.kendoCalendar.options = {};
+      id: four
       
 liveOptions:
     - name: min

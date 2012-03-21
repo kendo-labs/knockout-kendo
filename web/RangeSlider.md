@@ -46,7 +46,7 @@ examples:
     - title: Using global options
       description: This example demonstrates setting global options in *ko.bindingHandlers.kendoRangeSlider.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
-        <input data-bind="checked: enabled" type="checkbox" /><br/>
+        <input data-bind="checked: enabled" type="checkbox" /> Enabled<br/>
         <button data-bind="click: setToDefault">Set to 40, 60</button>
         <hr/>
         <div data-bind="kendoRangeSlider: { values: myValues, enabled: enabled, min: 0, max: 100 }">

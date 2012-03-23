@@ -21,7 +21,7 @@ examples:
     - title: Passing additional options
       description: This example demonstrates binding against objects for the source data and specifying the properties to use for displaying in the field and for the value. The *addChoice* button and standard select show that the ComboBox is kept in sync with changes to the view model.
       view: |
-        <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
+        <button data-bind="click: open, disable: isOpen">Open</button>
         <input type="checkbox" data-bind="checked: enabled" /> Enable<br/>
         <hr/>
         <input data-bind="kendoDropDownList: { dataTextField: 'name', dataValueField: 'id', data: choices, value: selectedChoice, isOpen: isOpen, enabled: enabled }" />
@@ -41,6 +41,9 @@ examples:
             this.selectedChoice = ko.observable();
             this.enabled = ko.observable(true);
             this.isOpen = ko.observable(false);
+            this.open = function() {
+                this.isOpen(true);
+            };
             this.addChoice = function() {
                 var num = this.choices().length + 1;
                 this.choices.push({ id: num, name: "new" + num});

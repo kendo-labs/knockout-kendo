@@ -57,7 +57,7 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoMenu.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoPanelBar.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <ul data-bind="kendoPanelBar: {}">
             <li>

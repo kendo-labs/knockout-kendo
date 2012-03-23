@@ -49,7 +49,7 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example demonstrates the ability to configure options globally by setting properties in ko.bindingHandlers.kendoComboBox.options. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
+      description: This example demonstrates the ability to configure options globally by setting properties in *ko.bindingHandlers.kendoComboBox.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
         <input data-bind="kendoComboBox: { data: choices, value: selectedChoice }" />
         <hr/>

@@ -17,7 +17,7 @@ ko.kendo.BindingFactory = function() {
               var options = self.buildOptions(widgetConfig, valueAccessor);
 
               //apply async, so inner templates can finish content needed during widget initialization
-              if (options.async === true || widgetConfig.async === true) {
+              if (options.async === true || (widgetConfig.async === true && options.async !== false)) {
                   setTimeout(function() {
                       binding.setup(element, options);
                   }, 0);
@@ -49,7 +49,7 @@ ko.kendo.BindingFactory = function() {
         };
 
         binding.options = {}; //global options
-        binding.widgetConfig = widgetConfig; //keep the options to use in generating tests
+        binding.widgetConfig = widgetConfig; //expose the options to use in generating tests
 
         ko.bindingHandlers[widgetConfig.bindingName || widgetConfig.name] = binding;
     };
@@ -105,8 +105,8 @@ ko.kendo.BindingFactory = function() {
             read: function() {
                 var action = widgetConfig.watch[prop],
                     value = ko.utils.unwrapObservable(options[prop]),
-                    params = widgetConfig.parent ? [element, value] : [value];
-
+                    params = widgetConfig.parent ? [element, value] : [value]; //child bindings pass element first to APIs
+                //support passing multiple events like ["open", "close"]
                 if ($.isArray(action)) {
                     action = widget[value ? action[0] : action[1]];
                 } else if (typeof action === "string") {

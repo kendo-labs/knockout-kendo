@@ -21,14 +21,18 @@ examples:
       description: This example demonstrates passing additional options in the data-bind attribute with *value* now being explicitly specified.
       view: |
         <input type="checkbox" data-bind="checked: enabled" /> Enabled<br/>
+        <input class="input-mini" data-bind="value: min" /> Min<br/>
+        <input class="input-mini" data-bind="value: max" /> Max<br/>
         <hr/>
-        <input data-bind="kendoNumericTextBox: { value: price, enabled: enabled, min: 0, max: 100, format: 'c' }" />
+        <input data-bind="kendoNumericTextBox: { value: price, enabled: enabled, min: min, max: max, format: 'c' }" />
         <hr/>
         Price: <strong data-bind="text: price"> </strong>
       js: |
          var ViewModel = function() {
             this.price = ko.observable(10.50);
             this.enabled = ko.observable(true);
+            this.min = ko.observable(0);
+            this.max = ko.observable(100);
          };
       id: two
     - title: Using global options
@@ -55,6 +59,10 @@ examples:
 liveOptions:
     - name: enabled
       description: Determines if users can interact with the field
+    - name: min
+      description: The minimum value allowed in the field
+    - name: max
+      description: The maximum value allowed in the field
     - name: value
       description: The current value of the field
     - name: widget

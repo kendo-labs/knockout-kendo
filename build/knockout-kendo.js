@@ -1,4 +1,4 @@
-//knockout-kendo v0.1.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
+//knockout-kendo v0.2.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
 (function(ko, $, undefined) {
 ko.kendo = ko.kendo || {};
 
@@ -158,6 +158,10 @@ ko.kendo.BindingFactory = function() {
 
 ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 
+//utility to set the dataSource will a clean copy of data. Could be overriden at run-time.
+ko.kendo.setDataSource = function(widget, data) {
+    widget.dataSource.data(ko.mapping ? ko.mapping.toJS(data) : ko.toJS(data));
+};
 
 //library is in a closure, use this private variable to reduce size of minified file
 var createBinding = ko.kendo.bindingFactory.createBinding.bind(ko.kendo.bindingFactory);
@@ -201,7 +205,7 @@ createBinding({
         enabled: ENABLE,
         search: [SEARCH, CLOSE],
         data: function(value) {
-            this.dataSource.data(value);
+            ko.kendo.setDataSource(this, value);
         },
         value: VALUE
     }
@@ -235,7 +239,7 @@ createBinding({
         enabled: ENABLE,
         isOpen: [OPEN, CLOSE],
         data: function(value) {
-            this.dataSource.data(value);
+            ko.kendo.setDataSource(this, value);
         },
         value: VALUE
     }
@@ -280,7 +284,7 @@ createBinding({
         enabled: ENABLE,
         isOpen: [OPEN, CLOSE],
         data: function(value) {
-            this.dataSource.data(value);
+            ko.kendo.setDataSource(this, value);
         },
         value: VALUE
     }
@@ -301,7 +305,7 @@ createBinding({
     defaultOption: DATA,
     watch: {
         data: function(value) {
-            this.dataSource.data(value);
+            ko.kendo.setDataSource(this, value);
         }
     }
 });
@@ -310,7 +314,7 @@ createBinding({
     defaultOption: DATA,
     watch: {
         data: function(value) {
-            this.dataSource.data(value);
+            ko.kendo.setDataSource(this, value);
         }
     }
 });

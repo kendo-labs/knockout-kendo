@@ -156,3 +156,7 @@ ko.kendo.BindingFactory = function() {
 
 ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 
+//utility to set the dataSource will a clean copy of data. Could be overriden at run-time.
+ko.kendo.setDataSource = function(widget, data) {
+    widget.dataSource.data(ko.mapping ? ko.mapping.toJS(data) : ko.toJS(data));
+};

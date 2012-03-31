@@ -15,7 +15,7 @@ createBinding({
         enabled: ENABLE,
         search: [SEARCH, CLOSE],
         data: function(value) {
-            this.dataSource.data(value);
+            ko.kendo.setDataSource(this, value);
         },
         value: VALUE
     }

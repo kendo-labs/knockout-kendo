@@ -3,7 +3,7 @@ createBinding({
     defaultOption: DATA,
     watch: {
         data: function(value) {
-            this.dataSource.data(value);
+            ko.kendo.setDataSource(this, value);
         }
     }
 });

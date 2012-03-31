@@ -7,11 +7,11 @@
 	"uglify": {},
 	"gzip": false,
 	"wrap": {
-		"prefix": "//knockout-kendo v0.1.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license\n(function(ko, $, undefined) {",
+		"prefix": "//knockout-kendo v0.2.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license\n(function(ko, $, undefined) {",
 		"suffix": "})(ko, jQuery);"
 	},
 	"finalize": {
-		"header": "//knockout-kendo v0.1.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license"
+		"header": "//knockout-kendo v0.2.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license"
 	},
 	"hosts": {
 		"/examples": "./examples",

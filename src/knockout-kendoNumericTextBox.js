@@ -6,6 +6,21 @@ createBinding({
     },
     watch: {
         enabled: ENABLE,
-        value: VALUE
+        value: VALUE,
+            max: function(newMax) {
+                this.options.max = newMax;
+                //make sure current value is still valid
+                if (this.value() > newMax) {
+                    this.value(newMax);
+                }
+            },
+            min: function(newMin) {
+                console.log(this);
+                this.options.min = newMin;
+                //make sure that current value is still valid
+                if (this.value() < newMin) {
+                    this.value(newMin);
+                }
+            }
     }
 });

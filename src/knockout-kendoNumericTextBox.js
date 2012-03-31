@@ -15,7 +15,6 @@ createBinding({
                 }
             },
             min: function(newMin) {
-                console.log(this);
                 this.options.min = newMin;
                 //make sure that current value is still valid
                 if (this.value() < newMin) {

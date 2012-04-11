@@ -12,35 +12,41 @@ ko.kendo.BindingFactory = function() {
         var binding = {};
 
         //the binding handler's init function
-        binding.init = function(element, valueAccessor, allBindingsAccessor) {
+        binding.init = function(element, valueAccessor, allBindingsAccessor, vm, context) {
               //step 1: build appropriate options for the widget from values passed in and global options
               var options = self.buildOptions(widgetConfig, valueAccessor);
 
               //apply async, so inner templates can finish content needed during widget initialization
-              if (options.async === true || (widgetConfig.async === true && options.async !== false)) {
+              if (options.async || (widgetConfig.async && options.async !== false)) {
                   setTimeout(function() {
-                      binding.setup(element, options);
+                      binding.setup(element, options, context);
                   }, 0);
-                  return;
+              } else {
+                  binding.setup(element, options, context);
               }
 
-              binding.setup(element, options);
+              if (widgetConfig.templates) {
+                  return { controlsDescendantBindings: true };
+              }
         };
 
         //build the core logic for the init function
-        binding.setup = function(element, options) {
+        binding.setup = function(element, options, context) {
             var widget, $element = $(element);
 
             //step 2: add handlers for events that we need to react to for updating the model
             self.handleEvents(widgetConfig.events, options, function() { return $element.data(widgetConfig.name); });
 
-            //step 3: initialize widget
+            //step 3: setup templates
+            self.setupTemplates(widgetConfig.templates, options, element, context);
+
+            //step 4: initialize widget
             widget = self.getWidget(widgetConfig, options, $element);
 
-            //step 4: set up computed observables to update the widget when observable model values change
+            //step 5: set up computed observables to update the widget when observable model values change
             self.watchValues(widget, options, widgetConfig, element);
 
-            //step 5: handle disposal, if there is a destroy method on the widget
+            //step 6: handle disposal, if there is a destroy method on the widget
             if(widget.destroy) {
                 ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
                     widget.destroy();
@@ -67,6 +73,30 @@ ko.kendo.BindingFactory = function() {
         }
 
         return options;
+    };
+
+    //prepare templates, if the widget uses them
+    this.setupTemplates = function(templateConfig, options, element, context) {
+        var i, j, option, existingHandler;
+
+        if (templateConfig) {
+            //initialize a ko.kendo.template for each named template
+            for (i = 0, j = templateConfig.length; i < j; i++) {
+                option = templateConfig[i];
+                if (options[option]) {
+                    options[option] = ko.kendo.template(options[option], context);
+                }
+            }
+
+            //initialize bindings in dataBound event
+            existingHandler = options.dataBound;
+            options.dataBound = function() {
+                ko.memoization.unmemoizeDomNodeAndDescendants(element);
+                if (existingHandler) {
+                    existingHandler.apply(this, arguments);
+                }
+            };
+        }
     };
 
     //return the actual widget
@@ -158,5 +188,18 @@ ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 
 //utility to set the dataSource will a clean copy of data. Could be overriden at run-time.
 ko.kendo.setDataSource = function(widget, data) {
-    widget.dataSource.data(ko.mapping ? ko.mapping.toJS(data) : ko.toJS(data));
+    //widget.dataSource.data(ko.mapping ? ko.mapping.toJS(data) : ko.toJS(data));
+
+    //for now don't clean data, so that we can keep observables for binding
+    widget.dataSource.data(data);
+};
+
+ko.kendo.template = function(id, context) {
+    var text = $("#" + id).html() || id,  //if it is not a valid template by id, then assume that it actually is the template
+        rewritten = ko.templateRewriting.memoizeBindingAttributeSyntax(text, { createJavaScriptEvaluatorBlock: function(script) { return "#= " + script + " #"; } }),
+        compiled = kendo.template("# with($data) { # " + rewritten + " # } #");
+
+    return function(data) {
+        return compiled(context.createChildContext(data));
+    };
 };

@@ -5,5 +5,6 @@ createBinding({
         data: function(value) {
             ko.kendo.setDataSource(this, value);
         }
-    }
+    },
+    templates: ["template", "editTemplate"]
 });

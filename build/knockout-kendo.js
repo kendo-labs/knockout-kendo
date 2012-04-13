@@ -77,6 +77,12 @@ ko.kendo.BindingFactory = function() {
         return options;
     };
 
+    var templateRenderer = function(id, context) {
+        return function(data) {
+            return ko.renderTemplate(id, context.createChildContext(data));
+        };
+    };
+
     //prepare templates, if the widget uses them
     this.setupTemplates = function(templateConfig, options, element, context) {
         var i, j, option, existingHandler;
@@ -86,7 +92,7 @@ ko.kendo.BindingFactory = function() {
             for (i = 0, j = templateConfig.length; i < j; i++) {
                 option = templateConfig[i];
                 if (options[option]) {
-                    options[option] = ko.kendo.template(options[option], context);
+                    options[option] = templateRenderer(options[option], context);
                 }
             }
 
@@ -194,16 +200,6 @@ ko.kendo.setDataSource = function(widget, data) {
 
     //for now don't clean data, so that we can keep observables for binding
     widget.dataSource.data(data);
-};
-
-ko.kendo.template = function(id, context) {
-    var text = $("#" + id).html() || id,  //if it is not a valid template by id, then assume that it actually is the template
-        rewritten = ko.templateRewriting.memoizeBindingAttributeSyntax(text, { createJavaScriptEvaluatorBlock: function(script) { return "#= " + script + " #"; } }),
-        compiled = kendo.template("# with($data) { # " + rewritten + " # } #");
-
-    return function(data) {
-        return compiled(context.createChildContext(data));
-    };
 };
 //library is in a closure, use this private variable to reduce size of minified file
 var createBinding = ko.kendo.bindingFactory.createBinding.bind(ko.kendo.bindingFactory);

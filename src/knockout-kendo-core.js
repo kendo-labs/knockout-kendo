@@ -77,7 +77,7 @@ ko.kendo.BindingFactory = function() {
 
     var templateRenderer = function(id, context) {
         return function(data) {
-            return ko.renderTemplate(id, context.createChildContext(data));
+            return ko.renderTemplate(id, context.createChildContext(data._raw || data));
         };
     };
 
@@ -147,7 +147,10 @@ ko.kendo.BindingFactory = function() {
                     action = widget[value ? action[0] : action[1]];
                 } else if (typeof action === "string") {
                     action = widget[action];
+                } else {
+                    params.push(options); //include options if running a custom function
                 }
+
                 if (action) {
                     action.apply(widget, params);
                 }
@@ -193,9 +196,20 @@ ko.kendo.BindingFactory = function() {
 ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 
 //utility to set the dataSource will a clean copy of data. Could be overriden at run-time.
-ko.kendo.setDataSource = function(widget, data) {
-    //widget.dataSource.data(ko.mapping ? ko.mapping.toJS(data) : ko.toJS(data));
+ko.kendo.setDataSource = function(widget, data, options) {
+    if (options.unwrap) {
+        data = ko.mapping ? ko.mapping.toJS(data) : ko.toJS(data);
+    }
 
-    //for now don't clean data, so that we can keep observables for binding
     widget.dataSource.data(data);
 };
+
+//attach the raw data after Kendo wraps our items
+(function() {
+    var existing = kendo.data.ObservableArray.fn.wrap;
+    kendo.data.ObservableArray.fn.wrap = function(object) {
+        var result = existing.apply(this, arguments);
+        result._raw = object;
+        return result;
+    };
+})();

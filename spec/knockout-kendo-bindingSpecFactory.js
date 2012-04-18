@@ -36,7 +36,7 @@ var generateBasicTests = function(widgetConfig) {
 
         it("should add an init function", function() {
             expect(typeof ko.bindingHandlers[widgetConfig.name].init).toEqual("function");
-            expect(ko.bindingHandlers[widgetConfig.name].init.length).toEqual(3);
+            expect(ko.bindingHandlers[widgetConfig.name].init.length).toEqual(2);
         });
     });
 };

@@ -9,8 +9,23 @@ createBinding({
     watch: {
         enabled: ENABLE,
         expanded: [EXPAND, COLLAPSE],
-        select: function(element, value) {
+        selected: function(element, value) {
             this.select(value ? element : null);
+        }
+    },
+    childProp: "node",
+    events: {
+        collapse: {
+            writeTo: EXPANDED,
+            value: false
+        },
+        expand: {
+            writeTo: EXPANDED,
+            value: true
+        },
+        select: {
+            writeTo: SELECTED,
+            value: true
         }
     },
     async: true

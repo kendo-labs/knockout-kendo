@@ -75,114 +75,86 @@ describe("knockout-kendo-core", function(){
 
     describe("handleEvents", function() {
         describe("when given an object with events as keys", function() {
-            var options, events, widget;
+            var options, widgetConfig, widget;
 
             beforeEach(function() {
                 options = {
                     optionOne: ko.observable("one value"),
                     optionTwo: "two value",
-                    optionSix: ko.observable("six value"),
-                    existingSix: function() {}
+                    optionSix: ko.observable("six value")
                 };
 
-                options.eventSix = function() { options.existingSix() };
-
-                events = {
-                    eventOne: {
-                        writeTo: "optionOne",
-                        value: "methodOne"
-                    },
-                    eventTwo: {
-                        writeTo:"optionOne",
-                        value: "not a method"
-                    },
-                    eventThree: {
-                        writeTo: "optionOne",
-                        value: true
-                    },
-                    eventFour: {
-                        writeTo: "optionTwo",
-                        value: true
-                    },
-                    eventFive: {
-                        writeTo: "badOption",
-                        value: true
-                    },
-                    eventSix: {
-                        writeTo: "optionSix",
-                        value: true
+                widgetConfig = {
+                    events: {
+                        eventOne: {
+                            writeTo: "optionOne",
+                            value: "methodOne"
+                        },
+                        eventTwo: {
+                            writeTo:"optionOne",
+                            value: "not a method"
+                        },
+                        eventThree: {
+                            writeTo: "optionOne",
+                            value: true
+                        },
+                        eventFour: {
+                            writeTo: "optionTwo",
+                            value: true
+                        },
+                        eventFive: {
+                            writeTo: "badOption",
+                            value: true
+                        },
+                        eventSix: {
+                            writeTo: "optionSix",
+                            value: true
+                        }
                     }
                 };
 
                 widget = {
+                    bind: function(eventName, handler) {
+                        widget.handlers[eventName] = widget.handlers[eventName] || [];
+                        widget.handlers[eventName].push(handler);
+                    },
+                    handlers: {},
                     methodOne: function() {
                         return "methodOne value";
                     }
                 };
-                ko.kendo.bindingFactory.handleEvents(events, options, function() { return widget; });
+                ko.kendo.bindingFactory.handleEvents(options, widgetConfig, null, widget);
             });
 
             describe("when writeTo corresponds to an observable", function() {
                 describe("when value is a string", function() {
                     describe("when value corresponds to a method on the widget", function() {
-                        it("should add a handler for this event to options", function() {
-                            expect(options.eventOne).toBeDefined();
-                            expect(typeof options.eventOne).toEqual("function");
-                        });
-
                         it("should update the observable by reading the value from the method", function() {
-                            options.eventOne();
+                            console.log("widget", widget);
+                            widget.handlers.eventOne[0].call(widget);
                             expect(options.optionOne()).toEqual("methodOne value");
                         });
                     });
                     describe("when value does not correspond to a method on the widget", function() {
-                        it("should add a handler for this event to options", function() {
-                            expect(options.eventTwo).toBeDefined();
-                            expect(typeof options.eventTwo).toEqual("function");
-                        });
-
                         it("should update the observable with literal value", function() {
-                            options.eventTwo();
+                            widget.handlers.eventTwo[0].call(widget);
                             expect(options.optionOne()).toEqual("not a method");
                         });
                     });
                 });
 
                 describe("when value is a boolean", function() {
-                    it("should add a handler for this event to options", function() {
-                        expect(options.eventThree).toBeDefined();
-                        expect(typeof options.eventThree).toEqual("function");
-                    });
-
                     it("should update the observable with the boolean value", function() {
-                        options.eventThree();
+                        widget.handlers.eventThree[0].call(widget);
                         expect(options.optionOne()).toEqual(true);
                     });
                 });
 
                 describe("when there is an existing handler for the event", function() {
                     it("should update the observable when the handler is called", function() {
-                        options.eventSix();
+                        widget.handlers.eventSix[0].call(widget);
                         expect(options.optionSix()).toEqual(true);
                     });
-
-                    it("should call the existing handler when the handler is called", function() {
-                        spyOn(options, "existingSix");
-                        options.eventSix();
-                        expect(options.existingSix).toHaveBeenCalled();
-                    });
-                });
-            });
-
-            describe("when writeTo corresponds to a non-observable", function() {
-                it("should not add a handler for this event to options", function() {
-                    expect(options.eventFour).toBeUndefined();
-                });
-            });
-
-            describe("when writeTo does not correspond to a property in the options", function() {
-                it("should not add a handler for this event to options", function() {
-                    expect(options.eventFive).toBeUndefined();
                 });
             });
         });

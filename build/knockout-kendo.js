@@ -14,7 +14,7 @@ ko.kendo.BindingFactory = function() {
         var binding = {};
 
         //the binding handler's init function
-        binding.init = function(element, valueAccessor, allBindingsAccessor) {
+        binding.init = function(element, valueAccessor) {
               //step 1: build appropriate options for the widget from values passed in and global options
               var options = self.buildOptions(widgetConfig, valueAccessor);
 
@@ -33,11 +33,11 @@ ko.kendo.BindingFactory = function() {
         binding.setup = function(element, options) {
             var widget, $element = $(element);
 
-            //step 2: add handlers for events that we need to react to for updating the model
-            self.handleEvents(widgetConfig.events, options, function() { return $element.data(widgetConfig.name); });
-
-            //step 3: initialize widget
+            //step 2: initialize widget
             widget = self.getWidget(widgetConfig, options, $element);
+
+            //step 3: add handlers for events that we need to react to for updating the model
+            self.handleEvents(options, widgetConfig, element, widget);
 
             //step 4: set up computed observables to update the widget when observable model values change
             self.watchValues(widget, options, widgetConfig, element);
@@ -123,36 +123,36 @@ ko.kendo.BindingFactory = function() {
     };
 
     //write changes to the widgets back to the model
-    this.handleEvents = function(events, options, widgetAccessor) {
-        var prop, event;
+    this.handleEvents = function(options, widgetConfig, element, widget) {
+        var prop, event, events = widgetConfig.events;
+
         if (events) {
             for (prop in events) {
                 if (events.hasOwnProperty(prop)) {
                     event = events[prop];
-                    event = typeof event === "string" ? { value: event, writeTo: event } : event;
+                    if (typeof event === "string") {
+                        event = { value: event, writeTo: event };
+                    }
+
                     if (ko.isObservable(options[event.writeTo])) {
-                        self.handleOneEvent(prop, event, options, widgetAccessor);
+                        self.handleOneEvent(prop, event, options, element, widget, widgetConfig.childProp);
                     }
                 }
             }
         }
     };
 
-    //set on options for now, as using bind does not work for many events
-    this.handleOneEvent = function(event, eventOptions, options, widgetAccessor) {
-        var existing = options[event];
-        options[event] = function() {
-            var propOrValue = eventOptions.value,
-                widget = widgetAccessor(),
-                value = (typeof propOrValue === "string" && widget[propOrValue]) ? widget[propOrValue]() : propOrValue;
+    //bind to a single event
+    this.handleOneEvent = function(eventName, eventConfig, options, element, widget, childProp) {
+        widget.bind(eventName, function(e) {
+            var propOrValue, value;
 
-            options[eventOptions.writeTo](value);
-
-            //if they passed in a handler in addition to the handling that we need done
-            if (existing) {
-                existing.apply(this, arguments);
+            if (!childProp || !e[childProp] || e[childProp] === element) {
+                propOrValue = eventConfig.value;
+                value = (typeof propOrValue === "string" && this[propOrValue]) ? this[propOrValue](childProp && element) : propOrValue;
+                options[eventConfig.writeTo](value);
             }
-        };
+        });
     };
 };
 
@@ -180,6 +180,7 @@ var CLOSE = "close",
     MAX = "max",
     MIN = "min",
     OPEN = "open",
+    RESIZE = "resize",
     SEARCH = "search",
     SELECT = "select",
     SELECTED = "selected",
@@ -365,10 +366,20 @@ createBinding({
 createBinding({
     name: "kendoPanelItem",
     parent: "kendoPanelBar",
-    updateableOptions: [ENABLE],
     watch: {
         enabled: ENABLE,
         expanded: [EXPAND, COLLAPSE]
+    },
+    childProp: "item",
+    events: {
+        expand: {
+            writeTo: EXPANDED,
+            value: true
+        },
+        collapse: {
+            writeTo: EXPANDED,
+            value: false
+        }
     },
     async: true
 });
@@ -408,6 +419,18 @@ createBinding({
         size: SIZE,
         expanded: [EXPAND, COLLAPSE]
     },
+    childProp: "pane",
+    events: {
+        collapse: {
+            writeTo: EXPANDED,
+            value: false
+        },
+        expand: {
+            writeTo: EXPANDED,
+            value: true
+        },
+        resize: SIZE
+    },
     async: true
 });
 createBinding({
@@ -423,6 +446,13 @@ createBinding({
             this.select(value ? element : null);
         },
         enabled: ENABLE
+    },
+    childProp: "item",
+    events: {
+        selected: {
+            writeTo: SELECTED,
+            value: true
+        }
     },
     async: true
 });
@@ -451,8 +481,23 @@ createBinding({
     watch: {
         enabled: ENABLE,
         expanded: [EXPAND, COLLAPSE],
-        select: function(element, value) {
+        selected: function(element, value) {
             this.select(value ? element : null);
+        }
+    },
+    childProp: "node",
+    events: {
+        collapse: {
+            writeTo: EXPANDED,
+            value: false
+        },
+        expand: {
+            writeTo: EXPANDED,
+            value: true
+        },
+        select: {
+            writeTo: SELECTED,
+            value: true
         }
     },
     async: true

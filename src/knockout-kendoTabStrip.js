@@ -12,5 +12,12 @@ createBinding({
         },
         enabled: ENABLE
     },
+    childProp: "item",
+    events: {
+        selected: {
+            writeTo: SELECTED,
+            value: true
+        }
+    },
     async: true
 });

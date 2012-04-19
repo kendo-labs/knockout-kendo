@@ -60,6 +60,10 @@ ko.kendo.BindingFactory = function() {
             options = ko.utils.extend({}, ko.bindingHandlers[widgetConfig.name].options),
             valueOrOptions = ko.utils.unwrapObservable(valueAccessor());
 
+        if (widgetConfig.optionsFilter) {
+            widgetConfig.optionsFilter(valueOrOptions);
+        }
+
         if (typeof valueOrOptions !== "object" || (defaultOption && !(defaultOption in valueOrOptions))) {
             options[defaultOption] = valueAccessor();
         }  else {
@@ -77,7 +81,8 @@ ko.kendo.BindingFactory = function() {
             var parent = $element.closest("[data-bind*=" + widgetConfig.parent + ":]");
             widget = parent.length ? parent.data(widgetConfig.parent) : null;
         } else {
-            widget = $element[widgetConfig.name](ko.toJS(options)).data(widgetConfig.name);
+
+            widget = $element[widgetConfig.name](self.cleanOptions(options)).data(widgetConfig.name);
         }
 
         //if the widget option was specified, then fill it with our widget
@@ -86,6 +91,18 @@ ko.kendo.BindingFactory = function() {
         }
 
         return widget;
+    };
+
+    //get a clean copy of the options by unwrapping one layer and leaving non-observables alone
+    this.cleanOptions = function(options) {
+        var prop, clean = {};
+        for (prop in options) {
+            if (options.hasOwnProperty(prop)) {
+                clean[prop] = ko.utils.unwrapObservable(options[prop]);
+            }
+        }
+
+        return clean;
     };
 
     //respond to changes in the view model
@@ -156,7 +173,20 @@ ko.kendo.BindingFactory = function() {
 
 ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 
-//utility to set the dataSource will a clean copy of data. Could be overriden at run-time.
+//utility to set the dataSource with a clean copy of data. Could be overriden at run-time.
 ko.kendo.setDataSource = function(widget, data) {
     widget.dataSource.data(ko.mapping ? ko.mapping.toJS(data) : ko.toJS(data));
+};
+
+//shared function to properly handle passing a kendo.data.DataSource instance in binding
+ko.kendo.dataSourceOptionFilter = function(options) {
+    if (options instanceof kendo.data.DataSource) {
+        options.dataSource = options;
+    }
+    else if (options.data instanceof kendo.data.DataSource) {
+        options.dataSource = options.data;
+    }
+    if (options.dataSource) {
+        options.data = {};
+    }
 };

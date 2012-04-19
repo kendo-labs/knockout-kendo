@@ -11,6 +11,7 @@ createBinding({
             value: false
         }
     },
+    optionsFilter: ko.kendo.dataSourceOptionFilter,
     watch: {
         enabled: ENABLE,
         search: [SEARCH, CLOSE],

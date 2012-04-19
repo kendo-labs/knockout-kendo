@@ -1,6 +1,7 @@
 createBinding({
     name: "kendoGrid",
     defaultOption: DATA,
+    optionsFilter: ko.kendo.dataSourceOptionFilter,
     watch: {
         data: function(value) {
             ko.kendo.setDataSource(this, value);

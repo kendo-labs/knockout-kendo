@@ -61,7 +61,7 @@ ko.kendo.BindingFactory = function() {
             valueOrOptions = ko.utils.unwrapObservable(valueAccessor());
 
         if (widgetConfig.optionsFilter) {
-            widgetConfig.optionsFilter(valueOrOptions);
+            valueOrOptions = widgetConfig.optionsFilter(valueOrOptions);
         }
 
         if (typeof valueOrOptions !== "object" || (defaultOption && !(defaultOption in valueOrOptions))) {
@@ -128,6 +128,8 @@ ko.kendo.BindingFactory = function() {
                     action = widget[value ? action[0] : action[1]];
                 } else if (typeof action === "string") {
                     action = widget[action];
+                } else {
+                    params.push(options, widget);
                 }
                 if (action) {
                     action.apply(widget, params);
@@ -174,19 +176,25 @@ ko.kendo.BindingFactory = function() {
 ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 
 //utility to set the dataSource with a clean copy of data. Could be overriden at run-time.
-ko.kendo.setDataSource = function(widget, data) {
-    widget.dataSource.data(ko.mapping ? ko.mapping.toJS(data) : ko.toJS(data));
+ko.kendo.setDataSource = function(data, options, widget) {
+    widget.dataSource[options.dataSource ? "success" : "data"](ko.mapping ? ko.mapping.toJS(data) : ko.toJS(data));
 };
 
 //shared function to properly handle passing a kendo.data.DataSource instance in binding
-ko.kendo.dataSourceOptionFilter = function(options) {
+ko.kendo.dataOptionFilter = function(options) {
+    //handle a DataSource being passed directly
     if (options instanceof kendo.data.DataSource) {
-        options.dataSource = options;
+        options = { dataSource: options };
     }
+    //handle a DataSource passed as the data option
     else if (options.data instanceof kendo.data.DataSource) {
         options.dataSource = options.data;
-    }
-    if (options.dataSource) {
         options.data = {};
     }
+    //if they passed the dataSource option, then ensure that data property is at least included to identify the object as options
+    if (options.dataSource) {
+        options.data = options.data || {};
+    }
+
+    return options;
 };

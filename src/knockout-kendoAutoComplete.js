@@ -11,13 +11,11 @@ createBinding({
             value: false
         }
     },
-    optionsFilter: ko.kendo.dataSourceOptionFilter,
+    optionsFilter: ko.kendo.dataOptionFilter,
     watch: {
         enabled: ENABLE,
         search: [SEARCH, CLOSE],
-        data: function(value) {
-            ko.kendo.setDataSource(this, value);
-        },
+        data: ko.kendo.setDataSource,
         value: VALUE
     }
 });

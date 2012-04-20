@@ -1,10 +1,8 @@
 createBinding({
     name: "kendoGrid",
     defaultOption: DATA,
-    optionsFilter: ko.kendo.dataSourceOptionFilter,
+    optionsFilter: ko.kendo.dataOptionFilter,
     watch: {
-        data: function(value) {
-            ko.kendo.setDataSource(this, value);
-        }
+        data: ko.kendo.setDataSource
     }
 });

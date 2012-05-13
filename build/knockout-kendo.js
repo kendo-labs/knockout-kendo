@@ -76,7 +76,7 @@ ko.kendo.BindingFactory = function() {
         var widget;
         if (widgetConfig.parent) {
             //locate the actual widget
-            var parent = $element.closest("[data-bind*=" + widgetConfig.parent + ":]");
+            var parent = $element.closest("[data-bind*='" + widgetConfig.parent + ":']");
             widget = parent.length ? parent.data(widgetConfig.parent) : null;
         } else {
             widget = $element[widgetConfig.name](ko.toJS(options)).data(widgetConfig.name);

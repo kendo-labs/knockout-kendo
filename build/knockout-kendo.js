@@ -107,15 +107,23 @@ ko.kendo.BindingFactory = function() {
             read: function() {
                 var action = widgetConfig.watch[prop],
                     value = ko.utils.unwrapObservable(options[prop]),
-                    params = widgetConfig.parent ? [element, value] : [value]; //child bindings pass element first to APIs
+                    params = widgetConfig.parent ? [element] : [], //child bindings pass element first to APIs
+                    existing;
+
                 //support passing multiple events like ["open", "close"]
                 if ($.isArray(action)) {
                     action = widget[value ? action[0] : action[1]];
                 } else if (typeof action === "string") {
                     action = widget[action];
                 }
+
                 if (action) {
-                    action.apply(widget, params);
+                    existing = action.apply(widget, params);
+                    //try to avoid unnecessary updates when the new value matches the current value
+                    if (existing !== value) {
+                        params.push(value);
+                        action.apply(widget, params);
+                    }
                 }
             },
             disposeWhenNodeIsRemoved: element

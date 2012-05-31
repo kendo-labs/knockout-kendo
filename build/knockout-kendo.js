@@ -1,4 +1,4 @@
-//knockout-kendo v0.2.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
+//knockout-kendo v0.2.1 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
 (function(ko, $, undefined) {
 ko.kendo = ko.kendo || {};
 
@@ -168,7 +168,7 @@ ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 
 //utility to set the dataSource will a clean copy of data. Could be overriden at run-time.
 ko.kendo.setDataSource = function(widget, data) {
-    widget.dataSource.data(ko.mapping ? ko.mapping.toJS(data) : ko.toJS(data));
+    widget.dataSource.data(ko.mapping ? ko.mapping.toJS(data || {}) : ko.toJS(data));
 };
 
 //library is in a closure, use this private variable to reduce size of minified file

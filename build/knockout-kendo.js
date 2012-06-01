@@ -1,4 +1,4 @@
-//knockout-kendo v0.2.1 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
+//knockout-kendo v0.2.2 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
 (function(ko, $, undefined) {
 ko.kendo = ko.kendo || {};
 
@@ -517,6 +517,7 @@ createBinding({
     }
 });
 createBinding({
+    async: true,
     name: "kendoWindow",
     events: {
         open: {

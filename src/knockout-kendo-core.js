@@ -93,7 +93,7 @@ ko.kendo.BindingFactory = function() {
         var watchProp, watchValues = widgetConfig.watch;
         if (watchValues) {
             for (watchProp in watchValues) {
-                if (watchValues.hasOwnProperty(watchProp) && ko.isObservable(options[watchProp])) {
+                if (watchValues.hasOwnProperty(watchProp)) {
                     self.watchOneValue(watchProp, widget, options, widgetConfig, element);
                 }
             }
@@ -101,7 +101,7 @@ ko.kendo.BindingFactory = function() {
     };
 
     this.watchOneValue = function(prop, widget, options, widgetConfig, element) {
-        ko.computed({
+        var computed = ko.computed({
             read: function() {
                 var action = widgetConfig.watch[prop],
                     value = ko.utils.unwrapObservable(options[prop]),
@@ -126,6 +126,11 @@ ko.kendo.BindingFactory = function() {
             },
             disposeWhenNodeIsRemoved: element
         });
+
+        //if option is not observable, then dispose up front after executing the logic once
+        if (!ko.isObservable(options[prop])) {
+            computed.dispose();
+        }
     };
 
     //write changes to the widgets back to the model
@@ -164,7 +169,18 @@ ko.kendo.BindingFactory = function() {
 
 ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 
-//utility to set the dataSource will a clean copy of data. Could be overriden at run-time.
+//utility to set the dataSource with a clean copy of data. Could be overriden at run-time.
 ko.kendo.setDataSource = function(widget, data) {
     widget.dataSource.data(ko.mapping ? ko.mapping.toJS(data || {}) : ko.toJS(data));
+};
+
+//private utility function generator for gauges
+var extendAndRedraw = function(prop) {
+    return function(value) {
+        if (value) {
+            ko.utils.extend(this.options[prop], value);
+            this.redraw();
+            this.value(.001 + this.value());
+        }
+    }
 };

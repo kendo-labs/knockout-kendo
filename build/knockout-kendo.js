@@ -1,6 +1,5 @@
-//knockout-kendo v0.2.2 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
-(function(ko, $, undefined) {
-ko.kendo = ko.kendo || {};
+//knockout-kendo v0.3.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
+(function(ko, $, undefined) {ko.kendo = ko.kendo || {};
 
 ko.kendo.BindingFactory = function() {
     var self = this;
@@ -95,7 +94,7 @@ ko.kendo.BindingFactory = function() {
         var watchProp, watchValues = widgetConfig.watch;
         if (watchValues) {
             for (watchProp in watchValues) {
-                if (watchValues.hasOwnProperty(watchProp) && ko.isObservable(options[watchProp])) {
+                if (watchValues.hasOwnProperty(watchProp)) {
                     self.watchOneValue(watchProp, widget, options, widgetConfig, element);
                 }
             }
@@ -103,7 +102,7 @@ ko.kendo.BindingFactory = function() {
     };
 
     this.watchOneValue = function(prop, widget, options, widgetConfig, element) {
-        ko.computed({
+        var computed = ko.computed({
             read: function() {
                 var action = widgetConfig.watch[prop],
                     value = ko.utils.unwrapObservable(options[prop]),
@@ -128,6 +127,11 @@ ko.kendo.BindingFactory = function() {
             },
             disposeWhenNodeIsRemoved: element
         });
+
+        //if option is not observable, then dispose up front after executing the logic once
+        if (!ko.isObservable(options[prop])) {
+            computed.dispose();
+        }
     };
 
     //write changes to the widgets back to the model
@@ -166,11 +170,21 @@ ko.kendo.BindingFactory = function() {
 
 ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 
-//utility to set the dataSource will a clean copy of data. Could be overriden at run-time.
+//utility to set the dataSource with a clean copy of data. Could be overriden at run-time.
 ko.kendo.setDataSource = function(widget, data) {
     widget.dataSource.data(ko.mapping ? ko.mapping.toJS(data || {}) : ko.toJS(data));
 };
 
+//private utility function generator for gauges
+var extendAndRedraw = function(prop) {
+    return function(value) {
+        if (value) {
+            ko.utils.extend(this.options[prop], value);
+            this.redraw();
+            this.value(.001 + this.value());
+        }
+    }
+};
 //library is in a closure, use this private variable to reduce size of minified file
 var createBinding = ko.kendo.bindingFactory.createBinding.bind(ko.kendo.bindingFactory);
 
@@ -535,5 +549,32 @@ createBinding({
         isOpen: [OPEN, CLOSE]
     }
 });
-
+createBinding({
+    name: "kendoChart",
+    watch: {
+        data: function(value) {
+            ko.kendo.setDataSource(this, value);
+        }
+    }
+});
+createBinding({
+    name: "kendoLinearGauge",
+    defaultOption: VALUE,
+    watch: {
+        value: VALUE,
+        gaugeArea: extendAndRedraw("gaugeArea"),
+        pointer: extendAndRedraw("pointer"),
+        scale: extendAndRedraw("scale")
+    }
+});
+createBinding({
+    name: "kendoRadialGauge",
+    defaultOption: VALUE,
+    watch: {
+        value: VALUE,
+        gaugeArea: extendAndRedraw("gaugeArea"),
+        pointer: extendAndRedraw("pointer"),
+        scale: extendAndRedraw("scale")
+    }
+});
 })(ko, jQuery);

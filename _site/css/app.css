@@ -1,0 +1,95 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+footer p {
+    font-size: .9em;
+}
+
+.sidebar-nav {
+    padding: 9px 0;
+}
+.hero-unit {
+    position: relative;
+    padding: 40px;
+
+}
+.hero-unit h1, .row-fluid h3, footer, footer a {
+    color: #EF652A;
+}
+
+.row-fluid h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.row-fluid p {
+    margin-bottom: 5px;
+    margin-left: 2px;
+}
+
+.spacer {
+    height: 20px;
+}
+
+.brand img {
+    height: 24px;
+    vertical-align: bottom;
+}
+
+.navbar .brand { color: #EF652A; }
+
+.code {
+    border-right: solid 1px #EF652A;
+    padding-right: 10px;
+    margin-left: 20px;
+}
+
+.code p {
+    font-size: .9em;
+}
+
+.example {
+    margin: 20px;
+}
+
+.example input, .example button {
+    margin: 3px;
+}
+
+.option {
+    font-weight: bold;
+    text-align: left;
+}
+
+.options {
+    background-color: #eee;
+    border: solid 1px #C5C5C5;
+    padding: 3px;
+    margin-top: 10px;
+}
+
+.options div.row-fluid:nth-child(2n) {
+    background-color: #fff;
+}
+
+h3.nospace {
+    margin-top: 5px;
+}
+
+.note {
+    font-style: italic;
+    font-size: .9em;
+}
+
+.home h2 {
+    height: 37px;
+}
+
+.home img {
+    height: 37px;
+    vertical-align: bottom;
+}
+
+

@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Knockout-Kendo.js - a set of Knockout.js bindings for Kendo UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Home page for the Knockout.js Kendo UI bindings">
+    <meta name="author" content="Ryan Niemeyer">
+
+    <!-- Le styles -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="../css/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/kendo.default.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/kendo.dataviz.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/sunburst.css" rel="stylesheet" />
+    <link href="../css/app.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="../index.html">Knockout-Kendo.js</a>
+            <div class="nav-collapse">
+                <a href="http://github.com/rniemeyer/knockout-kendo" class="navbar-text pull-right">Source on Github</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+        <li class="nav-header">Kendo UI Web Widgets</li>
+        <li><a href="../web/AutoComplete.html" >AutoComplete</a></li>
+        <li><a href="../web/Calendar.html" >Calendar</a></li>
+        <li><a href="../web/ComboBox.html" >ComboBox</a></li>
+        <li><a href="../web/DatePicker.html" >DatePicker</a></li>
+        <li><a href="../web/DropDownList.html" >DropDownList</a></li>
+        <li><a href="../web/Editor.html" >Editor</a></li>
+        <li><a href="../web/Grid.html" >Grid</a></li>
+        <li><a href="../web/ListView.html" >ListView</a></li>
+        <li><a href="../web/Menu.html" >Menu</a></li>
+        <li><a href="../web/NumericTextBox.html" >NumericTextBox</a></li>
+        <li><a href="../web/PanelBar.html" >PanelBar</a></li>
+        <li><a href="../web/RangeSlider.html" >RangeSlider</a></li>
+        <li><a href="../web/Slider.html" >Slider</a></li>
+        <li><a href="../web/Splitter.html" >Splitter</a></li>
+        <li><a href="../web/TabStrip.html" >TabStrip</a></li>
+        <li><a href="../web/TimePicker.html" >TimePicker</a></li>
+        <li><a href="../web/TreeView.html" >TreeView</a></li>
+        <li><a href="../web/Upload.html" >Upload</a></li>
+        <li><a href="../web/Window.html" >Window</a></li>
+        <li class="nav-header">Kendo UI DataViz Widgets</li>
+        <li><a href="../dataviz/Chart.html" >Chart</a></li>
+        <li><a href="../dataviz/RadialGauge.html" >RadialGauge</a></li>
+        <li><a href="../dataviz/LinearGauge.html" >LinearGauge</a></li>
+    </ul>
+</div>
+        </div>
+        <div class="span10">
+            <div class='row-fluid'>
+    <h2>TabStrip</h2>
+</div><div class='row-fluid'>
+    <h3 class='nospace'>Description</h3>
+    <div><p>The TabStrip widget displays tabs that display associated content when selected.</p></div>
+    <a target='_blank' href='http://demos.kendoui.com/web/tabstrip/index.html'>
+        <i class='icon-book'> </i>
+        Official Kendo UI TabStrip documentation
+    </a>
+</div><div class='row-fluid'>
+    <h3>Examples</h3>
+    <div data-bind='kendoTabStrip: {}, stop: true'>
+        <ul>
+            
+            
+            <li class='k-state-active'>Basic Example</li>
+            
+
+            
+            
+            <li>Passing additional options</li>
+            
+
+            
+            
+            <li>Using global options</li>
+            
+
+            
+        </ul>
+        
+            <div>
+                <div class='row'>
+                    <div class='span7 code'>
+                        <p>This example demonstrates initializing a TabStrip widget with no additional options specified.</p>
+                        <pre><code>&lt;div data-bind=&quot;kendoTabStrip: {}&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;k-state-active&quot;&gt;tab one&lt;/li&gt;
+        &lt;li&gt;tab two&lt;/li&gt;
+        &lt;li&gt;tab three&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div&gt;tab one content&lt;/div&gt;
+    &lt;div&gt;tab two content&lt;/div&gt;
+    &lt;div&gt;tab three content&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        <pre><code>var ViewModel = function() {};
+
+ko.applyBindings(new ViewModel());</code></pre>
+                    </div>
+                    <div id='one' class='span3 example'>
+                        <div data-bind='kendoTabStrip: {}'>
+    <ul>
+        <li class='k-state-active'>tab one</li>
+        <li>tab two</li>
+        <li>tab three</li>
+    </ul>
+    <div>tab one content</div>
+    <div>tab two content</div>
+    <div>tab three content</div>
+</div>
+
+
+                        <script type='text/javascript'>
+                            $(function() {
+                                var ViewModel = function() {};
+
+                                ko.applyBindings(new ViewModel(), document.getElementById("one"));
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        
+            <div>
+                <div class='row'>
+                    <div class='span7 code'>
+                        <p>This example demonstrates passing additional options in the data-bind attribute. The <strong>kendoTab</strong> binding can be applied to child elements to control the behavior of individual menu items.</p>
+                        <pre><code>&lt;input type=&quot;checkbox&quot; data-bind=&quot;checked: isTwoOpen&quot; /&gt; Open 2&lt;br/&gt;
+&lt;input type=&quot;checkbox&quot; data-bind=&quot;checked: twoEnabled&quot; /&gt; Enabled 2
+&lt;hr/&gt;
+&lt;div data-bind=&quot;kendoTabStrip: {}&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;k-state-active&quot;&gt;tab one&lt;/li&gt;
+        &lt;li data-bind=&quot;kendoTab: { enabled: twoEnabled, selected: isTwoOpen }&quot;&gt;tab two&lt;/li&gt;
+        &lt;li&gt;tab three&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div&gt;tab one content&lt;/div&gt;
+    &lt;div&gt;tab two content&lt;/div&gt;
+    &lt;div&gt;tab three content&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        <pre><code>var ViewModel = function() {
+    this.isTwoOpen = ko.observable(false);
+    this.twoEnabled = ko.observable(true);
+};
+
+ko.applyBindings(new ViewModel());</code></pre>
+                    </div>
+                    <div id='two' class='span3 example'>
+                        <input type='checkbox' data-bind='checked: isTwoOpen' /> Open 2<br />
+<input type='checkbox' data-bind='checked: twoEnabled' /> Enabled 2
+<hr />
+<div data-bind='kendoTabStrip: {}'>
+    <ul>
+        <li class='k-state-active'>tab one</li>
+        <li data-bind='kendoTab: { enabled: twoEnabled, selected: isTwoOpen }'>tab two</li>
+        <li>tab three</li>
+    </ul>
+    <div>tab one content</div>
+    <div>tab two content</div>
+    <div>tab three content</div>
+</div>
+
+
+                        <script type='text/javascript'>
+                            $(function() {
+                                var ViewModel = function() {
+    this.isTwoOpen = ko.observable(false);
+    this.twoEnabled = ko.observable(true);
+};
+
+                                ko.applyBindings(new ViewModel(), document.getElementById("two"));
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        
+            <div>
+                <div class='row'>
+                    <div class='span7 code'>
+                        <p>This example demonstrates setting global options in <em>ko.bindingHandlers.kendoTabStrip.options</em>. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.</p>
+                        <pre><code>&lt;div data-bind=&quot;kendoTabStrip: {}&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;k-state-active&quot;&gt;tab one&lt;/li&gt;
+        &lt;li&gt;tab two&lt;/li&gt;
+        &lt;li&gt;tab three&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div&gt;tab one content&lt;/div&gt;
+    &lt;div&gt;tab two content&lt;/div&gt;
+    &lt;div&gt;tab three content&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        <pre><code>var ViewModel = function() {};
+
+ko.bindingHandlers.kendoTabStrip.animation = false;
+
+ko.applyBindings(new ViewModel());</code></pre>
+                    </div>
+                    <div id='three' class='span3 example'>
+                        <div data-bind='kendoTabStrip: {}'>
+    <ul>
+        <li class='k-state-active'>tab one</li>
+        <li>tab two</li>
+        <li>tab three</li>
+    </ul>
+    <div>tab one content</div>
+    <div>tab two content</div>
+    <div>tab three content</div>
+</div>
+
+
+                        <script type='text/javascript'>
+                            $(function() {
+                                var ViewModel = function() {};
+
+ko.bindingHandlers.kendoTabStrip.animation = false;
+
+                                ko.applyBindings(new ViewModel(), document.getElementById("three"));
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        
+
+    </div>
+</div><div class='row-fluid'>
+    <h3>Live Options</h3>
+    <span>The <strong>kendoTabStrip</strong> binding accepts all of the <a href='http://demos.kendoui.com/web/tabstrip/index.html'>options</a> that can be specified for the widget.  However, when bound against an observable, these <em>live options</em> will update the widget or respond to updates from interactions with the widget.</span>
+    <div class='options well'>
+        
+        <div class='row-fluid'>
+            <div class='option span1'>enabled</div>
+            <div class='span9'><p>Determines if users can interact with the tab</p></div>
+        </div>
+        
+        <div class='row-fluid'>
+            <div class='option span1'>selected</div>
+            <div class='span9'><p>Controls whether a tab is currently selected</p></div>
+        </div>
+        
+    </div>
+    
+    <h3>Future Plans</h3>
+    Better support for selecting/deselecting tabs and data source integration.
+    
+</div>
+        </div>
+    </div>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Knockout-Kendo.js</a> | <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a> | <a href="http://twitter.com/RPNiemeyer">@RPNiemeyer</a> | <a href="http://www.knockmeout.net">KnockMeOut.net</a></p>
+    </footer>
+
+</div>
+
+<script src="../js/kendo.all.min.js"></script>
+<script src="../js/knockout-2.1.0.js"></script>
+<script src="../js/knockout-kendo.min.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script src="../js/app.js"></script>
+
+</body>
+</html>

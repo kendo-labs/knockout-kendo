@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Knockout-Kendo.js - a set of Knockout.js bindings for Kendo UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Home page for the Knockout.js Kendo UI bindings">
+    <meta name="author" content="Ryan Niemeyer">
+
+    <!-- Le styles -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="../css/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/kendo.default.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/kendo.dataviz.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/sunburst.css" rel="stylesheet" />
+    <link href="../css/app.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="../index.html">Knockout-Kendo.js</a>
+            <div class="nav-collapse">
+                <a href="http://github.com/rniemeyer/knockout-kendo" class="navbar-text pull-right">Source on Github</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+        <li class="nav-header">Kendo UI Web Widgets</li>
+        <li><a href="../web/AutoComplete.html" >AutoComplete</a></li>
+        <li><a href="../web/Calendar.html" >Calendar</a></li>
+        <li><a href="../web/ComboBox.html" >ComboBox</a></li>
+        <li><a href="../web/DatePicker.html" >DatePicker</a></li>
+        <li><a href="../web/DropDownList.html" >DropDownList</a></li>
+        <li><a href="../web/Editor.html" >Editor</a></li>
+        <li><a href="../web/Grid.html" >Grid</a></li>
+        <li><a href="../web/ListView.html" >ListView</a></li>
+        <li><a href="../web/Menu.html" >Menu</a></li>
+        <li><a href="../web/NumericTextBox.html" >NumericTextBox</a></li>
+        <li><a href="../web/PanelBar.html" >PanelBar</a></li>
+        <li><a href="../web/RangeSlider.html" >RangeSlider</a></li>
+        <li><a href="../web/Slider.html" >Slider</a></li>
+        <li><a href="../web/Splitter.html" >Splitter</a></li>
+        <li><a href="../web/TabStrip.html" >TabStrip</a></li>
+        <li><a href="../web/TimePicker.html" >TimePicker</a></li>
+        <li><a href="../web/TreeView.html" >TreeView</a></li>
+        <li><a href="../web/Upload.html" >Upload</a></li>
+        <li><a href="../web/Window.html" >Window</a></li>
+        <li class="nav-header">Kendo UI DataViz Widgets</li>
+        <li><a href="../dataviz/Chart.html" >Chart</a></li>
+        <li><a href="../dataviz/RadialGauge.html" >RadialGauge</a></li>
+        <li><a href="../dataviz/LinearGauge.html" >LinearGauge</a></li>
+    </ul>
+</div>
+        </div>
+        <div class="span10">
+            <div class='row-fluid'>
+    <h2>DatePicker</h2>
+</div><div class='row-fluid'>
+    <h3 class='nospace'>Description</h3>
+    <div><p>The DatePicker widget allows a user to enter a date directly or open a visual calendar to make a selection.</p></div>
+    <a target='_blank' href='http://demos.kendoui.com/web/datepicker/index.html'>
+        <i class='icon-book'> </i>
+        Official Kendo UI DatePicker documentation
+    </a>
+</div><div class='row-fluid'>
+    <h3>Examples</h3>
+    <div data-bind='kendoTabStrip: {}, stop: true'>
+        <ul>
+            
+            
+            <li class='k-state-active'>Basic Example</li>
+            
+
+            
+            
+            <li>Passing additional options</li>
+            
+
+            
+            
+            <li>Using global options</li>
+            
+
+            
+        </ul>
+        
+            <div>
+                <div class='row'>
+                    <div class='span7 code'>
+                        <p>This example demonstrates passing a single option to bind against the value of the DatePicker widget.</p>
+                        <pre><code>&lt;input data-bind=&quot;kendoDatePicker: startDate&quot; /&gt;
+&lt;hr/&gt;
+&lt;div data-bind=&quot;text: startDate&quot;&gt; &lt;/div&gt;
+</code></pre>
+                        <pre><code>var ViewModel = function() {
+    this.startDate = ko.observable(new Date());
+};
+
+ko.applyBindings(new ViewModel());</code></pre>
+                    </div>
+                    <div id='one' class='span3 example'>
+                        <input data-bind='kendoDatePicker: startDate' />
+<hr />
+<div data-bind='text: startDate'> </div>
+
+
+                        <script type='text/javascript'>
+                            $(function() {
+                                var ViewModel = function() {
+    this.startDate = ko.observable(new Date());
+};
+
+                                ko.applyBindings(new ViewModel(), document.getElementById("one"));
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        
+            <div>
+                <div class='row'>
+                    <div class='span7 code'>
+                        <p>This example demonstrates passing additional options in the data-bind attribute with <em>value</em> now being explicitly specified. The <em>setToToday</em> button makes an update to the view model to show that the widget responds accordingly.</p>
+                        <pre><code>&lt;input data-bind=&quot;kendoDatePicker: { value: startDate, max: maxDate, min: minDate }&quot; /&gt;
+&lt;hr/&gt;
+&lt;button data-bind=&quot;click: setToToday&quot;&gt;Set to Today&lt;/button&gt;
+&lt;hr/&gt;
+&lt;div data-bind=&quot;text: startDate&quot;&gt; &lt;/div&gt;
+</code></pre>
+                        <pre><code>var ViewModel = function() {
+    this.startDate = ko.observable(new Date(2012,10,30));
+    this.maxDate = new Date(2012, 11 , 31);
+    this.minDate = new Date(2012, 0, 1);
+    this.setToToday = function() {
+        this.startDate(new Date());
+    };
+};
+
+ko.applyBindings(new ViewModel());</code></pre>
+                    </div>
+                    <div id='two' class='span3 example'>
+                        <input data-bind='kendoDatePicker: { value: startDate, max: maxDate, min: minDate }' />
+<hr />
+<button data-bind='click: setToToday'>Set to Today</button>
+<hr />
+<div data-bind='text: startDate'> </div>
+
+
+                        <script type='text/javascript'>
+                            $(function() {
+                                var ViewModel = function() {
+    this.startDate = ko.observable(new Date(2012,10,30));
+    this.maxDate = new Date(2012, 11 , 31);
+    this.minDate = new Date(2012, 0, 1);
+    this.setToToday = function() {
+        this.startDate(new Date());
+    };
+};
+
+                                ko.applyBindings(new ViewModel(), document.getElementById("two"));
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        
+            <div>
+                <div class='row'>
+                    <div class='span7 code'>
+                        <p>This example demonstrates setting global options in <em>ko.bindingHandlers.kendoDatePicker.options</em>. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.</p>
+                        <pre><code>&lt;input data-bind=&quot;kendoDatePicker: startDate&quot; /&gt;
+&lt;hr/&gt;
+&lt;button data-bind=&quot;click: setToToday&quot;&gt;Set to Today&lt;/button&gt;
+&lt;hr/&gt;
+&lt;div data-bind=&quot;text: startDate&quot;&gt; &lt;/div&gt;
+</code></pre>
+                        <pre><code>var ViewModel = function() {
+    this.startDate = ko.observable(new Date(2012,10,30));
+    this.setToToday = function() {
+        this.startDate(new Date());
+    };
+};
+
+ko.bindingHandlers.kendoDatePicker.options = {
+    min: new Date(2012, 0, 1),
+    max: new Date(2012, 11, 31)
+};
+
+ko.applyBindings(new ViewModel());</code></pre>
+                    </div>
+                    <div id='three' class='span3 example'>
+                        <input data-bind='kendoDatePicker: startDate' />
+<hr />
+<button data-bind='click: setToToday'>Set to Today</button>
+<hr />
+<div data-bind='text: startDate'> </div>
+
+
+                        <script type='text/javascript'>
+                            $(function() {
+                                var ViewModel = function() {
+    this.startDate = ko.observable(new Date(2012,10,30));
+    this.setToToday = function() {
+        this.startDate(new Date());
+    };
+};
+
+ko.bindingHandlers.kendoDatePicker.options = {
+    min: new Date(2012, 0, 1),
+    max: new Date(2012, 11, 31)
+};
+
+                                ko.applyBindings(new ViewModel(), document.getElementById("three"));
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        
+
+    </div>
+</div><div class='row-fluid'>
+    <h3>Live Options</h3>
+    <span>The <strong>kendoDatePicker</strong> binding accepts all of the <a href='http://demos.kendoui.com/web/datepicker/index.html'>options</a> that can be specified for the widget.  However, when bound against an observable, these <em>live options</em> will update the widget or respond to updates from interactions with the widget.</span>
+    <div class='options well'>
+        
+        <div class='row-fluid'>
+            <div class='option span1'>enabled</div>
+            <div class='span9'><p>Determines if users can interact with the field</p></div>
+        </div>
+        
+        <div class='row-fluid'>
+            <div class='option span1'>isOpen</div>
+            <div class='span9'><p>Controls whether the navigatable calendar popup is visible</p></div>
+        </div>
+        
+        <div class='row-fluid'>
+            <div class='option span1'>min</div>
+            <div class='span9'><p>The minimum date allowed for selection in the field</p></div>
+        </div>
+        
+        <div class='row-fluid'>
+            <div class='option span1'>max</div>
+            <div class='span9'><p>The maximum date allowed for selection in the field</p></div>
+        </div>
+        
+        <div class='row-fluid'>
+            <div class='option span1'>value</div>
+            <div class='span9'><p>The current date value of the field</p></div>
+        </div>
+        
+        <div class='row-fluid'>
+            <div class='option span1'>widget</div>
+            <div class='span9'><p>If specified, will populate an observable with a reference to the actual widget</p></div>
+        </div>
+        
+    </div>
+    
+</div>
+        </div>
+    </div>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Knockout-Kendo.js</a> | <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a> | <a href="http://twitter.com/RPNiemeyer">@RPNiemeyer</a> | <a href="http://www.knockmeout.net">KnockMeOut.net</a></p>
+    </footer>
+
+</div>
+
+<script src="../js/kendo.all.min.js"></script>
+<script src="../js/knockout-2.1.0.js"></script>
+<script src="../js/knockout-kendo.min.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script src="../js/app.js"></script>
+
+</body>
+</html>

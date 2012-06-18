@@ -11,11 +11,11 @@ examples:
         <div data-bind="kendoChart: { data: items, series: [{ name: 'sample', field: 'value' }] }"> </div>
       js: |
         var ViewModel = function() {
-            this.items = ko.observableArray([
+            this.items = [
                 { name: "one", value: 10 },
                 { name: "two", value: 20},
                 { name: "three", value: 30 }
-            ]);
+            ];
         };
       selected: true
       id: one

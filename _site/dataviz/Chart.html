@@ -75,7 +75,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The Chart widget can create bar, line, area, and scatter charts with a variety of options.</p></div>
-    <a target='_blank' href='http://demos.kendoui.com/dataviz/bar-charts/index.html'>
+    <a href='http://demos.kendoui.com/dataviz/bar-charts/index.html' target='_blank'>
         <i class='icon-book'> </i>
         Official Kendo UI Chart documentation
     </a>
@@ -108,11 +108,11 @@
                         <pre><code>&lt;div data-bind=&quot;kendoChart: { data: items, series: [{ name: 'sample', field: 'value' }] }&quot;&gt; &lt;/div&gt;
 </code></pre>
                         <pre><code>var ViewModel = function() {
-    this.items = ko.observableArray([
+    this.items = [
         { name: &quot;one&quot;, value: 10 },
         { name: &quot;two&quot;, value: 20},
         { name: &quot;three&quot;, value: 30 }
-    ]);
+    ];
 };
 
 ko.applyBindings(new ViewModel());</code></pre>
@@ -124,11 +124,11 @@ ko.applyBindings(new ViewModel());</code></pre>
                         <script type='text/javascript'>
                             $(function() {
                                 var ViewModel = function() {
-    this.items = ko.observableArray([
+    this.items = [
         { name: "one", value: 10 },
         { name: "two", value: 20},
         { name: "three", value: 30 }
-    ]);
+    ];
 };
 
                                 ko.applyBindings(new ViewModel(), document.getElementById("one"));

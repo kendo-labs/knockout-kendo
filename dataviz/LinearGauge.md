@@ -47,16 +47,17 @@ examples:
     - title: Using global options
       description: This example demonstrates generating a linear gauge and customizing the appearance by setting options globally in *ko.bindingHandlers.kendoLinearGauge.options*.
       view: |
+          <input data-bind="value: myValue" class="input-mini" />
           <div data-bind="kendoLinearGauge: myValue"> </div>
 
       js: |
         var ViewModel = function() {
-            this.myValue = ko.observable(25);
+            this.myValue = ko.observable(0);
         };
 
         ko.bindingHandlers.kendoLinearGauge.options = {
-            pointer: { color: 'orange' },
-            gaugeArea: { background: 'gray' }
+            gaugeArea: { background: 'gray' },
+            scale: { vertical: false }
         };
       id: three
       

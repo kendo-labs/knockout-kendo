@@ -75,7 +75,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The LinearGauge widget visually displays where a value lies in a range.</p></div>
-    <a target='_blank' href='http://demos.kendoui.com/dataviz/linear-gauge/index.html'>
+    <a href='http://demos.kendoui.com/dataviz/linear-gauge/index.html' target='_blank'>
         <i class='icon-book'> </i>
         Official Kendo UI LinearGauge documentation
     </a>
@@ -201,32 +201,34 @@ ko.applyBindings(new ViewModel());</code></pre>
                 <div class='row'>
                     <div class='span7 code'>
                         <p>This example demonstrates generating a linear gauge and customizing the appearance by setting options globally in <em>ko.bindingHandlers.kendoLinearGauge.options</em>.</p>
-                        <pre><code>&lt;div data-bind=&quot;kendoLinearGauge: myValue&quot;&gt; &lt;/div&gt;
+                        <pre><code>&lt;input data-bind=&quot;value: myValue&quot; class=&quot;input-mini&quot; /&gt;
+&lt;div data-bind=&quot;kendoLinearGauge: myValue&quot;&gt; &lt;/div&gt;
 </code></pre>
                         <pre><code>var ViewModel = function() {
-    this.myValue = ko.observable(25);
+    this.myValue = ko.observable(0);
 };
 
 ko.bindingHandlers.kendoLinearGauge.options = {
-    pointer: { color: 'orange' },
-    gaugeArea: { background: 'gray' }
+    gaugeArea: { background: 'gray' },
+    scale: { vertical: false }
 };
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
                     <div id='three' class='span3 example'>
-                        <div data-bind='kendoLinearGauge: myValue'> </div>
+                        <input data-bind='value: myValue' class='input-mini' />
+<div data-bind='kendoLinearGauge: myValue'> </div>
 
 
                         <script type='text/javascript'>
                             $(function() {
                                 var ViewModel = function() {
-    this.myValue = ko.observable(25);
+    this.myValue = ko.observable(0);
 };
 
 ko.bindingHandlers.kendoLinearGauge.options = {
-    pointer: { color: 'orange' },
-    gaugeArea: { background: 'gray' }
+    gaugeArea: { background: 'gray' },
+    scale: { vertical: false }
 };
 
                                 ko.applyBindings(new ViewModel(), document.getElementById("three"));

@@ -1,3 +1,4 @@
+//import("knockout-kendo-intro.js");
 //import("knockout-kendo-core.js");
 //import("knockout-kendo-constants.js");
 //import("knockout-kendoAutoComplete.js");
@@ -22,3 +23,4 @@
 //import("knockout-kendoChart.js");
 //import("knockout-kendoLinearGauge.js");
 //import("knockout-kendoRadialGauge.js");
+//import("knockout-kendo-outro.js");

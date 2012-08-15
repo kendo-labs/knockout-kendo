@@ -6,10 +6,7 @@
 	"lint": {},
 	"uglify": {},
 	"gzip": false,
-	"wrap": {
-		"prefix": "(function(ko, $, undefined) {",
-		"suffix": "})(ko, jQuery);"
-	},
+	"wrap": {},
 	"finalize": {
 		"header": "//knockout-kendo v0.3.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license\n"
 	},

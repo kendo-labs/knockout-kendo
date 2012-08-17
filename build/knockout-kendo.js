@@ -1,5 +1,17 @@
-//knockout-kendo v0.3.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
-(function(ko, $, undefined) {ko.kendo = ko.kendo || {};
+//knockout-kendo v0.3.5 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
+(function(factory) {
+    // CommonJS
+    if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
+        factory(require('knockout'), require('jquery'), require('kendo'));
+        // AMD
+    } else if (typeof define === 'function' && define.amd) {
+        define(['knockout', 'jquery', 'kendo'], factory);
+        // Normal script tag
+    } else {
+        factory(window.ko, window.jQuery, window.kendo);
+    }
+}(function(ko, $, kendo, undefined) {
+ko.kendo = ko.kendo || {};
 
 ko.kendo.BindingFactory = function() {
     var self = this;
@@ -577,4 +589,4 @@ createBinding({
         scale: extendAndRedraw("scale")
     }
 });
-})(ko, jQuery);
+}));

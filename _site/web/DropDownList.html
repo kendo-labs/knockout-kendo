@@ -47,6 +47,7 @@
         <li><a href="../web/Calendar.html" >Calendar</a></li>
         <li><a href="../web/ComboBox.html" >ComboBox</a></li>
         <li><a href="../web/DatePicker.html" >DatePicker</a></li>
+        <li><a href="../web/DateTimePicker.html" >DateTimePicker</a></li>
         <li><a href="../web/DropDownList.html" >DropDownList</a></li>
         <li><a href="../web/Editor.html" >Editor</a></li>
         <li><a href="../web/Grid.html" >Grid</a></li>
@@ -75,7 +76,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The DropDownList widget allows a user to select a single value from a list.</p></div>
-    <a href='http://demos.kendoui.com/web/dropdownlist/index.html' target='_blank'>
+    <a target='_blank' href='http://demos.kendoui.com/web/dropdownlist/index.html'>
         <i class='icon-book'> </i>
         Official Kendo UI DropDownList documentation
     </a>
@@ -116,7 +117,7 @@ Selected: &lt;strong data-bind=&quot;text: selectedChoice&quot;&gt; &lt;/strong&
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='one' class='span3 example'>
+                    <div class='span3 example' id='one'>
                         <input data-bind='kendoDropDownList: { data: choices, value: selectedChoice }' />
 <hr />
 Selected: <strong data-bind='text: selectedChoice'> </strong>
@@ -171,9 +172,9 @@ Selected: &lt;strong data-bind=&quot;text: selectedChoice&quot;&gt; &lt;/strong&
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='two' class='span3 example'>
+                    <div class='span3 example' id='two'>
                         <button data-bind='click: open, disable: isOpen'>Open</button>
-<input type='checkbox' data-bind='checked: enabled' /> Enable<br />
+<input data-bind='checked: enabled' type='checkbox' /> Enable<br />
 <hr />
 <input data-bind='kendoDropDownList: { dataTextField: &apos;name&apos;, dataValueField: &apos;id&apos;, data: choices, value: selectedChoice, isOpen: isOpen, enabled: enabled }' />
 <hr />
@@ -228,7 +229,7 @@ ko.bindingHandlers.kendoDropDownList.options.optionLabel = &quot;choose a fruit.
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='three' class='span3 example'>
+                    <div class='span3 example' id='three'>
                         <input data-bind='kendoDropDownList: { data: choices, value: selectedChoice }' />
 <hr />
 Selected: <strong data-bind='text: selectedChoice'> </strong>

@@ -47,6 +47,7 @@
         <li><a href="../web/Calendar.html" >Calendar</a></li>
         <li><a href="../web/ComboBox.html" >ComboBox</a></li>
         <li><a href="../web/DatePicker.html" >DatePicker</a></li>
+        <li><a href="../web/DateTimePicker.html" >DateTimePicker</a></li>
         <li><a href="../web/DropDownList.html" >DropDownList</a></li>
         <li><a href="../web/Editor.html" >Editor</a></li>
         <li><a href="../web/Grid.html" >Grid</a></li>
@@ -75,7 +76,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The TreeView widget displays hierarchical data in a tree structure.</p></div>
-    <a href='http://demos.kendoui.com/web/treeview/index.html' target='_blank'>
+    <a target='_blank' href='http://demos.kendoui.com/web/treeview/index.html'>
         <i class='icon-book'> </i>
         Official Kendo UI TreeView documentation
     </a>
@@ -126,7 +127,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='one' class='span3 example'>
+                    <div class='span3 example' id='one'>
                         <ul data-bind='kendoTreeView: {}'>
     <li>
         <span>Test 1</span>
@@ -194,9 +195,9 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='two' class='span3 example'>
-                        <input type='checkbox' data-bind='checked: isTwoOpen' /> Open 2<br />
-<input type='checkbox' data-bind='checked: twoEnabled' /> Enable 2
+                    <div class='span3 example' id='two'>
+                        <input data-bind='checked: isTwoOpen' type='checkbox' /> Open 2<br />
+<input data-bind='checked: twoEnabled' type='checkbox' /> Enable 2
 <hr />
 <ul data-bind='kendoTreeView: {}'>
     <li>
@@ -270,7 +271,7 @@ ko.bindingHandlers.kendoTreeView.options.animation = false;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='three' class='span3 example'>
+                    <div class='span3 example' id='three'>
                         <ul data-bind='kendoTreeView: {}'>
     <li>
         <span>Test 1</span>

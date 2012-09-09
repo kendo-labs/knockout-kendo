@@ -47,6 +47,7 @@
         <li><a href="../web/Calendar.html" >Calendar</a></li>
         <li><a href="../web/ComboBox.html" >ComboBox</a></li>
         <li><a href="../web/DatePicker.html" >DatePicker</a></li>
+        <li><a href="../web/DateTimePicker.html" >DateTimePicker</a></li>
         <li><a href="../web/DropDownList.html" >DropDownList</a></li>
         <li><a href="../web/Editor.html" >Editor</a></li>
         <li><a href="../web/Grid.html" >Grid</a></li>
@@ -75,7 +76,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The ListView widget allows for a custom layout of a collection</p></div>
-    <a href='http://demos.kendoui.com/web/listview/index.html' target='_blank'>
+    <a target='_blank' href='http://demos.kendoui.com/web/listview/index.html'>
         <i class='icon-book'> </i>
         Official Kendo UI ListView documentation
     </a>
@@ -118,7 +119,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='one' class='span3 example'>
+                    <div class='span3 example' id='one'>
                         <div data-bind='kendoListView: { data: items, template: template }'> </div>
 
 
@@ -165,7 +166,7 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='two' class='span3 example'>
+                    <div class='span3 example' id='two'>
                         <div data-bind='kendoListView: { data: items, navigatable: true, selectable: true, value: selected, template: template }'> </div>
 <div data-bind='text: selected'> </div>
 <button data-bind='click: addItem'>Add Item</button>
@@ -226,7 +227,7 @@ ko.bindingHandlers.kendoListView.options = {
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='three' class='span3 example'>
+                    <div class='span3 example' id='three'>
                         <div data-bind='kendoListView: { data: items, value: selected, template: template }'> </div>
 <div data-bind='text: selected'> </div>
 <button data-bind='click: addItem'>Add Item</button>

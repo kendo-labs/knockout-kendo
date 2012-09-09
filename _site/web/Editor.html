@@ -47,6 +47,7 @@
         <li><a href="../web/Calendar.html" >Calendar</a></li>
         <li><a href="../web/ComboBox.html" >ComboBox</a></li>
         <li><a href="../web/DatePicker.html" >DatePicker</a></li>
+        <li><a href="../web/DateTimePicker.html" >DateTimePicker</a></li>
         <li><a href="../web/DropDownList.html" >DropDownList</a></li>
         <li><a href="../web/Editor.html" >Editor</a></li>
         <li><a href="../web/Grid.html" >Grid</a></li>
@@ -75,7 +76,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The Editor widget allows users to create and edit HTML in an user friendly interface.</p></div>
-    <a href='http://demos.kendoui.com/web/editor/index.html' target='_blank'>
+    <a target='_blank' href='http://demos.kendoui.com/web/editor/index.html'>
         <i class='icon-book'> </i>
         Official Kendo UI Editor documentation
     </a>
@@ -115,8 +116,8 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='one' class='span3 example'>
-                        <textarea rows='10' cols='20' data-bind='kendoEditor: content'> </textarea>
+                    <div class='span3 example' id='one'>
+                        <textarea data-bind='kendoEditor: content' cols='20' rows='10'> </textarea>
 <hr />
 <div data-bind='text: content'> </div>
 
@@ -148,8 +149,8 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='two' class='span3 example'>
-                        <textarea rows='10' cols='20' data-bind='kendoEditor: { value: content, tools: [&apos;bold&apos;, &apos;italic&apos;] }'> </textarea>
+                    <div class='span3 example' id='two'>
+                        <textarea data-bind='kendoEditor: { value: content, tools: [&apos;bold&apos;, &apos;italic&apos;] }' cols='20' rows='10'> </textarea>
 <hr />
 <div data-bind='text: content'> </div>
 
@@ -183,8 +184,8 @@ ko.bindingHandlers.kendoEditor.options.tools = ['bold', 'italic'];
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='three' class='span3 example'>
-                        <textarea rows='10' cols='20' data-bind='kendoEditor: content'> </textarea>
+                    <div class='span3 example' id='three'>
+                        <textarea data-bind='kendoEditor: content' cols='20' rows='10'> </textarea>
 <hr />
 <div data-bind='text: content'> </div>
 

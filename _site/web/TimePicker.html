@@ -47,6 +47,7 @@
         <li><a href="../web/Calendar.html" >Calendar</a></li>
         <li><a href="../web/ComboBox.html" >ComboBox</a></li>
         <li><a href="../web/DatePicker.html" >DatePicker</a></li>
+        <li><a href="../web/DateTimePicker.html" >DateTimePicker</a></li>
         <li><a href="../web/DropDownList.html" >DropDownList</a></li>
         <li><a href="../web/Editor.html" >Editor</a></li>
         <li><a href="../web/Grid.html" >Grid</a></li>
@@ -75,7 +76,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The TimePicker widget allows a user to enter a date directly or open a visual calendar to make a selection.</p></div>
-    <a href='http://demos.kendoui.com/web/datepicker/index.html' target='_blank'>
+    <a target='_blank' href='http://demos.kendoui.com/web/datepicker/index.html'>
         <i class='icon-book'> </i>
         Official Kendo UI TimePicker documentation
     </a>
@@ -115,7 +116,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='one' class='span3 example'>
+                    <div class='span3 example' id='one'>
                         <input data-bind='kendoTimePicker: startTime' />
 <hr />
 <div data-bind='text: startTime'> </div>
@@ -159,9 +160,9 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='two' class='span3 example'>
-                        <input type='checkbox' data-bind='checked: isOpen' /> Open<br />
-<input type='checkbox' data-bind='checked: enabled' /> Enabled<br />
+                    <div class='span3 example' id='two'>
+                        <input data-bind='checked: isOpen' type='checkbox' /> Open<br />
+<input data-bind='checked: enabled' type='checkbox' /> Enabled<br />
 <button data-bind='click: setToNow'>Set to now</button>
 <hr />
 <input data-bind='kendoTimePicker: { value: startTime, min: minTime, max: maxTime, enabled: enabled, isOpen: isOpen }' />
@@ -208,7 +209,7 @@ ko.bindingHandlers.kendoTimePicker.options = {
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='three' class='span3 example'>
+                    <div class='span3 example' id='three'>
                         <input data-bind='kendoTimePicker: startTime' />
 <hr />
 <div data-bind='text: startTime'> </div>

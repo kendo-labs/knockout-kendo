@@ -1,4 +1,4 @@
-//knockout-kendo v0.4 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
+//knockout-kendo v0.4.1 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
 (function(factory) {
     // CommonJS
     if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
@@ -205,7 +205,6 @@ var CLOSE = "close",
     COLLAPSE = "collapse",
     CONTENT = "content",
     DATA = "data",
-    DISABLE = "disable",
     ENABLE = "enable",
     EXPAND = "expand",
     ENABLED = "enabled",
@@ -448,7 +447,7 @@ createBinding({
     },
     watch: {
         values: VALUES,
-        enabled: [ENABLE, DISABLE]
+        enabled: ENABLE
     }
 });
 createBinding({
@@ -459,7 +458,7 @@ createBinding({
     },
     watch: {
         value: VALUE,
-        enabled: [ENABLE, DISABLE]
+        enabled: ENABLE
     }
 });
 createBinding({
@@ -562,7 +561,7 @@ createBinding({
 createBinding({
     name: "kendoUpload",
     watch: {
-        enabled: [ENABLE, DISABLE]
+        enabled: ENABLE
     }
 });
 createBinding({

@@ -16,6 +16,7 @@
 //import("knockout-kendoCalendar.js");
 //import("knockout-kendoComboBox.js");
 //import("knockout-kendoDatePicker.js");
+//import("knockout-kendoDateTimePicker.js");
 //import("knockout-kendoDropDownList.js");
 //import("knockout-kendoEditor.js");
 //import("knockout-kendoGrid.js");

@@ -8,7 +8,7 @@
 	"gzip": false,
 	"wrap": {},
 	"finalize": {
-		"header": "//knockout-kendo v0.3.5 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license\n"
+		"header": "//knockout-kendo v0.4 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license\n"
 	},
 	"hosts": {
 		"/examples": "./examples",

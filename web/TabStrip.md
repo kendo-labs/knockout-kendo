@@ -25,13 +25,13 @@ examples:
     - title: Passing additional options
       description: This example demonstrates passing additional options in the data-bind attribute. The **kendoTab** binding can be applied to child elements to control the behavior of individual menu items.
       view: |
-        <input type="checkbox" data-bind="checked: isTwoOpen" /> Open 2<br/>
+        <input type="checkbox" data-bind="checked: oneEnabled" /> Enabled 1<br/>
         <input type="checkbox" data-bind="checked: twoEnabled" /> Enabled 2
         <hr/>
         <div data-bind="kendoTabStrip: {}">
             <ul>
-                <li class="k-state-active">tab one</li>
-                <li data-bind="kendoTab: { enabled: twoEnabled, selected: isTwoOpen }">tab two</li>
+                <li data-bind="kendoTab: { enabled: oneEnabled }" class="k-state-active">tab one</li>
+                <li data-bind="kendoTab: { enabled: twoEnabled }">tab two</li>
                 <li>tab three</li>
             </ul>
             <div>tab one content</div>
@@ -40,7 +40,7 @@ examples:
         </div>
       js: |
         var ViewModel = function() {
-            this.isTwoOpen = ko.observable(false);
+            this.oneEnabled = ko.observable(false);
             this.twoEnabled = ko.observable(true);
         };
       id: two

@@ -115,7 +115,7 @@ ko.kendo.BindingFactory = function() {
                     action = widget[action];
                 }
 
-                if (action) {
+                if (action && options[prop] !== undefined) {
                     existing = action.apply(widget, params);
                     //try to avoid unnecessary updates when the new value matches the current value
                     if (existing !== value) {

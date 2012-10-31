@@ -49,8 +49,8 @@ examples:
       view: |
         <div data-bind="kendoTabStrip: {}">
             <ul>
-                <li class="k-state-active">tab one</li>
-                <li>tab two</li>
+                <li>tab one</li>
+                <li class="k-state-active">tab two</li>
                 <li>tab three</li>
             </ul>
             <div>tab one content</div>

@@ -1,4 +1,4 @@
-//knockout-kendo v0.4.1 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
+//knockout-kendo v0.4.2 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
 (function(factory) {
     // CommonJS
     if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
@@ -128,7 +128,7 @@ ko.kendo.BindingFactory = function() {
                     action = widget[action];
                 }
 
-                if (action) {
+                if (action && options[prop] !== undefined) {
                     existing = action.apply(widget, params);
                     //try to avoid unnecessary updates when the new value matches the current value
                     if (existing !== value) {
@@ -498,18 +498,9 @@ createBinding({
     name: "kendoTab",
     parent: "kendoTabStrip",
     watch: {
-        selected: function(element, value) {
-            this.select(value ? element : null);
-        },
         enabled: ENABLE
     },
     childProp: "item",
-    events: {
-        selected: {
-            writeTo: SELECTED,
-            value: true
-        }
-    },
     async: true
 });
 createBinding({

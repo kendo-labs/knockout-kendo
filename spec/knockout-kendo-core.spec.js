@@ -293,10 +293,10 @@ describe("knockout-kendo-core", function(){
             });
 
             describe("when key corresponds to a non-observable", function() {
-                it("should not call the widget's function", function() {
+                it("should call the widget's function initially", function() {
                     spyOn(widget, "methodFive");
                     setup();
-                    expect(widget.methodFive).not.toHaveBeenCalled();
+                    expect(widget.methodFive).toHaveBeenCalled();
                 });
             });
 
@@ -373,10 +373,10 @@ describe("knockout-kendo-core", function(){
             });
 
             describe("when key corresponds to a non-observable", function() {
-                it("should not call the widget's function", function() {
+                it("should call the widget's function initially", function() {
                     spyOn(widget, "methodFive");
                     setup();
-                    expect(widget.methodFive).not.toHaveBeenCalled();
+                    expect(widget.methodFive).toHaveBeenCalled();
                 });
             });
 

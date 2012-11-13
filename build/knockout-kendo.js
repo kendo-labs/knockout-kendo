@@ -1,4 +1,4 @@
-//knockout-kendo v0.4.2 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
+//knockout-kendo v0.4.3 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
 (function(factory) {
     // CommonJS
     if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
@@ -184,7 +184,10 @@ ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 
 //utility to set the dataSource with a clean copy of data. Could be overriden at run-time.
 ko.kendo.setDataSource = function(widget, data) {
-    widget.dataSource.data(ko.mapping ? ko.mapping.toJS(data || {}) : ko.toJS(data));
+    var isMapped = ko.mapping && data && data.__ko_mapping__,
+        cleanData = data && isMapped ? mapping.toJS(data) : ko.toJS(data);
+
+    widget.dataSource.data(cleanData);
 };
 
 //private utility function generator for gauges

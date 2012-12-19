@@ -36,7 +36,7 @@ var generateBasicTests = function(widgetConfig) {
 
         it("should add an init function", function() {
             expect(typeof ko.bindingHandlers[widgetConfig.name].init).toEqual("function");
-            expect(ko.bindingHandlers[widgetConfig.name].init.length).toEqual(2);
+            expect(ko.bindingHandlers[widgetConfig.name].init.length).toEqual(5);
         });
     });
 };
@@ -127,7 +127,6 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
                         vm = data;
                         el = element;
                         ko.applyBindings(vm, testbed[0]);
-                        widget = el.data(widgetConfig.name);
                     };
 
         beforeEach(function() {
@@ -138,6 +137,7 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
                     config = widgetConfig.events[prop];
                     config = typeof config === "string" ? { writeTo: config, value: config } : config;
                     vm[config.writeTo + "_spy"] = jasmine.createSpy();
+                    //create a computed (that calls the spy) to bind against the "writeTo" option
                     (function(writeTo) {
                         vm[writeTo + '_test'] = ko.computed({
                             read: function() {
@@ -156,6 +156,7 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
                 }
             }
 
+            //build options to use in the data-bind string
             for (var option in testOptions.defaults || {}) {
                 if (testOptions.defaults.hasOwnProperty(option)) {
                     if (options.indexOf(option + ": ") < 0) {
@@ -176,17 +177,21 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
                     config = typeof config === "string" ? { writeTo: config, value: config } : config;
                     describe("when " + event + " event is triggered", function() {
                         it("should update " + config.writeTo + " with correct value", function() {
-                            vm[config.writeTo + "_spy"].reset();
-                            if (widget[event]) {
-                                widget[event]();
-                            } else {
+                            //wait for widgets that are initialized asynchronously
+                            waits(0);
+                            runs(function() {
+                                widget = $(el).data(widgetConfig.name);
+
+                                vm[config.writeTo + "_spy"].reset();
+
+                                //trigger the event
                                 widget.trigger(event);
-                            }
 
-                            var propOrValue = config.value;
-                            value = (typeof propOrValue === "string" && widget[propOrValue]) ? widget[propOrValue]() : propOrValue;
+                                var propOrValue = config.value;
+                                value = (typeof propOrValue === "string" && widget[propOrValue]) ? widget[propOrValue]() : propOrValue;
 
-                            expect(vm[config.writeTo + "_spy"]).toHaveBeenCalledWith(value);
+                                expect(vm[config.writeTo + "_spy"]).toHaveBeenCalledWith(value);
+                            });
                         });
                     });
                 })(prop, widgetConfig.events[prop]);

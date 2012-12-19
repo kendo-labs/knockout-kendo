@@ -130,7 +130,6 @@ describe("knockout-kendo-core", function(){
                 describe("when value is a string", function() {
                     describe("when value corresponds to a method on the widget", function() {
                         it("should update the observable by reading the value from the method", function() {
-                            console.log("widget", widget);
                             widget.handlers.eventOne[0].call(widget);
                             expect(options.optionOne()).toEqual("methodOne value");
                         });
@@ -284,10 +283,10 @@ describe("knockout-kendo-core", function(){
                 });
 
                 describe("when value is a function", function() {
-                    it("should call the function with the observable's value", function() {
+                    it("should call the function with the observable's value and the options", function() {
                         spyOn(widgetConfig.watch, "optionThree");
                         setup();
-                        expect(widgetConfig.watch.optionThree).toHaveBeenCalledWith("valueThree");
+                        expect(widgetConfig.watch.optionThree).toHaveBeenCalledWith("valueThree", options);
                     });
                 });
             });
@@ -364,10 +363,10 @@ describe("knockout-kendo-core", function(){
                 });
 
                 describe("when value is a function", function() {
-                    it("should call the function with the observable's value", function() {
+                    it("should call the function with the element, the observable's value and the options", function() {
                         spyOn(widgetConfig.watch, "optionThree");
                         setup();
-                        expect(widgetConfig.watch.optionThree).toHaveBeenCalledWith($element[0], "valueThree");
+                        expect(widgetConfig.watch.optionThree).toHaveBeenCalledWith($element[0], "valueThree", options);
                     });
                 });
             });

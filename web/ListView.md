@@ -45,7 +45,7 @@ examples:
     - title: Using Knockout templates
       description: This example demonstrates using a Knockout template for the list view row.
       view: |
-        <div data-bind="kendoListView: { data: items, value: selected, template: 'listTmpl', useKOTemplates: true }"> </div>
+        <div data-bind="kendoListView: { data: items, template: 'listTmpl', useKOTemplates: true }"> </div>
         <div data-bind="text: selected"> </div>
         <button data-bind="click: addItem">Add Item</button>
 

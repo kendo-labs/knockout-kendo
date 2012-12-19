@@ -56,7 +56,7 @@ examples:
         </script>
         <script id="altTmpl" type="text/html">
             <tr>
-                <td data-bind="text: id"></td>
+                <td>Alt Row</td>
                 <td data-bind="text: name"></td>
                 <td>
                     <a href="#" data-bind="click: $root.removeItem">x</a>

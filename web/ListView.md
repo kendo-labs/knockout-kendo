@@ -23,8 +23,7 @@ examples:
     - title: Passing additional options
       description: This example demonstrates passing additional options in the data-bind attribute. The *Add Item* button updates the underlying data and shows that the ListView remains in sync.
       view: |
-        <div data-bind="kendoListView: { data: items, navigatable: true, selectable: true, value: selected, template: template }"> </div>
-        <div data-bind="text: selected"> </div>
+        <div data-bind="kendoListView: { data: items, navigatable: true, selectable: true, template: template }"> </div>
         <button data-bind="click: addItem">Add Item</button>
       js: |
         var ViewModel = function() {
@@ -34,7 +33,6 @@ examples:
                 { id: "3", name: "banana"}
             ]);
             this.template = kendo.template('<div>#= name #</div>');
-            this.selected = ko.observable();
             
             this.addItem = function() {
                 var num = this.items().length + 1;
@@ -46,7 +44,7 @@ examples:
       description: This example demonstrates using a Knockout template for the list view row.
       view: |
         <div data-bind="kendoListView: { data: items, template: 'listTmpl', useKOTemplates: true }"> </div>
-        <div data-bind="text: selected"> </div>
+
         <button data-bind="click: addItem">Add Item</button>
 
         <script id="listTmpl" type="text/html">
@@ -66,7 +64,7 @@ examples:
 
             this.addItem = function() {
                 var num = this.items().length + 1;
-                this.items.push({ id: num, name: "new" + num});
+                this.items.push({ id: num, name: ko.observable("new" + num)});
             };
 
             this.removeItem = function(item) {
@@ -78,8 +76,7 @@ examples:
     - title: Using global options
       description: This example demonstrates setting global options in *ko.bindingHandlers.kendoListView.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
-        <div data-bind="kendoListView: { data: items, value: selected, template: template }"> </div>
-        <div data-bind="text: selected"> </div>
+        <div data-bind="kendoListView: { data: items, template: template }"> </div>
         <button data-bind="click: addItem">Add Item</button>
       js: |
         var ViewModel = function() {
@@ -90,7 +87,6 @@ examples:
             ]);
             
             this.template = kendo.template('<div>#= name #</div>');
-            this.selected = ko.observable();
             
             this.addItem = function() {
                 var num = this.items().length + 1;

@@ -42,12 +42,41 @@ examples:
             };
         };
       id: two
+    - title: Using Knockout templates
+      description: This example demonstrates using a Knockout template for the list view row.
+      view: |
+        <div data-bind="kendoListView: { data: items, value: selected, template: 'listTmpl', useKOTemplates: true }"> </div>
+        <div data-bind="text: selected"> </div>
+        <button data-bind="click: addItem">Add Item</button>
+
+        <script id="listTmpl" type="text/html">
+            <div>
+                <span data-bind="text: id"></span>
+                <input data-bind="value: name" />
+                <a href="#" data-bind="click: $root.removeItem"> x </a>
+            </div>
+        </script>
+      js: |
+        var ViewModel = function() {
+            this.items = ko.observableArray([
+                { id: "1", name: ko.observable("apple")},
+                { id: "2", name: ko.observable("orange")},
+                { id: "3", name: ko.observable("banana")}
+            ]);
+
+            this.addItem = function() {
+                var num = this.items().length + 1;
+                this.items.push({ id: num, name: "new" + num});
+            };
+
+            this.removeItem = function(item) {
+                this.items.remove(item);
+            }.bind(this);
+        };
+
+      id: three
     - title: Using global options
       description: This example demonstrates setting global options in *ko.bindingHandlers.kendoListView.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
-      view: |
-        <div data-bind="kendoGrid: items"> </div>
-        <button data-bind="click: addItem">Add Item</button>
-      js: |
       view: |
         <div data-bind="kendoListView: { data: items, value: selected, template: template }"> </div>
         <div data-bind="text: selected"> </div>
@@ -74,15 +103,13 @@ examples:
             selectable: true
         };
         
-      id: three
+      id: four
       
 liveOptions:
     - name: data
       description: An array or observableArray of data to be rendered in the list
     - name: widget
       description: If specified, will populate an observable with a reference to the actual widget
-      
-futurePlans: Exploring tighter integration with templates and dataSource to allow Knockout data binding to work inside items along with support for selecting items.
 ---
 
 {% include widget.html %}

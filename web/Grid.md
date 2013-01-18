@@ -22,7 +22,7 @@ examples:
     - title: Passing additional options
       description: This example demonstrates passing additional options in the data-bind attribute with *data* now being explicitly specified. The *Add Item* button updates the underlying data and shows that the Grid remains in sync.
       view: |
-        <div data-bind="kendoGrid: { data: items, groupable: true, scrollable: true, sortable: true, pageable: true }"> </div>
+        <div data-bind="kendoGrid: { data: items, groupable: true, scrollable: true, sortable: true, pageable: { pageSize: 10 } }"> </div>
         <button data-bind="click: addItem">Add Item</button>
       js: |
         var ViewModel = function() {

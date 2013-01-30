@@ -65,8 +65,6 @@ examples:
 liveOptions:
     - name: enabled
       description: Determines if users can interact with the tab
-    - name: selected
-      description: Controls whether a tab is currently selected
 
 futurePlans: Better support for selecting/deselecting tabs and data source integration.
 ---

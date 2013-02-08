@@ -1,1 +1,1 @@
-//knockout-kendo v0.5.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
+//knockout-kendo v0.5.1 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license

@@ -1,4 +1,4 @@
-//knockout-kendo v0.5.0 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
+//knockout-kendo v0.5.1 | (c) 2012 Ryan Niemeyer | http://www.opensource.org/licenses/mit-license
 (function(factory) {
     // CommonJS
     if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
@@ -362,7 +362,7 @@ createBinding({
         max: MAX,
         min: MIN,
         value: VALUE,
-        isOpen: [OPEN, VALUE]
+        isOpen: [OPEN, CLOSE]
     }
 });
 createBinding({
@@ -385,7 +385,7 @@ createBinding({
         max: MAX,
         min: MIN,
         value: VALUE,
-        isOpen: [OPEN, VALUE]
+        isOpen: [OPEN, CLOSE]
     }
 });
 createBinding({

@@ -18,6 +18,6 @@ createBinding({
         max: MAX,
         min: MIN,
         value: VALUE,
-        isOpen: [OPEN, VALUE]
+        isOpen: [OPEN, CLOSE]
     }
 });

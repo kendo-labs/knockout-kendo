@@ -2,32 +2,39 @@
 
 ## About knockout-kendo
 
-**knockout-kendo** is a project to create a robust set of [Knockout.js](http://knockoutjs.com/) bindings for the [Kendo UI](http://kendoui.com/) widgets. See http://rniemeyer.github.com/knockout-kendo/ for documentation and details.
+**knockout-kendo** is a project to create a robust set of [Knockout.js](http://knockoutjs.com/) bindings for the [Kendo UI](http://kendoui.com/) widgets.
 
 ## Compatibility and Requirements
 
 knockout-kendo was designed to work with Kendo UI and Knockout.js. The project depends on the following libraries:
 
-- [jQuery](http://www.jquery.com) v[VERSION HERE]
-- [Kendo UI](http://www.kendoui.com) v[VERSION HERE]
-- [OTHER PROJECT DEPENDENCIES]
+- [jQuery](http://www.jquery.com) v1.8.2
+- [Kendo UI](http://www.kendoui.com)  v2012.3.1114
+- [Knockout](http://www.knockoutjs.com) v2.2
 
-[Project Name] has not been tested against any other versions of these libraries. You may find that versions other than these are compatible with [Project Name], but we make no claims to support those version, nor can we troubleshoot issues that arise when using those versions.
+knockout-kendo has not been tested against any other versions of these libraries. You may find that versions other than these are compatible with [Project Name], but we make no claims to support those version, nor can we troubleshoot issues that arise when using those versions.
 
 ### Build Note
 This project uses anvil.js (see http://github.com/arobson/anvil.js) for building/minifying.
 
 ## Source Code and Downloads
 
-Use this section to link to the source, the latest version of the project or versions of the library in various package management systems.
+Download the plugin from here or grab the latest build from the source. Reference knockout-kendo.min.js after the scripts for Knockout and Kendo UI (requires jQuery).
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/kendo.web.min.js"></script>
+	<script src="js/knockout-2.2.0.js"></script>
+	<script src="js/knockout-kendo.min.js"></script>
+
+Note: It is fine to reference Kendo UI scripts for individual widgets rather than all widgets (kendo.web.min.js), as this plugin will only create bindings for available widgets.
 
 ## Documentation
 
-Link to docs for the project, articles or wikis. You did write docs, right? :)
+See http://rniemeyer.github.com/knockout-kendo/ for documentation and details.
 
 ## How to Contribute
 
-If you would like to contribute to [Project Name]'s' source code, please read the [guidelines for pull requests and contributions](LINK TO YOUR PROJECTS CONTRIBUTING.md HERE). Following these guidelines will help make your contributions easier to bring in to the next release.
+If you would like to contribute to [Project Name]'s' source code, please read the [guidelines for pull requests and contributions](CONTRIBUTING.md). Following these guidelines will help make your contributions easier to bring in to the next release.
 
 ## Getting Help
 
@@ -37,7 +44,7 @@ As a part of Kendo UI Labs, [Project Name] is intended to be a community-run pro
 
 ## Release Notes
 
-For change logs and release notes, see the [changelog](LINK TO THE CHANGELONG.MD IN YOUR PROJECT) file.
+For change logs and release notes, see the [changelog](CHANGELONG.MD) file.
 
 ## License Information
 

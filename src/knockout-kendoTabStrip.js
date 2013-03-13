@@ -7,10 +7,8 @@ createBinding({
     name: "kendoTab",
     parent: "kendoTabStrip",
     watch: {
-        selected: function(element, value) {
-            this.select(value ? element : null);
-        },
         enabled: ENABLE
     },
+    childProp: "item",
     async: true
 });

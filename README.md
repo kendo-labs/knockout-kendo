@@ -1,7 +1,5 @@
 # knockout-kendo
 
-## About knockout-kendo
-
 **knockout-kendo** is a project to create a robust set of [Knockout.js](http://knockoutjs.com/) bindings for the [Kendo UI](http://kendoui.com/) widgets.
 
 ## Compatibility and Requirements

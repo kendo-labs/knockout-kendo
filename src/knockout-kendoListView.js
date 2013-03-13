@@ -2,8 +2,9 @@ createBinding({
     name: "kendoListView",
     defaultOption: DATA,
     watch: {
-        data: function(value) {
-            this.dataSource.data(value);
+        data: function(value, options) {
+            ko.kendo.setDataSource(this, value, options);
         }
-    }
+    },
+    templates: ["template"]
 });

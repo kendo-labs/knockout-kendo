@@ -6,10 +6,20 @@ createBinding({
 createBinding({
     name: "kendoPanelItem",
     parent: "kendoPanelBar",
-    updateableOptions: [ENABLE],
     watch: {
         enabled: ENABLE,
         expanded: [EXPAND, COLLAPSE]
+    },
+    childProp: "item",
+    events: {
+        expand: {
+            writeTo: EXPANDED,
+            value: true
+        },
+        collapse: {
+            writeTo: EXPANDED,
+            value: false
+        }
     },
     async: true
 });

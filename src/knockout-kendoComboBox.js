@@ -15,7 +15,7 @@ createBinding({
         enabled: ENABLE,
         isOpen: [OPEN, CLOSE],
         data: function(value) {
-            this.dataSource.data(value);
+            ko.kendo.setDataSource(this, value);
         },
         value: VALUE
     }

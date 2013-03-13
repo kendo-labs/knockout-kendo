@@ -6,6 +6,6 @@ createBinding({
     },
     watch: {
         value: VALUE,
-        enabled: [ENABLE, DISABLE]
+        enabled: ENABLE
     }
 });

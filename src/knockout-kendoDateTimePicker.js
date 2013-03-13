@@ -1,8 +1,10 @@
 createBinding({
-    name: "kendoAutoComplete",
+    name: "kendoDateTimePicker",
+    defaultOption: VALUE,
     events: {
         change: VALUE,
-        open: {
+        open:
+        {
             writeTo: ISOPEN,
             value: true
         },
@@ -13,10 +15,9 @@ createBinding({
     },
     watch: {
         enabled: ENABLE,
-        search: [SEARCH, CLOSE],
-        data: function(value) {
-            ko.kendo.setDataSource(this, value);
-        },
-        value: VALUE
+        max: MAX,
+        min: MIN,
+        value: VALUE,
+        isOpen: [OPEN, VALUE]
     }
 });

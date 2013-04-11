@@ -2,7 +2,7 @@
 layout: default
 prefix: ../
 name: Window
-description: The AutoComplete widget offers suggestions as a user types that can come from a local or remote data.
+description: The Window widget displays content in a modal or non-modal HTML window. 
 docs: http://demos.kendoui.com/web/window/index.html
 examples:
     - title: Basic Example

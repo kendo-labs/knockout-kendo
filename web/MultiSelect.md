@@ -6,9 +6,9 @@ description: The MultiSelect displays a list of values and allows the selection 
 docs: http://docs.kendoui.com/getting-started/web/multiselect/overview
 examples:
     - title: Basic Example
-      description: This example demonstrates passing the basic options required by the AutoComplete plugin.
+      description: This example demonstrates passing the basic options required by the MultiSelect plugin.
       view: |
-        <input data-bind="kendoAutoComplete: { data: choices, value: selectedChoice }" />
+        <input data-bind="kendoMultiSelect: { data: choices, value: selectedChoice }" />
         <hr/>
         Selected: <strong data-bind="text: selectedChoice"> </strong>
       js: |

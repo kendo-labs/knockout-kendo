@@ -26,7 +26,7 @@ examples:
         <hr/>
         <button class="btn" data-bind="click: addChoice">Add Choice</button>
         <hr/>
-        <input data-bind="kendoAutoComplete: { dataTextField: 'name', data: choices,
+        <input data-bind="kendoMultiSelect: { dataTextField: 'name', data: choices,
                        value: selectedChoice, search: search, enabled: isEnabled }" />
         <hr/>
         Selected: <strong data-bind="text: selectedChoice"> </strong>

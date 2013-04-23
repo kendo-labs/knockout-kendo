@@ -1,5 +1,5 @@
 /*
- * knockout-kendo v0.5.1 
+ * knockout-kendo v0.6
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -469,6 +469,28 @@ createBinding({
         isOpen: [OPEN, CLOSE]
     },
     async: true
+});
+createBinding({
+    name: "kendoMultiSelect",
+    events: {
+        change: VALUE,
+        open: {
+            writeTo: ISOPEN,
+            value: true
+        },
+        close: {
+            writeTo: ISOPEN,
+            value: false
+        }
+    },
+    watch: {
+        enabled: ENABLE,
+        search: [SEARCH, CLOSE],
+        data: function(value) {
+            ko.kendo.setDataSource(this, value);
+        },
+        value: VALUE
+    }
 });
 createBinding({
     name: "kendoNumericTextBox",

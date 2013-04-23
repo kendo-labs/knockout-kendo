@@ -23,6 +23,7 @@
 //import("knockout-kendoGrid.js");
 //import("knockout-kendoListView.js");
 //import("knockout-kendoMenu.js");
+//import("knockout-kendoMultiSelect.js");
 //import("knockout-kendoNumericTextBox.js");
 //import("knockout-kendoPanelBar.js");
 //import("knockout-kendoRangeSlider.js");

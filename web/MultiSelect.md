@@ -49,9 +49,9 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example demonstrates the ability to configure options globally by setting properties in *ko.bindingHandlers.kendoAutoComplete.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
+      description: This example demonstrates the ability to configure options globally by setting properties in *ko.bindingHandlers.kendoMultiSelect.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
-        <input data-bind="kendoAutoComplete: { data: choices, value: selectedChoice }" />
+        <input data-bind="kendoMultiSelect: { data: choices, value: selectedChoice }" />
         <hr/>
         Selected: <strong data-bind="text: selectedChoice"> </strong>
       js: |
@@ -61,7 +61,7 @@ examples:
          };
          
          //search text by what it contains rather than what is starts with
-         ko.bindingHandlers.kendoAutoComplete.options.filter = "contains";
+         ko.bindingHandlers.kendoMultiSelect.options.filter = "contains";
       id: three
       
 liveOptions:

@@ -18,15 +18,15 @@ examples:
       selected: true
       id: one
     - title: Passing additional options
-      description: This example demonstrates passing the filter option.
+      description: This example demonstrates using the filter configuration option. 
       view: |
-          <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
-          <div data-bind="kendoWindow: { isOpen: isOpen, visible: false, actions: ['Close', 'Minimize', 'Maximize', 'Refresh'], modal: true }">
-                Window Content
+          <div data-bind="kendoTooltip: { filter: tipFilter }">
+            Some <a href="#" title="Some text">Content</a><br />
+            Some <a href="#" title="Some other text">More</a> Content <br />
           </div>
       js: |
          var ViewModel = function() {
-            this.isOpen = ko.observable(false);
+            this.tipFilter = "a[title]";
          };
       id: two
     - title: Using global options

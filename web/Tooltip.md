@@ -34,7 +34,7 @@ examples:
             this.tipFilter = "a[title]";
           };
       id: three
-      - title: Using global options
+    - title: Using global options
       description: This example demonstrates setting global options in *ko.bindingHandlers.kendoTooltip.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
           <div data-bind="kendoTooltip: { content: tipText }"></div>

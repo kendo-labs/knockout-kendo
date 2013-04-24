@@ -12,7 +12,7 @@ examples:
       js: |
          var ViewModel = function() {
             this.tipText = "I am a tooltip!";
-          };
+         };
       selected: true
       id: one
     - title: Passing additional options

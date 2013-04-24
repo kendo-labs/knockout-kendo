@@ -30,6 +30,7 @@
 //import("knockout-kendoSlider.js");
 //import("knockout-kendoSplitter.js");
 //import("knockout-kendoTabStrip.js");
+//import("knockout-kendoTooltip.js");
 //import("knockout-kendoTimePicker.js");
 //import("knockout-kendoTreeView.js");
 //import("knockout-kendoUpload.js");

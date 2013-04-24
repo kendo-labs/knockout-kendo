@@ -288,6 +288,7 @@ var CLOSE = "close",
     EXPAND = "expand",
     ENABLED = "enabled",
     EXPANDED = "expanded",
+    HIDE = "hide",
     ISOPEN = "isOpen",
     MAX = "max",
     MIN = "min",
@@ -296,7 +297,9 @@ var CLOSE = "close",
     SEARCH = "search",
     SELECT = "select",
     SELECTED = "selected",
+    SHOW = "show",
     SIZE = "size",
+    TARGET = "target",
     TITLE = "title",
     VALUE = "value",
     VALUES = "values";
@@ -605,6 +608,24 @@ createBinding({
     },
     childProp: "item",
     async: true
+});
+createBinding({
+    name: "kendoTooltip",
+    events: {
+        show: {
+            writeTo: ISOPEN,
+            value: true
+        },
+        hide: {
+            writeTo: ISOPEN,
+            value: false
+        }
+    },
+    watch: {
+        show: SHOW,
+        hide: HIDE,
+        target: TARGET
+    }
 });
 createBinding({
     name: "kendoTimePicker",

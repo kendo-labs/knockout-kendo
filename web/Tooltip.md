@@ -17,12 +17,18 @@ examples:
       id: one
     - title: Using the Title Attribute
       description: This example demonstrates using the title attribute of a element for Tooltip content.
+      view: |
+      js: |
       id: two
     - title: Specifying Filters
       description: This example demonstrates using the filter configuration option. 
+      view: |
+      js: |
       id: three
     - title: Using global options
       description: This example demonstrates setting global options in *ko.bindingHandlers.kendoTooltip.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
+      view: |
+      js: |
       id: four
       
 liveOptions:

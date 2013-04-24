@@ -40,7 +40,7 @@ examples:
             this.tipText = "I am a tooltip!";
          };
          
-         ko.bindingHandlers.kendoWindow.options = {
+         ko.bindingHandlers.kendoTooltip.options = {
             autoHide: false,
             callout: true,
             height: 50,

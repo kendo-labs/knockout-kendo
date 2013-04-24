@@ -53,7 +53,7 @@ liveOptions:
     - name: isOpen
       description: Controls whether the window is visible
     - name: title
-      description: Determinies the title of the window
+      description: Determines the title of the window
     - name: content
       description: A URL to load content into the window
       

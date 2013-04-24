@@ -15,14 +15,14 @@ examples:
           };
       selected: true
       id: one
-    - title: Using the Title Attribute
-      description: This example demonstrates using the title attribute of a element for Tooltip content
+  - title: Using the Title Attribute
+      description: This example demonstrates using the title attribute of a element for Tooltip content.
       view: |
           <div data-bind="kendoTooltip: {}" title="I am a tooltip!"></div>
       js: |
           var ViewModel = function() {};
       id: two
-    - title: Specifying Filters
+  - title: Specifying Filters
       description: This example demonstrates using the filter configuration option 
       view: |
           <div data-bind="kendoTooltip: { filter: tipFilter }">
@@ -34,7 +34,7 @@ examples:
             this.tipFilter = "a[title]";
           };
       id: three
-    - title: Using global options
+  - title: Using global options
       description: This example demonstrates setting global options in *ko.bindingHandlers.kendoTooltip.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
           <div data-bind="kendoTooltip: { content: tipText }"></div>

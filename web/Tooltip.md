@@ -23,7 +23,7 @@ examples:
           var ViewModel = function() {};
       id: two
     - title: Specifying Filters
-      description: This example demonstrates using the filter configuration option 
+      description: This example demonstrates using the filter configuration option. 
       view: |
           <div data-bind="kendoTooltip: { filter: tipFilter }">
             Some <a href="#" title="Some text">Content</a><br />

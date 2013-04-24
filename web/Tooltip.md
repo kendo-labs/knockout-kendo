@@ -50,12 +50,10 @@ examples:
       id: three
            
 liveOptions:
-    - name: isOpen
-      description: Controls whether the window is visible
-    - name: title
-      description: Determines the title of the window
     - name: content
-      description: A URL to load content into the window
+      description: The content of the tooltip
+    - name: filter
+      description: a filter selector that specifies the source of the tooltip texts
       
 futurePlans:
 ---

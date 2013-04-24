@@ -32,19 +32,20 @@ examples:
     - title: Using global options
       description: This example demonstrates setting global options in *ko.bindingHandlers.kendoWindow.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
-          <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
-          <div data-bind="kendoWindow: { isOpen: isOpen }">
-              Window Content
+          <div data-bind="kendoTooltip: { content: tipText }">
+              Tooltip Content
           </div>
       js: |
          var ViewModel = function() {
-            this.isOpen = ko.observable(false);
+            this.tipText = "I am a tooltip!";
          };
          
          ko.bindingHandlers.kendoWindow.options = {
-            actions: ['Close', 'Minimize', 'Maximize', 'Refresh'],
-            modal: true,
-            visible: false
+            autoHide: false,
+            callout: true,
+            height: 50,
+            width: 250,
+            position: "left"
          };
       id: three
            

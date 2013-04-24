@@ -8,13 +8,12 @@ examples:
     - title: Basic Example
       description: This example demonstrates passing basic options to the Tooltip plugin.
       view: |
-          <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
-          <div data-bind="kendoTooltip: { isOpen: isOpen, visible: false }">
-              Window Content
+          <div data-bind="kendoTooltip: { content: tipText }">
+              Tooltip Content
           </div>
       js: |
          var ViewModel = function() {
-            this.isOpen = ko.observable(false);
+            this.tipText = "I am a tooltip!";
          };
       selected: true
       id: one

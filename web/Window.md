@@ -48,7 +48,7 @@ examples:
             visible: false
          };
       id: three
-      
+           
 liveOptions:
     - name: isOpen
       description: Controls whether the window is visible

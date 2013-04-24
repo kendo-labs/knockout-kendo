@@ -288,6 +288,7 @@ var CLOSE = "close",
     EXPAND = "expand",
     ENABLED = "enabled",
     EXPANDED = "expanded",
+    FILTER = "filter",
     HIDE = "hide",
     ISOPEN = "isOpen",
     MAX = "max",
@@ -611,20 +612,10 @@ createBinding({
 });
 createBinding({
     name: "kendoTooltip",
-    events: {
-        show: {
-            writeTo: ISOPEN,
-            value: true
-        },
-        hide: {
-            writeTo: ISOPEN,
-            value: false
-        }
-    },
+    events: {},
     watch: {
-        show: SHOW,
-        hide: HIDE,
-        target: TARGET
+        content: CONTENT,
+        filter: FILTER
     }
 });
 createBinding({

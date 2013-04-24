@@ -18,7 +18,7 @@ examples:
     - title: Using the Title Attribute
       description: This example demonstrates using the title attribute of a element for Tooltip content
       view: |
-          <div data-bind="kendoTooltip" title="I am a tooltip!"></div>
+          <div data-bind="kendoTooltip: {}" title="I am a tooltip!"></div>
       js: |
           var ViewModel = function() {};
       id: two

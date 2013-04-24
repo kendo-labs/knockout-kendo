@@ -21,6 +21,7 @@ examples:
         <div data-bind="kendoTooltip" title="I am a tooltip!"></div>
       js: |
         var ViewModel = function() {};
+      selected: false
       id: two
     - title: Specifying Filters
       description: This example demonstrates using the filter configuration option 
@@ -33,7 +34,7 @@ examples:
         var ViewModel = function() {
             this.tipFilter = "a[title]";
          };
-      id: three
+      selected: falseid: three
     - title: Using global options
       description: This example demonstrates setting global options in *ko.bindingHandlers.kendoTooltip.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
@@ -50,6 +51,7 @@ examples:
             width: 250,
             position: "left"
          };
+      selected: false
       id: four
       
 liveOptions:

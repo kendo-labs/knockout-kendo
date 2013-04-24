@@ -6,45 +6,51 @@ description: A Tooltip displays popup hint for a given html element. Its content
 docs: http://docs.kendoui.com/getting-started/web/tooltip/overview
 examples:
     - title: Basic Example
-      description: This example demonstrates passing basic options to the Window plugin.
+      description: This example demonstrates passing basic options to the Tooltip plugin.
       view: |
-          <div data-bind="kendoTooltip: { content: tipText }" title="I am a tooltip"></div>
+         <div data-bind="kendoTooltip: { content: tipText }"></div>
       js: |
          var ViewModel = function() {
             this.tipText = "I am a tooltip!";
          };
       selected: true
       id: one
-    - title: Passing additional options
-      description: This example demonstrates passing additional options in the data-bind attribute.
+    - title: Using the Title Attribute
+      description: This example demonstrates using the title attribute of a element for Tooltip content
       view: |
-          <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
-          <div data-bind="kendoWindow: { isOpen: isOpen, visible: false, actions: ['Close', 'Minimize', 'Maximize', 'Refresh'], modal: true }">
-                Window Content
-          </div>
+        <div data-bind="kendoTooltip" title="I am a tooltip!"></div>
       js: |
-         var ViewModel = function() {
-            this.isOpen = ko.observable(false);
-         };
+        var ViewModel = function() {};
       id: two
-    - title: Using global options
-      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoWindow.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
+    - title: Specifying Filters
+      description: This example demonstrates using the filter configuration option 
       view: |
-          <input type="checkbox" data-bind="checked: isOpen" /> Open<br/>
-          <div data-bind="kendoWindow: { isOpen: isOpen }">
-              Window Content
+          <div data-bind="kendoTooltip: { filter: tipFilter }">
+            Some <a href="#" title="Some text">Content</a><br />
+            Some <a href="#" title="Some other text">More</a> Content <br />
           </div>
       js: |
+        var ViewModel = function() {
+            this.tipFilter = "a[title]";
+         };
+      id: three
+    - title: Using global options
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoTooltip.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
+      view: |
+          <div data-bind="kendoTooltip: { content: tipText }"></div>
+      js: |
          var ViewModel = function() {
-            this.isOpen = ko.observable(false);
+            this.tipText = "I am a tooltip!";
          };
          
          ko.bindingHandlers.kendoWindow.options = {
-            actions: ['Close', 'Minimize', 'Maximize', 'Refresh'],
-            modal: true,
-            visible: false
+            autoHide: false,
+            callout: true,
+            height: 50,
+            width: 250,
+            position: "left"
          };
-      id: three
+      id: four
       
 liveOptions:
     - name: isOpen

@@ -294,6 +294,7 @@ var CLOSE = "close",
     MAX = "max",
     MIN = "min",
     OPEN = "open",
+    PALETTE = "palette",
     RESIZE = "resize",
     SEARCH = "search",
     SELECT = "select",
@@ -337,6 +338,26 @@ createBinding({
         max: MAX,
         min: MIN,
         value: VALUE
+    }
+});
+createBinding({
+    name: "kendoColorPicker",
+    events: {
+        change: VALUE,
+        open: {
+            writeTo: ISOPEN,
+            value: true
+        },
+        close: {
+            writeTo: ISOPEN,
+            value: false
+        }
+    },
+    watch: {
+        enabled: ENABLE,
+        value: VALUE,
+        color: VALUE,
+        palete: PALETTE
     }
 });
 createBinding({

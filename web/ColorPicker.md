@@ -49,7 +49,7 @@ examples:
     - title: Using global options
       description: This example demonstrates the ability to configure options globally by setting properties in *ko.bindingHandlers.kendoColorPicker.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
-        <input data-bind="kendoColorPicker: { palette: colorPicker, value: selectedChoice }" />
+        <input data-bind="kendoColorPicker: { palette: colorPalette, value: selectedChoice }" />
         <hr/>
         Selected: <strong data-bind="text: selectedChoice"> </strong>
       js: |

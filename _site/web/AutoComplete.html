@@ -53,6 +53,7 @@
         <li><a href="../web/Grid.html" >Grid</a></li>
         <li><a href="../web/ListView.html" >ListView</a></li>
         <li><a href="../web/Menu.html" >Menu</a></li>
+        <li><a href="../web/MultiSelect.html" >MultiSelect</a></li>
         <li><a href="../web/NumericTextBox.html" >NumericTextBox</a></li>
         <li><a href="../web/PanelBar.html" >PanelBar</a></li>
         <li><a href="../web/RangeSlider.html" >RangeSlider</a></li>
@@ -60,6 +61,7 @@
         <li><a href="../web/Splitter.html" >Splitter</a></li>
         <li><a href="../web/TabStrip.html" >TabStrip</a></li>
         <li><a href="../web/TimePicker.html" >TimePicker</a></li>
+        <li><a href="../web/Tooltip.html" >Tooltip</a></li>
         <li><a href="../web/TreeView.html" >TreeView</a></li>
         <li><a href="../web/Upload.html" >Upload</a></li>
         <li><a href="../web/Window.html" >Window</a></li>
@@ -76,7 +78,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The AutoComplete widget offers suggestions as a user types that can come from a local or remote data.</p></div>
-    <a target='_blank' href='http://demos.kendoui.com/web/autocomplete/index.html'>
+    <a href='http://demos.kendoui.com/web/autocomplete/index.html' target='_blank'>
         <i class='icon-book'> </i>
         Official Kendo UI AutoComplete documentation
     </a>
@@ -117,7 +119,7 @@ Selected: &lt;strong data-bind=&quot;text: selectedChoice&quot;&gt; &lt;/strong&
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='one'>
+                    <div id='one' class='span3 example'>
                         <input data-bind='kendoAutoComplete: { data: choices, value: selectedChoice }' />
 <hr />
 Selected: <strong data-bind='text: selectedChoice'> </strong>
@@ -146,7 +148,7 @@ Selected: <strong data-bind='text: selectedChoice'> </strong>
 &lt;hr/&gt;
 &lt;button class=&quot;btn&quot; data-bind=&quot;click: addChoice&quot;&gt;Add Choice&lt;/button&gt;
 &lt;hr/&gt;
-&lt;input data-bind=&quot;kendoAutoComplete: { dataTextField: 'name', dataValueField: 'id', data: choices,
+&lt;input data-bind=&quot;kendoAutoComplete: { dataTextField: 'name', data: choices,
                value: selectedChoice, search: search, enabled: isEnabled }&quot; /&gt;
 &lt;hr/&gt;
 Selected: &lt;strong data-bind=&quot;text: selectedChoice&quot;&gt; &lt;/strong&gt;
@@ -169,13 +171,13 @@ Selected: &lt;strong data-bind=&quot;text: selectedChoice&quot;&gt; &lt;/strong&
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='two'>
+                    <div id='two' class='span3 example'>
                         <input data-bind='checked: isEnabled' type='checkbox' /> Enabled<br />
-<input data-bind='value: search, valueUpdate: &apos;afterkeydown&apos;' class='search-query' placeholder='enter search term' /><br />
+<input placeholder='enter search term' data-bind='value: search, valueUpdate: &apos;afterkeydown&apos;' class='search-query' /><br />
 <hr />
 <button data-bind='click: addChoice' class='btn'>Add Choice</button>
 <hr />
-<input data-bind='kendoAutoComplete: { dataTextField: &apos;name&apos;, dataValueField: &apos;id&apos;, data: choices,
+<input data-bind='kendoAutoComplete: { dataTextField: &apos;name&apos;, data: choices,
                value: selectedChoice, search: search, enabled: isEnabled }' />
 <hr />
 Selected: <strong data-bind='text: selectedChoice'> </strong>
@@ -224,7 +226,7 @@ ko.bindingHandlers.kendoAutoComplete.options.filter = &quot;contains&quot;;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='three'>
+                    <div id='three' class='span3 example'>
                         <input data-bind='kendoAutoComplete: { data: choices, value: selectedChoice }' />
 <hr />
 Selected: <strong data-bind='text: selectedChoice'> </strong>
@@ -288,13 +290,14 @@ ko.bindingHandlers.kendoAutoComplete.options.filter = "contains";
     <hr />
 
     <footer>
-        <p><a href="../index.html">Knockout-Kendo.js</a> | <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a> | <a href="http://twitter.com/RPNiemeyer">@RPNiemeyer</a> | <a href="http://www.knockmeout.net">KnockMeOut.net</a></p>
+        <p><a href="../index.html">Knockout-Kendo.js</a> | <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0 License</a> | <a href="http://twitter.com/RPNiemeyer">@RPNiemeyer</a> & <a href="http://twitter.com/kendoui">@KendoUI</a> | <a href="http://www.knockmeout.net">KnockMeOut.net</a></p>
     </footer>
 
 </div>
 
-<script src="../js/kendo.all.min.js"></script>
-<script src="../js/knockout-2.1.0.js"></script>
+<script src="../js/kendo.web.min.js"></script>
+<script src="../js/kendo.dataviz.min.js"></script>
+<script src="../js/knockout-2.2.0.js"></script>
 <script src="../js/knockout-kendo.min.js"></script>
 <script src="../js/highlight.pack.js"></script>
 <script src="../js/app.js"></script>

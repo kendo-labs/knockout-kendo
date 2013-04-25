@@ -53,6 +53,7 @@
         <li><a href="../web/Grid.html" >Grid</a></li>
         <li><a href="../web/ListView.html" >ListView</a></li>
         <li><a href="../web/Menu.html" >Menu</a></li>
+        <li><a href="../web/MultiSelect.html" >MultiSelect</a></li>
         <li><a href="../web/NumericTextBox.html" >NumericTextBox</a></li>
         <li><a href="../web/PanelBar.html" >PanelBar</a></li>
         <li><a href="../web/RangeSlider.html" >RangeSlider</a></li>
@@ -60,6 +61,7 @@
         <li><a href="../web/Splitter.html" >Splitter</a></li>
         <li><a href="../web/TabStrip.html" >TabStrip</a></li>
         <li><a href="../web/TimePicker.html" >TimePicker</a></li>
+        <li><a href="../web/Tooltip.html" >Tooltip</a></li>
         <li><a href="../web/TreeView.html" >TreeView</a></li>
         <li><a href="../web/Upload.html" >Upload</a></li>
         <li><a href="../web/Window.html" >Window</a></li>
@@ -75,8 +77,8 @@
     <h2>Window</h2>
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
-    <div><p>The AutoComplete widget offers suggestions as a user types that can come from a local or remote data.</p></div>
-    <a target='_blank' href='http://demos.kendoui.com/web/window/index.html'>
+    <div><p>The Window widget displays content in a modal or non-modal HTML window.</p></div>
+    <a href='http://demos.kendoui.com/web/window/index.html' target='_blank'>
         <i class='icon-book'> </i>
         Official Kendo UI Window documentation
     </a>
@@ -117,7 +119,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='one'>
+                    <div id='one' class='span3 example'>
                         <input data-bind='checked: isOpen' type='checkbox' /> Open<br />
 <div data-bind='kendoWindow: { isOpen: isOpen, visible: false }'>
     Window Content
@@ -152,7 +154,7 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='two'>
+                    <div id='two' class='span3 example'>
                         <input data-bind='checked: isOpen' type='checkbox' /> Open<br />
 <div data-bind='kendoWindow: { isOpen: isOpen, visible: false, actions: [&apos;Close&apos;, &apos;Minimize&apos;, &apos;Maximize&apos;, &apos;Refresh&apos;], modal: true }'>
       Window Content
@@ -193,7 +195,7 @@ ko.bindingHandlers.kendoWindow.options = {
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='three'>
+                    <div id='three' class='span3 example'>
                         <input data-bind='checked: isOpen' type='checkbox' /> Open<br />
 <div data-bind='kendoWindow: { isOpen: isOpen }'>
     Window Content
@@ -233,7 +235,7 @@ ko.bindingHandlers.kendoWindow.options = {
         
         <div class='row-fluid'>
             <div class='option span1'>title</div>
-            <div class='span9'><p>Determinies the title of the window</p></div>
+            <div class='span9'><p>Determines the title of the window</p></div>
         </div>
         
         <div class='row-fluid'>
@@ -250,13 +252,14 @@ ko.bindingHandlers.kendoWindow.options = {
     <hr />
 
     <footer>
-        <p><a href="../index.html">Knockout-Kendo.js</a> | <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a> | <a href="http://twitter.com/RPNiemeyer">@RPNiemeyer</a> | <a href="http://www.knockmeout.net">KnockMeOut.net</a></p>
+        <p><a href="../index.html">Knockout-Kendo.js</a> | <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0 License</a> | <a href="http://twitter.com/RPNiemeyer">@RPNiemeyer</a> & <a href="http://twitter.com/kendoui">@KendoUI</a> | <a href="http://www.knockmeout.net">KnockMeOut.net</a></p>
     </footer>
 
 </div>
 
-<script src="../js/kendo.all.min.js"></script>
-<script src="../js/knockout-2.1.0.js"></script>
+<script src="../js/kendo.web.min.js"></script>
+<script src="../js/kendo.dataviz.min.js"></script>
+<script src="../js/knockout-2.2.0.js"></script>
 <script src="../js/knockout-kendo.min.js"></script>
 <script src="../js/highlight.pack.js"></script>
 <script src="../js/app.js"></script>

@@ -53,6 +53,7 @@
         <li><a href="../web/Grid.html" >Grid</a></li>
         <li><a href="../web/ListView.html" >ListView</a></li>
         <li><a href="../web/Menu.html" >Menu</a></li>
+        <li><a href="../web/MultiSelect.html" >MultiSelect</a></li>
         <li><a href="../web/NumericTextBox.html" >NumericTextBox</a></li>
         <li><a href="../web/PanelBar.html" >PanelBar</a></li>
         <li><a href="../web/RangeSlider.html" >RangeSlider</a></li>
@@ -60,6 +61,7 @@
         <li><a href="../web/Splitter.html" >Splitter</a></li>
         <li><a href="../web/TabStrip.html" >TabStrip</a></li>
         <li><a href="../web/TimePicker.html" >TimePicker</a></li>
+        <li><a href="../web/Tooltip.html" >Tooltip</a></li>
         <li><a href="../web/TreeView.html" >TreeView</a></li>
         <li><a href="../web/Upload.html" >Upload</a></li>
         <li><a href="../web/Window.html" >Window</a></li>
@@ -76,7 +78,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The ListView widget allows for a custom layout of a collection</p></div>
-    <a target='_blank' href='http://demos.kendoui.com/web/listview/index.html'>
+    <a href='http://demos.kendoui.com/web/listview/index.html' target='_blank'>
         <i class='icon-book'> </i>
         Official Kendo UI ListView documentation
     </a>
@@ -92,6 +94,11 @@
             
             
             <li>Passing additional options</li>
+            
+
+            
+            
+            <li>Using Knockout templates</li>
             
 
             
@@ -119,7 +126,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='one'>
+                    <div id='one' class='span3 example'>
                         <div data-bind='kendoListView: { data: items, template: template }'> </div>
 
 
@@ -145,8 +152,7 @@ ko.applyBindings(new ViewModel());</code></pre>
                 <div class='row'>
                     <div class='span7 code'>
                         <p>This example demonstrates passing additional options in the data-bind attribute. The <em>Add Item</em> button updates the underlying data and shows that the ListView remains in sync.</p>
-                        <pre><code>&lt;div data-bind=&quot;kendoListView: { data: items, navigatable: true, selectable: true, value: selected, template: template }&quot;&gt; &lt;/div&gt;
-&lt;div data-bind=&quot;text: selected&quot;&gt; &lt;/div&gt;
+                        <pre><code>&lt;div data-bind=&quot;kendoListView: { data: items, navigatable: true, selectable: true, template: template }&quot;&gt; &lt;/div&gt;
 &lt;button data-bind=&quot;click: addItem&quot;&gt;Add Item&lt;/button&gt;
 </code></pre>
                         <pre><code>var ViewModel = function() {
@@ -156,7 +162,6 @@ ko.applyBindings(new ViewModel());</code></pre>
         { id: &quot;3&quot;, name: &quot;banana&quot;}
     ]);
     this.template = kendo.template('&lt;div&gt;#= name #&lt;/div&gt;');
-    this.selected = ko.observable();
 
     this.addItem = function() {
         var num = this.items().length + 1;
@@ -166,9 +171,8 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='two'>
-                        <div data-bind='kendoListView: { data: items, navigatable: true, selectable: true, value: selected, template: template }'> </div>
-<div data-bind='text: selected'> </div>
+                    <div id='two' class='span3 example'>
+                        <div data-bind='kendoListView: { data: items, navigatable: true, selectable: true, template: template }'> </div>
 <button data-bind='click: addItem'>Add Item</button>
 
 
@@ -181,7 +185,6 @@ ko.applyBindings(new ViewModel());</code></pre>
         { id: "3", name: "banana"}
     ]);
     this.template = kendo.template('<div>#= name #</div>');
-    this.selected = ko.observable();
 
     this.addItem = function() {
         var num = this.items().length + 1;
@@ -199,9 +202,83 @@ ko.applyBindings(new ViewModel());</code></pre>
             <div>
                 <div class='row'>
                     <div class='span7 code'>
+                        <p>This example demonstrates using a Knockout template for the list view row.</p>
+                        <pre><code>&lt;div data-bind=&quot;kendoListView: { data: items, template: 'listTmpl', useKOTemplates: true }&quot;&gt; &lt;/div&gt;
+
+&lt;button data-bind=&quot;click: addItem&quot;&gt;Add Item&lt;/button&gt;
+
+&lt;script id=&quot;listTmpl&quot; type=&quot;text/html&quot;&gt;
+    &lt;div&gt;
+        &lt;span data-bind=&quot;text: id&quot;&gt;&lt;/span&gt;
+        &lt;input data-bind=&quot;value: name&quot; /&gt;
+        &lt;a href=&quot;#&quot; data-bind=&quot;click: $root.removeItem&quot;&gt; x &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/script&gt;
+</code></pre>
+                        <pre><code>var ViewModel = function() {
+    this.items = ko.observableArray([
+        { id: &quot;1&quot;, name: ko.observable(&quot;apple&quot;)},
+        { id: &quot;2&quot;, name: ko.observable(&quot;orange&quot;)},
+        { id: &quot;3&quot;, name: ko.observable(&quot;banana&quot;)}
+    ]);
+
+    this.addItem = function() {
+        var num = this.items().length + 1;
+        this.items.push({ id: num, name: ko.observable(&quot;new&quot; + num)});
+    };
+
+    this.removeItem = function(item) {
+        this.items.remove(item);
+    }.bind(this);
+};
+
+ko.applyBindings(new ViewModel());</code></pre>
+                    </div>
+                    <div id='three' class='span3 example'>
+                        <div data-bind='kendoListView: { data: items, template: &apos;listTmpl&apos;, useKOTemplates: true }'> </div>
+
+<button data-bind='click: addItem'>Add Item</button>
+
+<script id='listTmpl' type='text/html'>
+    <div>
+        <span data-bind='text: id' />
+        <input data-bind='value: name' />
+        <a data-bind='click: $root.removeItem' href='#'> x </a>
+    </div>
+</script>
+
+
+                        <script type='text/javascript'>
+                            $(function() {
+                                var ViewModel = function() {
+    this.items = ko.observableArray([
+        { id: "1", name: ko.observable("apple")},
+        { id: "2", name: ko.observable("orange")},
+        { id: "3", name: ko.observable("banana")}
+    ]);
+
+    this.addItem = function() {
+        var num = this.items().length + 1;
+        this.items.push({ id: num, name: ko.observable("new" + num)});
+    };
+
+    this.removeItem = function(item) {
+        this.items.remove(item);
+    }.bind(this);
+};
+
+                                ko.applyBindings(new ViewModel(), document.getElementById("three"));
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        
+            <div>
+                <div class='row'>
+                    <div class='span7 code'>
                         <p>This example demonstrates setting global options in <em>ko.bindingHandlers.kendoListView.options</em>. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.</p>
-                        <pre><code>&lt;div data-bind=&quot;kendoListView: { data: items, value: selected, template: template }&quot;&gt; &lt;/div&gt;
-&lt;div data-bind=&quot;text: selected&quot;&gt; &lt;/div&gt;
+                        <pre><code>&lt;div data-bind=&quot;kendoListView: { data: items, template: template }&quot;&gt; &lt;/div&gt;
 &lt;button data-bind=&quot;click: addItem&quot;&gt;Add Item&lt;/button&gt;
 </code></pre>
                         <pre><code>var ViewModel = function() {
@@ -212,7 +289,6 @@ ko.applyBindings(new ViewModel());</code></pre>
     ]);
 
     this.template = kendo.template('&lt;div&gt;#= name #&lt;/div&gt;');
-    this.selected = ko.observable();
 
     this.addItem = function() {
         var num = this.items().length + 1;
@@ -227,9 +303,8 @@ ko.bindingHandlers.kendoListView.options = {
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='three'>
-                        <div data-bind='kendoListView: { data: items, value: selected, template: template }'> </div>
-<div data-bind='text: selected'> </div>
+                    <div id='four' class='span3 example'>
+                        <div data-bind='kendoListView: { data: items, template: template }'> </div>
 <button data-bind='click: addItem'>Add Item</button>
 
 
@@ -243,7 +318,6 @@ ko.applyBindings(new ViewModel());</code></pre>
     ]);
 
     this.template = kendo.template('<div>#= name #</div>');
-    this.selected = ko.observable();
 
     this.addItem = function() {
         var num = this.items().length + 1;
@@ -256,7 +330,7 @@ ko.bindingHandlers.kendoListView.options = {
     selectable: true
 };
 
-                                ko.applyBindings(new ViewModel(), document.getElementById("three"));
+                                ko.applyBindings(new ViewModel(), document.getElementById("four"));
                             });
                         </script>
                     </div>
@@ -282,9 +356,6 @@ ko.bindingHandlers.kendoListView.options = {
         
     </div>
     
-    <h3>Future Plans</h3>
-    Exploring tighter integration with templates and dataSource to allow Knockout data binding to work inside items along with support for selecting items.
-    
 </div>
         </div>
     </div>
@@ -292,13 +363,14 @@ ko.bindingHandlers.kendoListView.options = {
     <hr />
 
     <footer>
-        <p><a href="../index.html">Knockout-Kendo.js</a> | <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a> | <a href="http://twitter.com/RPNiemeyer">@RPNiemeyer</a> | <a href="http://www.knockmeout.net">KnockMeOut.net</a></p>
+        <p><a href="../index.html">Knockout-Kendo.js</a> | <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0 License</a> | <a href="http://twitter.com/RPNiemeyer">@RPNiemeyer</a> & <a href="http://twitter.com/kendoui">@KendoUI</a> | <a href="http://www.knockmeout.net">KnockMeOut.net</a></p>
     </footer>
 
 </div>
 
-<script src="../js/kendo.all.min.js"></script>
-<script src="../js/knockout-2.1.0.js"></script>
+<script src="../js/kendo.web.min.js"></script>
+<script src="../js/kendo.dataviz.min.js"></script>
+<script src="../js/knockout-2.2.0.js"></script>
 <script src="../js/knockout-kendo.min.js"></script>
 <script src="../js/highlight.pack.js"></script>
 <script src="../js/app.js"></script>

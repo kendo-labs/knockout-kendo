@@ -53,6 +53,7 @@
         <li><a href="../web/Grid.html" >Grid</a></li>
         <li><a href="../web/ListView.html" >ListView</a></li>
         <li><a href="../web/Menu.html" >Menu</a></li>
+        <li><a href="../web/MultiSelect.html" >MultiSelect</a></li>
         <li><a href="../web/NumericTextBox.html" >NumericTextBox</a></li>
         <li><a href="../web/PanelBar.html" >PanelBar</a></li>
         <li><a href="../web/RangeSlider.html" >RangeSlider</a></li>
@@ -60,6 +61,7 @@
         <li><a href="../web/Splitter.html" >Splitter</a></li>
         <li><a href="../web/TabStrip.html" >TabStrip</a></li>
         <li><a href="../web/TimePicker.html" >TimePicker</a></li>
+        <li><a href="../web/Tooltip.html" >Tooltip</a></li>
         <li><a href="../web/TreeView.html" >TreeView</a></li>
         <li><a href="../web/Upload.html" >Upload</a></li>
         <li><a href="../web/Window.html" >Window</a></li>
@@ -76,7 +78,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The TabStrip widget displays tabs that display associated content when selected.</p></div>
-    <a target='_blank' href='http://demos.kendoui.com/web/tabstrip/index.html'>
+    <a href='http://demos.kendoui.com/web/tabstrip/index.html' target='_blank'>
         <i class='icon-book'> </i>
         Official Kendo UI TabStrip documentation
     </a>
@@ -121,7 +123,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='one'>
+                    <div id='one' class='span3 example'>
                         <div data-bind='kendoTabStrip: {}'>
     <ul>
         <li class='k-state-active'>tab one</li>
@@ -149,13 +151,13 @@ ko.applyBindings(new ViewModel());</code></pre>
                 <div class='row'>
                     <div class='span7 code'>
                         <p>This example demonstrates passing additional options in the data-bind attribute. The <strong>kendoTab</strong> binding can be applied to child elements to control the behavior of individual menu items.</p>
-                        <pre><code>&lt;input type=&quot;checkbox&quot; data-bind=&quot;checked: isTwoOpen&quot; /&gt; Open 2&lt;br/&gt;
+                        <pre><code>&lt;input type=&quot;checkbox&quot; data-bind=&quot;checked: oneEnabled&quot; /&gt; Enabled 1&lt;br/&gt;
 &lt;input type=&quot;checkbox&quot; data-bind=&quot;checked: twoEnabled&quot; /&gt; Enabled 2
 &lt;hr/&gt;
 &lt;div data-bind=&quot;kendoTabStrip: {}&quot;&gt;
     &lt;ul&gt;
-        &lt;li class=&quot;k-state-active&quot;&gt;tab one&lt;/li&gt;
-        &lt;li data-bind=&quot;kendoTab: { enabled: twoEnabled, selected: isTwoOpen }&quot;&gt;tab two&lt;/li&gt;
+        &lt;li data-bind=&quot;kendoTab: { enabled: oneEnabled }&quot; class=&quot;k-state-active&quot;&gt;tab one&lt;/li&gt;
+        &lt;li data-bind=&quot;kendoTab: { enabled: twoEnabled }&quot;&gt;tab two&lt;/li&gt;
         &lt;li&gt;tab three&lt;/li&gt;
     &lt;/ul&gt;
     &lt;div&gt;tab one content&lt;/div&gt;
@@ -164,20 +166,20 @@ ko.applyBindings(new ViewModel());</code></pre>
 &lt;/div&gt;
 </code></pre>
                         <pre><code>var ViewModel = function() {
-    this.isTwoOpen = ko.observable(false);
+    this.oneEnabled = ko.observable(false);
     this.twoEnabled = ko.observable(true);
 };
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='two'>
-                        <input data-bind='checked: isTwoOpen' type='checkbox' /> Open 2<br />
+                    <div id='two' class='span3 example'>
+                        <input data-bind='checked: oneEnabled' type='checkbox' /> Enabled 1<br />
 <input data-bind='checked: twoEnabled' type='checkbox' /> Enabled 2
 <hr />
 <div data-bind='kendoTabStrip: {}'>
     <ul>
-        <li class='k-state-active'>tab one</li>
-        <li data-bind='kendoTab: { enabled: twoEnabled, selected: isTwoOpen }'>tab two</li>
+        <li data-bind='kendoTab: { enabled: oneEnabled }' class='k-state-active'>tab one</li>
+        <li data-bind='kendoTab: { enabled: twoEnabled }'>tab two</li>
         <li>tab three</li>
     </ul>
     <div>tab one content</div>
@@ -189,7 +191,7 @@ ko.applyBindings(new ViewModel());</code></pre>
                         <script type='text/javascript'>
                             $(function() {
                                 var ViewModel = function() {
-    this.isTwoOpen = ko.observable(false);
+    this.oneEnabled = ko.observable(false);
     this.twoEnabled = ko.observable(true);
 };
 
@@ -206,8 +208,8 @@ ko.applyBindings(new ViewModel());</code></pre>
                         <p>This example demonstrates setting global options in <em>ko.bindingHandlers.kendoTabStrip.options</em>. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.</p>
                         <pre><code>&lt;div data-bind=&quot;kendoTabStrip: {}&quot;&gt;
     &lt;ul&gt;
-        &lt;li class=&quot;k-state-active&quot;&gt;tab one&lt;/li&gt;
-        &lt;li&gt;tab two&lt;/li&gt;
+        &lt;li&gt;tab one&lt;/li&gt;
+        &lt;li class=&quot;k-state-active&quot;&gt;tab two&lt;/li&gt;
         &lt;li&gt;tab three&lt;/li&gt;
     &lt;/ul&gt;
     &lt;div&gt;tab one content&lt;/div&gt;
@@ -221,11 +223,11 @@ ko.bindingHandlers.kendoTabStrip.animation = false;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='three'>
+                    <div id='three' class='span3 example'>
                         <div data-bind='kendoTabStrip: {}'>
     <ul>
-        <li class='k-state-active'>tab one</li>
-        <li>tab two</li>
+        <li>tab one</li>
+        <li class='k-state-active'>tab two</li>
         <li>tab three</li>
     </ul>
     <div>tab one content</div>
@@ -259,11 +261,6 @@ ko.bindingHandlers.kendoTabStrip.animation = false;
             <div class='span9'><p>Determines if users can interact with the tab</p></div>
         </div>
         
-        <div class='row-fluid'>
-            <div class='option span1'>selected</div>
-            <div class='span9'><p>Controls whether a tab is currently selected</p></div>
-        </div>
-        
     </div>
     
     <h3>Future Plans</h3>
@@ -276,13 +273,14 @@ ko.bindingHandlers.kendoTabStrip.animation = false;
     <hr />
 
     <footer>
-        <p><a href="../index.html">Knockout-Kendo.js</a> | <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a> | <a href="http://twitter.com/RPNiemeyer">@RPNiemeyer</a> | <a href="http://www.knockmeout.net">KnockMeOut.net</a></p>
+        <p><a href="../index.html">Knockout-Kendo.js</a> | <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0 License</a> | <a href="http://twitter.com/RPNiemeyer">@RPNiemeyer</a> & <a href="http://twitter.com/kendoui">@KendoUI</a> | <a href="http://www.knockmeout.net">KnockMeOut.net</a></p>
     </footer>
 
 </div>
 
-<script src="../js/kendo.all.min.js"></script>
-<script src="../js/knockout-2.1.0.js"></script>
+<script src="../js/kendo.web.min.js"></script>
+<script src="../js/kendo.dataviz.min.js"></script>
+<script src="../js/knockout-2.2.0.js"></script>
 <script src="../js/knockout-kendo.min.js"></script>
 <script src="../js/highlight.pack.js"></script>
 <script src="../js/app.js"></script>

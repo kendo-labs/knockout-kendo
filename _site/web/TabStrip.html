@@ -79,7 +79,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The TabStrip widget displays tabs that display associated content when selected.</p></div>
-    <a target='_blank' href='http://demos.kendoui.com/web/tabstrip/index.html'>
+    <a href='http://demos.kendoui.com/web/tabstrip/index.html' target='_blank'>
         <i class='icon-book'> </i>
         Official Kendo UI TabStrip documentation
     </a>
@@ -179,7 +179,7 @@ ko.applyBindings(new ViewModel());</code></pre>
 <hr />
 <div data-bind='kendoTabStrip: {}'>
     <ul>
-        <li data-bind='kendoTab: { enabled: oneEnabled }' class='k-state-active'>tab one</li>
+        <li class='k-state-active' data-bind='kendoTab: { enabled: oneEnabled }'>tab one</li>
         <li data-bind='kendoTab: { enabled: twoEnabled }'>tab two</li>
         <li>tab three</li>
     </ul>

@@ -14,7 +14,7 @@ examples:
       js: |
          var ViewModel = function() {
             this.colorPalette = ko.observable("basic");
-            this.selectedChoice = ko.observable("red");
+            this.selectedChoice = ko.observable("#ffffff");
          };
       selected: true
       id: one

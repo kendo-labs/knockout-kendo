@@ -79,7 +79,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The Grid widget offers allows a user to interact with tabular data.</p></div>
-    <a target='_blank' href='http://demos.kendoui.com/web/grid/index.html'>
+    <a href='http://demos.kendoui.com/web/grid/index.html' target='_blank'>
         <i class='icon-book'> </i>
         Official Kendo UI Grid documentation
     </a>
@@ -245,7 +245,7 @@ ko.applyBindings(new ViewModel());</code></pre>
                     <div id='three' class='span3 example'>
                         <div data-bind='kendoGrid: { data: items, rowTemplate: &apos;rowTmpl&apos;, altRowTemplate: &apos;altTmpl&apos;, useKOTemplates: true }'> </div>
 <button data-bind='click: addItem'>Add Item</button>
-<script type='text/html' id='rowTmpl'>
+<script id='rowTmpl' type='text/html'>
     <tr>
         <td data-bind='text: id' />
         <td>
@@ -256,7 +256,7 @@ ko.applyBindings(new ViewModel());</code></pre>
         </td>
     </tr>
 </script>
-<script type='text/html' id='altTmpl'>
+<script id='altTmpl' type='text/html'>
     <tr>
         <td>Alt Row</td>
         <td data-bind='text: name' />

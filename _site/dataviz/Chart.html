@@ -79,7 +79,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The Chart widget can create bar, line, area, and scatter charts with a variety of options.</p></div>
-    <a target='_blank' href='http://demos.kendoui.com/dataviz/bar-charts/index.html'>
+    <a href='http://demos.kendoui.com/dataviz/bar-charts/index.html' target='_blank'>
         <i class='icon-book'> </i>
         Official Kendo UI Chart documentation
     </a>
@@ -175,8 +175,8 @@ ko.applyBindings(new ViewModel());</code></pre>
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
                     <div id='two' class='span3 example'>
-                        <input data-bind='value: newValue' class='span1' />
-<input data-bind='value: newValueB' class='span1' />
+                        <input class='span1' data-bind='value: newValue' />
+<input class='span1' data-bind='value: newValueB' />
 <button data-bind='click: addItem'>Add data</button>
 <hr />
 <div data-bind='kendoChart: { data: items, title: { text: &apos;Graph Sample&apos; }, series: seriesConfig, seriesColors: [&apos;blue&apos;, &apos;red&apos;] }'> </div>
@@ -250,8 +250,8 @@ ko.bindingHandlers.kendoChart.options = {
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
                     <div id='three' class='span3 example'>
-                        <input data-bind='value: newValue' class='span1' />
-<input data-bind='value: newValueB' class='span1' />
+                        <input class='span1' data-bind='value: newValue' />
+<input class='span1' data-bind='value: newValueB' />
 <button data-bind='click: addItem'>Add data</button>
 <hr />
 <div data-bind='kendoChart: { data: items, series: seriesConfig }'> </div>

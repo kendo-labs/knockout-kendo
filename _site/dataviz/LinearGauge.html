@@ -79,7 +79,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The LinearGauge widget visually displays where a value lies in a range.</p></div>
-    <a target='_blank' href='http://demos.kendoui.com/dataviz/linear-gauge/index.html'>
+    <a href='http://demos.kendoui.com/dataviz/linear-gauge/index.html' target='_blank'>
         <i class='icon-book'> </i>
         Official Kendo UI LinearGauge documentation
     </a>
@@ -120,7 +120,7 @@
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
                     <div id='one' class='span3 example'>
-                        <input data-bind='value: myValue' class='input-mini' />
+                        <input class='input-mini' data-bind='value: myValue' />
 <hr />
 <div data-bind='kendoLinearGauge: myValue'> </div>
 
@@ -168,9 +168,9 @@ ko.applyBindings(new ViewModel());</code></pre>
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
                     <div id='two' class='span3 example'>
-                        <input data-bind='value: myValue' class='input-mini' /> Value<br />
-<select data-bind='options: colors, value: pointerColor' class='input-small'> </select> Pointer <br />
-<select data-bind='options: colors, value: backgroundColor' class='input-small'> </select> Background
+                        <input class='input-mini' data-bind='value: myValue' /> Value<br />
+<select class='input-small' data-bind='options: colors, value: pointerColor'> </select> Pointer <br />
+<select class='input-small' data-bind='options: colors, value: backgroundColor'> </select> Background
 <hr />
 <div data-bind='kendoLinearGauge: { value: myValue, gaugeArea: gaugeOptions, pointer: pointerOptions }'> </div>
 
@@ -220,7 +220,7 @@ ko.bindingHandlers.kendoLinearGauge.options = {
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
                     <div id='three' class='span3 example'>
-                        <input data-bind='value: myValue' class='input-mini' />
+                        <input class='input-mini' data-bind='value: myValue' />
 <div data-bind='kendoLinearGauge: myValue'> </div>
 
 

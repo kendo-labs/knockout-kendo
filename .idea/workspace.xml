@@ -2,42 +2,109 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367b2740-bbcb-4961-938a-61104d7ba782" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/knockout-kendo-gh.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/dataviz/Chart.html" afterPath="$PROJECT_DIR$/_site/dataviz/Chart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/dataviz/LinearGauge.html" afterPath="$PROJECT_DIR$/_site/dataviz/LinearGauge.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/dataviz/RadialGauge.html" afterPath="$PROJECT_DIR$/_site/dataviz/RadialGauge.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/AutoComplete.html" afterPath="$PROJECT_DIR$/_site/web/AutoComplete.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/Calendar.html" afterPath="$PROJECT_DIR$/_site/web/Calendar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/ComboBox.html" afterPath="$PROJECT_DIR$/_site/web/ComboBox.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/DatePicker.html" afterPath="$PROJECT_DIR$/_site/web/DatePicker.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/DropDownList.html" afterPath="$PROJECT_DIR$/_site/web/DropDownList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/Editor.html" afterPath="$PROJECT_DIR$/_site/web/Editor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/Grid.html" afterPath="$PROJECT_DIR$/_site/web/Grid.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/ListView.html" afterPath="$PROJECT_DIR$/_site/web/ListView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/Menu.html" afterPath="$PROJECT_DIR$/_site/web/Menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/NumericTextBox.html" afterPath="$PROJECT_DIR$/_site/web/NumericTextBox.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/PanelBar.html" afterPath="$PROJECT_DIR$/_site/web/PanelBar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/RangeSlider.html" afterPath="$PROJECT_DIR$/_site/web/RangeSlider.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/Slider.html" afterPath="$PROJECT_DIR$/_site/web/Slider.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/Splitter.html" afterPath="$PROJECT_DIR$/_site/web/Splitter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/TabStrip.html" afterPath="$PROJECT_DIR$/_site/web/TabStrip.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/TimePicker.html" afterPath="$PROJECT_DIR$/_site/web/TimePicker.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/TreeView.html" afterPath="$PROJECT_DIR$/_site/web/TreeView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/Upload.html" afterPath="$PROJECT_DIR$/_site/web/Upload.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web/Window.html" afterPath="$PROJECT_DIR$/_site/web/Window.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/kendo.default.min.css" afterPath="$PROJECT_DIR$/css/kendo.default.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataviz/Chart.md" afterPath="$PROJECT_DIR$/dataviz/Chart.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataviz/LinearGauge.md" afterPath="$PROJECT_DIR$/dataviz/LinearGauge.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/knockout-2.2.1.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/knockout-kendo-gh.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/editor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/imagebrowser.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/loading-image.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/slider-h.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/slider-v.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/sprite@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/app.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/bootstrap-responsive.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/kendo.common.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/kendo.dataviz.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/kendo.default.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/sunburst.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/brushed-metal.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots11.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots12.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots13.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/glass-lighter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/glass.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/highlight.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/hsv-gradient.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/hue.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/leather1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/leather2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/noise.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/stripe1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/stripe2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/stripe3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/stripe4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/stripe5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/stripe6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/transparency.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/transtexture.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/dataviz/Chart.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/dataviz/LinearGauge.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/dataviz/RadialGauge.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/img/glyphicons-halflings-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/img/glyphicons-halflings.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/img/kendo-logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/img/ko-logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/highlight.pack.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/kendo.dataviz.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/kendo.web.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/knockout-2.2.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/knockout-kendo.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/AutoComplete.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Calendar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/ComboBox.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/DatePicker.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/DateTimePicker.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/DropDownList.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Editor.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Grid.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/ListView.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Menu.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/MultiSelect.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/NumericTextBox.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/PanelBar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/RangeSlider.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Slider.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Splitter.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/TabStrip.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/TimePicker.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Tooltip.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/TreeView.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Upload.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Window.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/knockout-2.2.0.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="knockout-kendo-gh.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="367b2740-bbcb-4961-938a-61104d7ba782" time="1366909689624" ignored="false" />
+    <file path="/a.dummy" changelist="367b2740-bbcb-4961-938a-61104d7ba782" time="1366910017274" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +118,7 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="knockout-kendo-gh" />
   </component>
@@ -59,34 +127,25 @@
       <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_layouts/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="50" selection-start="790" selection-end="790" vertical-scroll-proportion="-9.807693">
+            <state line="33" column="68" selection-start="1530" selection-end="1530" vertical-scroll-proportion="-8.518518">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/app.js">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
+            <state line="63" column="0" selection-start="3677" selection-end="3677" vertical-scroll-proportion="1.8461539">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_includes/sidebar.html">
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="76" selection-start="1869" selection-end="1869" vertical-scroll-proportion="-16.346153">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widget.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_includes/widget.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="15.230769">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -94,11 +153,8 @@
       </file>
       <file leaf-file-name="Chart.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataviz/Chart.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="13" selection-start="664" selection-end="664" vertical-scroll-proportion="-11.590909">
+            <state line="17" column="13" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -106,11 +162,8 @@
       </file>
       <file leaf-file-name="RadialGauge.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataviz/RadialGauge.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="10" selection-start="569" selection-end="569" vertical-scroll-proportion="-5.6666665">
+            <state line="16" column="10" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -118,23 +171,26 @@
       </file>
       <file leaf-file-name="DropDownList.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/DropDownList.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="0" selection-start="2106" selection-end="2192" vertical-scroll-proportion="-17.0">
+            <state line="43" column="0" selection-start="2106" selection-end="2192" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LinearGauge.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LinearGauge.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataviz/LinearGauge.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="42" selection-start="2281" selection-end="2281" vertical-scroll-proportion="0.5635359">
+            <state line="54" column="42" selection-start="2281" selection-end="2281" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ColorPicker.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/ColorPicker.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -143,7 +199,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="105" selection-start="415" selection-end="415" vertical-scroll-proportion="-5.230769">
+            <state line="31" column="0" selection-start="2898" selection-end="2898" vertical-scroll-proportion="-20.666666">
               <folding />
             </state>
           </provider>
@@ -159,6 +215,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
@@ -168,19 +229,21 @@
         <option value="$PROJECT_DIR$/web/NumericTextBox.md" />
         <option value="$PROJECT_DIR$/_includes/sidebar.html" />
         <option value="$PROJECT_DIR$/js/app.js" />
-        <option value="$PROJECT_DIR$/_layouts/default.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/dataviz/RadialGauge.md" />
         <option value="$PROJECT_DIR$/dataviz/Chart.md" />
         <option value="$PROJECT_DIR$/dataviz/LinearGauge.md" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/_layouts/default.html" />
+        <option value="$PROJECT_DIR$/css/README.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="344" />
-    <option name="y" value="65" />
-    <option name="width" value="1546" />
-    <option name="height" value="916" />
+    <option name="x" value="43" />
+    <option name="y" value="22" />
+    <option name="width" value="1607" />
+    <option name="height" value="1265" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -274,6 +337,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="knockout-kendo-gh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="knockout-kendo-gh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="dataviz" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -337,15 +414,15 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="162" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="836" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="831" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="836" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="157" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="155" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -355,7 +432,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
         <option name="engineId" value="embedded" />
         <option name="fileUrl" />
@@ -403,27 +488,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="344" y="65" width="1546" height="916" extended-state="0" />
+    <frame x="43" y="22" width="1607" height="1265" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32955536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29349968" sideWeight="0.99748427" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28219697" sideWeight="0.67044467" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868218" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -448,19 +533,24 @@
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
     <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
     <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
     <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" value="Add DataViz widget docs." />
@@ -474,6 +564,7 @@
     <option name="ACTIVE_VCS_NAME" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="Minor doc updates." />
@@ -491,51 +582,14 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/PanelBar.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="104" selection-start="2120" selection-end="2120" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/ComboBox.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="1936" selection-end="2022" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/AutoComplete.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/DatePicker.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="64" column="0" selection-start="2636" selection-end="2809" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/NumericTextBox.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="46" selection-start="607" selection-end="607" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/kendo.all.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
@@ -547,75 +601,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_includes/widget.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="15.230769">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_includes/sidebar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="76" selection-start="1869" selection-end="1869" vertical-scroll-proportion="-16.346153">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="50" selection-start="790" selection-end="790" vertical-scroll-proportion="-9.807693">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="105" selection-start="415" selection-end="415" vertical-scroll-proportion="-5.230769">
+        <state line="28" column="76" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/DropDownList.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="2106" selection-end="2192" vertical-scroll-proportion="-17.0">
+        <state line="43" column="0" selection-start="2106" selection-end="2192" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dataviz/RadialGauge.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="10" selection-start="569" selection-end="569" vertical-scroll-proportion="-5.6666665">
+        <state line="16" column="10" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/knockout-kendo.min.js">
+    <entry file="file://$PROJECT_DIR$/dataviz/Chart.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataviz/LinearGauge.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="42" selection-start="2281" selection-end="2281" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/ColorPicker.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataviz/Chart.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/js/knockout-kendo.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="664" selection-end="664" vertical-scroll-proportion="-11.590909">
+        <state line="16" column="6114" selection-start="6738" selection-end="6744" vertical-scroll-proportion="0.24369748">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataviz/LinearGauge.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="42" selection-start="2281" selection-end="2281" vertical-scroll-proportion="0.5635359">
+        <state line="31" column="0" selection-start="2898" selection-end="2898" vertical-scroll-proportion="-20.666666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="68" selection-start="1530" selection-end="1530" vertical-scroll-proportion="-8.518518">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="0" selection-start="3677" selection-end="3677" vertical-scroll-proportion="1.8461539">
           <folding />
         </state>
       </provider>

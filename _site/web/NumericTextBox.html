@@ -119,7 +119,7 @@ Price: &lt;strong data-bind=&quot;text: price&quot;&gt; &lt;/strong&gt;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='one'>
+                    <div id='one' class='span3 example'>
                         <input data-bind='kendoNumericTextBox: price' />
 <hr />
 Price: <strong data-bind='text: price'> </strong>
@@ -159,10 +159,10 @@ Price: &lt;strong data-bind=&quot;text: price&quot;&gt; &lt;/strong&gt;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='two'>
+                    <div id='two' class='span3 example'>
                         <input type='checkbox' data-bind='checked: enabled' /> Enabled<br />
-<input data-bind='value: min' class='input-mini' /> Min<br />
-<input data-bind='value: max' class='input-mini' /> Max<br />
+<input class='input-mini' data-bind='value: min' /> Min<br />
+<input class='input-mini' data-bind='value: max' /> Max<br />
 <hr />
 <input data-bind='kendoNumericTextBox: { value: price, enabled: enabled, min: min, max: max, format: &apos;c&apos; }' />
 <hr />
@@ -208,7 +208,7 @@ ko.bindingHandlers.kendoNumericTextBox.options = {
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='three'>
+                    <div id='three' class='span3 example'>
                         <input type='checkbox' data-bind='checked: enabled' /> Enabled<br />
 <hr />
 <input data-bind='kendoNumericTextBox: { value: price, enabled: enabled }' />

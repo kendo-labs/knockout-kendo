@@ -118,7 +118,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='one'>
+                    <div id='one' class='span3 example'>
                         <div data-bind='kendoSplitter: {}'>
     <div>Pane One</div>
     <div>Pane Two</div>
@@ -159,11 +159,11 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='two'>
+                    <div id='two' class='span3 example'>
                         <input type='checkbox' data-bind='checked: isOpen' /> Open<br />
-<input data-bind='value: minSize' class='span1' /> Min 1<br />
-<input data-bind='value: maxSize' class='span1' /> Max 1<br />
-<input data-bind='value: size' class='span1' /> Size 1
+<input class='span1' data-bind='value: minSize' /> Min 1<br />
+<input class='span1' data-bind='value: maxSize' /> Max 1<br />
+<input class='span1' data-bind='value: size' /> Size 1
 <hr />
 <div data-bind='kendoSplitter: {}'>
     <div data-bind='kendoSplitterPane: { expanded: isOpen, max: maxSize, min: minSize, size: size }'>one</div>
@@ -202,7 +202,7 @@ ko.bindingHandlers.kendoSplitter.options.orientation = &quot;vertical&quot;;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='three'>
+                    <div id='three' class='span3 example'>
                         <div data-bind='kendoSplitter: {}'>
     <div>Pane One</div>
     <div>Pane Two</div>

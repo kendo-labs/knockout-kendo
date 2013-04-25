@@ -120,7 +120,7 @@ Selected: &lt;strong data-bind=&quot;text: selectedChoice&quot;&gt; &lt;/strong&
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='one'>
+                    <div id='one' class='span3 example'>
                         <input data-bind='kendoAutoComplete: { data: choices, value: selectedChoice }' />
 <hr />
 Selected: <strong data-bind='text: selectedChoice'> </strong>
@@ -172,11 +172,11 @@ Selected: &lt;strong data-bind=&quot;text: selectedChoice&quot;&gt; &lt;/strong&
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='two'>
+                    <div id='two' class='span3 example'>
                         <input type='checkbox' data-bind='checked: isEnabled' /> Enabled<br />
-<input data-bind='value: search, valueUpdate: &apos;afterkeydown&apos;' placeholder='enter search term' class='search-query' /><br />
+<input class='search-query' data-bind='value: search, valueUpdate: &apos;afterkeydown&apos;' placeholder='enter search term' /><br />
 <hr />
-<button data-bind='click: addChoice' class='btn'>Add Choice</button>
+<button class='btn' data-bind='click: addChoice'>Add Choice</button>
 <hr />
 <input data-bind='kendoAutoComplete: { dataTextField: &apos;name&apos;, data: choices,
                value: selectedChoice, search: search, enabled: isEnabled }' />
@@ -227,7 +227,7 @@ ko.bindingHandlers.kendoAutoComplete.options.filter = &quot;contains&quot;;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='three'>
+                    <div id='three' class='span3 example'>
                         <input data-bind='kendoAutoComplete: { data: choices, value: selectedChoice }' />
 <hr />
 Selected: <strong data-bind='text: selectedChoice'> </strong>

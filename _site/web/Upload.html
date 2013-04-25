@@ -119,8 +119,8 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='one'>
-                        <form method='post' data-bind='kendoUpload: {}'>
+                    <div id='one' class='span3 example'>
+                        <form data-bind='kendoUpload: {}' method='post'>
     <div>
         <input type='file' name='files[]' />
     </div>
@@ -156,12 +156,12 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='two'>
+                    <div id='two' class='span3 example'>
                         <input type='checkbox' data-bind='checked: enabled' /> Enabled
 <hr />
-<form method='post' data-bind='kendoUpload: { enabled: enabled }'>
+<form data-bind='kendoUpload: { enabled: enabled }' method='post'>
     <div>
-        <input type='file' class='btn' name='files[]' />
+        <input type='file' name='files[]' class='btn' />
     </div>
 </form>
 
@@ -195,8 +195,8 @@ ko.bindingHandlers.kendoUpload.options.multiple = false;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='three'>
-                        <form method='post' data-bind='kendoUpload: {}'>
+                    <div id='three' class='span3 example'>
+                        <form data-bind='kendoUpload: {}' method='post'>
     <div>
         <input type='file' name='files[]' />
     </div>

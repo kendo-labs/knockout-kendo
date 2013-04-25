@@ -127,7 +127,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='one'>
+                    <div id='one' class='span3 example'>
                         <div data-bind='kendoListView: { data: items, template: template }'> </div>
 
 
@@ -172,7 +172,7 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='two'>
+                    <div id='two' class='span3 example'>
                         <div data-bind='kendoListView: { data: items, navigatable: true, selectable: true, template: template }'> </div>
 <button data-bind='click: addItem'>Add Item</button>
 
@@ -235,7 +235,7 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='three'>
+                    <div id='three' class='span3 example'>
                         <div data-bind='kendoListView: { data: items, template: &apos;listTmpl&apos;, useKOTemplates: true }'> </div>
 
 <button data-bind='click: addItem'>Add Item</button>
@@ -244,7 +244,7 @@ ko.applyBindings(new ViewModel());</code></pre>
     <div>
         <span data-bind='text: id' />
         <input data-bind='value: name' />
-        <a data-bind='click: $root.removeItem' href='#'> x </a>
+        <a href='#' data-bind='click: $root.removeItem'> x </a>
     </div>
 </script>
 
@@ -304,7 +304,7 @@ ko.bindingHandlers.kendoListView.options = {
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='four'>
+                    <div id='four' class='span3 example'>
                         <div data-bind='kendoListView: { data: items, template: template }'> </div>
 <button data-bind='click: addItem'>Add Item</button>
 

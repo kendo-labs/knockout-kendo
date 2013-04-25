@@ -126,7 +126,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='one'>
+                    <div id='one' class='span3 example'>
                         <div data-bind='kendoGrid: items'> </div>
 
 
@@ -169,7 +169,7 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='two'>
+                    <div id='two' class='span3 example'>
                         <div data-bind='kendoGrid: { data: items, groupable: true, scrollable: true, sortable: true, pageable: { pageSize: 10 } }'> </div>
 <button data-bind='click: addItem'>Add Item</button>
 
@@ -242,7 +242,7 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='three'>
+                    <div id='three' class='span3 example'>
                         <div data-bind='kendoGrid: { data: items, rowTemplate: &apos;rowTmpl&apos;, altRowTemplate: &apos;altTmpl&apos;, useKOTemplates: true }'> </div>
 <button data-bind='click: addItem'>Add Item</button>
 <script type='text/html' id='rowTmpl'>
@@ -252,7 +252,7 @@ ko.applyBindings(new ViewModel());</code></pre>
             <input data-bind='value: name' />
         </td>
         <td>
-            <a data-bind='click: $root.removeItem' href='#'>x</a>
+            <a href='#' data-bind='click: $root.removeItem'>x</a>
         </td>
     </tr>
 </script>
@@ -261,7 +261,7 @@ ko.applyBindings(new ViewModel());</code></pre>
         <td>Alt Row</td>
         <td data-bind='text: name' />
         <td>
-            <a data-bind='click: $root.removeItem' href='#'>x</a>
+            <a href='#' data-bind='click: $root.removeItem'>x</a>
         </td>
     </tr>
 </script>
@@ -322,7 +322,7 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div class='span3 example' id='four'>
+                    <div id='four' class='span3 example'>
                         <div data-bind='kendoGrid: items'> </div>
 <button data-bind='click: addItem'>Add Item</button>
 

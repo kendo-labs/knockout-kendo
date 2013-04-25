@@ -45,6 +45,7 @@
         <li class="nav-header">Kendo UI Web Widgets</li>
         <li><a href="../web/AutoComplete.html" >AutoComplete</a></li>
         <li><a href="../web/Calendar.html" >Calendar</a></li>
+        <li><a href="../web/ColorPicker.html" >ColorPicker</a></li>
         <li><a href="../web/ComboBox.html" >ComboBox</a></li>
         <li><a href="../web/DatePicker.html" >DatePicker</a></li>
         <li><a href="../web/DateTimePicker.html" >DateTimePicker</a></li>
@@ -78,7 +79,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The RadialGauge widget visually displays where a value lies in a range.</p></div>
-    <a href='http://demos.kendoui.com/dataviz/radial-gauge/index.html' target='_blank'>
+    <a target='_blank' href='http://demos.kendoui.com/dataviz/radial-gauge/index.html'>
         <i class='icon-book'> </i>
         Official Kendo UI RadialGauge documentation
     </a>
@@ -118,7 +119,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='one' class='span3 example'>
+                    <div class='span3 example' id='one'>
                         <input data-bind='value: myValue' class='input-mini' />
 <hr />
 <div data-bind='kendoRadialGauge: myValue'> </div>
@@ -166,7 +167,7 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='two' class='span3 example'>
+                    <div class='span3 example' id='two'>
                         <input data-bind='value: myValue' class='input-mini' /> Value<br />
 <select data-bind='options: colors, value: pointerColor' class='input-small'> </select> Pointer <br />
 <select data-bind='options: colors, value: backgroundColor' class='input-small'> </select> Background
@@ -217,7 +218,7 @@ ko.bindingHandlers.kendoRadialGauge.options = {
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='three' class='span3 example'>
+                    <div class='span3 example' id='three'>
                         <div data-bind='kendoRadialGauge: myValue'> </div>
 
 

@@ -45,6 +45,7 @@
         <li class="nav-header">Kendo UI Web Widgets</li>
         <li><a href="../web/AutoComplete.html" >AutoComplete</a></li>
         <li><a href="../web/Calendar.html" >Calendar</a></li>
+        <li><a href="../web/ColorPicker.html" >ColorPicker</a></li>
         <li><a href="../web/ComboBox.html" >ComboBox</a></li>
         <li><a href="../web/DatePicker.html" >DatePicker</a></li>
         <li><a href="../web/DateTimePicker.html" >DateTimePicker</a></li>
@@ -78,7 +79,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The Grid widget offers allows a user to interact with tabular data.</p></div>
-    <a href='http://demos.kendoui.com/web/grid/index.html' target='_blank'>
+    <a target='_blank' href='http://demos.kendoui.com/web/grid/index.html'>
         <i class='icon-book'> </i>
         Official Kendo UI Grid documentation
     </a>
@@ -125,7 +126,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='one' class='span3 example'>
+                    <div class='span3 example' id='one'>
                         <div data-bind='kendoGrid: items'> </div>
 
 
@@ -168,7 +169,7 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='two' class='span3 example'>
+                    <div class='span3 example' id='two'>
                         <div data-bind='kendoGrid: { data: items, groupable: true, scrollable: true, sortable: true, pageable: { pageSize: 10 } }'> </div>
 <button data-bind='click: addItem'>Add Item</button>
 
@@ -241,10 +242,10 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='three' class='span3 example'>
+                    <div class='span3 example' id='three'>
                         <div data-bind='kendoGrid: { data: items, rowTemplate: &apos;rowTmpl&apos;, altRowTemplate: &apos;altTmpl&apos;, useKOTemplates: true }'> </div>
 <button data-bind='click: addItem'>Add Item</button>
-<script id='rowTmpl' type='text/html'>
+<script type='text/html' id='rowTmpl'>
     <tr>
         <td data-bind='text: id' />
         <td>
@@ -255,7 +256,7 @@ ko.applyBindings(new ViewModel());</code></pre>
         </td>
     </tr>
 </script>
-<script id='altTmpl' type='text/html'>
+<script type='text/html' id='altTmpl'>
     <tr>
         <td>Alt Row</td>
         <td data-bind='text: name' />
@@ -321,7 +322,7 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='four' class='span3 example'>
+                    <div class='span3 example' id='four'>
                         <div data-bind='kendoGrid: items'> </div>
 <button data-bind='click: addItem'>Add Item</button>
 

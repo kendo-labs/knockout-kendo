@@ -45,6 +45,7 @@
         <li class="nav-header">Kendo UI Web Widgets</li>
         <li><a href="../web/AutoComplete.html" >AutoComplete</a></li>
         <li><a href="../web/Calendar.html" >Calendar</a></li>
+        <li><a href="../web/ColorPicker.html" >ColorPicker</a></li>
         <li><a href="../web/ComboBox.html" >ComboBox</a></li>
         <li><a href="../web/DatePicker.html" >DatePicker</a></li>
         <li><a href="../web/DateTimePicker.html" >DateTimePicker</a></li>
@@ -78,7 +79,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The NumericTextBox widget allows for editing a variety of numeric value types.</p></div>
-    <a href='http://demos.kendoui.com/web/numerictextbox/index.html' target='_blank'>
+    <a target='_blank' href='http://demos.kendoui.com/web/numerictextbox/index.html'>
         <i class='icon-book'> </i>
         Official Kendo UI NumericTextBox documentation
     </a>
@@ -118,7 +119,7 @@ Price: &lt;strong data-bind=&quot;text: price&quot;&gt; &lt;/strong&gt;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='one' class='span3 example'>
+                    <div class='span3 example' id='one'>
                         <input data-bind='kendoNumericTextBox: price' />
 <hr />
 Price: <strong data-bind='text: price'> </strong>
@@ -158,8 +159,8 @@ Price: &lt;strong data-bind=&quot;text: price&quot;&gt; &lt;/strong&gt;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='two' class='span3 example'>
-                        <input data-bind='checked: enabled' type='checkbox' /> Enabled<br />
+                    <div class='span3 example' id='two'>
+                        <input type='checkbox' data-bind='checked: enabled' /> Enabled<br />
 <input data-bind='value: min' class='input-mini' /> Min<br />
 <input data-bind='value: max' class='input-mini' /> Max<br />
 <hr />
@@ -207,8 +208,8 @@ ko.bindingHandlers.kendoNumericTextBox.options = {
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='three' class='span3 example'>
-                        <input data-bind='checked: enabled' type='checkbox' /> Enabled<br />
+                    <div class='span3 example' id='three'>
+                        <input type='checkbox' data-bind='checked: enabled' /> Enabled<br />
 <hr />
 <input data-bind='kendoNumericTextBox: { value: price, enabled: enabled }' />
 <hr />

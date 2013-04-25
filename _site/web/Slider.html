@@ -45,6 +45,7 @@
         <li class="nav-header">Kendo UI Web Widgets</li>
         <li><a href="../web/AutoComplete.html" >AutoComplete</a></li>
         <li><a href="../web/Calendar.html" >Calendar</a></li>
+        <li><a href="../web/ColorPicker.html" >ColorPicker</a></li>
         <li><a href="../web/ComboBox.html" >ComboBox</a></li>
         <li><a href="../web/DatePicker.html" >DatePicker</a></li>
         <li><a href="../web/DateTimePicker.html" >DateTimePicker</a></li>
@@ -78,7 +79,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The Slider widget allows a user to select a single value from a range.</p></div>
-    <a href='http://demos.kendoui.com/web/slider/index.html' target='_blank'>
+    <a target='_blank' href='http://demos.kendoui.com/web/slider/index.html'>
         <i class='icon-book'> </i>
         Official Kendo UI Slider documentation
     </a>
@@ -118,7 +119,7 @@ Value: &lt;strong data-bind=&quot;text: myValue&quot;&gt; &lt;/strong&gt;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='one' class='span3 example'>
+                    <div class='span3 example' id='one'>
                         <input data-bind='kendoSlider: myValue' />
 <hr />
 Value: <strong data-bind='text: myValue'> </strong>
@@ -158,8 +159,8 @@ Value: &lt;strong data-bind=&quot;text: myValue&quot;&gt; &lt;/strong&gt;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='two' class='span3 example'>
-                        <input data-bind='checked: enabled' type='checkbox' /> Enabled<br />
+                    <div class='span3 example' id='two'>
+                        <input type='checkbox' data-bind='checked: enabled' /> Enabled<br />
 <button data-bind='click: setToDefault'>Set to 50</button>
 <hr />
 <input data-bind='kendoSlider: { value: myValue, enabled: enabled, min: 0, max: 100 }' />
@@ -203,7 +204,7 @@ ko.bindingHandlers.kendoSlider.options = {
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='three' class='span3 example'>
+                    <div class='span3 example' id='three'>
                         <input data-bind='kendoSlider: myValue' />
 <hr />
 Value: <strong data-bind='text: myValue'> </strong>

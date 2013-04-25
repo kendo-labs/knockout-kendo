@@ -45,6 +45,7 @@
         <li class="nav-header">Kendo UI Web Widgets</li>
         <li><a href="../web/AutoComplete.html" >AutoComplete</a></li>
         <li><a href="../web/Calendar.html" >Calendar</a></li>
+        <li><a href="../web/ColorPicker.html" >ColorPicker</a></li>
         <li><a href="../web/ComboBox.html" >ComboBox</a></li>
         <li><a href="../web/DatePicker.html" >DatePicker</a></li>
         <li><a href="../web/DateTimePicker.html" >DateTimePicker</a></li>
@@ -78,7 +79,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The MultiSelect displays a list of values and allows the selection of multiple values from this list.</p></div>
-    <a href='http://docs.kendoui.com/getting-started/web/multiselect/overview' target='_blank'>
+    <a target='_blank' href='http://docs.kendoui.com/getting-started/web/multiselect/overview'>
         <i class='icon-book'> </i>
         Official Kendo UI MultiSelect documentation
     </a>
@@ -119,7 +120,7 @@ Selected: &lt;strong data-bind=&quot;text: selectedChoice&quot;&gt; &lt;/strong&
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='one' class='span3 example'>
+                    <div class='span3 example' id='one'>
                         <input data-bind='kendoMultiSelect: { data: choices, value: selectedChoice }' />
 <hr />
 Selected: <strong data-bind='text: selectedChoice'> </strong>
@@ -171,9 +172,9 @@ Selected: &lt;strong data-bind=&quot;text: selectedChoice&quot;&gt; &lt;/strong&
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='two' class='span3 example'>
-                        <input data-bind='checked: isEnabled' type='checkbox' /> Enabled<br />
-<input placeholder='enter search term' data-bind='value: search, valueUpdate: &apos;afterkeydown&apos;' class='search-query' /><br />
+                    <div class='span3 example' id='two'>
+                        <input type='checkbox' data-bind='checked: isEnabled' /> Enabled<br />
+<input data-bind='value: search, valueUpdate: &apos;afterkeydown&apos;' placeholder='enter search term' class='search-query' /><br />
 <hr />
 <button data-bind='click: addChoice' class='btn'>Add Choice</button>
 <hr />
@@ -226,7 +227,7 @@ ko.bindingHandlers.kendoMultiSelect.options.filter = &quot;contains&quot;;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='three' class='span3 example'>
+                    <div class='span3 example' id='three'>
                         <input data-bind='kendoMultiSelect: { data: choices, value: selectedChoice }' />
 <hr />
 Selected: <strong data-bind='text: selectedChoice'> </strong>

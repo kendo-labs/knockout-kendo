@@ -45,6 +45,7 @@
         <li class="nav-header">Kendo UI Web Widgets</li>
         <li><a href="../web/AutoComplete.html" >AutoComplete</a></li>
         <li><a href="../web/Calendar.html" >Calendar</a></li>
+        <li><a href="../web/ColorPicker.html" >ColorPicker</a></li>
         <li><a href="../web/ComboBox.html" >ComboBox</a></li>
         <li><a href="../web/DatePicker.html" >DatePicker</a></li>
         <li><a href="../web/DateTimePicker.html" >DateTimePicker</a></li>
@@ -78,7 +79,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The Menu widget displays a hierarchical menu that allows navigation and selection.</p></div>
-    <a href='http://demos.kendoui.com/web/menu/index.html' target='_blank'>
+    <a target='_blank' href='http://demos.kendoui.com/web/menu/index.html'>
         <i class='icon-book'> </i>
         Official Kendo UI Menu documentation
     </a>
@@ -129,7 +130,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='one' class='span3 example'>
+                    <div class='span3 example' id='one'>
                         <ul data-bind='kendoMenu: {}'>
     <li>
         <span>Test 1</span>
@@ -196,9 +197,9 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='two' class='span3 example'>
-                        <input data-bind='checked: twoIsOpen' type='checkbox' /> Open 2<br />
-<input data-bind='checked: twoEnabled' type='checkbox' /> Enable 2
+                    <div class='span3 example' id='two'>
+                        <input type='checkbox' data-bind='checked: twoIsOpen' /> Open 2<br />
+<input type='checkbox' data-bind='checked: twoEnabled' /> Enable 2
 <hr />
 <ul data-bind='kendoMenu: {}'>
     <li>
@@ -277,9 +278,9 @@ ko.bindingHandlers.kendoMenu.options.orientation = &quot;vertical&quot;;
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='three' class='span3 example'>
-                        <input data-bind='checked: isOpen' type='checkbox' /> Open 2<br />
-<input data-bind='checked: enabled' type='checkbox' /> Enable 2
+                    <div class='span3 example' id='three'>
+                        <input type='checkbox' data-bind='checked: isOpen' /> Open 2<br />
+<input type='checkbox' data-bind='checked: enabled' /> Enable 2
 <hr />
 <ul data-bind='kendoMenu: {}'>
     <li>

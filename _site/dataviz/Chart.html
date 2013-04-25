@@ -45,6 +45,7 @@
         <li class="nav-header">Kendo UI Web Widgets</li>
         <li><a href="../web/AutoComplete.html" >AutoComplete</a></li>
         <li><a href="../web/Calendar.html" >Calendar</a></li>
+        <li><a href="../web/ColorPicker.html" >ColorPicker</a></li>
         <li><a href="../web/ComboBox.html" >ComboBox</a></li>
         <li><a href="../web/DatePicker.html" >DatePicker</a></li>
         <li><a href="../web/DateTimePicker.html" >DateTimePicker</a></li>
@@ -78,7 +79,7 @@
 </div><div class='row-fluid'>
     <h3 class='nospace'>Description</h3>
     <div><p>The Chart widget can create bar, line, area, and scatter charts with a variety of options.</p></div>
-    <a href='http://demos.kendoui.com/dataviz/bar-charts/index.html' target='_blank'>
+    <a target='_blank' href='http://demos.kendoui.com/dataviz/bar-charts/index.html'>
         <i class='icon-book'> </i>
         Official Kendo UI Chart documentation
     </a>
@@ -120,7 +121,7 @@
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='one' class='span3 example'>
+                    <div class='span3 example' id='one'>
                         <div data-bind='kendoChart: { data: items, series: [{ name: &apos;sample&apos;, field: &apos;value&apos; }] }'> </div>
 
 
@@ -173,7 +174,7 @@ ko.applyBindings(new ViewModel());</code></pre>
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='two' class='span3 example'>
+                    <div class='span3 example' id='two'>
                         <input data-bind='value: newValue' class='span1' />
 <input data-bind='value: newValueB' class='span1' />
 <button data-bind='click: addItem'>Add data</button>
@@ -248,7 +249,7 @@ ko.bindingHandlers.kendoChart.options = {
 
 ko.applyBindings(new ViewModel());</code></pre>
                     </div>
-                    <div id='three' class='span3 example'>
+                    <div class='span3 example' id='three'>
                         <input data-bind='value: newValue' class='span1' />
 <input data-bind='value: newValueB' class='span1' />
 <button data-bind='click: addItem'>Add data</button>

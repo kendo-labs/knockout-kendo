@@ -357,7 +357,7 @@ createBinding({
         enabled: ENABLE,
         value: VALUE,
         color: VALUE,
-        palete: PALETTE
+        palette: PALETTE
     }
 });
 createBinding({

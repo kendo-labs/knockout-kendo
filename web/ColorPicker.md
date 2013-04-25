@@ -22,29 +22,27 @@ examples:
       description: This example demonstrates binding against objects for the source data and specifying the property to use for the value. The *addChoice* button also shows that the choices are kept in sync as the observableArray bound to the data receives new items.
       view: |
         <input type="checkbox" data-bind="checked: isEnabled" /> Enabled<br/>
-        <input class="search-query" data-bind="value: search, valueUpdate: 'afterkeydown'" placeholder="enter search term" /><br/>
         <hr/>
         <button class="btn" data-bind="click: addChoice">Add Choice</button>
         <hr/>
-        <input data-bind="kendoMultiSelect: { dataTextField: 'name', data: choices,
-                       value: selectedChoice, search: search, enabled: isEnabled }" />
+        <input data-bind="kendoColorPicker: { palette: colorPalette, value: selectedChoice, enabled: isEnabled }" />
         <hr/>
         Selected: <strong data-bind="text: selectedChoice"> </strong>
 
       js: |
         var ViewModel = function() {
-            this.choices = ko.observableArray([
-                { id: "1", name: "apple"},
-                { id: "2", name: "orange"},
-                { id: "3", name: "banana"}
+            this.colorPallete = ko.observableArray([
+                "#f0d0c9", "#e2a293", "#d4735e", "#65281a",
+                "#eddfda", "#dcc0b6", "#cba092", "#7b4b3a",
+                "#fcecd5", "#f9d9ab", "#f6c781", "#c87d0e",
+                "#e1dca5", "#d0c974", "#a29a36", "#514d1b",
+                "#c6d9f0", "#8db3e2", "#548dd4", "#17365d"
             ]);
 
-            this.selectedChoice = ko.observable();
+            this.selectedChoice = ko.observable("#17365d");
             this.isEnabled = ko.observable(true);
-            this.search = ko.observable();
             this.addChoice = function() {
-                var num = this.choices().length + 1;
-                this.choices.push({ id: num, name: "new" + num});
+                this.choices.push("#ddd");
             };
         };
       id: two

@@ -34,6 +34,16 @@ describe("knockout-kendo-core", function(){
                     expect(options.myOption).toEqual("myOptionValue");
                 });
             });
+
+            describe("when default option is null", function() {
+                it("should set the value to null", function() {
+                    value = ko.observable(null);
+                    valueAccessor = function() { return value; };
+                    options = ko.kendo.bindingFactory.buildOptions(widgetConfig, valueAccessor);
+                    expect(options).toBeDefined();
+                    expect(options.value).toEqual(value);
+                });
+            });
         });
 
         describe("when passing options", function() {

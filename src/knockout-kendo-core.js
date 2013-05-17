@@ -67,7 +67,7 @@ ko.kendo.BindingFactory = function() {
             options = ko.utils.extend({}, ko.bindingHandlers[widgetConfig.name].options),
             valueOrOptions = ko.utils.unwrapObservable(valueAccessor());
 
-        if (typeof valueOrOptions !== "object" || (defaultOption && !(defaultOption in valueOrOptions))) {
+        if (typeof valueOrOptions !== "object" || valueOrOptions === null || (defaultOption && !(defaultOption in valueOrOptions))) {
             options[defaultOption] = valueAccessor();
         }  else {
             ko.utils.extend(options, valueOrOptions);

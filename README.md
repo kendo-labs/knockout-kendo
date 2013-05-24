@@ -21,7 +21,7 @@ Download the plugin from here or grab the latest build from the source. Referenc
 	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/kendo.web.min.js"></script>
-	<script src="js/knockout-2.2.0.js"></script>
+	<script src="js/knockout-2.2.1.js"></script>
 	<script src="js/knockout-kendo.min.js"></script>
 
 Note: It is fine to reference Kendo UI scripts for individual widgets rather than all widgets (kendo.web.min.js), as this plugin will only create bindings for available widgets.

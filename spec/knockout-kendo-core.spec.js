@@ -44,6 +44,16 @@ describe("knockout-kendo-core", function(){
                     expect(options.value).toEqual(value);
                 });
             });
+
+            describe("when default option is a kendo.data.DataSource", function() {
+                it("should set the value to the data source", function() {
+                    value = new kendo.data.DataSource();
+                    valueAccessor = function() { return value; };
+                    options = ko.kendo.bindingFactory.buildOptions(widgetConfig, valueAccessor);
+                    expect(options).toBeDefined();
+                    expect(options.value).toEqual(value);
+                });
+            });
         });
 
         describe("when passing options", function() {
@@ -189,6 +199,26 @@ describe("knockout-kendo-core", function(){
                 expect(widget).toEqual(options);
                 expect($el.data("mockWidget")).toEqual(options);
             });
+        });
+
+        describe("when passing options", function() {
+           it("should only unwrap the top-level properties", function() {
+               var options = {
+                   plain: "plain property",
+                   observable: ko.observable("observable property"),
+                   nested: {
+                       observable: ko.observable("nested observable")
+                   },
+                   dataSource: new kendo.data.DataSource()
+               }
+               setup(null, null, options);
+
+               expect(widget.plain).toEqual(options.plain);
+               expect(widget.observable).toEqual(options.observable()); //unwrapped
+               expect(widget.nested.observable).toEqual(options.nested.observable); //not unwrapped
+               expect(widget.dataSource).toEqual(options.dataSource); //not touched
+           });
+
         });
 
         describe("when widget is really on a parent", function() {

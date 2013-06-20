@@ -1,5 +1,5 @@
 /*
- * knockout-kendo v0.6.1
+ * knockout-kendo v0.6.2
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 /*
- * knockout-kendo v0.6.1
+ * knockout-kendo v0.6.2
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -111,7 +111,7 @@ ko.kendo.BindingFactory = function() {
             options = ko.utils.extend({}, ko.bindingHandlers[widgetConfig.name].options),
             valueOrOptions = ko.utils.unwrapObservable(valueAccessor());
 
-        if (typeof valueOrOptions !== "object" || valueOrOptions === null || (defaultOption && !(defaultOption in valueOrOptions))) {
+        if (valueOrOptions instanceof kendo.data.DataSource || typeof valueOrOptions !== "object" || valueOrOptions === null || (defaultOption && !(defaultOption in valueOrOptions))) {
             options[defaultOption] = valueAccessor();
         }  else {
             ko.utils.extend(options, valueOrOptions);
@@ -150,6 +150,26 @@ ko.kendo.BindingFactory = function() {
         }
     };
 
+    //unless the object is a kendo datasource, get a clean object with one level unwrapped
+    this.unwrapOneLevel = function(object) {
+        var prop,
+            result = {};
+
+        if (object) {
+            if (object instanceof kendo.data.DataSource) {
+                result = object;
+            }
+            else if (typeof object === "object") {
+                for (prop in object) {
+                    //include things on prototype
+                    result[prop] = ko.utils.unwrapObservable(object[prop]);
+                }
+            }
+        }
+
+        return result;
+    };
+
     //return the actual widget
     this.getWidget = function(widgetConfig, options, $element) {
         var widget;
@@ -158,7 +178,7 @@ ko.kendo.BindingFactory = function() {
             var parent = $element.closest("[data-bind*='" + widgetConfig.parent + ":']");
             widget = parent.length ? parent.data(widgetConfig.parent) : null;
         } else {
-            widget = $element[widgetConfig.name](ko.toJS(options)).data(widgetConfig.name);
+            widget = $element[widgetConfig.name](this.unwrapOneLevel(options)).data(widgetConfig.name);
         }
 
         //if the widget option was specified, then fill it with our widget
@@ -260,6 +280,11 @@ ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 //utility to set the dataSource with a clean copy of data. Could be overridden at run-time.
 ko.kendo.setDataSource = function(widget, data, options) {
     var isMapped, cleanData;
+
+    if (data instanceof kendo.data.DataSource) {
+        widget.setDataSource(data);
+        return;
+    }
 
     if (!options || !options.useKOTemplates) {
         isMapped = ko.mapping && data && data.__ko_mapping__;

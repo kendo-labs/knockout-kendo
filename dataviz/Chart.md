@@ -86,7 +86,7 @@ examples:
       
 liveOptions:
     - name: data
-      description: An observableArray of data to use in the chart
+      description: An observableArray or kendo.data.dataSource to use in the chart
     - name: widget
       description: If specified, will populate an observable with a reference to the actual widget
       

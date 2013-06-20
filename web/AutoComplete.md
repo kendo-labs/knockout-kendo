@@ -70,7 +70,7 @@ liveOptions:
     - name: value
       description: The value of the field as selected by the user or set in the view model
     - name: data
-      description: An array or observableArray of options
+      description: An array, observableArray, or kendo.data.dataSource of options
     - name: search
       description: When the value bound to this is updated, a search will be performed based on its value
     - name: widget

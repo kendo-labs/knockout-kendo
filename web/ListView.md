@@ -103,7 +103,7 @@ examples:
       
 liveOptions:
     - name: data
-      description: An array or observableArray of data to be rendered in the list
+      description: An array, observableArray, or kendo.data.DataSource to be rendered in the list
     - name: widget
       description: If specified, will populate an observable with a reference to the actual widget
 ---

@@ -110,7 +110,7 @@ examples:
       
 liveOptions:
     - name: data
-      description: An array or observableArray of data to use in the grid
+      description: An array, observableArray, or kendo.data.DataSource to use in the grid
     - name: widget
       description: If specified, will populate an observable with a reference to the actual widget
 ---

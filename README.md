@@ -8,12 +8,12 @@ knockout-kendo was designed to work with Kendo UI and Knockout.js. The project d
 
 - [jQuery](http://www.jquery.com) v1.8.2
 - [Kendo UI](http://www.kendoui.com)  v2012.3.1114
-- [Knockout](http://www.knockoutjs.com) v2.2
+- [Knockout](http://www.knockoutjs.com) v2.3
 
 knockout-kendo has not been tested against any other versions of these libraries. You may find that versions other than these are compatible with [Project Name], but we make no claims to support those version, nor can we troubleshoot issues that arise when using those versions.
 
 ### Build Note
-This project uses anvil.js (see http://github.com/arobson/anvil.js) for building/minifying.
+This project uses [grunt](http://gruntjs.com/) for building/minifying.
 
 ## Source Code and Downloads
 
@@ -21,7 +21,7 @@ Download the plugin from here or grab the latest build from the source. Referenc
 	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/kendo.web.min.js"></script>
-	<script src="js/knockout-2.2.0.js"></script>
+	<script src="js/knockout-2.3.0.js"></script>
 	<script src="js/knockout-kendo.min.js"></script>
 
 Note: It is fine to reference Kendo UI scripts for individual widgets rather than all widgets (kendo.web.min.js), as this plugin will only create bindings for available widgets.

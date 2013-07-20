@@ -1,5 +1,5 @@
 /*
- * knockout-kendo v0.6.2
+ * knockout-kendo v0.6.3
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -14,23 +14,7 @@
  * See the License for the specific language governing permissions and 
  * limitations under the License.
  */
-/*
- * knockout-kendo v0.6.2
- * Copyright © 2013 Ryan Niemeyer & Telerik
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at
-
- * http://www.apache.org/licenses/LICENSE-2.0
-
- * Unless required by applicable law or agreed to in writing, software 
- * distributed under the License is distributed on an "AS IS" BASIS, 
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
- * See the License for the specific language governing permissions and 
- * limitations under the License.
- */
-(function(factory) {
+;(function(factory) {
     // CommonJS
     if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
         factory(require('knockout'), require('jquery'), require('kendo'));
@@ -42,6 +26,10 @@
         factory(window.ko, window.jQuery, window.kendo);
     }
 }(function(ko, $, kendo, undefined) {
+
+//handle require.js scenarios where kendo is not actually returned
+kendo = kendo || window.kendo;
+
 ko.kendo = ko.kendo || {};
 
 ko.kendo.BindingFactory = function() {
@@ -313,10 +301,11 @@ var extendAndRedraw = function(prop) {
         if (value) {
             ko.utils.extend(this.options[prop], value);
             this.redraw();
-            this.value(.001 + this.value());
+            this.value(0.001 + this.value());
         }
-    }
+    };
 };
+
 //library is in a closure, use this private variable to reduce size of minified file
 var createBinding = ko.kendo.bindingFactory.createBinding.bind(ko.kendo.bindingFactory);
 
@@ -347,6 +336,7 @@ var CLOSE = "close",
     VALUE = "value",
     VALUES = "values";
 
+
 createBinding({
     name: "kendoAutoComplete",
     events: {
@@ -369,6 +359,7 @@ createBinding({
         value: VALUE
     }
 });
+
 createBinding({
     name: "kendoCalendar",
     defaultOption: VALUE,
@@ -381,6 +372,7 @@ createBinding({
         value: VALUE
     }
 });
+
 createBinding({
     name: "kendoColorPicker",
     events: {
@@ -401,6 +393,7 @@ createBinding({
         palette: PALETTE
     }
 });
+
 createBinding({
     name: "kendoComboBox",
     events: {
@@ -423,6 +416,7 @@ createBinding({
         value: VALUE
     }
 });
+
 createBinding({
     name: "kendoDatePicker",
     defaultOption: VALUE,
@@ -446,6 +440,7 @@ createBinding({
         isOpen: [OPEN, CLOSE]
     }
 });
+
 createBinding({
     name: "kendoDateTimePicker",
     defaultOption: VALUE,
@@ -469,6 +464,7 @@ createBinding({
         isOpen: [OPEN, CLOSE]
     }
 });
+
 createBinding({
     name: "kendoDropDownList",
     events: {
@@ -491,6 +487,7 @@ createBinding({
         value: VALUE
     }
 });
+
 createBinding({
     name: "kendoEditor",
     defaultOption: VALUE,
@@ -502,6 +499,7 @@ createBinding({
         value: VALUE
     }
 });
+
 createBinding({
     name: "kendoGrid",
     defaultOption: DATA,
@@ -512,6 +510,7 @@ createBinding({
     },
     templates: ["rowTemplate", "altRowTemplate"]
 });
+
 createBinding({
     name: "kendoListView",
     defaultOption: DATA,
@@ -522,6 +521,7 @@ createBinding({
     },
     templates: ["template"]
 });
+
 createBinding({
     name: "kendoMenu",
     async: true
@@ -536,6 +536,7 @@ createBinding({
     },
     async: true
 });
+
 createBinding({
     name: "kendoMultiSelect",
     events: {
@@ -558,6 +559,7 @@ createBinding({
         value: VALUE
     }
 });
+
 createBinding({
     name: "kendoNumericTextBox",
     defaultOption: VALUE,
@@ -583,6 +585,7 @@ createBinding({
             }
     }
 });
+
 createBinding({
     name: "kendoPanelBar",
     async: true
@@ -608,6 +611,7 @@ createBinding({
     },
     async: true
 });
+
 createBinding({
     name: "kendoRangeSlider",
     defaultOption: VALUES,
@@ -619,6 +623,7 @@ createBinding({
         enabled: ENABLE
     }
 });
+
 createBinding({
     name: "kendoSlider",
     defaultOption: VALUE,
@@ -630,6 +635,7 @@ createBinding({
         enabled: ENABLE
     }
 });
+
 createBinding({
     name: "kendoSplitter",
     async: true
@@ -658,6 +664,7 @@ createBinding({
     },
     async: true
 });
+
 createBinding({
     name: "kendoTabStrip",
     async: true
@@ -672,6 +679,7 @@ createBinding({
     childProp: "item",
     async: true
 });
+
 createBinding({
     name: "kendoTooltip",
     events: {},
@@ -680,6 +688,7 @@ createBinding({
         filter: FILTER
     }
 });
+
 createBinding({
     name: "kendoTimePicker",
     defaultOption: VALUE,
@@ -694,6 +703,7 @@ createBinding({
         isOpen: [OPEN, CLOSE]
     }
 });
+
 createBinding({
     name: "kendoTreeView",
     async: true
@@ -726,12 +736,14 @@ createBinding({
     },
     async: true
 });
+
 createBinding({
     name: "kendoUpload",
     watch: {
         enabled: ENABLE
     }
 });
+
 createBinding({
     async: true,
     name: "kendoWindow",
@@ -751,6 +763,7 @@ createBinding({
         isOpen: [OPEN, CLOSE]
     }
 });
+
 createBinding({
     name: "kendoChart",
     watch: {
@@ -759,6 +772,7 @@ createBinding({
         }
     }
 });
+
 createBinding({
     name: "kendoLinearGauge",
     defaultOption: VALUE,
@@ -769,6 +783,7 @@ createBinding({
         scale: extendAndRedraw("scale")
     }
 });
+
 createBinding({
     name: "kendoRadialGauge",
     defaultOption: VALUE,
@@ -779,4 +794,5 @@ createBinding({
         scale: extendAndRedraw("scale")
     }
 });
+
 }));

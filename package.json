@@ -1,0 +1,13 @@
+{
+  "name": "knockout-kendo",
+  "version": "0.6.2",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "0.x.x",
+    "grunt-contrib-jshint": "0.x.x",
+    "grunt-contrib-watch": "0.x.x",
+    "grunt-includes": "0.x.x",
+    "grunt-contrib-jasmine": "0.x.x",
+    "grunt-template-jasmine-istanbul": "0.x.x"
+  }
+}

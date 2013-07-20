@@ -1,2 +1,5 @@
 _config.yml
 _site
+test
+node_modules
+reports

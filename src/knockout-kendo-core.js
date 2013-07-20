@@ -269,7 +269,7 @@ var extendAndRedraw = function(prop) {
         if (value) {
             ko.utils.extend(this.options[prop], value);
             this.redraw();
-            this.value(.001 + this.value());
+            this.value(0.001 + this.value());
         }
-    }
+    };
 };

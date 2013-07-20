@@ -11,6 +11,9 @@
         factory(window.ko, window.jQuery, window.kendo);
     }
 }(function(ko, $, kendo, undefined) {
+
+kendo = kendo || window.kendo; //helps in require.js scenarios where kendo is not returned
+
 //import("knockout-kendo-core.js");
 //import("knockout-kendo-constants.js");
 //import("knockout-kendoAutoComplete.js");

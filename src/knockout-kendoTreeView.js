@@ -10,7 +10,11 @@ createBinding({
         enabled: ENABLE,
         expanded: [EXPAND, COLLAPSE],
         selected: function(element, value) {
-            this.select(value ? element : null);
+            if (value) {
+                this.select(element);
+            } else if (this.select()[0] == element) {
+                this.select(null);
+            }
         }
     },
     childProp: "node",

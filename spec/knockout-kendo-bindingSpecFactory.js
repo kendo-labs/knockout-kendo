@@ -77,9 +77,12 @@ var generateWidgetInitializationTests = function(widgetConfig, testOptions) {
 
                 describe("when updating the observable bound to the default option", function() {
                     it("should update the widget's default option with the new value", function() {
-                        vm.defaultValue(testOptions.newValue);
-                        var value = typeof defaultOption === "function" ? defaultOption.call(widget) : defaultOption.data();
-                        expect(value).toEqual(testOptions.newValue);
+                    	vm.defaultValue(testOptions.newValue);
+                    	waits(100);
+                    	runs(function () {
+                    		var value = typeof defaultOption === "function" ? defaultOption.call(widget) : ko.toJS(defaultOption.data());
+                    		expect(value).toEqual(testOptions.newValue);
+                    	});
                     });
                 })
             }
@@ -108,9 +111,12 @@ var generateWidgetInitializationTests = function(widgetConfig, testOptions) {
 
                 describe("when updating the observable bound to the default option", function() {
                     it("should update the widget's default option with the new value", function() {
-                        vm.defaultValue(testOptions.newValue);
-                        var value = typeof defaultOption === "function" ? defaultOption.call(widget) : defaultOption.data();
-                        expect(value).toEqual(testOptions.newValue);
+                    	vm.defaultValue(testOptions.newValue);
+                    	waits(100);
+                    	runs(function () {
+                    		var value = typeof defaultOption === "function" ? defaultOption.call(widget) : defaultOption.data();
+                    		expect(value).toEqual(testOptions.newValue);
+                    	});
                     });
                 })
             }

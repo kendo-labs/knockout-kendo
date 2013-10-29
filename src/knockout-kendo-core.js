@@ -106,7 +106,7 @@ ko.kendo.BindingFactory = function() {
             options.dataBound = function() {
                 /* Replace divs inserted from templateRenderer with comments which is what knockout expects since API used by Kendo to append data does not support 
                  * adding comments on IE8, hence we replace comments with divs & replace these back with comments here */
-                if ($.browser.msie && $.browser.version == "8.0") {
+                if ($.browser.msie && ($.browser.version == "8.0" || $.browser.version == "7.0" || $.browser.version == "6.0")) {
                     var commentString = "";
                     $(element).find("div.memoized").each(function(i, el) {
                         commentString += '<!--[ko_memo:' + $(el).data("memoid") + ']-->';

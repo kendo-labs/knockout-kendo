@@ -221,7 +221,7 @@ ko.kendo.BindingFactory = function() {
                 }
             },
             disposeWhenNodeIsRemoved: element
-        }).extend({throttle: 50});
+        }).extend({ throttle: 1 });
 
         //if option is not observable, then dispose up front after executing the logic once
         if (!ko.isObservable(options[prop])) {
@@ -483,11 +483,11 @@ createBinding({
         isOpen: [OPEN, CLOSE],
         data: function(value) {
             ko.kendo.setDataSource(this, value);
-                if (value.length > 0) {
-                        if (this.options.optionLabel !== null) {
-                                this.select(0);
-                        }
-                }
+
+            //if nothing is selected and there is an optionLabel, select it
+            if (value.length && this.options.optionLabel && this.select() < 0) {
+                this.select(0);
+            }
         },
         value: VALUE
     }
@@ -721,7 +721,11 @@ createBinding({
         enabled: ENABLE,
         expanded: [EXPAND, COLLAPSE],
         selected: function(element, value) {
-            this.select(value ? element : null);
+            if (value) {
+                this.select(element);
+            } else if (this.select()[0] == element) {
+                this.select(null);
+            }
         }
     },
     childProp: "node",
@@ -741,6 +745,7 @@ createBinding({
     },
     async: true
 });
+
 
 createBinding({
     name: "kendoUpload",

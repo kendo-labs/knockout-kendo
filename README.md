@@ -15,6 +15,16 @@ knockout-kendo has not been tested against any other versions of these libraries
 ### Build Note
 This project uses [grunt](http://gruntjs.com/) for building/minifying.
 
+If you don't have [grunt](http://gruntjs.com/) installed yet, install it as follows:
+
+    npm install -g grunt-cli
+
+Then, in the project root directory, install the dependencies using:
+
+    npm install
+
+Now you are ready to build knockout-kendo, by calling `grunt`.
+
 ## Source Code and Downloads
 
 Download the plugin from here or grab the latest build from the source. Reference knockout-kendo.min.js after the scripts for Knockout and Kendo UI (requires jQuery).

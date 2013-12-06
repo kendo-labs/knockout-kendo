@@ -16,11 +16,11 @@ createBinding({
         isOpen: [OPEN, CLOSE],
         data: function(value) {
             ko.kendo.setDataSource(this, value);
-                if (value.length > 0) {
-                        if (this.options.optionLabel !== null) {
-                                this.select(0);
-                        }
-                }
+
+            //if nothing is selected and there is an optionLabel, select it
+            if (value.length && this.options.optionLabel && this.select() < 0) {
+                this.select(0);
+            }
         },
         value: VALUE
     }

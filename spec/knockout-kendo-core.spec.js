@@ -290,20 +290,25 @@ describe("knockout-kendo-core", function(){
 
                     describe("when the observable's value is truthy", function() {
                         it("should call the first function in the array with true", function() {
-                        	setup();
-                        	waits(100);
-                        	runs(function () {
-                        		expect(widget.methodTwoA).toHaveBeenCalledWith(true);
-                        	});
+                            setup();
+
+                            waits(10);
+
+                            runs(function () {
+                                expect(widget.methodTwoA).toHaveBeenCalledWith(true);
+                            });
                         });
 
                         describe("when the observable's value changed to false", function() {
                             it("should call the second function in the array with false", function() {
                                 setup();
-                                waits(100);
+
+                                waits(10);
+
                                 options.optionTwo(false);
+
                                 runs(function () {
-                                	expect(widget.methodTwoB).toHaveBeenCalledWith(false);
+                                    expect(widget.methodTwoB).toHaveBeenCalledWith(false);
                                 });
                             });
                         });
@@ -320,11 +325,15 @@ describe("knockout-kendo-core", function(){
                         describe("when the observable's value changed to true", function() {
                             it("should call the first function in the array with true", function() {
                                 options.optionTwo(false);
+
                                 setup();
+
                                 options.optionTwo(true);
-                                waits(100);
+
+                                waits(10);
+
                                 runs(function () {
-                                	expect(widget.methodTwoA).toHaveBeenCalledWith(true);
+                                    expect(widget.methodTwoA).toHaveBeenCalledWith(true);
                                 });
                             });
                         });
@@ -385,11 +394,14 @@ describe("knockout-kendo-core", function(){
 
                         describe("when the observable's value changed to false", function() {
                             it("should call the second function in the array with false", function() {
-                            	setup();
+                                setup();
+
                                 options.optionTwo(false);
-                                waits(100);
+
+                                waits(10);
+
                                 runs(function () {
-                                	expect(widget.methodTwoB).toHaveBeenCalledWith($element[0], false);
+                                    expect(widget.methodTwoB).toHaveBeenCalledWith($element[0], false);
                                 });
                             });
                         });
@@ -406,11 +418,15 @@ describe("knockout-kendo-core", function(){
                         describe("when the observable's value changed to true", function() {
                             it("should call the first function in the array with true", function() {
                                 options.optionTwo(false);
+
                                 setup();
+
                                 options.optionTwo(true);
-                                waits(100);
+
+                                waits(10);
+
                                 runs(function () {
-                                	expect(widget.methodTwoA).toHaveBeenCalledWith($element[0], true);
+                                    expect(widget.methodTwoA).toHaveBeenCalledWith($element[0], true);
                                 });
                             });
                         });

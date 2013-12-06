@@ -49,7 +49,9 @@ var generateWidgetInitializationTests = function(widgetConfig, testOptions) {
                         vm = data;
                         el = element;
                         ko.applyBindings(vm, testbed[0]);
+
                         waits(0);
+
                         runs(function() {
                             widget = el.data(widgetConfig.name);
                             defaultOption = widget[widgetConfig.defaultOption];
@@ -77,12 +79,14 @@ var generateWidgetInitializationTests = function(widgetConfig, testOptions) {
 
                 describe("when updating the observable bound to the default option", function() {
                     it("should update the widget's default option with the new value", function() {
-                    	vm.defaultValue(testOptions.newValue);
-                    	waits(100);
-                    	runs(function () {
-                    		var value = typeof defaultOption === "function" ? defaultOption.call(widget) : ko.toJS(defaultOption.data());
-                    		expect(value).toEqual(testOptions.newValue);
-                    	});
+                        vm.defaultValue(testOptions.newValue);
+
+                        waits(10);
+
+                        runs(function () {
+                            var value = typeof defaultOption === "function" ? defaultOption.call(widget) : ko.toJS(defaultOption.data());
+                            expect(value).toEqual(testOptions.newValue);
+                        });
                     });
                 })
             }
@@ -111,12 +115,14 @@ var generateWidgetInitializationTests = function(widgetConfig, testOptions) {
 
                 describe("when updating the observable bound to the default option", function() {
                     it("should update the widget's default option with the new value", function() {
-                    	vm.defaultValue(testOptions.newValue);
-                    	waits(100);
-                    	runs(function () {
-                    		var value = typeof defaultOption === "function" ? defaultOption.call(widget) : defaultOption.data();
-                    		expect(value).toEqual(testOptions.newValue);
-                    	});
+                        vm.defaultValue(testOptions.newValue);
+
+                        waits(10);
+
+                        runs(function () {
+                            var value = typeof defaultOption === "function" ? defaultOption.call(widget) : defaultOption.data();
+                            expect(value).toEqual(testOptions.newValue);
+                        });
                     });
                 })
             }
@@ -185,6 +191,7 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
                         it("should update " + config.writeTo + " with correct value", function() {
                             //wait for widgets that are initialized asynchronously
                             waits(0);
+
                             runs(function() {
                                 widget = $(el).data(widgetConfig.name);
 

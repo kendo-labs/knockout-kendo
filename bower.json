@@ -1,0 +1,17 @@
+{
+    "name": "knockout-kendo",
+    "version": "0.7.0",
+    "main": "build/knockout-kendo.min.js",
+    "dependencies": {
+        "knockout": ">= 2.0"
+    },
+    "ignore": [
+        "ext",
+        "reports",
+        "spec",
+        "src",
+        "Gruntfile.js",
+        "package.json",
+        ".gitignore"
+    ]
+}

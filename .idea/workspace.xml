@@ -2,109 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367b2740-bbcb-4961-938a-61104d7ba782" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/knockout-2.2.1.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/knockout-kendo-gh.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/editor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/imagebrowser.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/loading-image.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/slider-h.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/slider-v.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/sprite.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/Default/sprite@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/app.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/bootstrap-responsive.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/kendo.common.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/kendo.dataviz.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/kendo.default.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/sunburst.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/brushed-metal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots12.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots13.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/dots9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/glass-lighter.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/glass.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/highlight.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/hsv-gradient.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/hue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/leather1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/leather2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/noise.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/stripe1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/stripe2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/stripe3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/stripe4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/stripe5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/stripe6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/transparency.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/css/textures/transtexture.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/dataviz/Chart.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/dataviz/LinearGauge.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/dataviz/RadialGauge.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/img/glyphicons-halflings-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/img/glyphicons-halflings.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/img/kendo-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/img/ko-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/highlight.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/kendo.dataviz.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/kendo.web.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/knockout-2.2.0.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/js/knockout-kendo.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/AutoComplete.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Calendar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/ComboBox.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/DatePicker.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/DateTimePicker.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/DropDownList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Editor.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Grid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/ListView.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Menu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/MultiSelect.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/NumericTextBox.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/PanelBar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/RangeSlider.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Slider.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Splitter.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/TabStrip.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/TimePicker.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Tooltip.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/TreeView.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Upload.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/web/Window.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/knockout-2.2.0.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="knockout-kendo-gh.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="367b2740-bbcb-4961-938a-61104d7ba782" time="1366909689624" ignored="false" />
-    <file path="/a.dummy" changelist="367b2740-bbcb-4961-938a-61104d7ba782" time="1366910017274" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,82 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_layouts/default.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="68" selection-start="1530" selection-end="1530" vertical-scroll-proportion="-8.518518">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="0" selection-start="3677" selection-end="3677" vertical-scroll-proportion="1.8461539">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="3" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.09" vertical-offset="0" max-vertical-offset="600">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Chart.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataviz/Chart.md">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="13" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RadialGauge.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataviz/RadialGauge.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="10" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DropDownList.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/DropDownList.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="0" selection-start="2106" selection-end="2192" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LinearGauge.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataviz/LinearGauge.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="42" selection-start="2281" selection-end="2281" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ColorPicker.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/ColorPicker.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="2898" selection-end="2898" vertical-scroll-proportion="-20.666666">
+            <state line="63" column="0" selection-start="3656" selection-end="3656" vertical-scroll-proportion="0.0" vertical-offset="1134" max-vertical-offset="1242">
               <folding />
             </state>
           </provider>
@@ -223,27 +62,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/web/ComboBox.md" />
-        <option value="$PROJECT_DIR$/web/DropDownList.md" />
         <option value="$PROJECT_DIR$/web/PanelBar.md" />
         <option value="$PROJECT_DIR$/web/NumericTextBox.md" />
         <option value="$PROJECT_DIR$/_includes/sidebar.html" />
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/dataviz/RadialGauge.md" />
-        <option value="$PROJECT_DIR$/dataviz/Chart.md" />
         <option value="$PROJECT_DIR$/dataviz/LinearGauge.md" />
+        <option value="$PROJECT_DIR$/css/README.md" />
+        <option value="$PROJECT_DIR$/web/Grid.md" />
+        <option value="$PROJECT_DIR$/dataviz/Chart.md" />
+        <option value="$PROJECT_DIR$/web/AutoComplete.md" />
+        <option value="$PROJECT_DIR$/web/ListView.md" />
+        <option value="$PROJECT_DIR$/web/MultiSelect.md" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/_layouts/default.html" />
-        <option value="$PROJECT_DIR$/css/README.md" />
-        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="43" />
+    <option name="x" value="20" />
     <option name="y" value="22" />
-    <option name="width" value="1607" />
-    <option name="height" value="1265" />
+    <option name="width" value="1531" />
+    <option name="height" value="996" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -259,7 +101,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -275,6 +117,56 @@
         <subPane subId="Project Files">
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="knockout-kendo-gh">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="knockout-kendo-gh">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="dataviz">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="knockout-kendo-gh">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT=".idea">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="knockout-kendo-gh">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT=".idea">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="scopes">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -410,9 +302,10 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="156" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.HTML" />
+    <property name="options.lastSelected" value="vcs.Git" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/kendoui.web.2013.3.1119.open-source" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="162" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="831" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="836" />
@@ -426,9 +319,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/css" />
+      <recent name="$PROJECT_DIR$/css/textures" />
+      <recent name="$PROJECT_DIR$/css/Default" />
       <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/dataviz" />
-      <recent name="C:\Users\Ryan\Dropbox\Projects\github\knockout-kendo-gh\js" />
     </key>
   </component>
   <component name="RunManager">
@@ -440,16 +335,55 @@
       <option name="testName" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="name" value="Dart" />
+      <option name="saveOutputToFile" value="false" />
+      <option name="showConsoleOnStdErr" value="false" />
+      <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <browser start="false" url="" with-js-debugger="false" />
       <method />
     </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="false">C:\Users\Ryan\AppData\Roaming\Subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="367b2740-bbcb-4961-938a-61104d7ba782" name="Default" comment="" />
@@ -484,27 +418,84 @@
       <created>1339993744206</created>
       <updated>1339993744206</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Remove _site, update KO, and update a few links to new repo location">
+      <created>1366910209537</created>
+      <updated>1366910209537</updated>
+    </task>
+    <task id="LOCAL-00009" summary="minor updates.  v0.6.1.">
+      <created>1369431764454</created>
+      <updated>1369431764454</updated>
+    </task>
+    <task id="LOCAL-00010" summary="updates for 0.6.2">
+      <created>1371746554410</created>
+      <updated>1371746554410</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update references">
+      <created>1386306013613</created>
+      <updated>1386306013613</updated>
+    </task>
+    <task id="LOCAL-00012" summary="remove flat">
+      <created>1386306526120</created>
+      <updated>1386306526120</updated>
+    </task>
+    <task id="LOCAL-00013" summary="remove flat">
+      <created>1386306551177</created>
+      <updated>1386306551177</updated>
+    </task>
+    <task id="LOCAL-00014" summary="remove .idea files">
+      <created>1386306736990</created>
+      <updated>1386306736990</updated>
+    </task>
+    <task id="LOCAL-00015" summary="remove .idea files">
+      <created>1386306793776</created>
+      <updated>1386306793776</updated>
+    </task>
+    <task id="LOCAL-00016" summary="remove .idea files">
+      <created>1386306804031</created>
+      <updated>1386306804031</updated>
+    </task>
+    <task id="LOCAL-00017" summary="remove IDE files">
+      <created>1386306849395</created>
+      <updated>1386306849395</updated>
+    </task>
+    <task id="LOCAL-00018" summary="remove IDE files">
+      <created>1386307086524</created>
+      <updated>1386307086524</updated>
+    </task>
+    <task id="LOCAL-00019" summary="remove IDE files">
+      <created>1386307237005</created>
+      <updated>1386307237005</updated>
+    </task>
+    <task id="LOCAL-00020" summary="remove IDE files">
+      <created>1386307351648</created>
+      <updated>1386307351649</updated>
+    </task>
+    <task id="LOCAL-00021" summary="remove IDE files">
+      <created>1386307524715</created>
+      <updated>1386307524715</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="43" y="22" width="1607" height="1265" extended-state="0" />
+    <frame x="20" y="22" width="1531" height="996" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28310502" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32955536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28219697" sideWeight="0.67044467" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1923077" sideWeight="0.716895" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868218" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298153" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -515,58 +506,11 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="myTodoPanelSettings">
-      <value>
-        <are-packages-shown value="false" />
-        <are-modules-shown value="false" />
-        <flatten-packages value="false" />
-        <is-autoscroll-to-source value="false" />
-      </value>
+      <TodoPanelSettings />
     </option>
-    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
-    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
-    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
-    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
-    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
-    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
-    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
-    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
-    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
-    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
-    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
-    <option name="LIMIT_HISTORY" value="true" />
-    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
-    <option name="UPDATE_FILTER_SCOPE_NAME" />
-    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
-    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
-    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
-    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add DataViz widget docs." />
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
-    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
-    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
-    <option name="ACTIVE_VCS_NAME" />
-    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
-    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
-    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
-    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
-    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="Minor doc updates." />
     <MESSAGE value="Download button color update." />
     <MESSAGE value="Update references to Kendo Q1 release" />
@@ -577,108 +521,30 @@
     <MESSAGE value="Update knockout-kendo version." />
     <MESSAGE value="Fix image link." />
     <MESSAGE value="Add DataViz widget docs." />
+    <MESSAGE value="Remove _site, update KO, and update a few links to new repo location" />
+    <MESSAGE value="minor updates.  v0.6.1." />
+    <MESSAGE value="updates for 0.6.2" />
+    <MESSAGE value="update references" />
+    <MESSAGE value="remove flat" />
+    <MESSAGE value="remove .idea files" />
+    <MESSAGE value="remove IDE files" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove IDE files" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/DatePicker.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2636" selection-end="2809" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/NumericTextBox.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="46" selection-start="607" selection-end="607" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/widget.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/sidebar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="76" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/DropDownList.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="2106" selection-end="2192" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataviz/RadialGauge.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="10" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataviz/Chart.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataviz/LinearGauge.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="42" selection-start="2281" selection-end="2281" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/ColorPicker.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/knockout-kendo.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="6114" selection-start="6738" selection-end="6744" vertical-scroll-proportion="0.24369748">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="2898" selection-end="2898" vertical-scroll-proportion="-20.666666">
+        <state line="63" column="0" selection-start="3656" selection-end="3656" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="68" selection-start="1530" selection-end="1530" vertical-scroll-proportion="-8.518518">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="3677" selection-end="3677" vertical-scroll-proportion="1.8461539">
+        <state line="3" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.09" vertical-offset="0" max-vertical-offset="600">
           <folding />
         </state>
       </provider>

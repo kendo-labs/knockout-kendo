@@ -1,5 +1,5 @@
 /*
- * knockout-kendo v0.6.3
+ * knockout-kendo <%= pkg.version %>
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 

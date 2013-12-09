@@ -52,7 +52,7 @@ As a part of Kendo UI Labs, [Project Name] is intended to be a community-run pro
 
 ## Release Notes
 
-For change logs and release notes, see the [changelog](CHANGELONG.MD) file.
+For change logs and release notes, see the [releases section](https://github.com/kendo-labs/knockout-kendo/releases).
 
 ## License Information
 

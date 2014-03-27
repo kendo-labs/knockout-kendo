@@ -601,7 +601,8 @@ createBinding({
     parent: "kendoPanelBar",
     watch: {
         enabled: ENABLE,
-        expanded: [EXPAND, COLLAPSE]
+        expanded: [EXPAND, COLLAPSE],
+        selected: [SELECT]
     },
     childProp: "item",
     events: {
@@ -612,6 +613,10 @@ createBinding({
         collapse: {
             writeTo: EXPANDED,
             value: false
+        },
+        select: {
+            writeTo: SELECTED,
+            value: VALUE
         }
     },
     async: true

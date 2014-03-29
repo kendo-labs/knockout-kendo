@@ -74,7 +74,7 @@ ko.kendo.BindingFactory = function() {
             widget = self.getWidget(widgetConfig, options, $element);
 
             //step 4: add handlers for events that we need to react to for updating the model
-            self.handleEvents(options, widgetConfig, element, widget);
+            self.handleEvents(options, widgetConfig, element, widget, context);
 
             //step 5: set up computed observables to update the widget when observable model values change
             self.watchValues(widget, options, widgetConfig, element);
@@ -230,36 +230,47 @@ ko.kendo.BindingFactory = function() {
     };
 
     //write changes to the widgets back to the model
-    this.handleEvents = function(options, widgetConfig, element, widget) {
-        var prop, event, events = widgetConfig.events;
+    this.handleEvents = function(options, widgetConfig, element, widget, context) {
+        var prop, eventConfig, events = widgetConfig.events;
 
         if (events) {
             for (prop in events) {
                 if (events.hasOwnProperty(prop)) {
-                    event = events[prop];
-                    if (typeof event === "string") {
-                        event = { value: event, writeTo: event };
+                    eventConfig = events[prop];
+                    if (typeof eventConfig === "string") {
+                        eventConfig = { value: eventConfig, writeTo: eventConfig };
                     }
 
-                    if (ko.isObservable(options[event.writeTo])) {
-                        self.handleOneEvent(prop, event, options, element, widget, widgetConfig.childProp);
-                    }
+                    self.handleOneEvent(prop, eventConfig, options, element, widget, widgetConfig.childProp, context);
                 }
             }
         }
     };
 
     //bind to a single event
-    this.handleOneEvent = function(eventName, eventConfig, options, element, widget, childProp) {
-        widget.bind(eventName, function(e) {
-            var propOrValue, value;
+    this.handleOneEvent = function(eventName, eventConfig, options, element, widget, childProp, context) {
+        var handler;
 
-            if (!childProp || !e[childProp] || e[childProp] === element) {
-                propOrValue = eventConfig.value;
-                value = (typeof propOrValue === "string" && this[propOrValue]) ? this[propOrValue](childProp && element) : propOrValue;
-                options[eventConfig.writeTo](value);
+        //not an observable, use function as handler with normal KO args
+        if (eventConfig.call && typeof options[eventConfig.call] === "function") {
+            handler = options[eventConfig.call].bind(context.$data, context.$data);
+        }
+        //option is observable, determine what to write to it
+        else if (eventConfig.writeTo && ko.isWriteableObservable(options[eventConfig.writeTo])) {
+            handler = function(e) {
+                var propOrValue, value;
+
+                if (!childProp || !e[childProp] || e[childProp] === element) {
+                    propOrValue = eventConfig.value;
+                    value = (typeof propOrValue === "string" && this[propOrValue]) ? this[propOrValue](childProp && element) : propOrValue;
+                    options[eventConfig.writeTo](value);
+                }
             }
-        });
+        }
+
+        if (handler) {
+            widget.bind(eventName, handler);
+        }
     };
 };
 
@@ -310,7 +321,9 @@ var extendAndRedraw = function(prop) {
 var createBinding = ko.kendo.bindingFactory.createBinding.bind(ko.kendo.bindingFactory);
 
 //use constants to ensure consistency and to help reduce minified file size
-var CLOSE = "close",
+var CLICK = "click",
+    CLICKED = "clicked",
+    CLOSE = "close",
     COLLAPSE = "collapse",
     CONTENT = "content",
     DATA = "data",
@@ -357,6 +370,19 @@ createBinding({
             ko.kendo.setDataSource(this, value);
         },
         value: VALUE
+    }
+});
+
+createBinding({
+    name: "kendoButton",
+    defaultOption: CLICKED,
+    events: {
+        click: {
+            call: CLICKED
+        }
+    },
+    watch: {
+        enabled: ENABLE
     }
 });
 

@@ -72,23 +72,25 @@ var generateWidgetInitializationTests = function(widgetConfig, testOptions) {
             });
 
             if (widgetConfig.defaultOption && widgetConfig.defaultOption !== "data") {
-                it("should set the widget's default option with the observable's value", function() {
-                    var value = typeof defaultOption === "function" ? defaultOption.call(widget) : ko.toJS(defaultOption.data());
-                    expect(value).toEqual(testOptions.defaultValue);
-                });
+                if (!testOptions.defaultIsHandler) {
+                    it("should set the widget's default option with the observable's value", function() {
+                        var value = typeof defaultOption === "function" ? defaultOption.call(widget) : ko.toJS(defaultOption.data());
+                        expect(value).toEqual(testOptions.defaultValue);
+                    });
 
-                describe("when updating the observable bound to the default option", function() {
-                    it("should update the widget's default option with the new value", function() {
-                        vm.defaultValue(testOptions.newValue);
+                    describe("when updating the observable bound to the default option", function() {
+                        it("should update the widget's default option with the new value", function() {
+                            vm.defaultValue(testOptions.newValue);
 
-                        waits(10);
+                            waits(10);
 
-                        runs(function () {
-                            var value = typeof defaultOption === "function" ? defaultOption.call(widget) : ko.toJS(defaultOption.data());
-                            expect(value).toEqual(testOptions.newValue);
+                            runs(function () {
+                                var value = typeof defaultOption === "function" ? defaultOption.call(widget) : ko.toJS(defaultOption.data());
+                                expect(value).toEqual(testOptions.newValue);
+                            });
                         });
                     });
-                })
+                }
             }
         });
 
@@ -108,23 +110,26 @@ var generateWidgetInitializationTests = function(widgetConfig, testOptions) {
             });
 
             if (widgetConfig.defaultOption && widgetConfig.defaultOption !== "data") {
-                it("should set the widget's default option with the observable's value", function() {
-                    var value = typeof defaultOption === "function" ? defaultOption.call(widget) : ko.toJS(defaultOption.data());
-                    expect(value).toEqual(testOptions.defaultValue);
-                });
+                if (!testOptions.defaultIsHandler) {
+                    it("should set the widget's default option with the observable's value", function() {
+                        var value = typeof defaultOption === "function" ? defaultOption.call(widget) : ko.toJS(defaultOption.data());
+                        expect(value).toEqual(testOptions.defaultValue);
+                    });
 
-                describe("when updating the observable bound to the default option", function() {
-                    it("should update the widget's default option with the new value", function() {
-                        vm.defaultValue(testOptions.newValue);
+                    describe("when updating the observable bound to the default option", function() {
+                        it("should update the widget's default option with the new value", function() {
+                            vm.defaultValue(testOptions.newValue);
 
-                        waits(10);
+                            waits(10);
 
-                        runs(function () {
-                            var value = typeof defaultOption === "function" ? defaultOption.call(widget) : defaultOption.data();
-                            expect(value).toEqual(testOptions.newValue);
+                            runs(function () {
+                                var value = typeof defaultOption === "function" ? defaultOption.call(widget) : defaultOption.data();
+                                expect(value).toEqual(testOptions.newValue);
+                            });
                         });
                     });
-                })
+                }
+
             }
         });
     });
@@ -148,22 +153,32 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
                 if (widgetConfig.events.hasOwnProperty(prop)) {
                     config = widgetConfig.events[prop];
                     config = typeof config === "string" ? { writeTo: config, value: config } : config;
-                    vm[config.writeTo + "_spy"] = jasmine.createSpy();
-                    //create a computed (that calls the spy) to bind against the "writeTo" option
-                    (function(writeTo) {
-                        vm[writeTo + '_test'] = ko.computed({
-                            read: function() {
-                                return vm[writeTo + "_spy"]();
-                            },
-                            write: function(newValue) {
-                                vm[writeTo + "_spy"](newValue);
-                            }
-                        });
-                    })(config.writeTo);
+                    vm[(config.call || config.writeTo) + "_spy"] = jasmine.createSpy();
 
-                    //prevent duplicates
-                    if (options.indexOf(config.writeTo + ": ") < 0) {
-                        options += (options ? ", " : "{ ") + config.writeTo + ": " + config.writeTo + '_test';
+                    if (config.writeTo) {
+                        //create a computed (that calls the spy) to bind against the "writeTo" option
+                        (function(writeTo) {
+                            vm[writeTo + '_test'] = ko.computed({
+                                read: function() {
+                                    return vm[writeTo + "_spy"]();
+                                },
+                                write: function(newValue) {
+                                    vm[writeTo + "_spy"](newValue);
+                                }
+                            });
+                        })(config.writeTo);
+
+                        //prevent duplicates
+                        if (options.indexOf(config.writeTo + ": ") < 0) {
+                            options += (options ? ", " : "{ ") + config.writeTo + ": " + config.writeTo + '_test';
+                        }
+                    }
+                    else if (config.call) {
+                        vm[config.call] = vm[config.call + "_spy"];
+
+                        if (options.indexOf(config.call + ": ") < 0) {
+                            options += (options ? ", " : "{ ") + config.call + ": " + config.call + '_spy';
+                        }
                     }
                 }
             }
@@ -187,26 +202,57 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
             if (widgetConfig.events.hasOwnProperty(prop)) {
                 (function(event, config) {
                     config = typeof config === "string" ? { writeTo: config, value: config } : config;
-                    describe("when " + event + " event is triggered", function() {
-                        it("should update " + config.writeTo + " with correct value", function() {
-                            //wait for widgets that are initialized asynchronously
-                            waits(0);
 
-                            runs(function() {
-                                widget = $(el).data(widgetConfig.name);
+                    //test writing to an observable
+                    if (!config.call) {
+                        describe("when " + event + " event is triggered", function() {
+                            it("should update " + config.writeTo + " with correct value", function() {
+                                //wait for widgets that are initialized asynchronously
+                                waits(0);
 
-                                vm[config.writeTo + "_spy"].reset();
+                                runs(function() {
+                                    widget = $(el).data(widgetConfig.name);
 
-                                //trigger the event
-                                widget.trigger(event);
+                                    vm[config.writeTo + "_spy"].reset();
 
-                                var propOrValue = config.value;
-                                value = (typeof propOrValue === "string" && widget[propOrValue]) ? widget[propOrValue]() : propOrValue;
+                                    //trigger the event
+                                    widget.trigger(event);
 
-                                expect(vm[config.writeTo + "_spy"]).toHaveBeenCalledWith(value);
+                                    var propOrValue = config.value;
+                                    value = (typeof propOrValue === "string" && widget[propOrValue]) ? widget[propOrValue]() : propOrValue;
+
+                                    expect(vm[config.writeTo + "_spy"]).toHaveBeenCalledWith(value);
+                                });
                             });
                         });
-                    });
+                    }
+                    else {
+                        //test calling a function
+                        describe("when " + event + " event is triggered", function() {
+                            it("should call the " + config.call + "handler with the appropriate arguments and context", function() {
+                                var mostRecent;
+
+                                //wait for widgets that are initialized asynchronously
+                                waits(0);
+
+                                runs(function() {
+                                    widget = $(el).data(widgetConfig.name);
+
+                                    vm[config.call + "_spy"].reset();
+
+                                    //trigger the event
+                                    widget.trigger(event);
+
+                                    mostRecent = vm[config.call + "_spy"].mostRecentCall;
+
+                                    expect(mostRecent.object).toBe(vm);
+                                    expect(mostRecent.args[0]).toBe(vm);
+                                    expect(typeof mostRecent.args[1].preventDefault).toBe("function");
+                                });
+                            });
+                        });
+                    }
+
                 })(prop, widgetConfig.events[prop]);
             }
         }

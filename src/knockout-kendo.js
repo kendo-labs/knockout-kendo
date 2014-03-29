@@ -20,6 +20,8 @@ kendo = kendo || window.kendo;
 
 //import "knockout-kendoAutoComplete.js"
 
+//import "knockout-kendoButton.js"
+
 //import "knockout-kendoCalendar.js"
 
 //import "knockout-kendoColorPicker.js"

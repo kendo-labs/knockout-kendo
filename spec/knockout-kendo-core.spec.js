@@ -95,13 +95,21 @@ describe("knockout-kendo-core", function(){
 
     describe("handleEvents", function() {
         describe("when given an object with events as keys", function() {
-            var options, widgetConfig, widget;
+            var options, widgetConfig, widget, context;
 
             beforeEach(function() {
+                context = {
+                    $data: {}
+                };
+
                 options = {
                     optionOne: ko.observable("one value"),
                     optionTwo: "two value",
-                    optionSix: ko.observable("six value")
+                    optionSix: ko.observable("six value"),
+                    optionSeven: function(data) {
+                        expect(this).toBe(context.$data);
+                        expect(data).toBe(context.$data);
+                    }
                 };
 
                 widgetConfig = {
@@ -129,6 +137,9 @@ describe("knockout-kendo-core", function(){
                         eventSix: {
                             writeTo: "optionSix",
                             value: true
+                        },
+                        eventSeven: {
+                            call: "optionSeven"
                         }
                     }
                 };
@@ -143,7 +154,7 @@ describe("knockout-kendo-core", function(){
                         return "methodOne value";
                     }
                 };
-                ko.kendo.bindingFactory.handleEvents(options, widgetConfig, null, widget);
+                ko.kendo.bindingFactory.handleEvents(options, widgetConfig, null, widget, context);
             });
 
             describe("when writeTo corresponds to an observable", function() {
@@ -174,6 +185,12 @@ describe("knockout-kendo-core", function(){
                         widget.handlers.eventSix[0].call(widget);
                         expect(options.optionSix()).toEqual(true);
                     });
+                });
+            });
+
+            describe("when a handler is provided by call option", function() {
+                it("should bind the handler", function() {
+                    widget.handlers.eventSeven[0].call(widget);
                 });
             });
         });

@@ -2,7 +2,9 @@
 var createBinding = ko.kendo.bindingFactory.createBinding.bind(ko.kendo.bindingFactory);
 
 //use constants to ensure consistency and to help reduce minified file size
-var CLOSE = "close",
+var CLICK = "click",
+    CLICKED = "clicked",
+    CLOSE = "close",
     COLLAPSE = "collapse",
     CONTENT = "content",
     DATA = "data",

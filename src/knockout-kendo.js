@@ -46,6 +46,8 @@ kendo = kendo || window.kendo;
 
 //import "knockout-kendoMultiSelect.js"
 
+//import "knockout-kendoNotification.js"
+
 //import "knockout-kendoNumericTextBox.js"
 
 //import "knockout-kendoPanelBar.js"

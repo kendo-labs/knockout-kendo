@@ -225,7 +225,10 @@ ko.kendo.BindingFactory = function() {
         }
         //option is observable, determine what to write to it
         else if (eventConfig.writeTo && ko.isWriteableObservable(options[eventConfig.writeTo])) {
+            console.log("binding handler for", eventName);
+
             handler = function(e) {
+                console.log("firing handler for", eventConfig.writeTo);
                 var propOrValue, value;
 
                 if (!childProp || !e[childProp] || e[childProp] === element) {
@@ -233,7 +236,7 @@ ko.kendo.BindingFactory = function() {
                     value = (typeof propOrValue === "string" && this[propOrValue]) ? this[propOrValue](childProp && element) : propOrValue;
                     options[eventConfig.writeTo](value);
                 }
-            }
+            };
         }
 
         if (handler) {

@@ -338,6 +338,7 @@ var CLICK = "click",
     MIN = "min",
     OPEN = "open",
     PALETTE = "palette",
+    READONLY = "readonly"
     RESIZE = "resize",
     SEARCH = "search",
     SELECT = "select",
@@ -551,6 +552,19 @@ createBinding({
         }
     },
     templates: ["template"]
+});
+
+createBinding({
+    name: "kendoMaskedTextBox",
+    defaultOption: VALUE,
+    events: {
+        change: VALUE
+    },
+    watch: {
+        enabled: ENABLE,
+        isReadOnly: READONLY,
+        value: VALUE
+    }
 });
 
 createBinding({

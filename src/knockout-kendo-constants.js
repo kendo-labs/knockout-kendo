@@ -19,6 +19,7 @@ var CLICK = "click",
     MIN = "min",
     OPEN = "open",
     PALETTE = "palette",
+    READONLY = "readonly"
     RESIZE = "resize",
     SEARCH = "search",
     SELECT = "select",

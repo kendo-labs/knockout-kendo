@@ -257,7 +257,10 @@ ko.kendo.BindingFactory = function() {
         }
         //option is observable, determine what to write to it
         else if (eventConfig.writeTo && ko.isWriteableObservable(options[eventConfig.writeTo])) {
+            console.log("binding handler for", eventName);
+
             handler = function(e) {
+                console.log("firing handler for", eventConfig.writeTo);
                 var propOrValue, value;
 
                 if (!childProp || !e[childProp] || e[childProp] === element) {
@@ -265,7 +268,7 @@ ko.kendo.BindingFactory = function() {
                     value = (typeof propOrValue === "string" && this[propOrValue]) ? this[propOrValue](childProp && element) : propOrValue;
                     options[eventConfig.writeTo](value);
                 }
-            }
+            };
         }
 
         if (handler) {
@@ -331,24 +334,28 @@ var CLICK = "click",
     EXPAND = "expand",
     ENABLED = "enabled",
     EXPANDED = "expanded",
+    ERROR = "error",
     FILTER = "filter",
     HIDE = "hide",
+    INFO = "info",
     ISOPEN = "isOpen",
     MAX = "max",
     MIN = "min",
     OPEN = "open",
     PALETTE = "palette",
-    READONLY = "readonly"
+    READONLY = "readonly",
     RESIZE = "resize",
     SEARCH = "search",
     SELECT = "select",
     SELECTED = "selected",
     SHOW = "show",
+    SUCCESS = "success",
     SIZE = "size",
     TARGET = "target",
     TITLE = "title",
     VALUE = "value",
-    VALUES = "values";
+    VALUES = "values",
+    WARNING = "warning";
 
 
 createBinding({
@@ -605,6 +612,33 @@ createBinding({
     }
 });
 
+var notificationHandler = function(type, value) {
+    if (value || value === 0) {
+        this.show(value, type);
+    }
+    else {
+        this.hide();
+    }
+};
+
+createBinding({
+    name: "kendoNotification",
+    watch: {
+        error: function(value) {
+            notificationHandler.call(this, ERROR, value);
+        },
+        info: function(value) {
+            notificationHandler.call(this, INFO, value);
+        },
+        success: function(value) {
+            notificationHandler.call(this, SUCCESS, value);
+        },
+        warning: function(value) {
+            notificationHandler.call(this, WARNING, value);
+        }
+    }
+});
+
 createBinding({
     name: "kendoNumericTextBox",
     defaultOption: VALUE,
@@ -614,20 +648,20 @@ createBinding({
     watch: {
         enabled: ENABLE,
         value: VALUE,
-            max: function(newMax) {
-                this.options.max = newMax;
-                //make sure current value is still valid
-                if (this.value() > newMax) {
-                    this.value(newMax);
-                }
-            },
-            min: function(newMin) {
-                this.options.min = newMin;
-                //make sure that current value is still valid
-                if (this.value() < newMin) {
-                    this.value(newMin);
-                }
+        max: function(newMax) {
+            this.options.max = newMax;
+            //make sure current value is still valid
+            if (this.value() > newMax) {
+                this.value(newMax);
             }
+        },
+        min: function(newMin) {
+            this.options.min = newMin;
+            //make sure that current value is still valid
+            if (this.value() < newMin) {
+                this.value(newMin);
+            }
+        }
     }
 });
 
@@ -655,6 +689,18 @@ createBinding({
         }
     },
     async: true
+});
+
+createBinding({
+    name: "kendoProgressBar",
+    defaultOption: VALUE,
+    events: {
+        change: VALUE
+    },
+    watch: {
+        enabled: ENABLE,
+        value: VALUE
+    }
 });
 
 createBinding({

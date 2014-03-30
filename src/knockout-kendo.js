@@ -52,6 +52,8 @@ kendo = kendo || window.kendo;
 
 //import "knockout-kendoPanelBar.js"
 
+//import "knockout-kendoProgressBar.js"
+
 //import "knockout-kendoRangeSlider.js"
 
 //import "knockout-kendoSlider.js"

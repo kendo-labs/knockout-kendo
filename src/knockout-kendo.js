@@ -56,6 +56,8 @@ kendo = kendo || window.kendo;
 
 //import "knockout-kendoRangeSlider.js"
 
+//import "knockout-kendoScheduler.js"
+
 //import "knockout-kendoSlider.js"
 
 //import "knockout-kendoSplitter.js"

@@ -716,6 +716,16 @@ createBinding({
 });
 
 createBinding({
+    async: true,
+    name: "kendoScheduler",
+    watch: {
+        data: function(value, options) {
+            ko.kendo.setDataSource(this, value, options);
+        }
+    }
+});
+
+createBinding({
     name: "kendoSlider",
     defaultOption: VALUE,
     events: {

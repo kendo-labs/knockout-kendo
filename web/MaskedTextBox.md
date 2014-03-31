@@ -25,18 +25,18 @@ examples:
         <div data-bind="text: value"> </div>
       js: |
         var ViewModel = function() {
-            this.value = ko.observable("");
+            this.value = ko.observable(1355.75);
         };
       id: two
     - title: Using global options
       description: This example demonstrates setting global options in *ko.bindingHandlers.kendoMaskedTextBox.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
-        <input data-bind="kendoDatePicker: value" />
+        <input data-bind="kendoMaskedTextBox: value" />
         <hr/>
         <div data-bind="text: value"> </div>
       js: |
         var ViewModel = function() {
-            this.value = ko.observable("");
+            this.value = ko.observable(1210.99);
         };
         
         ko.bindingHandlers.kendoMaskedTextBox.options = {

@@ -6,107 +6,207 @@ description: The Scheduler widget provides a flexible calendar-based editor.
 docs: http://demos.kendoui.com/web/grid/index.html
 examples:
     - title: Basic Example
-      description: This example demonstrates passing a single option to bind data against the Grid widget.
+      description: This example demonstrates passing values to the
       view: |
-        <div data-bind="kendoGrid: items"> </div>
+        <div data-bind="kendoScheduler: { data: values }"></div>
       js: |
         var ViewModel = function() {
-            this.items = ko.observableArray([
-                { id: "1", name: "apple"},
-                { id: "2", name: "orange"},
-                { id: "3", name: "banana"}
+            this.values = ko.observableArray([
+                {
+                    id: 1,
+                    start: new Date("2014/3/30 10:00"),
+                    end: new Date("2014/3/30 11:00"),
+                    title: "Breakfast"
+                },
+                {
+                    id: 2,
+                    start: new Date("2014/3/30 14:00"),
+                    end: new Date("2014/3/30 15:00"),
+                    title: "Job Interview"
+                }
             ]);
         };
       selected: true
       id: one
     - title: Passing additional options
-      description: This example demonstrates passing additional options in the data-bind attribute with *data* now being explicitly specified. The *Add Item* button updates the underlying data and shows that the Grid remains in sync.
+      description: This example demonstrates passing additional options in the data-bind attribute.
       view: |
-        <div data-bind="kendoGrid: { data: items, groupable: true, scrollable: true, sortable: true, pageable: { pageSize: 10 } }"> </div>
-        <button data-bind="click: addItem">Add Item</button>
+        <div data-bind="kendoScheduler: config"> </div>
       js: |
         var ViewModel = function() {
-            this.items = ko.observableArray([
-                { id: "1", name: "apple"},
-                { id: "2", name: "orange"},
-                { id: "3", name: "banana"}
-            ]);
-
-            this.addItem = function() {
-                var num = this.items().length + 1;
-                this.items.push({ id: num, name: "new" + num});
+            this.config = {
+                date: new Date("2013/6/13"),
+                startTime: new Date("2013/6/13 10:00"),
+                endTime: new Date("2013/6/13 23:00"),
+                height: 600,
+                views: ["day", "agenda"],
+                editable: false,
+                dataSource: [
+                    {
+                        title: "Fast and furious 6",
+                        image: "../../content/web/scheduler/fast-and-furious.jpg",
+                        imdb: "http://www.imdb.com/title/tt1905041/",
+                        start: new Date("2013/6/13 17:00"),
+                        end: new Date("2013/6/13 18:30")
+                    },
+                    {
+                        title: "The Internship",
+                        image: "../../content/web/scheduler/the-internship.jpg",
+                        imdb: "http://www.imdb.com/title/tt2234155/",
+                        start: new Date("2013/6/13 14:00"),
+                        end: new Date("2013/6/13 15:30")
+                    },
+                    {
+                        title: "The Perks of Being a Wallflower",
+                        image: "../../content/web/scheduler/wallflower.jpg",
+                        imdb: "http://www.imdb.com/title/tt1659337/",
+                        start: new Date("2013/6/13 16:00"),
+                        end: new Date("2013/6/13 17:30")
+                    },
+                    {
+                        title: "The Help",
+                        image: "../../content/web/scheduler/the-help.jpg",
+                        imdb: "http://www.imdb.com/title/tt1454029/",
+                        start: new Date("2013/6/13 12:00"),
+                        end: new Date("2013/6/13 13:30")
+                    },
+                    {
+                        title: "Now You See Me",
+                        image: "../../content/web/scheduler/now-you-see-me.jpg",
+                        imdb: "http://www.imdb.com/title/tt1670345/",
+                        start: new Date("2013/6/13 10:00"),
+                        end: new Date("2013/6/13 11:30")
+                    },
+                    {
+                        title: "Fast and furious 6",
+                        image: "../../content/web/scheduler/fast-and-furious.jpg",
+                        imdb: "http://www.imdb.com/title/tt1905041/",
+                        start: new Date("2013/6/13 19:00"),
+                        end: new Date("2013/6/13 20:30")
+                    },
+                    {
+                        title: "The Internship",
+                        image: "../../content/web/scheduler/the-internship.jpg",
+                        imdb: "http://www.imdb.com/title/tt2234155/",
+                        start: new Date("2013/6/13 17:30"),
+                        end: new Date("2013/6/13 19:00")
+                    },
+                    {
+                        title: "The Perks of Being a Wallflower",
+                        image: "../../content/web/scheduler/wallflower.jpg",
+                        imdb: "http://www.imdb.com/title/tt1659337/",
+                        start: new Date("2013/6/13 17:30"),
+                        end: new Date("2013/6/13 19:00")
+                    },
+                    {
+                        title: "The Help",
+                        image: "../../content/web/scheduler/the-help.jpg",
+                        imdb: "http://www.imdb.com/title/tt1454029/",
+                        start: new Date("2013/6/13 13:30"),
+                        end: new Date("2013/6/13 15:00")
+                    },
+                    {
+                        title: "Now You See Me",
+                        image: "../../content/web/scheduler/now-you-see-me.jpg",
+                        imdb: "http://www.imdb.com/title/tt1670345/",
+                        start: new Date("2013/6/13 12:30"),
+                        end: new Date("2013/6/13 14:00")
+                    }
+                ]
             };
         };
       id: two
-    - title: Using Knockout templates
-      description: This example demonstrates using Knockout templates for grid rows and alternate rows.
+    - title: Using global options
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoScheduler.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
-        <div data-bind="kendoGrid: { data: items, rowTemplate: 'rowTmpl', altRowTemplate: 'altTmpl', useKOTemplates: true }"> </div>
-        <button data-bind="click: addItem">Add Item</button>
-        <script id="rowTmpl" type="text/html">
-            <tr>
-                <td data-bind="text: id"></td>
-                <td>
-                    <input data-bind="value: name" />
-                </td>
-                <td>
-                    <a href="#" data-bind="click: $root.removeItem">x</a>
-                </td>
-            </tr>
-        </script>
-        <script id="altTmpl" type="text/html">
-            <tr>
-                <td>Alt Row</td>
-                <td data-bind="text: name"></td>
-                <td>
-                    <a href="#" data-bind="click: $root.removeItem">x</a>
-                </td>
-            </tr>
-        </script>
+        <div data-bind="kendoScheduler: config"> </div>
       js: |
         var ViewModel = function() {
-            this.items = ko.observableArray([
-                { id: "1", name: ko.observable("apple")},
-                { id: "2", name: ko.observable("orange")},
-                { id: "3", name: ko.observable("banana")}
-            ]);
-
-            this.addItem = function() {
-                var num = this.items().length + 1;
-                this.items.push({ id: num, name: "new" + num});
+            this.config = {
+                date: new Date("2013/6/13"),
+                startTime: new Date("2013/6/13 10:00"),
+                endTime: new Date("2013/6/13 23:00"),
+                editable: false,
+                dataSource: [
+                    {
+                        title: "Fast and furious 6",
+                        image: "../../content/web/scheduler/fast-and-furious.jpg",
+                        imdb: "http://www.imdb.com/title/tt1905041/",
+                        start: new Date("2013/6/13 17:00"),
+                        end: new Date("2013/6/13 18:30")
+                    },
+                    {
+                        title: "The Internship",
+                        image: "../../content/web/scheduler/the-internship.jpg",
+                        imdb: "http://www.imdb.com/title/tt2234155/",
+                        start: new Date("2013/6/13 14:00"),
+                        end: new Date("2013/6/13 15:30")
+                    },
+                    {
+                        title: "The Perks of Being a Wallflower",
+                        image: "../../content/web/scheduler/wallflower.jpg",
+                        imdb: "http://www.imdb.com/title/tt1659337/",
+                        start: new Date("2013/6/13 16:00"),
+                        end: new Date("2013/6/13 17:30")
+                    },
+                    {
+                        title: "The Help",
+                        image: "../../content/web/scheduler/the-help.jpg",
+                        imdb: "http://www.imdb.com/title/tt1454029/",
+                        start: new Date("2013/6/13 12:00"),
+                        end: new Date("2013/6/13 13:30")
+                    },
+                    {
+                        title: "Now You See Me",
+                        image: "../../content/web/scheduler/now-you-see-me.jpg",
+                        imdb: "http://www.imdb.com/title/tt1670345/",
+                        start: new Date("2013/6/13 10:00"),
+                        end: new Date("2013/6/13 11:30")
+                    },
+                    {
+                        title: "Fast and furious 6",
+                        image: "../../content/web/scheduler/fast-and-furious.jpg",
+                        imdb: "http://www.imdb.com/title/tt1905041/",
+                        start: new Date("2013/6/13 19:00"),
+                        end: new Date("2013/6/13 20:30")
+                    },
+                    {
+                        title: "The Internship",
+                        image: "../../content/web/scheduler/the-internship.jpg",
+                        imdb: "http://www.imdb.com/title/tt2234155/",
+                        start: new Date("2013/6/13 17:30"),
+                        end: new Date("2013/6/13 19:00")
+                    },
+                    {
+                        title: "The Perks of Being a Wallflower",
+                        image: "../../content/web/scheduler/wallflower.jpg",
+                        imdb: "http://www.imdb.com/title/tt1659337/",
+                        start: new Date("2013/6/13 17:30"),
+                        end: new Date("2013/6/13 19:00")
+                    },
+                    {
+                        title: "The Help",
+                        image: "../../content/web/scheduler/the-help.jpg",
+                        imdb: "http://www.imdb.com/title/tt1454029/",
+                        start: new Date("2013/6/13 13:30"),
+                        end: new Date("2013/6/13 15:00")
+                    },
+                    {
+                        title: "Now You See Me",
+                        image: "../../content/web/scheduler/now-you-see-me.jpg",
+                        imdb: "http://www.imdb.com/title/tt1670345/",
+                        start: new Date("2013/6/13 12:30"),
+                        end: new Date("2013/6/13 14:00")
+                    }
+                ]
             };
+        };
 
-            this.removeItem = function(item) {
-                this.items.remove(item);
-            }.bind(this);
+        ko.bindingHandlers.kendoScheduler.options = {
+            height: 600,
+            views: ["day", "agenda"]
         };
       id: three
-    - title: Using global options
-      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoGrid.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
-      view: |
-        <div data-bind="kendoGrid: items"> </div>
-        <button data-bind="click: addItem">Add Item</button>
-      js: |
-        var ViewModel = function() {
-            this.items = ko.observableArray([
-                { id: "1", name: "apple"},
-                { id: "2", name: "orange"},
-                { id: "3", name: "banana"}
-            ]);
-
-            this.addItem = function() {
-                var num = this.items().length + 1;
-                this.items.push({ id: num, name: "new" + num});
-            };
-            
-            ko.bindingHandlers.kendoGrid.options = {
-                groupable: true,
-                scrollable: true,
-                sortable: true,
-                pageable: true
-            };
-        };
-      id: four
       
 liveOptions:
     - name: data

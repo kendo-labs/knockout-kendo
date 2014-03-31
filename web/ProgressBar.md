@@ -6,56 +6,30 @@ description: The ProgressBar widget displays a status bar that can animate betwe
 docs: http://docs.telerik.com/kendo-ui/api/web/progressbar
 examples:
     - title: Basic Example
-      description: This example demonstrates passing a single option to bind against the value of the DatePicker widget.
+      description: This example demonstrates passing a single option to bind against the value of the ProgressBar widget.
       view: |
-        <input data-bind="kendoDatePicker: startDate" />
+        <div data-bind="kendoProgressBar: percent"> </div>
         <hr/>
-        <div data-bind="text: startDate"> </div>
+        <input data-bind="value: percent" />
       js: |
         var ViewModel = function() {
-            this.startDate = ko.observable(new Date());
+            this.percent = ko.observable(25);
         };
       selected: true
       id: one
     - title: Passing additional options
-      description: This example demonstrates passing additional options in the data-bind attribute with *value* now being explicitly specified. The *setToToday* button makes an update to the view model to show that the widget responds accordingly.
+      description: This example demonstrates passing additional options in the data-bind attribute with *value* now being explicitly specified.
       view: |
-        <input data-bind="kendoDatePicker: { value: startDate, max: maxDate, min: minDate }" />
+        <div data-bind="kendoProgressBar: { value: percent, enabled: enabled }"> </div>
         <hr/>
-        <button data-bind="click: setToToday">Set to Today</button>
-        <hr/>
-        <div data-bind="text: startDate"> </div>
+        <input data-bind="value: percent" /><br/>
+        <input type="checkbox" data-bind="checked: enabled" />
       js: |
         var ViewModel = function() {
-            this.startDate = ko.observable(new Date(2012,10,30));
-            this.maxDate = new Date(2012, 11 , 31);
-            this.minDate = new Date(2012, 0, 1);
-            this.setToToday = function() {
-                this.startDate(new Date());
-            };
+            this.enabled = ko.observable(true);
+            this.percent = ko.observable(25);
         };
       id: two
-    - title: Using global options
-      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoDatePicker.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
-      view: |
-        <input data-bind="kendoDatePicker: startDate" />
-        <hr/>
-        <button data-bind="click: setToToday">Set to Today</button>
-        <hr/>
-        <div data-bind="text: startDate"> </div>
-      js: |
-        var ViewModel = function() {
-            this.startDate = ko.observable(new Date(2012,10,30));
-            this.setToToday = function() {
-                this.startDate(new Date());
-            };
-        };
-        
-        ko.bindingHandlers.kendoDatePicker.options = {
-            min: new Date(2012, 0, 1),
-            max: new Date(2012, 11, 31)
-        };
-      id: three
       
 liveOptions:
     - name: enabled

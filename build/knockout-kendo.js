@@ -1,5 +1,5 @@
 /*
- * knockout-kendo 0.7.0
+ * knockout-kendo 0.8.0
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -257,10 +257,7 @@ ko.kendo.BindingFactory = function() {
         }
         //option is observable, determine what to write to it
         else if (eventConfig.writeTo && ko.isWriteableObservable(options[eventConfig.writeTo])) {
-            console.log("binding handler for", eventName);
-
             handler = function(e) {
-                console.log("firing handler for", eventConfig.writeTo);
                 var propOrValue, value;
 
                 if (!childProp || !e[childProp] || e[childProp] === element) {

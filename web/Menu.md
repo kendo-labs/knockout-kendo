@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: Menu
 description: The Menu widget displays a hierarchical menu that allows navigation and selection.
-docs: http://demos.kendoui.com/web/menu/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/menu
 examples:
     - title: Basic Example
       description: This example demonstrates initializing a Menu widget with no additional options specified.

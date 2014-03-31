@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: DropDownList
 description: The DropDownList widget allows a user to select a single value from a list.
-docs: http://demos.kendoui.com/web/dropdownlist/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/dropdownlist
 examples:
     - title: Basic Example
       description: This example demonstrates passing the basic options required by the DropDownList plugin.

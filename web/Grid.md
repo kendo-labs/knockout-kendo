@@ -2,8 +2,8 @@
 layout: default
 prefix: ../
 name: Grid
-description: The Grid widget offers allows a user to interact with tabular data.
-docs: http://demos.kendoui.com/web/grid/index.html
+description: The Grid widget allows a user to interact with tabular data.
+docs: http://docs.telerik.com/kendo-ui/api/web/grid
 examples:
     - title: Basic Example
       description: This example demonstrates passing a single option to bind data against the Grid widget.

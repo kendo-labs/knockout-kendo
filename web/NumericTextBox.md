@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: NumericTextBox
 description: The NumericTextBox widget allows for editing a variety of numeric value types.
-docs: http://demos.kendoui.com/web/numerictextbox/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/numerictextbox
 examples:
     - title: Basic Example
       description: This example demonstrates passing a single option to bind against the value of the NumericTextBox widget.

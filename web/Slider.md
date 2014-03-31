@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: Slider
 description: The Slider widget allows a user to select a single value from a range.
-docs: http://demos.kendoui.com/web/slider/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/slider
 examples:
     - title: Basic Example
       description: This example demonstrates passing a single option to bind against the value of the Slider widget.

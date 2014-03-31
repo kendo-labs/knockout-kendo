@@ -1,9 +1,9 @@
 ---
 layout: default
 prefix: ../
-name: DatePicker
-description: The DatePicker widget allows a user to enter a date directly or open a visual calendar to make a selection.
-docs: http://docs.telerik.com/kendo-ui/api/web/datepicker
+name: ProgressBar
+description: The ProgressBar widget displays a status bar that can animate between values
+docs: http://docs.telerik.com/kendo-ui/api/web/progressbar
 examples:
     - title: Basic Example
       description: This example demonstrates passing a single option to bind against the value of the DatePicker widget.
@@ -59,15 +59,9 @@ examples:
       
 liveOptions:
     - name: enabled
-      description: Determines if users can interact with the field
-    - name: isOpen
-      description: Controls whether the navigatable calendar popup is visible
-    - name: min
-      description: The minimum date allowed for selection in the field
-    - name: max
-      description: The maximum date allowed for selection in the field
+      description: Determines if users can interact with the progress bar
     - name: value
-      description: The current date value of the field
+      description: The current value of the progress bar
     - name: widget
       description: If specified, will populate an observable with a reference to the actual widget
 

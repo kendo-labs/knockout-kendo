@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: AutoComplete
 description: The AutoComplete widget offers suggestions as a user types that can come from a local or remote data.
-docs: http://demos.kendoui.com/web/autocomplete/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/autocomplete
 examples:
     - title: Basic Example
       description: This example demonstrates passing the basic options required by the AutoComplete plugin.

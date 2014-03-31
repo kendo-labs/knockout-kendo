@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: Upload
 description: The Upload widget allows for a user-friendly experience for choosing files to upload.
-docs: http://demos.kendoui.com/web/upload/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/upload
 examples:
     - title: Basic Example
       description: This example demonstrates initializing an Upload widget with no additional options specified.

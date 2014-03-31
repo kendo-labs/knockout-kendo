@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: ColorPicker
 description: The ColorPicker is a drop-down widget for selecting colors. It's designed to replace a HTML5 color field, which is not yet widely supported in browsers, with a user-friendly interface.
-docs: http://docs.kendoui.com/getting-started/web/colorpicker/overview
+docs: http://docs.telerik.com/kendo-ui/api/web/colorpicker
 examples:
     - title: Basic Example
       description: This example demonstrates passing the basic options required by the ColorPicker plugin.

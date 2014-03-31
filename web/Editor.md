@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: Editor
 description: The Editor widget allows users to create and edit HTML in an user friendly interface.
-docs: http://demos.kendoui.com/web/editor/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/editor
 examples:
     - title: Basic Example
       description: This example demonstrates passing a single option to bind against the value of the Editor widget.

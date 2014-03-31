@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: PanelBar
 description: The PanelBar widget displays hierarchical data in expandable sections.
-docs: http://demos.kendoui.com/web/panelbar/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/panelbar
 examples:
     - title: Basic Example
       description: This example demonstrates initializing a PanelBar widget with no additional options specified.

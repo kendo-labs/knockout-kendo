@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: RangeSlider
 description: The RangeSlider widget allows a user to choose a start and end to a range of values.
-docs: http://demos.kendoui.com/web/slider/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/rangeslider
 examples:
     - title: Basic Example
       description: This example demonstrates passing a single option to bind against the values array of the RangeSlider widget.

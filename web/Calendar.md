@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: Calendar
 description: The Calendar widget provides a visual calendar that supports navigation.
-docs: http://demos.kendoui.com/web/calendar/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/calendar
 examples:
     - title: Basic Example
       description: This example demonstrates passing a single option to bind against the value of the Calendar widget.

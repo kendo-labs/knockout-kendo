@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: MultiSelect
 description: The MultiSelect displays a list of values and allows the selection of multiple values from this list.
-docs: http://docs.kendoui.com/getting-started/web/multiselect/overview
+docs: http://docs.telerik.com/kendo-ui/api/web/multiselect
 examples:
     - title: Basic Example
       description: This example demonstrates passing the basic options required by the MultiSelect plugin.

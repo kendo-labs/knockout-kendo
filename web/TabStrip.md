@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: TabStrip
 description: The TabStrip widget displays tabs that display associated content when selected.
-docs: http://demos.kendoui.com/web/tabstrip/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/tabstrip
 examples:
     - title: Basic Example
       description: This example demonstrates initializing a TabStrip widget with no additional options specified.

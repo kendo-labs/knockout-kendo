@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: TreeView
 description: The TreeView widget displays hierarchical data in a tree structure.
-docs: http://demos.kendoui.com/web/treeview/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/treeview
 examples:
     - title: Basic Example
       description: This example demonstrates initializing a TreeView widget with no additional options specified.

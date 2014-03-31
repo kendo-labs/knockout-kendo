@@ -1,14 +1,14 @@
 ---
 layout: default
 prefix: ../
-name: ListView
-description: The ListView widget allows for a custom layout of a collection
-docs: http://docs.telerik.com/kendo-ui/api/web/listview
+name: Scheduler
+description: The Scheduler widget provides a flexible calendar-based editor.
+docs: http://demos.kendoui.com/web/grid/index.html
 examples:
     - title: Basic Example
-      description: This example demonstrates passing the basic options required by the ListView plugin.
+      description: This example demonstrates passing a single option to bind data against the Grid widget.
       view: |
-        <div data-bind="kendoListView: { data: items, template: template }"> </div>
+        <div data-bind="kendoGrid: items"> </div>
       js: |
         var ViewModel = function() {
             this.items = ko.observableArray([
@@ -16,14 +16,13 @@ examples:
                 { id: "2", name: "orange"},
                 { id: "3", name: "banana"}
             ]);
-            this.template = kendo.template('<div>#= name #</div>');
         };
       selected: true
       id: one
     - title: Passing additional options
-      description: This example demonstrates passing additional options in the data-bind attribute. The *Add Item* button updates the underlying data and shows that the ListView remains in sync.
+      description: This example demonstrates passing additional options in the data-bind attribute with *data* now being explicitly specified. The *Add Item* button updates the underlying data and shows that the Grid remains in sync.
       view: |
-        <div data-bind="kendoListView: { data: items, navigatable: true, selectable: true, template: template }"> </div>
+        <div data-bind="kendoGrid: { data: items, groupable: true, scrollable: true, sortable: true, pageable: { pageSize: 10 } }"> </div>
         <button data-bind="click: addItem">Add Item</button>
       js: |
         var ViewModel = function() {
@@ -32,8 +31,7 @@ examples:
                 { id: "2", name: "orange"},
                 { id: "3", name: "banana"}
             ]);
-            this.template = kendo.template('<div>#= name #</div>');
-            
+
             this.addItem = function() {
                 var num = this.items().length + 1;
                 this.items.push({ id: num, name: "new" + num});
@@ -41,18 +39,29 @@ examples:
         };
       id: two
     - title: Using Knockout templates
-      description: This example demonstrates using a Knockout template for the list view row.
+      description: This example demonstrates using Knockout templates for grid rows and alternate rows.
       view: |
-        <div data-bind="kendoListView: { data: items, template: 'listTmpl', useKOTemplates: true }"> </div>
-
+        <div data-bind="kendoGrid: { data: items, rowTemplate: 'rowTmpl', altRowTemplate: 'altTmpl', useKOTemplates: true }"> </div>
         <button data-bind="click: addItem">Add Item</button>
-
-        <script id="listTmpl" type="text/html">
-            <div>
-                <span data-bind="text: id"></span>
-                <input data-bind="value: name" />
-                <a href="#" data-bind="click: $root.removeItem"> x </a>
-            </div>
+        <script id="rowTmpl" type="text/html">
+            <tr>
+                <td data-bind="text: id"></td>
+                <td>
+                    <input data-bind="value: name" />
+                </td>
+                <td>
+                    <a href="#" data-bind="click: $root.removeItem">x</a>
+                </td>
+            </tr>
+        </script>
+        <script id="altTmpl" type="text/html">
+            <tr>
+                <td>Alt Row</td>
+                <td data-bind="text: name"></td>
+                <td>
+                    <a href="#" data-bind="click: $root.removeItem">x</a>
+                </td>
+            </tr>
         </script>
       js: |
         var ViewModel = function() {
@@ -64,19 +73,18 @@ examples:
 
             this.addItem = function() {
                 var num = this.items().length + 1;
-                this.items.push({ id: num, name: ko.observable("new" + num)});
+                this.items.push({ id: num, name: "new" + num});
             };
 
             this.removeItem = function(item) {
                 this.items.remove(item);
             }.bind(this);
         };
-
       id: three
     - title: Using global options
-      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoListView.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
+      description: This example demonstrates setting global options in *ko.bindingHandlers.kendoGrid.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
-        <div data-bind="kendoListView: { data: items, template: template }"> </div>
+        <div data-bind="kendoGrid: items"> </div>
         <button data-bind="click: addItem">Add Item</button>
       js: |
         var ViewModel = function() {
@@ -85,27 +93,29 @@ examples:
                 { id: "2", name: "orange"},
                 { id: "3", name: "banana"}
             ]);
-            
-            this.template = kendo.template('<div>#= name #</div>');
-            
+
             this.addItem = function() {
                 var num = this.items().length + 1;
                 this.items.push({ id: num, name: "new" + num});
             };
+            
+            ko.bindingHandlers.kendoGrid.options = {
+                groupable: true,
+                scrollable: true,
+                sortable: true,
+                pageable: true
+            };
         };
-        
-        ko.bindingHandlers.kendoListView.options = {
-            navigatable: true,
-            selectable: true
-        };
-        
       id: four
       
 liveOptions:
     - name: data
-      description: An array, observableArray, or kendo.data.DataSource to be rendered in the list
+      description: An array, observableArray, or kendo.data.DataSource to use in the scheduler
     - name: widget
       description: If specified, will populate an observable with a reference to the actual widget
+
+futurePlans:
+    - will look to bring better Knockout integration inside of the scheduler widget
 ---
 
 {% include widget.html %}

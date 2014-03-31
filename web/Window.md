@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: Window
 description: The Window widget displays content in a modal or non-modal HTML window. 
-docs: http://demos.kendoui.com/web/window/index.html
+docs: http://docs.telerik.com/kendo-ui/api/web/window
 examples:
     - title: Basic Example
       description: This example demonstrates passing basic options to the Window plugin.

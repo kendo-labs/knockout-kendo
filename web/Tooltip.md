@@ -3,7 +3,7 @@ layout: default
 prefix: ../
 name: Tooltip
 description: A Tooltip displays popup hint for a given html element. Its content can be defined either as static text or loaded dynamically via AJAX.
-docs: http://docs.kendoui.com/getting-started/web/tooltip/overview
+docs: http://docs.telerik.com/kendo-ui/api/web/tooltip
 examples:
     - title: Basic Example
       description: This example demonstrates passing basic options to the Tooltip plugin.

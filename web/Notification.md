@@ -14,7 +14,6 @@ examples:
         <label><input data-bind="value: warning"> Warning</label><br/>
         <label><input data-bind="value: success"> Success</label><br/>
         <label><input data-bind="value: error"> Error</label><br/>
-
       js: |
         var ViewModel = function() {
             this.info = ko.observable();

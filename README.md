@@ -6,9 +6,9 @@
 
 knockout-kendo was designed to work with Kendo UI and Knockout.js. The project depends on the following libraries:
 
-- [jQuery](http://www.jquery.com) v1.8.2
-- [Kendo UI](http://www.kendoui.com)  v2012.3.1114
-- [Knockout](http://www.knockoutjs.com) v2.3
+- [jQuery](http://www.jquery.com) v1.9.1
+- [Kendo UI](http://www.kendoui.com)  v2014.1.318
+- [Knockout](http://www.knockoutjs.com) v3.1
 
 knockout-kendo has not been tested against any other versions of these libraries. You may find that versions other than these are compatible with [Project Name], but we make no claims to support those version, nor can we troubleshoot issues that arise when using those versions.
 

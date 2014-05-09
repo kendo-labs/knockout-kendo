@@ -27,9 +27,12 @@ examples:
         <button class="btn" data-bind="click: addChoice">Add Choice</button>
         <hr/>
         <select data-bind="kendoMultiSelect: { dataTextField: 'name', data: choices,
-                       value: selectedChoice, search: search, enabled: isEnabled }"></select>
+                       value: selectedChoices, search: search, enabled: isEnabled }"></select>
         <hr/>
-        Selected: <strong data-bind="text: selectedChoice"> </strong>
+        Selected:
+        <div data-bind="foreach: selectedChoices">
+            <strong data-bind="text: name"> </strong>
+        </div>
 
       js: |
         var ViewModel = function() {
@@ -39,7 +42,7 @@ examples:
                 { id: "3", name: "banana"}
             ]);
 
-            this.selectedChoice = ko.observable();
+            this.selectedChoices = ko.observable();
             this.isEnabled = ko.observable(true);
             this.search = ko.observable();
             this.addChoice = function() {

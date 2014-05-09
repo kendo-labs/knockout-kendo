@@ -8,7 +8,7 @@ examples:
     - title: Basic Example
       description: This example demonstrates passing the basic options required by the MultiSelect plugin.
       view: |
-        <input data-bind="kendoMultiSelect: { data: choices, value: selectedChoice }" />
+        <select data-bind="kendoMultiSelect: { data: choices, value: selectedChoice }"></select>
         <hr/>
         Selected: <strong data-bind="text: selectedChoice"> </strong>
       js: |
@@ -26,8 +26,8 @@ examples:
         <hr/>
         <button class="btn" data-bind="click: addChoice">Add Choice</button>
         <hr/>
-        <input data-bind="kendoMultiSelect: { dataTextField: 'name', data: choices,
-                       value: selectedChoice, search: search, enabled: isEnabled }" />
+        <select data-bind="kendoMultiSelect: { dataTextField: 'name', data: choices,
+                       value: selectedChoice, search: search, enabled: isEnabled }"></select>
         <hr/>
         Selected: <strong data-bind="text: selectedChoice"> </strong>
 
@@ -51,7 +51,7 @@ examples:
     - title: Using global options
       description: This example demonstrates the ability to configure options globally by setting properties in *ko.bindingHandlers.kendoMultiSelect.options*. This helps to simplify the markup for settings that can be used as a default for all instances of this widget.
       view: |
-        <input data-bind="kendoMultiSelect: { data: choices, value: selectedChoice }" />
+        <select data-bind="kendoMultiSelect: { data: choices, value: selectedChoice }"></select>
         <hr/>
         Selected: <strong data-bind="text: selectedChoice"> </strong>
       js: |

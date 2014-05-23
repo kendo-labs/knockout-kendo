@@ -32,7 +32,8 @@ examples:
       description: This example demonstrates passing additional options in the data-bind attribute. The **kendoPanelItem** binding can be applied to child elements to control the behavior of individual panels.
       view: |
         <input data-bind="checked: isTwoOpen" type="checkbox" /> Open 2<br/>
-        <input data-bind="checked: twoEnabled" type="checkbox" /> Enabled 2
+        <input data-bind="checked: twoEnabled" type="checkbox" /> Enabled 2<br/>
+        <input data-bind="checked: twoSelected" type="checkbox" /> Selected 2
         <hr/>
         <ul data-bind="kendoPanelBar: {}">
             <li>
@@ -42,7 +43,7 @@ examples:
                     <li>Test 1B</li>
                 </ul>
             </li>
-            <li data-bind="kendoPanelItem: { expanded: isTwoOpen, enabled: twoEnabled }">
+            <li data-bind="kendoPanelItem: { expanded: isTwoOpen, enabled: twoEnabled, selected: twoSelected }">
                 <span>Test2</span>
                 <ul>
                     <li>Test 2A</li>
@@ -53,6 +54,7 @@ examples:
       js: |
         var ViewModel = function() {
             this.twoEnabled = ko.observable(true);
+            this.twoSelected = ko.observable().extend({ notify: "always" });
             this.isTwoOpen = ko.observable(false);
         };
       id: two
@@ -86,6 +88,8 @@ liveOptions:
       description: Determines if users can interact with the panel item
     - name: expanded
       description: Indicates whether the panel bar item is expanded or closed
+    - name: selected
+      description: Indicates whether the panel bar item is selected. *Note&#58; when selecting a different panel bar item, this will not be cleared, as there are no events raised for unselecting an item.*
     - name: widget
       description: If specified, will populate an observable with a reference to the actual widget
       

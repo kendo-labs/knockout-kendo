@@ -92,4 +92,14 @@ h3.nospace {
     vertical-align: bottom;
 }
 
+.item {
+    list-style-type: none;
+    border: solid 1px black;
+    margin: 5px;
+    padding: 5px;
+    background: #ccc;
+    width: 100px;
+    cursor: move;
+}
+
 

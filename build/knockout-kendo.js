@@ -1,5 +1,5 @@
 /*
- * knockout-kendo 0.8.1
+ * knockout-kendo 0.8.0
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -221,7 +221,7 @@ ko.kendo.BindingFactory = function() {
                 }
             },
             disposeWhenNodeIsRemoved: element
-        }).extend({ throttle: 1 });
+        }).extend({ throttle: (options.throttle || options.throttle === 0) ? options.throttle : 1 });
 
         //if option is not observable, then dispose up front after executing the logic once
         if (!ko.isObservable(options[prop])) {
@@ -320,6 +320,7 @@ var extendAndRedraw = function(prop) {
         }
     };
 };
+
 
 //library is in a closure, use this private variable to reduce size of minified file
 var createBinding = ko.kendo.bindingFactory.createBinding.bind(ko.kendo.bindingFactory);
@@ -652,19 +653,22 @@ createBinding({
         max: function(newMax) {
             this.options.max = newMax;
             //make sure current value is still valid
-            if (this.value() > newMax) {
+            var value = this.value();
+            if ((value || value === 0) && value > newMax) {
                 this.value(newMax);
             }
         },
         min: function(newMin) {
             this.options.min = newMin;
             //make sure that current value is still valid
-            if (this.value() < newMin) {
+            var value = this.value();
+            if ((value || value === 0) && value < newMin ) {
                 this.value(newMin);
             }
         }
     }
 });
+
 
 createBinding({
     name: "kendoPanelBar",
@@ -748,23 +752,29 @@ createBinding({
                 items = options.data,
                 underlyingArray = options.data;
 
+            //remove item from its original position
             if (e.action === "sort" || e.action === "remove") {
                 underlyingArray.splice(e.oldIndex, 1);
 
+                //keep track of the item between remove and receive
                 if (e.action === "remove") {
                     e.draggableEvent[dataKey] = data;
                 }
             }
 
+            //add the item to its new position
             if (e.action === "sort" || e.action === "receive") {
                 underlyingArray.splice(e.newIndex, 0, data);
 
+                //clear the data we passed
                 delete e.draggableEvent[dataKey];
 
+                //we are moving the item ourselves via the observableArray, cancel the draggable and hide the animation
                 $(e.draggableEvent.target).hide();
                 e.preventDefault();
             }
 
+            //signal that the observableArray has changed now that we are done changing the array
             items.valueHasMutated();
         }
     }

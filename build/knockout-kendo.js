@@ -1,5 +1,5 @@
 /*
- * knockout-kendo 0.8.0
+ * knockout-kendo 0.8.1
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -680,7 +680,8 @@ createBinding({
     parent: "kendoPanelBar",
     watch: {
         enabled: ENABLE,
-        expanded: [EXPAND, COLLAPSE]
+        expanded: [EXPAND, COLLAPSE],
+        selected: [SELECT]
     },
     childProp: "item",
     events: {
@@ -691,6 +692,10 @@ createBinding({
         collapse: {
             writeTo: EXPANDED,
             value: false
+        },
+        select: {
+            writeTo: SELECTED,
+            value: VALUE
         }
     },
     async: true

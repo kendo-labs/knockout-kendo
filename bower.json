@@ -1,6 +1,6 @@
 {
     "name": "knockout-kendo",
-    "version": "0.8.0",
+    "version": "0.8.1",
     "main": "build/knockout-kendo.min.js",
     "dependencies": {
         "knockout": ">= 2.0"

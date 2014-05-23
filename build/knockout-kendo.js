@@ -1,5 +1,5 @@
 /*
- * knockout-kendo 0.8.0
+ * knockout-kendo 0.8.1
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -249,10 +249,14 @@ ko.kendo.BindingFactory = function() {
 
     //bind to a single event
     this.handleOneEvent = function(eventName, eventConfig, options, element, widget, childProp, context) {
-        var handler;
+        var handler = typeof eventConfig === "function" ? eventConfig : options[eventConfig.call];
 
-        //not an observable, use function as handler with normal KO args
-        if (eventConfig.call && typeof options[eventConfig.call] === "function") {
+        //call a function defined directly in the binding definition, supply options that were passed to the binding
+        if (typeof eventConfig === "function") {
+            handler = handler.bind(context.$data, options);
+        }
+        //use function passed in binding options as handler with normal KO args
+        else if (eventConfig.call && typeof options[eventConfig.call] === "function") {
             handler = options[eventConfig.call].bind(context.$data, context.$data);
         }
         //option is observable, determine what to write to it
@@ -731,6 +735,38 @@ createBinding({
     watch: {
         value: VALUE,
         enabled: ENABLE
+    }
+});
+
+createBinding({
+    name: "kendoSortable",
+    defaultOption: DATA,
+    events: {
+        end: function(options, e) {
+            var dataKey = "__ko_kendo_sortable_data__",
+                data = e.action !== "receive" ? ko.dataFor(e.item[0]) : e.draggableEvent[dataKey],
+                items = options.data,
+                underlyingArray = options.data;
+
+            if (e.action === "sort" || e.action === "remove") {
+                underlyingArray.splice(e.oldIndex, 1);
+
+                if (e.action === "remove") {
+                    e.draggableEvent[dataKey] = data;
+                }
+            }
+
+            if (e.action === "sort" || e.action === "receive") {
+                underlyingArray.splice(e.newIndex, 0, data);
+
+                delete e.draggableEvent[dataKey];
+
+                $(e.draggableEvent.target).hide();
+                e.preventDefault();
+            }
+
+            items.valueHasMutated();
+        }
     }
 });
 

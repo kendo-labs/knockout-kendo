@@ -153,7 +153,14 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
                 if (widgetConfig.events.hasOwnProperty(prop)) {
                     config = widgetConfig.events[prop];
                     config = typeof config === "string" ? { writeTo: config, value: config } : config;
-                    vm[(config.call || config.writeTo) + "_spy"] = jasmine.createSpy();
+
+                    //setup spies for testing that functions were called appropriately
+                    if (typeof config === "function") {
+                        vm[prop + "_spy"] = widgetConfig.events[prop] = jasmine.createSpy();
+                    }
+                    else {
+                        vm[(config.call || config.writeTo) + "_spy"] = jasmine.createSpy();
+                    }
 
                     if (config.writeTo) {
                         //create a computed (that calls the spy) to bind against the "writeTo" option
@@ -173,7 +180,7 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
                             options += (options ? ", " : "{ ") + config.writeTo + ": " + config.writeTo + '_test';
                         }
                     }
-                    else if (config.call) {
+                    else if (typeof config.call === "string") {
                         vm[config.call] = vm[config.call + "_spy"];
 
                         if (options.indexOf(config.call + ": ") < 0) {
@@ -192,6 +199,7 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
                 }
             }
 
+            options = options || "{"
             options += "}";
             test = $(testOptions.html).first().attr("data-bind", widgetConfig.name + ": " + options);
             setup(test, vm);
@@ -222,6 +230,37 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
                                     value = (typeof propOrValue === "string" && widget[propOrValue]) ? widget[propOrValue]() : propOrValue;
 
                                     expect(vm[config.writeTo + "_spy"]).toHaveBeenCalledWith(value);
+                                });
+                            });
+                        });
+                    }
+                    else if (typeof config === "function") {
+                        //test calling a function
+                        describe("when " + event + " event is triggered", function() {
+                            it("should call the " + event + "handler with the appropriate arguments and context", function() {
+                                var mostRecent;
+
+                                //wait for widgets that are initialized asynchronously
+                                waits(0);
+
+                                runs(function() {
+                                    var spy = vm[event + "_spy"];
+                                    console.log(event, spy);
+
+                                    widget = $(el).data(widgetConfig.name);
+
+                                    spy.reset();
+
+                                    //trigger the event
+                                    widget.trigger(event);
+
+                                    mostRecent = spy.mostRecentCall;
+
+                                    expect(mostRecent.object).toBe(vm);
+
+                                    //if a function is configured directly in the widget config, then pass the options
+                                    expect(typeof mostRecent.args[0]).toBe("object");
+                                    expect(typeof mostRecent.args[1].preventDefault).toBe("function");
                                 });
                             });
                         });

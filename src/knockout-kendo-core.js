@@ -189,7 +189,7 @@ ko.kendo.BindingFactory = function() {
                 }
             },
             disposeWhenNodeIsRemoved: element
-        }).extend({ throttle: 1 });
+        }).extend({ throttle: (options.throttle || options.throttle === 0) ? options.throttle : 1 });
 
         //if option is not observable, then dispose up front after executing the logic once
         if (!ko.isObservable(options[prop])) {
@@ -217,10 +217,14 @@ ko.kendo.BindingFactory = function() {
 
     //bind to a single event
     this.handleOneEvent = function(eventName, eventConfig, options, element, widget, childProp, context) {
-        var handler;
+        var handler = typeof eventConfig === "function" ? eventConfig : options[eventConfig.call];
 
-        //not an observable, use function as handler with normal KO args
-        if (eventConfig.call && typeof options[eventConfig.call] === "function") {
+        //call a function defined directly in the binding definition, supply options that were passed to the binding
+        if (typeof eventConfig === "function") {
+            handler = handler.bind(context.$data, options);
+        }
+        //use function passed in binding options as handler with normal KO args
+        else if (eventConfig.call && typeof options[eventConfig.call] === "function") {
             handler = options[eventConfig.call].bind(context.$data, context.$data);
         }
         //option is observable, determine what to write to it

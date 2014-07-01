@@ -1,11 +1,11 @@
-describe("ko.bindingHandlers.kendoAutocomplete", function(){
+describe("ko.bindingHandlers.kendoAutoComplete", function(){
     //standard cases
-    ko.kendo.generateBindingSpecs("kendoAutocomplete", {
+    ko.kendo.generateBindingSpecs("kendoAutoComplete", {
         html: "<input />",
         defaultValue: "test",
         newValue: "new"
     });
 
-    //additional kendoAutocomplete cases
+    //additional kendoAutoComplete cases
 
 });

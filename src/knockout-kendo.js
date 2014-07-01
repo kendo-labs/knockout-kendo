@@ -80,4 +80,6 @@ kendo = kendo || window.kendo;
 
 //import "knockout-kendoRadialGauge.js"
 
+//import "knockout-kendoSparkLine.js"
+
 }));

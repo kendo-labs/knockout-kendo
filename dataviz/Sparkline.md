@@ -26,7 +26,7 @@ examples:
         <input data-bind="value: newValueB" class="span1" />
         <button data-bind="click: addItem">Add data</button>
         <hr />
-        <div data-bind="kendoSparkline: { data: items, title: { text: 'Graph Sample' }, series: seriesConfig, seriesColors: ['blue', 'red'] }"> </div>
+        <div data-bind="kendoSparkline: { data: items, series: seriesConfig, seriesColors: ['blue', 'red'] }"> </div>
       js: |
         var ViewModel = function() {
             this.items = ko.observableArray([
@@ -49,13 +49,13 @@ examples:
         };
       id: two
     - title: Using global options
-      description: This example demonstrates generating a line chart and customizing the series colors by setting the *seriesColor* property in *ko.bindingHandlers.kendoChart.options*.
+      description: This example demonstrates generating a sparkline and customizing the series colors by setting the *seriesColor* property in *ko.bindingHandlers.kendoSparkline.options*.
       view: |
         <input data-bind="value: newValue" class="span1" />
         <input data-bind="value: newValueB" class="span1" />
         <button data-bind="click: addItem">Add data</button>
         <hr />
-        <div data-bind="kendoChart: { data: items, series: seriesConfig }"> </div>
+        <div data-bind="kendoSparkline: { data: items, series: seriesConfig }"> </div>
       js: |
         var ViewModel = function() {
             this.items = ko.observableArray([
@@ -77,10 +77,9 @@ examples:
             };
         };
 
-        ko.bindingHandlers.kendoChart.options = {
+        ko.bindingHandlers.kendoSparkline.options = {
             seriesColors: ["blue", "red"],
-            plotArea: { background: '#ccc' },
-            title: { text: 'Graph Sample' }
+            plotArea: { background: '#ccc' }
         };
       id: three
       

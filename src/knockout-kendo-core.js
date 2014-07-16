@@ -99,7 +99,7 @@ ko.kendo.BindingFactory = function() {
 
     //prepare templates, if the widget uses them
     this.setupTemplates = function(templateConfig, options, element, context) {
-        var i, j, option, existingHandler;
+        var i, j, templateOption, existingHandler;
 
         if (templateConfig && options && options.useKOTemplates) {
             //create a function to render each configured template

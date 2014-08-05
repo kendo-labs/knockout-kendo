@@ -256,8 +256,20 @@ ko.kendo.setDataSource = function(widget, data, options) {
         widget.setDataSource(data);
         return;
     }
-
-    if (!options || !options.useKOTemplates) {
+    /*
+    options.dataIsSimpleJS is a simple property extending the binding options.
+    The reason for adding this property is to avoid unnecessary iteration/subscriptions through a possibly large dataset.
+    If we have a large dataset say > 35000 items the performance hit is quite big. Some browsers are not very forgiving (FF) and display non responsive script error.
+    If the consumer knows that his data are consisted by simple js objects , he can just set the new flag to true to avoid the iteration.
+    
+    We could use the useKOTemplates to achieve the same , but it is not clear to me how that would affect now or in a future version consumer implementations.
+    Having an option decicated for this usage is the cleanest way to address this issue.
+    Here is a fiddle to demonstrate the performance difference using the useKOTemplates
+    http://jsfiddle.net/gtrifidis/mC4Vw/14/
+    Just remove the useKOTemplates from the binding to see it.
+    */
+    
+    if (!options  && (!options.dataIsSimpleJS || !options.useKOTemplates)) {
         isMapped = ko.mapping && data && data.__ko_mapping__;
         cleanData = data && isMapped ? ko.mapping.toJS(data) : ko.toJS(data);
     }

@@ -1,5 +1,5 @@
 /*
- * knockout-kendo 0.8.1
+ * knockout-kendo 0.9.0
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -28,7 +28,7 @@
 }(function(ko, $, kendo, undefined) {
 
 //handle require.js scenarios where kendo is not actually returned
-kendo = kendo || window.kendo;
+    kendo = kendo || window.kendo;
 
 ko.kendo = ko.kendo || {};
 
@@ -327,6 +327,7 @@ var createBinding = ko.kendo.bindingFactory.createBinding.bind(ko.kendo.bindingF
 
 //use constants to ensure consistency and to help reduce minified file size
 var CLICK = "click",
+    CENTER = "center",
     CLICKED = "clicked",
     CLOSE = "close",
     COLLAPSE = "collapse",
@@ -350,15 +351,16 @@ var CLICK = "click",
     SEARCH = "search",
     SELECT = "select",
     SELECTED = "selected",
+    SELECTEDINDEX = "selectedIndex",
     SHOW = "show",
-    SUCCESS = "success",
     SIZE = "size",
+    SUCCESS = "success",
     TARGET = "target",
     TITLE = "title",
     VALUE = "value",
     VALUES = "values",
-    WARNING = "warning";
-
+    WARNING = "warning",
+    ZOOM = "zoom";
 
 createBinding({
     name: "kendoAutoComplete",
@@ -542,6 +544,16 @@ createBinding({
 });
 
 createBinding({
+    name: "kendoGantt",
+    defaultOption: DATA,
+    watch: {
+        data: function(value) {
+            ko.kendo.setDataSource(this, value);
+        }
+    }
+});
+
+createBinding({
     name: "kendoGrid",
     defaultOption: DATA,
     watch: {
@@ -577,6 +589,30 @@ createBinding({
 });
 
 createBinding({
+    name: "kendoMap",
+    events: {
+        zoomEnd: function (options, event) {
+            if (ko.isWriteableObservable(options.zoom)) {
+                options.zoom(event.sender.zoom());
+            }
+        },
+        panEnd: function (options, event) {
+            var coordinates;
+
+            if (ko.isWriteableObservable(options.center)) {
+                coordinates = event.sender.center();
+
+                options.center([coordinates.lat, coordinates.lng]);
+            }
+        }
+    },
+    watch: {
+        center: CENTER,
+        zoom: ZOOM
+    }
+});
+
+createBinding({
     name: "kendoMenu",
     async: true
 });
@@ -589,6 +625,64 @@ createBinding({
         isOpen: [OPEN, CLOSE]
     },
     async: true
+});
+
+createBinding({
+    name: "kendoMobileButtonGroup",
+    events: {
+        select: function(options, event) {
+            if (ko.isWriteableObservable(options.selectedIndex)) {
+                options.selectedIndex(event.sender.current().index());
+            }
+        }
+    },
+    watch: {
+        enabled: ENABLE,
+        selectedIndex: SELECT
+    }
+});
+
+createBinding({
+    name: "kendoMobileNavBar",
+    watch: {
+        title: TITLE
+    }
+});
+
+createBinding({
+    name: "kendoMobilePopOver",
+    events: {
+        open: {
+            writeTo: ISOPEN,
+            value: true
+        },
+        close: {
+            writeTo: ISOPEN,
+            value: false
+        }
+    },
+    watch: {
+        isOpen: [OPEN, CLOSE]
+    },
+    async: true
+});
+
+createBinding({
+    name: "kendoMobileTabStrip",
+    events: {
+        select: function(options, event) {
+            if (ko.isWriteableObservable(options.selectedIndex)) {
+                options.selectedIndex(event.item.index());
+            }
+        }
+    },
+    watch: {
+        selectedIndex: function(value) {
+            if (value || value === 0) {
+                this.switchTo(value);
+            }
+        }
+    }
 });
 
 createBinding({
@@ -726,13 +820,13 @@ createBinding({
 });
 
 createBinding({
-    async: true,
     name: "kendoScheduler",
     watch: {
         data: function(value, options) {
             ko.kendo.setDataSource(this, value, options);
         }
-    }
+    },
+    async: true
 });
 
 createBinding({
@@ -899,7 +993,6 @@ createBinding({
 });
 
 createBinding({
-    async: true,
     name: "kendoWindow",
     events: {
         open: {
@@ -915,6 +1008,14 @@ createBinding({
         content: CONTENT,
         title: TITLE,
         isOpen: [OPEN, CLOSE]
+    },
+    async: true
+});
+
+createBinding({
+    name: "kendoBarcode",
+    watch: {
+        value: VALUE
     }
 });
 
@@ -939,6 +1040,13 @@ createBinding({
 });
 
 createBinding({
+    name: "kendoQRCode",
+    watch: {
+        value: VALUE
+    }
+});
+
+createBinding({
     name: "kendoRadialGauge",
     defaultOption: VALUE,
     watch: {
@@ -948,5 +1056,15 @@ createBinding({
         scale: extendAndRedraw("scale")
     }
 });
+
+createBinding({
+    name: "kendoSparkline",
+    watch: {
+        data: function (value) {
+            ko.kendo.setDataSource(this, value);
+        }
+    }
+});
+
 
 }));

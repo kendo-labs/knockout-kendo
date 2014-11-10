@@ -12,7 +12,7 @@
 }(function(ko, $, kendo, undefined) {
 
 //handle require.js scenarios where kendo is not actually returned
-kendo = kendo || window.kendo;
+    kendo = kendo || window.kendo;
 
 //import "knockout-kendo-core.js"
 
@@ -36,13 +36,25 @@ kendo = kendo || window.kendo;
 
 //import "knockout-kendoEditor.js"
 
+//import "knockout-kendoGantt.js"
+
 //import "knockout-kendoGrid.js"
 
 //import "knockout-kendoListView.js"
 
 //import "knockout-kendoMaskedTextBox.js"
 
+//import "knockout-kendoMap.js"
+
 //import "knockout-kendoMenu.js"
+
+//import "knockout-kendoMobileButtonGroup.js"
+
+//import "knockout-kendoMobileNavBar.js"
+
+//import "knockout-kendoMobilePopOver.js"
+
+//import "knockout-kendoMobileTabStrip.js"
 
 //import "knockout-kendoMultiSelect.js"
 
@@ -76,10 +88,16 @@ kendo = kendo || window.kendo;
 
 //import "knockout-kendoWindow.js"
 
+//import "knockout-kendoBarcode.js"
+
 //import "knockout-kendoChart.js"
 
 //import "knockout-kendoLinearGauge.js"
 
+//import "knockout-kendoQRCode.js"
+
 //import "knockout-kendoRadialGauge.js"
+
+//import "knockout-kendoSparkLine.js"
 
 }));

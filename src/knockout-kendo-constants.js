@@ -3,6 +3,7 @@ var createBinding = ko.kendo.bindingFactory.createBinding.bind(ko.kendo.bindingF
 
 //use constants to ensure consistency and to help reduce minified file size
 var CLICK = "click",
+    CENTER = "center",
     CLICKED = "clicked",
     CLOSE = "close",
     COLLAPSE = "collapse",
@@ -26,11 +27,13 @@ var CLICK = "click",
     SEARCH = "search",
     SELECT = "select",
     SELECTED = "selected",
+    SELECTEDINDEX = "selectedIndex",
     SHOW = "show",
-    SUCCESS = "success",
     SIZE = "size",
+    SUCCESS = "success",
     TARGET = "target",
     TITLE = "title",
     VALUE = "value",
     VALUES = "values",
-    WARNING = "warning";
+    WARNING = "warning",
+    ZOOM = "zoom";

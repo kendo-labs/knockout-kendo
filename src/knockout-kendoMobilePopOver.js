@@ -1,5 +1,5 @@
 createBinding({
-    name: "kendoWindow",
+    name: "kendoMobilePopOver",
     events: {
         open: {
             writeTo: ISOPEN,
@@ -11,8 +11,6 @@ createBinding({
         }
     },
     watch: {
-        content: CONTENT,
-        title: TITLE,
         isOpen: [OPEN, CLOSE]
     },
     async: true

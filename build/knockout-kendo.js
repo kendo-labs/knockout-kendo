@@ -332,6 +332,7 @@ var CLICK = "click",
     COLLAPSE = "collapse",
     CONTENT = "content",
     DATA = "data",
+    DATE = "date",
     ENABLE = "enable",
     EXPAND = "expand",
     ENABLED = "enabled",
@@ -731,7 +732,8 @@ createBinding({
     watch: {
         data: function(value, options) {
             ko.kendo.setDataSource(this, value, options);
-        }
+        },
+        date: DATE
     }
 });
 

@@ -52,6 +52,8 @@
 
 //import "knockout-kendoMobileButtonGroup.js"
 
+//import "knockout-kendoMobileModalView.js"
+
 //import "knockout-kendoMobileNavBar.js"
 
 //import "knockout-kendoMobilePopOver.js"

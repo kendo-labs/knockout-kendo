@@ -48,6 +48,8 @@
 
 //import "knockout-kendoMenu.js"
 
+//import "knockout-kendoMobileButton.js"
+
 //import "knockout-kendoMobileButtonGroup.js"
 
 //import "knockout-kendoMobileNavBar.js"

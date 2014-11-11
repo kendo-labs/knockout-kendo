@@ -630,6 +630,19 @@ createBinding({
 });
 
 createBinding({
+    name: "kendoMobileButton",
+    defaultOption: CLICKED,
+    events: {
+        click: {
+            call: CLICKED
+        }
+    },
+    watch: {
+        enabled: ENABLE
+    }
+});
+
+createBinding({
     name: "kendoMobileButtonGroup",
     events: {
         select: function(options, event) {

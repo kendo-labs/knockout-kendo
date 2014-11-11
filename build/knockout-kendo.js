@@ -328,6 +328,8 @@ var createBinding = ko.kendo.bindingFactory.createBinding.bind(ko.kendo.bindingF
 //use constants to ensure consistency and to help reduce minified file size
 var CLICK = "click",
     CENTER = "center",
+    CHECK = "check",
+    CHECKED = "checked",
     CLICKED = "clicked",
     CLOSE = "close",
     COLLAPSE = "collapse",
@@ -674,6 +676,21 @@ createBinding({
         }
     },
     async: true
+});
+
+createBinding({
+    name: "kendoMobileSwitch",
+    events: {
+        change: function(options, event) {
+            if (ko.isWriteableObservable(options.checked)) {
+                options.checked(event.checked);
+            }
+        }
+    },
+    watch: {
+        enabled: ENABLE,
+        checked: CHECK
+    }
 });
 
 createBinding({

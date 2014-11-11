@@ -54,6 +54,8 @@
 
 //import "knockout-kendoMobilePopOver.js"
 
+//import "knockout-kendoMobileSwitch.js"
+
 //import "knockout-kendoMobileTabStrip.js"
 
 //import "knockout-kendoMultiSelect.js"

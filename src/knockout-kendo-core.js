@@ -288,3 +288,14 @@ var extendAndRedraw = function(prop) {
         }
     };
 };
+
+var openIfVisible = function(value, options) {
+    if (!value) {
+        //causes issues with event triggering, if closing programmatically, when unnecessary
+        if (this.element.parent().is(":visible")) {
+            this.close();
+        }
+    } else {
+        this.open(typeof options.target === "string" ? $(ko.utils.unwrapObservable(options.target)) : options.target);
+    }
+};

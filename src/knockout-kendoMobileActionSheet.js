@@ -1,5 +1,5 @@
 createBinding({
-    name: "kendoMobilePopOver",
+    name: "kendoMobileActionSheet",
     events: {
         open: {
             writeTo: ISOPEN,

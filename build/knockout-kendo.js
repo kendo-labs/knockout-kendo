@@ -335,6 +335,7 @@ var CLICK = "click",
     COLLAPSE = "collapse",
     CONTENT = "content",
     DATA = "data",
+    DISABLE = "disable",
     ENABLE = "enable",
     EXPAND = "expand",
     ENABLED = "enabled",
@@ -716,6 +717,22 @@ createBinding({
         }
     },
     async: true
+});
+
+createBinding({
+    name: "kendoMobileScroller",
+    events: {
+        pull: function(options, event) {
+            var doneCallback = event.sender.pullHandled.bind(event.sender);
+
+            if (typeof options.pulled === "function") {
+                options.pulled.call(this, this, event, doneCallback);
+            }
+        }
+    },
+    watch: {
+        enabled: [ENABLE, DISABLE]
+    }
 });
 
 createBinding({

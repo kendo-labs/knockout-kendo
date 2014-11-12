@@ -245,7 +245,6 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
 
                                 runs(function() {
                                     var spy = vm[event + "_spy"];
-                                    console.log(event, spy);
 
                                     widget = $(el).data(widgetConfig.name);
 

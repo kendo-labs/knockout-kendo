@@ -54,6 +54,8 @@
 
 //import "knockout-kendoMobileButtonGroup.js"
 
+//import "knockout-kendoMobileDrawer.js"
+
 //import "knockout-kendoMobileListView.js"
 
 //import "knockout-kendoMobileModalView.js"

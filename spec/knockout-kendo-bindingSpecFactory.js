@@ -265,7 +265,7 @@ var generateEventHandlerTests = function(widgetConfig, testOptions) {
                             });
                         });
                     }
-                    else {
+                    else if (config.call && widgetConfig[config.call]) {
                         //test calling a function
                         describe("when " + event + " event is triggered", function() {
                             it("should call the " + config.call + "handler with the appropriate arguments and context", function() {

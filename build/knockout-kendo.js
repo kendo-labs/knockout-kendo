@@ -927,6 +927,15 @@ createBinding({
 });
 
 createBinding({
+    name: "kendoPivotGrid",
+    watch: {
+        data: function(value) {
+            ko.kendo.setDataSource(this, value);
+        }
+    }
+});
+
+createBinding({
     name: "kendoProgressBar",
     defaultOption: VALUE,
     events: {
@@ -1091,7 +1100,6 @@ createBinding({
     }
 });
 
-    
 createBinding({
     name: "kendoTreeView",
     async: true

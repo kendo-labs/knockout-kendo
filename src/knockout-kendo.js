@@ -78,6 +78,8 @@
 
 //import "knockout-kendoPanelBar.js"
 
+//import "knockout-kendoPivotGrid.js"
+
 //import "knockout-kendoProgressBar.js"
 
 //import "knockout-kendoRangeSlider.js"

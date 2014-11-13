@@ -356,6 +356,7 @@ var CLICK = "click",
     HIDE = "hide",
     INFO = "info",
     ISOPEN = "isOpen",
+    ITEMS = "items",
     MAX = "max",
     MIN = "min",
     OPEN = "open",
@@ -1051,6 +1052,10 @@ createBinding({
     },
     childProp: "item",
     async: true
+});
+
+createBinding({
+    name: "kendoToolBar"
 });
 
 createBinding({

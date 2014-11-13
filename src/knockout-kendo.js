@@ -92,6 +92,8 @@
 
 //import "knockout-kendoTabStrip.js"
 
+//import "knockout-kendoToolBar.js"
+
 //import "knockout-kendoTooltip.js"
 
 //import "knockout-kendoTimePicker.js"

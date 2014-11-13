@@ -1,0 +1,3 @@
+createBinding({
+    name: "kendoToolBar"
+});

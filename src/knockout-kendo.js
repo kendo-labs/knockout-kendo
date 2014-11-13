@@ -98,6 +98,8 @@
 
 //import "knockout-kendoTimePicker.js"
 
+//import "knockout-kendoTreeMap.js"
+
 //import "knockout-kendoTreeView.js"
 
 //import "knockout-kendoUpload.js"

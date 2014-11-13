@@ -116,4 +116,6 @@
 
 //import "knockout-kendoSparkLine.js"
 
+//import "knockout-kendoStockChart.js"
+
 }));

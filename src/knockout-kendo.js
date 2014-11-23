@@ -66,6 +66,8 @@
 
 //import "knockout-kendoMobileScroller.js"
 
+//import "knockout-kendoMobileScrollView.js"
+
 //import "knockout-kendoMobileSwitch.js"
 
 //import "knockout-kendoMobileTabStrip.js"

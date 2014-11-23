@@ -39,6 +39,8 @@
 
 //import "knockout-kendoListView.js"
 
+//import "knockout-kendoPager.js"
+
 //import "knockout-kendoMaskedTextBox.js"
 
 //import "knockout-kendoMap.js"

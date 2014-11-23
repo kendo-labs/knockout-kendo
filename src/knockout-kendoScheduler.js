@@ -1,15 +1,16 @@
 var schedulerUpdateModel = function(func) {
     return function(options, e) {
-        var allModels = ko.unwrap(options.data),
-            idField = ko.unwrap(options.idField) || 'id',
+        var allModels = unwrap(options.data),
+            idField = unwrap(options.idField) || "id",
             model = ko.utils.arrayFirst(allModels, function(item) {
-                return ko.unwrap(item[idField]) === e.event[idField];
+                return unwrap(item[idField]) === e.event[idField];
             }),
             write = function(data) {
                 for (var prop in model) {
                     if (data.hasOwnProperty(prop) && model.hasOwnProperty(prop)) {
                         var value = data[prop],
                             writeTo = model[prop];
+
                         if (ko.isWriteableObservable(writeTo)) {
                             writeTo(value);
                         }
@@ -19,7 +20,7 @@ var schedulerUpdateModel = function(func) {
         if (model) {
             func(options, e, model, write);
         }
-    }
+    };
 };
 
 createBinding({

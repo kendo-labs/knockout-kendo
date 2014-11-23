@@ -28,9 +28,11 @@
 }(function(ko, $, kendo, undefined) {
 
 //handle require.js scenarios where kendo is not actually returned
-    kendo = kendo || window.kendo;
+kendo = kendo || window.kendo;
 
 ko.kendo = ko.kendo || {};
+
+var unwrap = ko.utils.unwrapObservable; //support older 2.x KO where ko.unwrap was not defined
 
 ko.kendo.BindingFactory = function() {
     var self = this;
@@ -97,7 +99,7 @@ ko.kendo.BindingFactory = function() {
     this.buildOptions = function(widgetConfig, valueAccessor) {
         var defaultOption = widgetConfig.defaultOption,
             options = ko.utils.extend({}, ko.bindingHandlers[widgetConfig.name].options),
-            valueOrOptions = ko.utils.unwrapObservable(valueAccessor());
+            valueOrOptions = unwrap(valueAccessor());
 
         if (valueOrOptions instanceof kendo.data.DataSource || typeof valueOrOptions !== "object" || valueOrOptions === null || (defaultOption && !(defaultOption in valueOrOptions))) {
             options[defaultOption] = valueAccessor();
@@ -150,7 +152,7 @@ ko.kendo.BindingFactory = function() {
             else if (typeof object === "object") {
                 for (prop in object) {
                     //include things on prototype
-                    result[prop] = ko.utils.unwrapObservable(object[prop]);
+                    result[prop] = unwrap(object[prop]);
                 }
             }
         }
@@ -194,7 +196,7 @@ ko.kendo.BindingFactory = function() {
             read: function() {
                 var existing, custom,
                     action = widgetConfig.watch[prop],
-                    value = ko.utils.unwrapObservable(options[prop]),
+                    value = unwrap(options[prop]),
                     params = widgetConfig.parent ? [element] : []; //child bindings pass element first to APIs
 
                 //support passing multiple events like ["open", "close"]
@@ -328,7 +330,7 @@ var openIfVisible = function(value, options) {
             this.close();
         }
     } else {
-        this.open(typeof options.target === "string" ? $(ko.utils.unwrapObservable(options.target)) : options.target);
+        this.open(typeof options.target === "string" ? $(unwrap(options.target)) : options.target);
     }
 };
 
@@ -979,16 +981,17 @@ createBinding({
 
 var schedulerUpdateModel = function(func) {
     return function(options, e) {
-        var allModels = ko.unwrap(options.data),
-            idField = ko.unwrap(options.idField) || 'id',
+        var allModels = unwrap(options.data),
+            idField = unwrap(options.idField) || "id",
             model = ko.utils.arrayFirst(allModels, function(item) {
-                return ko.unwrap(item[idField]) === e.event[idField];
+                return unwrap(item[idField]) === e.event[idField];
             }),
             write = function(data) {
                 for (var prop in model) {
                     if (data.hasOwnProperty(prop) && model.hasOwnProperty(prop)) {
                         var value = data[prop],
                             writeTo = model[prop];
+
                         if (ko.isWriteableObservable(writeTo)) {
                             writeTo(value);
                         }
@@ -998,7 +1001,7 @@ var schedulerUpdateModel = function(func) {
         if (model) {
             func(options, e, model, write);
         }
-    }
+    };
 };
 
 createBinding({

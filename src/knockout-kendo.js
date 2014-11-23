@@ -11,9 +11,6 @@
     }
 }(function(ko, $, kendo, undefined) {
 
-//handle require.js scenarios where kendo is not actually returned
-    kendo = kendo || window.kendo;
-
 //import "knockout-kendo-core.js"
 
 //import "knockout-kendo-constants.js"

@@ -40,7 +40,8 @@ createBinding({
     watch: {
         data: function(value, options) {
             ko.kendo.setDataSource(this, value, options);
-        }
+        },
+        date: DATE
     },
     async: true
 });

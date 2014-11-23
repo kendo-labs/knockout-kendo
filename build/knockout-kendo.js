@@ -1,5 +1,5 @@
 /*
- * knockout-kendo 0.9.0
+ * knockout-kendo 0.8.1
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -31,8 +31,6 @@
 kendo = kendo || window.kendo;
 
 ko.kendo = ko.kendo || {};
-
-var unwrap = ko.utils.unwrapObservable; //support older 2.x KO where ko.unwrap was not defined
 
 ko.kendo.BindingFactory = function() {
     var self = this;
@@ -99,7 +97,7 @@ ko.kendo.BindingFactory = function() {
     this.buildOptions = function(widgetConfig, valueAccessor) {
         var defaultOption = widgetConfig.defaultOption,
             options = ko.utils.extend({}, ko.bindingHandlers[widgetConfig.name].options),
-            valueOrOptions = unwrap(valueAccessor());
+            valueOrOptions = ko.utils.unwrapObservable(valueAccessor());
 
         if (valueOrOptions instanceof kendo.data.DataSource || typeof valueOrOptions !== "object" || valueOrOptions === null || (defaultOption && !(defaultOption in valueOrOptions))) {
             options[defaultOption] = valueAccessor();
@@ -152,7 +150,7 @@ ko.kendo.BindingFactory = function() {
             else if (typeof object === "object") {
                 for (prop in object) {
                     //include things on prototype
-                    result[prop] = unwrap(object[prop]);
+                    result[prop] = ko.utils.unwrapObservable(object[prop]);
                 }
             }
         }
@@ -196,7 +194,7 @@ ko.kendo.BindingFactory = function() {
             read: function() {
                 var existing, custom,
                     action = widgetConfig.watch[prop],
-                    value = unwrap(options[prop]),
+                    value = ko.utils.unwrapObservable(options[prop]),
                     params = widgetConfig.parent ? [element] : []; //child bindings pass element first to APIs
 
                 //support passing multiple events like ["open", "close"]
@@ -323,32 +321,18 @@ var extendAndRedraw = function(prop) {
     };
 };
 
-var openIfVisible = function(value, options) {
-    if (!value) {
-        //causes issues with event triggering, if closing programmatically, when unnecessary
-        if (this.element.parent().is(":visible")) {
-            this.close();
-        }
-    } else {
-        this.open(typeof options.target === "string" ? $(unwrap(options.target)) : options.target);
-    }
-};
-
 
 //library is in a closure, use this private variable to reduce size of minified file
 var createBinding = ko.kendo.bindingFactory.createBinding.bind(ko.kendo.bindingFactory);
 
 //use constants to ensure consistency and to help reduce minified file size
 var CLICK = "click",
-    CENTER = "center",
-    CHECK = "check",
-    CHECKED = "checked",
     CLICKED = "clicked",
     CLOSE = "close",
     COLLAPSE = "collapse",
     CONTENT = "content",
     DATA = "data",
-    DISABLE = "disable",
+    DATE = "date",
     ENABLE = "enable",
     EXPAND = "expand",
     ENABLED = "enabled",
@@ -358,27 +342,24 @@ var CLICK = "click",
     HIDE = "hide",
     INFO = "info",
     ISOPEN = "isOpen",
-    ITEMS = "items",
     MAX = "max",
     MIN = "min",
     OPEN = "open",
     PALETTE = "palette",
     READONLY = "readonly",
     RESIZE = "resize",
-    SCROLLTO = "scrollTo",
     SEARCH = "search",
     SELECT = "select",
     SELECTED = "selected",
-    SELECTEDINDEX = "selectedIndex",
     SHOW = "show",
-    SIZE = "size",
     SUCCESS = "success",
+    SIZE = "size",
     TARGET = "target",
     TITLE = "title",
     VALUE = "value",
     VALUES = "values",
-    WARNING = "warning",
-    ZOOM = "zoom";
+    WARNING = "warning";
+
 
 createBinding({
     name: "kendoAutoComplete",
@@ -562,16 +543,6 @@ createBinding({
 });
 
 createBinding({
-    name: "kendoGantt",
-    defaultOption: DATA,
-    watch: {
-        data: function(value) {
-            ko.kendo.setDataSource(this, value);
-        }
-    }
-});
-
-createBinding({
     name: "kendoGrid",
     defaultOption: DATA,
     watch: {
@@ -607,30 +578,6 @@ createBinding({
 });
 
 createBinding({
-    name: "kendoMap",
-    events: {
-        zoomEnd: function (options, event) {
-            if (ko.isWriteableObservable(options.zoom)) {
-                options.zoom(event.sender.zoom());
-            }
-        },
-        panEnd: function (options, event) {
-            var coordinates;
-
-            if (ko.isWriteableObservable(options.center)) {
-                coordinates = event.sender.center();
-
-                options.center([coordinates.lat, coordinates.lng]);
-            }
-        }
-    },
-    watch: {
-        center: CENTER,
-        zoom: ZOOM
-    }
-});
-
-createBinding({
     name: "kendoMenu",
     async: true
 });
@@ -643,197 +590,6 @@ createBinding({
         isOpen: [OPEN, CLOSE]
     },
     async: true
-});
-
-createBinding({
-    name: "kendoMobileActionSheet",
-    events: {
-        open: {
-            writeTo: ISOPEN,
-            value: true
-        },
-        close: {
-            writeTo: ISOPEN,
-            value: false
-        }
-    },
-    watch: {
-        isOpen: openIfVisible
-    },
-    async: true
-});
-
-createBinding({
-    name: "kendoMobileButton",
-    defaultOption: CLICKED,
-    events: {
-        click: {
-            call: CLICKED
-        }
-    },
-    watch: {
-        enabled: ENABLE
-    }
-});
-
-createBinding({
-    name: "kendoMobileButtonGroup",
-    events: {
-        select: function(options, event) {
-            if (ko.isWriteableObservable(options.selectedIndex)) {
-                options.selectedIndex(event.sender.current().index());
-            }
-        }
-    },
-    watch: {
-        enabled: ENABLE,
-        selectedIndex: SELECT
-    }
-});
-
-createBinding({
-    name: "kendoMobileDrawer",
-    events: {
-        show: {
-            writeTo: ISOPEN,
-            value: true
-        },
-        hide: {
-            writeTo: ISOPEN,
-            value: false
-        }
-    },
-    watch: {
-        isOpen: function(value) {
-            this[value ? "show" : "hide"]();
-        }
-    },
-    async: true
-});
-
-createBinding({
-    name: "kendoMobileListView",
-    defaultOption: DATA,
-    events: {
-        click: {
-            call: CLICKED
-        }
-    },
-    watch: {
-        data: function(value, options) {
-            ko.kendo.setDataSource(this, value, options);
-        }
-    },
-    templates: ["template"]
-});
-
-createBinding({
-    name: "kendoMobileModalView",
-    events: {
-        open: {
-            writeTo: ISOPEN,
-            value: true
-        },
-        close: {
-            writeTo: ISOPEN,
-            value: false
-        }
-    },
-    watch: {
-        isOpen: openIfVisible
-    },
-    async: true
-});
-
-createBinding({
-    name: "kendoMobileNavBar",
-    watch: {
-        title: TITLE
-    }
-});
-
-createBinding({
-    name: "kendoMobilePopOver",
-    events: {
-        open: {
-            writeTo: ISOPEN,
-            value: true
-        },
-        close: {
-            writeTo: ISOPEN,
-            value: false
-        }
-    },
-    watch: {
-        isOpen: openIfVisible
-    },
-    async: true
-});
-
-createBinding({
-    name: "kendoMobileScroller",
-    events: {
-        pull: function(options, event) {
-            var doneCallback = event.sender.pullHandled.bind(event.sender);
-
-            if (typeof options.pulled === "function") {
-                options.pulled.call(this, this, event, doneCallback);
-            }
-        }
-    },
-    watch: {
-        enabled: [ENABLE, DISABLE]
-    }
-});
-
-createBinding({
-    name: "kendoMobileScrollView",
-    events: {
-        change: function(options, event) {
-            if ((event.page || event.page === 0) && ko.isWriteableObservable(options.currentIndex)) {
-                options.currentIndex(event.page);
-            }
-        }
-    },
-    watch: {
-        currentIndex: SCROLLTO,
-        data: function(value) {
-            ko.kendo.setDataSource(this, value);
-        }
-    }
-});
-
-createBinding({
-    name: "kendoMobileSwitch",
-    events: {
-        change: function(options, event) {
-            if (ko.isWriteableObservable(options.checked)) {
-                options.checked(event.checked);
-            }
-        }
-    },
-    watch: {
-        enabled: ENABLE,
-        checked: CHECK
-    }
-});
-
-createBinding({
-    name: "kendoMobileTabStrip",
-    events: {
-        select: function(options, event) {
-            if (ko.isWriteableObservable(options.selectedIndex)) {
-                options.selectedIndex(event.item.index());
-            }
-        }
-    },
-    watch: {
-        selectedIndex: function(value) {
-            if (value || value === 0) {
-                this.switchTo(value);
-            }
-        }
-    }
 });
 
 createBinding({
@@ -947,15 +703,6 @@ createBinding({
 });
 
 createBinding({
-    name: "kendoPivotGrid",
-    watch: {
-        data: function(value) {
-            ko.kendo.setDataSource(this, value);
-        }
-    }
-});
-
-createBinding({
     name: "kendoProgressBar",
     defaultOption: VALUE,
     events: {
@@ -979,51 +726,15 @@ createBinding({
     }
 });
 
-var schedulerUpdateModel = function(func) {
-    return function(options, e) {
-        var allModels = unwrap(options.data),
-            idField = unwrap(options.idField) || "id",
-            model = ko.utils.arrayFirst(allModels, function(item) {
-                return unwrap(item[idField]) === e.event[idField];
-            }),
-            write = function(data) {
-                for (var prop in model) {
-                    if (data.hasOwnProperty(prop) && model.hasOwnProperty(prop)) {
-                        var value = data[prop],
-                            writeTo = model[prop];
-
-                        if (ko.isWriteableObservable(writeTo)) {
-                            writeTo(value);
-                        }
-                    }
-                }
-            };
-        if (model) {
-            func(options, e, model, write);
-        }
-    };
-};
-
 createBinding({
+    async: true,
     name: "kendoScheduler",
-    events: {
-        moveEnd: schedulerUpdateModel(function(options, e, model, write) {
-            write(e);
-            write(e.resources);
-        }),
-        save: schedulerUpdateModel(function(options, e, model, write) {
-            write(e.event);
-        }),
-        remove: schedulerUpdateModel(function(options, e, model, write) {
-            options.data.remove(model);
-        })
-    },
     watch: {
         data: function(value, options) {
             ko.kendo.setDataSource(this, value, options);
-        }
-    },
-    async: true
+        },
+        date: DATE
+    }
 });
 
 createBinding({
@@ -1121,10 +832,6 @@ createBinding({
 });
 
 createBinding({
-    name: "kendoToolBar"
-});
-
-createBinding({
     name: "kendoTooltip",
     events: {},
     watch: {
@@ -1145,15 +852,6 @@ createBinding({
         value: VALUE,
         enabled: ENABLE,
         isOpen: [OPEN, CLOSE]
-    }
-});
-
-createBinding({
-    name: "kendoTreeMap",
-    watch: {
-        data: function(value) {
-            ko.kendo.setDataSource(this, value);
-        }
     }
 });
 
@@ -1203,6 +901,7 @@ createBinding({
 });
 
 createBinding({
+    async: true,
     name: "kendoWindow",
     events: {
         open: {
@@ -1218,14 +917,6 @@ createBinding({
         content: CONTENT,
         title: TITLE,
         isOpen: [OPEN, CLOSE]
-    },
-    async: true
-});
-
-createBinding({
-    name: "kendoBarcode",
-    watch: {
-        value: VALUE
     }
 });
 
@@ -1250,13 +941,6 @@ createBinding({
 });
 
 createBinding({
-    name: "kendoQRCode",
-    watch: {
-        value: VALUE
-    }
-});
-
-createBinding({
     name: "kendoRadialGauge",
     defaultOption: VALUE,
     watch: {
@@ -1264,25 +948,6 @@ createBinding({
         gaugeArea: extendAndRedraw("gaugeArea"),
         pointer: extendAndRedraw("pointer"),
         scale: extendAndRedraw("scale")
-    }
-});
-
-createBinding({
-    name: "kendoSparkline",
-    watch: {
-        data: function (value) {
-            ko.kendo.setDataSource(this, value);
-        }
-    }
-});
-
-
-createBinding({
-    name: "kendoStockChart",
-    watch: {
-        data: function(value) {
-            ko.kendo.setDataSource(this, value);
-        }
     }
 });
 

@@ -5,7 +5,7 @@ createBinding({
         data: function (value, options) {
             ko.kendo.setDataSource(this, value, options);
         },
-        page: "page",
+        page: "page"
     },
     templates: ["selectTemplate", "linkTemplate"]
 });

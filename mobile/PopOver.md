@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MobilePopOver
+widgetName: MobilePopOver
 description: The Mobile PopOver widget displays additional information when a user taps on an area on the screen.
 docs: http://demos.telerik.com/kendo-ui/popover/index
 examples:

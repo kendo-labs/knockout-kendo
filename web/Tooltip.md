@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Tooltip
+widgetName: Tooltip
 description: A Tooltip displays popup hint for a given html element. Its content can be defined either as static text or loaded dynamically via AJAX.
 docs: http://docs.telerik.com/kendo-ui/api/web/tooltip
 examples:

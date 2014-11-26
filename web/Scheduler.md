@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Scheduler
+widgetName: Scheduler
 description: The Scheduler widget provides a flexible calendar-based editor.
 docs: http://demos.kendoui.com/web/grid/index.html
 examples:

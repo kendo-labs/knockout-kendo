@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: DateTimePicker
+widgetName: DateTimePicker
 description: The DateTimePicker widget allows a user to enter a date directly or open a visual calendar to make a selection.
 docs: http://docs.telerik.com/kendo-ui/api/web/datetimepicker
 examples:

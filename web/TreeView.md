@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: TreeView
+widgetName: TreeView
 description: The TreeView widget displays hierarchical data in a tree structure.
 docs: http://docs.telerik.com/kendo-ui/api/web/treeview
 examples:

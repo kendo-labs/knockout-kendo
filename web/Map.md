@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Map
+widgetName: Map
 description: The Map widget displays geospatial information organized in layers.
 docs: http://demos.telerik.com/kendo-ui/map/index
 examples:

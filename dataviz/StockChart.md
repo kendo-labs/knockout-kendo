@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Stock Chart
+widgetName: Stock Chart
 description: The Stock Chart widget is used for visualizing stock prices over time.
 docs: http://demos.telerik.com/kendo-ui/financial/index
 examples:

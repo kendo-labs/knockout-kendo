@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: QR Code
+widgetName: QR Code
 description: Generates a QR code based on data.
 docs: http://demos.telerik.com/kendo-ui/qrcode/index
 examples:

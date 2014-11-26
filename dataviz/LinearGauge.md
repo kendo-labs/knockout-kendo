@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: LinearGauge
+widgetName: LinearGauge
 description: The LinearGauge widget visually displays where a value lies in a range.
 docs: http://demos.kendoui.com/dataviz/linear-gauge/index.html
 examples:

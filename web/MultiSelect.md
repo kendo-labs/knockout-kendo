@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MultiSelect
+widgetName: MultiSelect
 description: The MultiSelect displays a list of values and allows the selection of multiple values from this list.
 docs: http://docs.telerik.com/kendo-ui/api/web/multiselect
 examples:

@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Chart
+widgetName: Chart
 description: The Chart widget can create bar, line, area, and scatter charts with a variety of options.
 docs: http://demos.kendoui.com/dataviz/bar-charts/index.html
 examples:

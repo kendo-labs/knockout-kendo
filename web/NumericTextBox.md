@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: NumericTextBox
+widgetName: NumericTextBox
 description: The NumericTextBox widget allows for editing a variety of numeric value types.
 docs: http://docs.telerik.com/kendo-ui/api/web/numerictextbox
 examples:

@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Grid
+widgetName: Grid
 description: The Grid widget allows a user to interact with tabular data.
 docs: http://docs.telerik.com/kendo-ui/api/web/grid
 examples:

@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: DropDownList
+widgetName: DropDownList
 description: The DropDownList widget allows a user to select a single value from a list.
 docs: http://docs.telerik.com/kendo-ui/api/web/dropdownlist
 examples:

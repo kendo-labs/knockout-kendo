@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MobileScrollView
+widgetName: MobileScrollView
 description: The Mobile ScrollView widget is used to scroll content wider than the device screen.
 docs: http://demos.telerik.com/kendo-ui/scrollview/index
 examples:

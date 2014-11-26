@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MobileActionSheet
+widgetName: MobileActionSheet
 description: The Mobile ActionSheet widget displays a set of choices related to a task the user initiates.
 docs: http://demos.telerik.com/kendo-ui/actionsheet/index
 examples:

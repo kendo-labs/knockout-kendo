@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MobileTabStrip
+widgetName: MobileTabStrip
 description: The Mobile TabStrip widget is used to display an application-wide group of navigation buttons.
 docs: http://demos.telerik.com/kendo-ui/mobile-tabstrip/index
 examples:

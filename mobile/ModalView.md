@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MobileModalView
+widgetName: MobileModalView
 description: The Mobile ModalView widget displays a dialog in front of the application.
 docs: http://demos.telerik.com/kendo-ui/modalview/index
 examples:

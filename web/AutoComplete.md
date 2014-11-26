@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: AutoComplete
+widgetName: AutoComplete
 description: The AutoComplete widget offers suggestions as a user types that can come from a local or remote data.
 docs: http://docs.telerik.com/kendo-ui/api/web/autocomplete
 examples:

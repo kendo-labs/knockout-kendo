@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: RangeSlider
+widgetName: RangeSlider
 description: The RangeSlider widget allows a user to choose a start and end to a range of values.
 docs: http://docs.telerik.com/kendo-ui/api/web/rangeslider
 examples:

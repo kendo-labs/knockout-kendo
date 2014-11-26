@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Upload
+widgetName: Upload
 description: The Upload widget allows for a user-friendly experience for choosing files to upload.
 docs: http://docs.telerik.com/kendo-ui/api/web/upload
 examples:

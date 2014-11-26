@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: ProgressBar
+widgetName: ProgressBar
 description: The ProgressBar widget displays a status bar that can animate between values
 docs: http://docs.telerik.com/kendo-ui/api/web/progressbar
 examples:

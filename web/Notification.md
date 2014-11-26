@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Notification
+widgetName: Notification
 description: The Notification widget allows for pop-up messages to appear on-demand.
 docs: http://docs.telerik.com/kendo-ui/api/web/notification
 examples:

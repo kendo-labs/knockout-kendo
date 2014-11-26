@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Editor
+widgetName: Editor
 description: The Editor widget allows users to create and edit HTML in an user friendly interface.
 docs: http://docs.telerik.com/kendo-ui/api/web/editor
 examples:

@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Window
+widgetName: Window
 description: The Window widget displays content in a modal or non-modal HTML window. 
 docs: http://docs.telerik.com/kendo-ui/api/web/window
 examples:

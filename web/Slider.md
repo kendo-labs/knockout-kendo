@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Slider
+widgetName: Slider
 description: The Slider widget allows a user to select a single value from a range.
 docs: http://docs.telerik.com/kendo-ui/api/web/slider
 examples:

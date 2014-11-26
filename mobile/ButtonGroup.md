@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MobileButtonGroup
+widgetName: MobileButtonGroup
 description: The Mobile Button Group widget presents a linear set of grouped buttons.
 docs: http://demos.telerik.com/kendo-ui/buttongroup/index
 examples:

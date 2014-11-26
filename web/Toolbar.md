@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Toolbar
+widgetName: Toolbar
 description: The ToolBar widget is designed to hold different types of controls such as buttons, button groups, toggle buttons, split buttons or other custom defined elements.
 docs: http://demos.telerik.com/kendo-ui/toolbar/index
 examples:

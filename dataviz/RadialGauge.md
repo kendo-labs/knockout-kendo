@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: RadialGauge
+widgetName: RadialGauge
 description: The RadialGauge widget visually displays where a value lies in a range.
 docs: http://demos.kendoui.com/dataviz/radial-gauge/index.html
 examples:

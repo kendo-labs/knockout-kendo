@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MobileSwitch
+widgetName: MobileSwitch
 description: The Mobile Switch widget is used to display two exclusive choices.
 docs: http://demos.telerik.com/kendo-ui/switch/index
 examples:

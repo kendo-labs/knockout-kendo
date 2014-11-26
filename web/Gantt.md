@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Gantt Chart
+widgetName: Gantt Chart
 description: The Gantt widget displays a set of tasks and dependencies, which are used to visualize project planning data.
 docs: http://demos.telerik.com/kendo-ui/gantt/index
 examples:

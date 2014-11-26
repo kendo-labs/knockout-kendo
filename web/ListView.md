@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: ListView
+widgetName: ListView
 description: The ListView widget allows for a custom layout of a collection
 docs: http://docs.telerik.com/kendo-ui/api/web/listview
 examples:

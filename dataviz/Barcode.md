@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Barcode
+widgetName: Barcode
 description: Generates a barcode based on supplied data.
 docs: http://demos.telerik.com/kendo-ui/barcode/index
 examples:

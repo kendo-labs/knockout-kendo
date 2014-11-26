@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: TimePicker
+widgetName: TimePicker
 description: The TimePicker widget allows a user to enter a date directly or open a visual calendar to make a selection.
 docs: http://docs.telerik.com/kendo-ui/api/web/timepicker
 examples:

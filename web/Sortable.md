@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Sortable
+widgetName: Sortable
 description: The Sortable binding allows reordering items in an observableArray by drag and drop.
 docs: http://docs.telerik.com/kendo-ui/api/web/sortable
 examples:

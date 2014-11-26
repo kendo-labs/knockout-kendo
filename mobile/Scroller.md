@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MobileScroller
+widgetName: MobileScroller
 description: The Mobile Scroller widget enables touch friendly kinetic scrolling for a container.
 docs: http://demos.telerik.com/kendo-ui/scroller/index
 examples:

@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MobileDrawer
+widgetName: MobileDrawer
 description: The Mobile Drawer widget provides a slide to reveal navigation section.
 docs: http://demos.telerik.com/kendo-ui/drawer/index
 examples:

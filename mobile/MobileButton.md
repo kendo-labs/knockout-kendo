@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MobileButton
+widgetName: MobileButton
 description: The Mobile Button widget displays a button for navigation or a callback.
 docs: http://demos.telerik.com/kendo-ui/mobile-button/index
 examples:

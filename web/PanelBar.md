@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: PanelBar
+widgetName: PanelBar
 description: The PanelBar widget displays hierarchical data in expandable sections.
 docs: http://docs.telerik.com/kendo-ui/api/web/panelbar
 examples:

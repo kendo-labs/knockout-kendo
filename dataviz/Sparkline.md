@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Sparkline
+widgetName: Sparkline
 description: The sparkline widget can generate small, embeddable graphs/charts.
 docs: http://demos.telerik.com/kendo-ui/sparklines/index
 examples:

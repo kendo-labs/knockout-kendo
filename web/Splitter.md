@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Splitter
+widgetName: Splitter
 description: The Splitter widget allows for resizable panels that can be collapsed.
 docs: http://docs.telerik.com/kendo-ui/api/web/splitter
 examples:

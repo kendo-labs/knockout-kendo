@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Menu
+widgetName: Menu
 description: The Menu widget displays a hierarchical menu that allows navigation and selection.
 docs: http://docs.telerik.com/kendo-ui/api/web/menu
 examples:

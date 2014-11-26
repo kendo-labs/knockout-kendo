@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: ComboBox
+widgetName: ComboBox
 description: The ComboBox widget allows a user to select from a list of values or enter a custom value.
 docs: http://docs.telerik.com/kendo-ui/api/web/combobox
 examples:

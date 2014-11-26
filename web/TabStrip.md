@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: TabStrip
+widgetName: TabStrip
 description: The TabStrip widget displays tabs that display associated content when selected.
 docs: http://docs.telerik.com/kendo-ui/api/web/tabstrip
 examples:

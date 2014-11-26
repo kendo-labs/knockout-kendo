@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: TreeMap
+widgetName: TreeMap
 description: The TreeMap displays hierarchical data in a traditional tree structure.
 docs: http://demos.telerik.com/kendo-ui/treemap/index
 examples:

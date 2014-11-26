@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Button
+widgetName: Button
 description: The Button widget provides a theme-able and flexible button
 docs: http://docs.telerik.com/kendo-ui/api/web/button
 examples:

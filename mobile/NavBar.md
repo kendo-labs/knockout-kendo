@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MobileNavBar
+widgetName: MobileNavBar
 description: The Mobile NavBar widget is used to display an application navigation bar.
 docs: http://demos.telerik.com/kendo-ui/navbar/index
 examples:

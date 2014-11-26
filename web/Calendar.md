@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Calendar
+widgetName: Calendar
 description: The Calendar widget provides a visual calendar that supports navigation.
 docs: http://docs.telerik.com/kendo-ui/api/web/calendar
 examples:

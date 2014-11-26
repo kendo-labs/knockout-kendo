@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: PivotGrid
+widgetName: PivotGrid
 description: The PivotGrid widget represents multidimensional data in a cross-tabular format.
 docs: http://demos.telerik.com/kendo-ui/pivotgrid/index
 examples:

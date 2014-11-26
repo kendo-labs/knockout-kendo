@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MobileListView
+widgetName: MobileListView
 description: The Mobile ListView widget displays a grouped list of items.
 docs: http://demos.telerik.com/kendo-ui/mobile-listview/index
 examples:

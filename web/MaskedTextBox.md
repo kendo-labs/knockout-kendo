@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: MaskedTextBox
+widgetName: MaskedTextBox
 description: The MaskedTextBox widget can restrict the type of input allowed by a user.
 docs: http://docs.telerik.com/kendo-ui/api/web/maskedtextbox
 examples:

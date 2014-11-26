@@ -1,7 +1,7 @@
 ---
 layout: default
 prefix: ../
-name: Pager
+widgetName: Pager
 description: The Pager widget displays pagination information.
 docs: http://docs.telerik.com/kendo-ui/api/javascript/ui/pager
 examples:

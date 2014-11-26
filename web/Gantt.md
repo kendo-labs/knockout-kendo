@@ -8,7 +8,7 @@ examples:
 
 liveOptions:
     - name: data
-      description: An array, observableArray, or kendo.data.DataSource to use in the grid
+      description: The data to be used to form the chart
     - name: widget
       description: If specified, will populate an observable with a reference to the actual widget
 ---

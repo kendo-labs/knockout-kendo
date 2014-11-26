@@ -57,6 +57,8 @@ liveOptions:
       description: Determines if users can interact with the field
     - name: value
       description: The current value of the slider
+    - name: widget
+      description: If specified, will populate an observable with a reference to the actual widget
 
 futurePlans:
 ---

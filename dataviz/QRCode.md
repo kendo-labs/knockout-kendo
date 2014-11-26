@@ -7,8 +7,8 @@ docs: http://demos.telerik.com/kendo-ui/qrcode/index
 examples:
 
 liveOptions:
-    - name: data
-      description: An observableArray or kendo.data.dataSource to use in the chart
+    - name: value
+      description: The value to use when generating the QR code
     - name: widget
       description: If specified, will populate an observable with a reference to the actual widget
       

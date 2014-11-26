@@ -54,6 +54,8 @@ liveOptions:
       description: The content of the tooltip
     - name: filter
       description: a filter selector that specifies the source of the tooltip texts
+    - name: widget
+      description: If specified, will populate an observable with a reference to the actual widget
       
 futurePlans:
 ---

@@ -74,6 +74,8 @@ liveOptions:
       description: Displays a success notification when populated
     - name: warning
       description: Displays a warning notification when populated
+    - name: widget
+      description: If specified, will populate an observable with a reference to the actual widget
 
 futurePlans:
 ---

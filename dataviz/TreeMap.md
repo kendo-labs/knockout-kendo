@@ -7,14 +7,12 @@ docs: http://demos.telerik.com/kendo-ui/treemap/index
 examples:
 
 liveOptions:
-    - name: expanded
-      description: Controls whether the tree item's leaf is open
-    - name: enabled
-      description: Determines if users can interact with the tree item
-    - name: selected
-      description: Controls whether the tree item is selected
-      
-futurePlans: Better support for adding/inserting/removing nodes and responding to selections.
+    - name: data
+      description: Data to use when generating the tree map
+    - name: widget
+      description: If specified, will populate an observable with a reference to the actual widget
+
+futurePlans:
 ---
 
 {% include widget.html %}

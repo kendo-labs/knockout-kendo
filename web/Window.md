@@ -56,6 +56,8 @@ liveOptions:
       description: Determines the title of the window
     - name: content
       description: A URL to load content into the window
+    - name: widget
+      description: If specified, will populate an observable with a reference to the actual widget
       
 futurePlans:
 ---

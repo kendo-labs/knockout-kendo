@@ -67,7 +67,9 @@ liveOptions:
       description: The maximum time allowed for selection in the field
     - name: value
       description: The current time value of the field
-      
+    - name: widget
+      description: If specified, will populate an observable with a reference to the actual widget
+        
 futurePlans:
 ---
 

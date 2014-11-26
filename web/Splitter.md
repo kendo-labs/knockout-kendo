@@ -58,7 +58,9 @@ liveOptions:
       description: The maximum size of the pane
     - name: min
       description: The minimum size of the pane
-      
+    - name: widget
+      description: If specified, will populate an observable with a reference to the actual widget
+
 futurePlans:
 ---
 

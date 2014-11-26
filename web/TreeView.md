@@ -101,6 +101,8 @@ liveOptions:
       description: Determines if users can interact with the tree item
     - name: selected
       description: Controls whether the tree item is selected
+    - name: widget
+      description: If specified, will populate an observable with a reference to the actual widget
       
 futurePlans: Better support for adding/inserting/removing nodes and responding to selections.
 ---

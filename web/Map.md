@@ -7,14 +7,14 @@ docs: http://demos.telerik.com/kendo-ui/map/index
 examples:
 
 liveOptions:
-    - name: enabled
-      description: Determines if users can interact with the menu item
-    - name: isOpen
-      description: Indicates whether the menu item is expanded or closed
+    - name: center
+      description: Determines the current center latitute/longitude of the map
+    - name: zoom
+      description: Determines the current zoom level of hte map
     - name: widget
       description: If specified, will populate an observable with a reference to the actual widget
       
-futurePlans: Better integration with data sources.
+futurePlans:
 ---
 
 {% include widget.html %}

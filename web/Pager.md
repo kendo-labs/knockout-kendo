@@ -7,10 +7,10 @@ docs: http://docs.telerik.com/kendo-ui/api/javascript/ui/pager
 examples:
 
 liveOptions:
-    - name: enabled
-      description: Determines if users can interact with the panel item
-    - name: expanded
-      description: Indicates whether the panel bar item is expanded or closed
+    - name: data
+      description: The data to bind against the pager
+    - name: page
+      description: The currently selected page
     - name: widget
       description: If specified, will populate an observable with a reference to the actual widget
       

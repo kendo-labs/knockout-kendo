@@ -73,6 +73,8 @@ liveOptions:
       description: A color object representing the currently-selected item
     - name: palette
       description: the color palette ("websafe", "basic" or an array of values) to display.
+    - name: widget
+      description: If specified, will populate an observable with a reference to the actual widget
       
 futurePlans:
 ---

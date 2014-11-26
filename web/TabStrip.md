@@ -65,6 +65,8 @@ examples:
 liveOptions:
     - name: enabled
       description: Determines if users can interact with the tab
+    - name: widget
+      description: If specified, will populate an observable with a reference to the actual widget
 
 futurePlans: Better support for selecting/deselecting tabs and data source integration.
 ---

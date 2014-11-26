@@ -48,6 +48,8 @@ examples:
 liveOptions:
     - name: enabled
       description: Determines if users can interact with the field
+    - name: widget
+      description: If specified, will populate an observable with a reference to the actual widget
 
 futurePlans:
 ---

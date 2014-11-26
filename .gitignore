@@ -1,2 +1,7 @@
 _site
 .idea
+.gitignore
+.idea/
+node_modules/
+Gemfile.lock
+Gemfile

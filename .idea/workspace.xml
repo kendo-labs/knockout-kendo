@@ -2,62 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367b2740-bbcb-4961-938a-61104d7ba782" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/ActionSheet.md" afterPath="$PROJECT_DIR$/mobile/ActionSheet.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/AutoComplete.md" afterPath="$PROJECT_DIR$/web/AutoComplete.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataviz/Barcode.md" afterPath="$PROJECT_DIR$/dataviz/Barcode.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Button.md" afterPath="$PROJECT_DIR$/web/Button.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/ButtonGroup.md" afterPath="$PROJECT_DIR$/mobile/ButtonGroup.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Calendar.md" afterPath="$PROJECT_DIR$/web/Calendar.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataviz/Chart.md" afterPath="$PROJECT_DIR$/dataviz/Chart.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ColorPicker.md" afterPath="$PROJECT_DIR$/web/ColorPicker.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ComboBox.md" afterPath="$PROJECT_DIR$/web/ComboBox.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/DatePicker.md" afterPath="$PROJECT_DIR$/web/DatePicker.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/DateTimePicker.md" afterPath="$PROJECT_DIR$/web/DateTimePicker.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/Drawer.md" afterPath="$PROJECT_DIR$/mobile/Drawer.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/DropDownList.md" afterPath="$PROJECT_DIR$/web/DropDownList.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Editor.md" afterPath="$PROJECT_DIR$/web/Editor.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Gantt.md" afterPath="$PROJECT_DIR$/web/Gantt.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Grid.md" afterPath="$PROJECT_DIR$/web/Grid.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataviz/LinearGauge.md" afterPath="$PROJECT_DIR$/dataviz/LinearGauge.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/ListView.md" afterPath="$PROJECT_DIR$/mobile/ListView.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ListView.md" afterPath="$PROJECT_DIR$/web/ListView.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Map.md" afterPath="$PROJECT_DIR$/web/Map.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/MaskedTextBox.md" afterPath="$PROJECT_DIR$/web/MaskedTextBox.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Menu.md" afterPath="$PROJECT_DIR$/web/Menu.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/MobileButton.md" afterPath="$PROJECT_DIR$/mobile/MobileButton.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/ModalView.md" afterPath="$PROJECT_DIR$/mobile/ModalView.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/MultiSelect.md" afterPath="$PROJECT_DIR$/web/MultiSelect.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/NavBar.md" afterPath="$PROJECT_DIR$/mobile/NavBar.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Notification.md" afterPath="$PROJECT_DIR$/web/Notification.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/NumericTextBox.md" afterPath="$PROJECT_DIR$/web/NumericTextBox.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Pager.md" afterPath="$PROJECT_DIR$/web/Pager.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/PanelBar.md" afterPath="$PROJECT_DIR$/web/PanelBar.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/PivotGrid.md" afterPath="$PROJECT_DIR$/web/PivotGrid.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/PopOver.md" afterPath="$PROJECT_DIR$/mobile/PopOver.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ProgressBar.md" afterPath="$PROJECT_DIR$/web/ProgressBar.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataviz/QRCode.md" afterPath="$PROJECT_DIR$/dataviz/QRCode.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataviz/RadialGauge.md" afterPath="$PROJECT_DIR$/dataviz/RadialGauge.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/RangeSlider.md" afterPath="$PROJECT_DIR$/web/RangeSlider.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Scheduler.md" afterPath="$PROJECT_DIR$/web/Scheduler.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/ScrollView.md" afterPath="$PROJECT_DIR$/mobile/ScrollView.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/Scroller.md" afterPath="$PROJECT_DIR$/mobile/Scroller.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Slider.md" afterPath="$PROJECT_DIR$/web/Slider.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Sortable.md" afterPath="$PROJECT_DIR$/web/Sortable.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataviz/Sparkline.md" afterPath="$PROJECT_DIR$/dataviz/Sparkline.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Splitter.md" afterPath="$PROJECT_DIR$/web/Splitter.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataviz/StockChart.md" afterPath="$PROJECT_DIR$/dataviz/StockChart.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/Switch.md" afterPath="$PROJECT_DIR$/mobile/Switch.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/TabStrip.md" afterPath="$PROJECT_DIR$/mobile/TabStrip.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/TabStrip.md" afterPath="$PROJECT_DIR$/web/TabStrip.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/TimePicker.md" afterPath="$PROJECT_DIR$/web/TimePicker.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Toolbar.md" afterPath="$PROJECT_DIR$/web/Toolbar.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Tooltip.md" afterPath="$PROJECT_DIR$/web/Tooltip.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataviz/TreeMap.md" afterPath="$PROJECT_DIR$/dataviz/TreeMap.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/TreeView.md" afterPath="$PROJECT_DIR$/web/TreeView.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Upload.md" afterPath="$PROJECT_DIR$/web/Upload.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Window.md" afterPath="$PROJECT_DIR$/web/Window.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/widget.html" afterPath="$PROJECT_DIR$/_includes/widget.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reports/coverage.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reports/coverage/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reports/coverage/build/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reports/coverage/build/knockout-kendo.js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reports/coverage/prettify.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reports/coverage/prettify.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <ignored path="knockout-kendo-gh.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -290,80 +242,6 @@
         <subPane subId="Project Files">
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="knockout-kendo">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="knockout-kendo">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="web">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="knockout-kendo">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="mobile">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="knockout-kendo">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="dataviz">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="knockout-kendo">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="_layouts">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="knockout-kendo">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="_includes">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -612,7 +490,13 @@
       <option name="project" value="LOCAL" />
       <updated>1417036403412</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="name was showing .md, change to widgetName">
+      <created>1417037579633</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1417037579634</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -684,7 +568,8 @@
     <MESSAGE value="update Notification doc" />
     <MESSAGE value="live options updates" />
     <MESSAGE value="readme update" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme update" />
+    <MESSAGE value="name was showing .md, change to widgetName" />
+    <option name="LAST_COMMIT_MESSAGE" value="name was showing .md, change to widgetName" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">

@@ -119,7 +119,7 @@
 
 //import "knockout-kendoRadialGauge.js"
 
-//import "knockout-kendoSparkLine.js"
+//import "knockout-kendoSparkline.js"
 
 //import "knockout-kendoStockChart.js"
 

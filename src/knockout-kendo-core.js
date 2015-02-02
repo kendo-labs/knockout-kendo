@@ -18,22 +18,22 @@ ko.kendo.BindingFactory = function() {
 
         //the binding handler's init function
         binding.init = function(element, valueAccessor, all, vm, context) {
-              //step 1: build appropriate options for the widget from values passed in and global options
-              var options = self.buildOptions(widgetConfig, valueAccessor);
+            //step 1: build appropriate options for the widget from values passed in and global options
+            var options = self.buildOptions(widgetConfig, valueAccessor);
 
-              //apply async, so inner templates can finish content needed during widget initialization
-              if (options.async === true || (widgetConfig.async === true && options.async !== false)) {
-                  setTimeout(function() {
-                      binding.setup(element, options, context);
-                  }, 0);
-                  return;
-              }
+            //apply async, so inner templates can finish content needed during widget initialization
+            if (options.async === true || (widgetConfig.async === true && options.async !== false)) {
+                setTimeout(function() {
+                    binding.setup(element, options, context);
+                }, 0);
+                return;
+            }
 
-              binding.setup(element, options, context);
+            binding.setup(element, options, context);
 
-              if (options && options.useKOTemplates) {
-                  return { controlsDescendantBindings: true };
-              }
+            if (options && options.useKOTemplates) {
+                return { controlsDescendantBindings: true };
+            }
         };
 
         //build the core logic for the init function

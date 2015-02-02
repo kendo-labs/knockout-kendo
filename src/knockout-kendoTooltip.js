@@ -2,7 +2,10 @@ createBinding({
     name: "kendoTooltip",
     events: {},
     watch: {
-        content: CONTENT,
+        content: function(content) {
+            this.options.content = content;
+            this.refresh();
+        },
         filter: FILTER
     }
 });

@@ -5,7 +5,7 @@ var notificationHandler = function(type, value) {
 		}
 		else{
 			try{
-				this.show(JSON.parse(value), type);
+				this.show($.parseJSON(value), type);
 			}
 			catch(e) {
 				// JSON parsing probably failed.  Maybe just a plain string?

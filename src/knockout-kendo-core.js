@@ -53,12 +53,14 @@ ko.kendo.BindingFactory = function() {
             self.watchValues(widget, options, widgetConfig, element);
 
             //step 6: handle disposal, if there is a destroy method on the widget
-            if(widget.destroy) {
+            if (widget.destroy) {
                 ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
-                    if (typeof kendo.destroy === "function") {
-                        kendo.destroy(widget);
-                    } else {
-                        widget.destroy();
+                    if (widget.element) {
+                        if (typeof kendo.destroy === "function") {
+                            kendo.destroy(widget);
+                        } else {
+                            widget.destroy();
+                        }
                     }
                 });
             }

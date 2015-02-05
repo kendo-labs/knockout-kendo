@@ -47,22 +47,22 @@ ko.kendo.BindingFactory = function() {
 
         //the binding handler's init function
         binding.init = function(element, valueAccessor, all, vm, context) {
-              //step 1: build appropriate options for the widget from values passed in and global options
-              var options = self.buildOptions(widgetConfig, valueAccessor);
+            //step 1: build appropriate options for the widget from values passed in and global options
+            var options = self.buildOptions(widgetConfig, valueAccessor);
 
-              //apply async, so inner templates can finish content needed during widget initialization
-              if (options.async === true || (widgetConfig.async === true && options.async !== false)) {
-                  setTimeout(function() {
-                      binding.setup(element, options, context);
-                  }, 0);
-                  return;
-              }
+            //apply async, so inner templates can finish content needed during widget initialization
+            if (options.async === true || (widgetConfig.async === true && options.async !== false)) {
+                setTimeout(function() {
+                    binding.setup(element, options, context);
+                }, 0);
+                return;
+            }
 
-              binding.setup(element, options, context);
+            binding.setup(element, options, context);
 
-              if (options && options.useKOTemplates) {
-                  return { controlsDescendantBindings: true };
-              }
+            if (options && options.useKOTemplates) {
+                return { controlsDescendantBindings: true };
+            }
         };
 
         //build the core logic for the init function
@@ -82,12 +82,14 @@ ko.kendo.BindingFactory = function() {
             self.watchValues(widget, options, widgetConfig, element);
 
             //step 6: handle disposal, if there is a destroy method on the widget
-            if(widget.destroy) {
+            if (widget.destroy) {
                 ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
-                    if (typeof kendo.destroy === "function") {
-                        kendo.destroy(widget);
-                    } else {
-                        widget.destroy();
+                    if (widget.element) {
+                        if (typeof kendo.destroy === "function") {
+                            kendo.destroy(widget);
+                        } else {
+                            widget.destroy();
+                        }
                     }
                 });
             }
@@ -1084,8 +1086,7 @@ createBinding({
                 delete e.draggableEvent[dataKey];
 
                 //we are moving the item ourselves via the observableArray, cancel the draggable and hide the animation
-                $(e.draggableEvent.target).hide();
-                e.preventDefault();
+                e.sender._cancel();
             }
 
             //signal that the observableArray has changed now that we are done changing the array
@@ -1093,6 +1094,7 @@ createBinding({
         }
     }
 });
+
 
 createBinding({
     name: "kendoSplitter",
@@ -1146,10 +1148,14 @@ createBinding({
     name: "kendoTooltip",
     events: {},
     watch: {
-        content: CONTENT,
+        content: function(content) {
+            this.options.content = content;
+            this.refresh();
+        },
         filter: FILTER
     }
 });
+
 
 createBinding({
     name: "kendoTimePicker",
@@ -1177,6 +1183,20 @@ createBinding({
 
 createBinding({
     name: "kendoTreeView",
+    defaultOption: DATA,
+    watch: {
+        data: function(value, options) {
+            ko.kendo.setDataSource(this, value, options);
+        }
+    },
+    events: {
+        change: function(options, e) {
+            if (ko.isWriteableObservable(options.value)) {
+                var tree = e.sender;
+                options.value(tree.dataItem(tree.select()));
+            }
+        }
+    },
     async: true
 });
 

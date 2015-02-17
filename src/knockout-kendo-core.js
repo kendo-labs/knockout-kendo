@@ -153,8 +153,27 @@ ko.kendo.BindingFactory = function() {
             options.widget(widget);
         }
 
+        // copy title & aria-label attributes
+        // needed for conforming to WCAG2AA accessibility standards
+        self.copyAttribute("title", $element, widget.input);
+        self.copyAttribute("aria-label", $element, widget.input);
+
         return widget;
     };
+
+
+    //attribute copier
+    this.copyAttribute = function(attr, $element, $target)
+    {
+        var attrValue = $element.attr(attr);
+        if($target && attrValue && $target)
+        {
+            $target.attr(attr, attrValue);
+        }
+    }
+
+
+
 
     //respond to changes in the view model
     this.watchValues = function(widget, options, widgetConfig, element) {

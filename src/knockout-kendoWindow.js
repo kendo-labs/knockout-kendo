@@ -1,5 +1,4 @@
 createBinding({
-    async: true,
     name: "kendoWindow",
     events: {
         open: {
@@ -15,5 +14,6 @@ createBinding({
         content: CONTENT,
         title: TITLE,
         isOpen: [OPEN, CLOSE]
-    }
+    },
+    async: true
 });

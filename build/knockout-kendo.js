@@ -1,5 +1,5 @@
 /*
- * knockout-kendo 0.7.0
+ * knockout-kendo 0.9.2
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -32,6 +32,8 @@ kendo = kendo || window.kendo;
 
 ko.kendo = ko.kendo || {};
 
+var unwrap = ko.utils.unwrapObservable; //support older 2.x KO where ko.unwrap was not defined
+
 ko.kendo.BindingFactory = function() {
     var self = this;
 
@@ -45,22 +47,22 @@ ko.kendo.BindingFactory = function() {
 
         //the binding handler's init function
         binding.init = function(element, valueAccessor, all, vm, context) {
-              //step 1: build appropriate options for the widget from values passed in and global options
-              var options = self.buildOptions(widgetConfig, valueAccessor);
+            //step 1: build appropriate options for the widget from values passed in and global options
+            var options = self.buildOptions(widgetConfig, valueAccessor);
 
-              //apply async, so inner templates can finish content needed during widget initialization
-              if (options.async === true || (widgetConfig.async === true && options.async !== false)) {
-                  setTimeout(function() {
-                      binding.setup(element, options, context);
-                  }, 0);
-                  return;
-              }
+            //apply async, so inner templates can finish content needed during widget initialization
+            if (options.async === true || (widgetConfig.async === true && options.async !== false)) {
+                setTimeout(function() {
+                    binding.setup(element, options, context);
+                }, 0);
+                return;
+            }
 
-              binding.setup(element, options, context);
+            binding.setup(element, options, context);
 
-              if (options && options.useKOTemplates) {
-                  return { controlsDescendantBindings: true };
-              }
+            if (options && options.useKOTemplates) {
+                return { controlsDescendantBindings: true };
+            }
         };
 
         //build the core logic for the init function
@@ -74,15 +76,21 @@ ko.kendo.BindingFactory = function() {
             widget = self.getWidget(widgetConfig, options, $element);
 
             //step 4: add handlers for events that we need to react to for updating the model
-            self.handleEvents(options, widgetConfig, element, widget);
+            self.handleEvents(options, widgetConfig, element, widget, context);
 
             //step 5: set up computed observables to update the widget when observable model values change
             self.watchValues(widget, options, widgetConfig, element);
 
             //step 6: handle disposal, if there is a destroy method on the widget
-            if(widget.destroy) {
+            if (widget.destroy) {
                 ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
-                    widget.destroy();
+                    if (widget.element) {
+                        if (typeof kendo.destroy === "function") {
+                            kendo.destroy(widget);
+                        } else {
+                            widget.destroy();
+                        }
+                    }
                 });
             }
         };
@@ -97,7 +105,7 @@ ko.kendo.BindingFactory = function() {
     this.buildOptions = function(widgetConfig, valueAccessor) {
         var defaultOption = widgetConfig.defaultOption,
             options = ko.utils.extend({}, ko.bindingHandlers[widgetConfig.name].options),
-            valueOrOptions = ko.utils.unwrapObservable(valueAccessor());
+            valueOrOptions = unwrap(valueAccessor());
 
         if (valueOrOptions instanceof kendo.data.DataSource || typeof valueOrOptions !== "object" || valueOrOptions === null || (defaultOption && !(defaultOption in valueOrOptions))) {
             options[defaultOption] = valueAccessor();
@@ -150,7 +158,7 @@ ko.kendo.BindingFactory = function() {
             else if (typeof object === "object") {
                 for (prop in object) {
                     //include things on prototype
-                    result[prop] = ko.utils.unwrapObservable(object[prop]);
+                    result[prop] = unwrap(object[prop]);
                 }
             }
         }
@@ -194,7 +202,7 @@ ko.kendo.BindingFactory = function() {
             read: function() {
                 var existing, custom,
                     action = widgetConfig.watch[prop],
-                    value = ko.utils.unwrapObservable(options[prop]),
+                    value = unwrap(options[prop]),
                     params = widgetConfig.parent ? [element] : []; //child bindings pass element first to APIs
 
                 //support passing multiple events like ["open", "close"]
@@ -221,7 +229,7 @@ ko.kendo.BindingFactory = function() {
                 }
             },
             disposeWhenNodeIsRemoved: element
-        }).extend({ throttle: 1 });
+        }).extend({ throttle: (options.throttle || options.throttle === 0) ? options.throttle : 1 });
 
         //if option is not observable, then dispose up front after executing the logic once
         if (!ko.isObservable(options[prop])) {
@@ -230,36 +238,51 @@ ko.kendo.BindingFactory = function() {
     };
 
     //write changes to the widgets back to the model
-    this.handleEvents = function(options, widgetConfig, element, widget) {
-        var prop, event, events = widgetConfig.events;
+    this.handleEvents = function(options, widgetConfig, element, widget, context) {
+        var prop, eventConfig, events = widgetConfig.events;
 
         if (events) {
             for (prop in events) {
                 if (events.hasOwnProperty(prop)) {
-                    event = events[prop];
-                    if (typeof event === "string") {
-                        event = { value: event, writeTo: event };
+                    eventConfig = events[prop];
+                    if (typeof eventConfig === "string") {
+                        eventConfig = { value: eventConfig, writeTo: eventConfig };
                     }
 
-                    if (ko.isObservable(options[event.writeTo])) {
-                        self.handleOneEvent(prop, event, options, element, widget, widgetConfig.childProp);
-                    }
+                    self.handleOneEvent(prop, eventConfig, options, element, widget, widgetConfig.childProp, context);
                 }
             }
         }
     };
 
     //bind to a single event
-    this.handleOneEvent = function(eventName, eventConfig, options, element, widget, childProp) {
-        widget.bind(eventName, function(e) {
-            var propOrValue, value;
+    this.handleOneEvent = function(eventName, eventConfig, options, element, widget, childProp, context) {
+        var handler = typeof eventConfig === "function" ? eventConfig : options[eventConfig.call];
 
-            if (!childProp || !e[childProp] || e[childProp] === element) {
-                propOrValue = eventConfig.value;
-                value = (typeof propOrValue === "string" && this[propOrValue]) ? this[propOrValue](childProp && element) : propOrValue;
-                options[eventConfig.writeTo](value);
-            }
-        });
+        //call a function defined directly in the binding definition, supply options that were passed to the binding
+        if (typeof eventConfig === "function") {
+            handler = handler.bind(context.$data, options);
+        }
+        //use function passed in binding options as handler with normal KO args
+        else if (eventConfig.call && typeof options[eventConfig.call] === "function") {
+            handler = options[eventConfig.call].bind(context.$data, context.$data);
+        }
+        //option is observable, determine what to write to it
+        else if (eventConfig.writeTo && ko.isWriteableObservable(options[eventConfig.writeTo])) {
+            handler = function(e) {
+                var propOrValue, value;
+
+                if (!childProp || !e[childProp] || e[childProp] === element) {
+                    propOrValue = eventConfig.value;
+                    value = (typeof propOrValue === "string" && this[propOrValue]) ? this[propOrValue](childProp && element) : propOrValue;
+                    options[eventConfig.writeTo](value);
+                }
+            };
+        }
+
+        if (handler) {
+            widget.bind(eventName, handler);
+        }
     };
 };
 
@@ -306,36 +329,63 @@ var extendAndRedraw = function(prop) {
     };
 };
 
+var openIfVisible = function(value, options) {
+    if (!value) {
+        //causes issues with event triggering, if closing programmatically, when unnecessary
+        if (this.element.parent().is(":visible")) {
+            this.close();
+        }
+    } else {
+        this.open(typeof options.target === "string" ? $(unwrap(options.target)) : options.target);
+    }
+};
+
+
 //library is in a closure, use this private variable to reduce size of minified file
 var createBinding = ko.kendo.bindingFactory.createBinding.bind(ko.kendo.bindingFactory);
 
 //use constants to ensure consistency and to help reduce minified file size
-var CLOSE = "close",
+var CLICK = "click",
+    CENTER = "center",
+    CHECK = "check",
+    CHECKED = "checked",
+    CLICKED = "clicked",
+    CLOSE = "close",
     COLLAPSE = "collapse",
     CONTENT = "content",
     DATA = "data",
+    DATE = "date",
+    DISABLE = "disable",
     ENABLE = "enable",
     EXPAND = "expand",
     ENABLED = "enabled",
     EXPANDED = "expanded",
+    ERROR = "error",
     FILTER = "filter",
     HIDE = "hide",
+    INFO = "info",
     ISOPEN = "isOpen",
+    ITEMS = "items",
     MAX = "max",
     MIN = "min",
     OPEN = "open",
     PALETTE = "palette",
+    READONLY = "readonly",
     RESIZE = "resize",
+    SCROLLTO = "scrollTo",
     SEARCH = "search",
     SELECT = "select",
     SELECTED = "selected",
+    SELECTEDINDEX = "selectedIndex",
     SHOW = "show",
     SIZE = "size",
+    SUCCESS = "success",
     TARGET = "target",
     TITLE = "title",
     VALUE = "value",
-    VALUES = "values";
-
+    VALUES = "values",
+    WARNING = "warning",
+    ZOOM = "zoom";
 
 createBinding({
     name: "kendoAutoComplete",
@@ -357,6 +407,19 @@ createBinding({
             ko.kendo.setDataSource(this, value);
         },
         value: VALUE
+    }
+});
+
+createBinding({
+    name: "kendoButton",
+    defaultOption: CLICKED,
+    events: {
+        click: {
+            call: CLICKED
+        }
+    },
+    watch: {
+        enabled: ENABLE
     }
 });
 
@@ -506,6 +569,16 @@ createBinding({
 });
 
 createBinding({
+    name: "kendoGantt",
+    defaultOption: DATA,
+    watch: {
+        data: function(value) {
+            ko.kendo.setDataSource(this, value);
+        }
+    }
+});
+
+createBinding({
     name: "kendoGrid",
     defaultOption: DATA,
     watch: {
@@ -528,6 +601,55 @@ createBinding({
 });
 
 createBinding({
+    name: "kendoPager",
+    defaultOption: DATA,
+    watch: {
+        data: function (value, options) {
+            ko.kendo.setDataSource(this, value, options);
+        },
+        page: "page"
+    },
+    templates: ["selectTemplate", "linkTemplate"]
+});
+
+createBinding({
+    name: "kendoMaskedTextBox",
+    defaultOption: VALUE,
+    events: {
+        change: VALUE
+    },
+    watch: {
+        enabled: ENABLE,
+        isReadOnly: READONLY,
+        value: VALUE
+    }
+});
+
+createBinding({
+    name: "kendoMap",
+    events: {
+        zoomEnd: function (options, event) {
+            if (ko.isWriteableObservable(options.zoom)) {
+                options.zoom(event.sender.zoom());
+            }
+        },
+        panEnd: function (options, event) {
+            var coordinates;
+
+            if (ko.isWriteableObservable(options.center)) {
+                coordinates = event.sender.center();
+
+                options.center([coordinates.lat, coordinates.lng]);
+            }
+        }
+    },
+    watch: {
+        center: CENTER,
+        zoom: ZOOM
+    }
+});
+
+createBinding({
     name: "kendoMenu",
     async: true
 });
@@ -540,6 +662,197 @@ createBinding({
         isOpen: [OPEN, CLOSE]
     },
     async: true
+});
+
+createBinding({
+    name: "kendoMobileActionSheet",
+    events: {
+        open: {
+            writeTo: ISOPEN,
+            value: true
+        },
+        close: {
+            writeTo: ISOPEN,
+            value: false
+        }
+    },
+    watch: {
+        isOpen: openIfVisible
+    },
+    async: true
+});
+
+createBinding({
+    name: "kendoMobileButton",
+    defaultOption: CLICKED,
+    events: {
+        click: {
+            call: CLICKED
+        }
+    },
+    watch: {
+        enabled: ENABLE
+    }
+});
+
+createBinding({
+    name: "kendoMobileButtonGroup",
+    events: {
+        select: function(options, event) {
+            if (ko.isWriteableObservable(options.selectedIndex)) {
+                options.selectedIndex(event.sender.current().index());
+            }
+        }
+    },
+    watch: {
+        enabled: ENABLE,
+        selectedIndex: SELECT
+    }
+});
+
+createBinding({
+    name: "kendoMobileDrawer",
+    events: {
+        show: {
+            writeTo: ISOPEN,
+            value: true
+        },
+        hide: {
+            writeTo: ISOPEN,
+            value: false
+        }
+    },
+    watch: {
+        isOpen: function(value) {
+            this[value ? "show" : "hide"]();
+        }
+    },
+    async: true
+});
+
+createBinding({
+    name: "kendoMobileListView",
+    defaultOption: DATA,
+    events: {
+        click: {
+            call: CLICKED
+        }
+    },
+    watch: {
+        data: function(value, options) {
+            ko.kendo.setDataSource(this, value, options);
+        }
+    },
+    templates: ["template"]
+});
+
+createBinding({
+    name: "kendoMobileModalView",
+    events: {
+        open: {
+            writeTo: ISOPEN,
+            value: true
+        },
+        close: {
+            writeTo: ISOPEN,
+            value: false
+        }
+    },
+    watch: {
+        isOpen: openIfVisible
+    },
+    async: true
+});
+
+createBinding({
+    name: "kendoMobileNavBar",
+    watch: {
+        title: TITLE
+    }
+});
+
+createBinding({
+    name: "kendoMobilePopOver",
+    events: {
+        open: {
+            writeTo: ISOPEN,
+            value: true
+        },
+        close: {
+            writeTo: ISOPEN,
+            value: false
+        }
+    },
+    watch: {
+        isOpen: openIfVisible
+    },
+    async: true
+});
+
+createBinding({
+    name: "kendoMobileScroller",
+    events: {
+        pull: function(options, event) {
+            var doneCallback = event.sender.pullHandled.bind(event.sender);
+
+            if (typeof options.pulled === "function") {
+                options.pulled.call(this, this, event, doneCallback);
+            }
+        }
+    },
+    watch: {
+        enabled: [ENABLE, DISABLE]
+    }
+});
+
+createBinding({
+    name: "kendoMobileScrollView",
+    events: {
+        change: function(options, event) {
+            if ((event.page || event.page === 0) && ko.isWriteableObservable(options.currentIndex)) {
+                options.currentIndex(event.page);
+            }
+        }
+    },
+    watch: {
+        currentIndex: SCROLLTO,
+        data: function(value) {
+            ko.kendo.setDataSource(this, value);
+        }
+    }
+});
+
+createBinding({
+    name: "kendoMobileSwitch",
+    events: {
+        change: function(options, event) {
+            if (ko.isWriteableObservable(options.checked)) {
+                options.checked(event.checked);
+            }
+        }
+    },
+    watch: {
+        enabled: ENABLE,
+        checked: CHECK
+    }
+});
+
+createBinding({
+    name: "kendoMobileTabStrip",
+    events: {
+        select: function(options, event) {
+            if (ko.isWriteableObservable(options.selectedIndex)) {
+                options.selectedIndex(event.item.index());
+            }
+        }
+    },
+    watch: {
+        selectedIndex: function(value) {
+            if (value || value === 0) {
+                this.switchTo(value);
+            }
+        }
+    }
 });
 
 createBinding({
@@ -565,6 +878,33 @@ createBinding({
     }
 });
 
+var notificationHandler = function(type, value) {
+    if (value || value === 0) {
+        this.show(value, type);
+    }
+    else {
+        this.hide();
+    }
+};
+
+createBinding({
+    name: "kendoNotification",
+    watch: {
+        error: function(value) {
+            notificationHandler.call(this, ERROR, value);
+        },
+        info: function(value) {
+            notificationHandler.call(this, INFO, value);
+        },
+        success: function(value) {
+            notificationHandler.call(this, SUCCESS, value);
+        },
+        warning: function(value) {
+            notificationHandler.call(this, WARNING, value);
+        }
+    }
+});
+
 createBinding({
     name: "kendoNumericTextBox",
     defaultOption: VALUE,
@@ -574,22 +914,25 @@ createBinding({
     watch: {
         enabled: ENABLE,
         value: VALUE,
-            max: function(newMax) {
-                this.options.max = newMax;
-                //make sure current value is still valid
-                if (this.value() > newMax) {
-                    this.value(newMax);
-                }
-            },
-            min: function(newMin) {
-                this.options.min = newMin;
-                //make sure that current value is still valid
-                if (this.value() < newMin) {
-                    this.value(newMin);
-                }
+        max: function(newMax) {
+            this.options.max = newMax;
+            //make sure current value is still valid
+            var value = this.value();
+            if ((value || value === 0) && value > newMax) {
+                this.value(newMax);
             }
+        },
+        min: function(newMin) {
+            this.options.min = newMin;
+            //make sure that current value is still valid
+            var value = this.value();
+            if ((value || value === 0) && value < newMin ) {
+                this.value(newMin);
+            }
+        }
     }
 });
+
 
 createBinding({
     name: "kendoPanelBar",
@@ -601,7 +944,8 @@ createBinding({
     parent: "kendoPanelBar",
     watch: {
         enabled: ENABLE,
-        expanded: [EXPAND, COLLAPSE]
+        expanded: [EXPAND, COLLAPSE],
+        selected: [SELECT]
     },
     childProp: "item",
     events: {
@@ -612,9 +956,34 @@ createBinding({
         collapse: {
             writeTo: EXPANDED,
             value: false
+        },
+        select: {
+            writeTo: SELECTED,
+            value: VALUE
         }
     },
     async: true
+});
+
+createBinding({
+    name: "kendoPivotGrid",
+    watch: {
+        data: function(value) {
+            ko.kendo.setDataSource(this, value);
+        }
+    }
+});
+
+createBinding({
+    name: "kendoProgressBar",
+    defaultOption: VALUE,
+    events: {
+        change: VALUE
+    },
+    watch: {
+        enabled: ENABLE,
+        value: VALUE
+    }
 });
 
 createBinding({
@@ -629,6 +998,54 @@ createBinding({
     }
 });
 
+var schedulerUpdateModel = function(func) {
+    return function(options, e) {
+        var allModels = unwrap(options.data),
+            idField = unwrap(options.idField) || "id",
+            model = ko.utils.arrayFirst(allModels, function(item) {
+                return unwrap(item[idField]) === e.event[idField];
+            }),
+            write = function(data) {
+                for (var prop in model) {
+                    if (data.hasOwnProperty(prop) && model.hasOwnProperty(prop)) {
+                        var value = data[prop],
+                            writeTo = model[prop];
+
+                        if (ko.isWriteableObservable(writeTo)) {
+                            writeTo(value);
+                        }
+                    }
+                }
+            };
+        if (model) {
+            func(options, e, model, write);
+        }
+    };
+};
+
+createBinding({
+    name: "kendoScheduler",
+    events: {
+        moveEnd: schedulerUpdateModel(function(options, e, model, write) {
+            write(e);
+            write(e.resources);
+        }),
+        save: schedulerUpdateModel(function(options, e, model, write) {
+            write(e.event);
+        }),
+        remove: schedulerUpdateModel(function(options, e, model, write) {
+            options.data.remove(model);
+        })
+    },
+    watch: {
+        data: function(value, options) {
+            ko.kendo.setDataSource(this, value, options);
+        },
+        date: DATE
+    },
+    async: true
+});
+
 createBinding({
     name: "kendoSlider",
     defaultOption: VALUE,
@@ -640,6 +1057,44 @@ createBinding({
         enabled: ENABLE
     }
 });
+
+createBinding({
+    name: "kendoSortable",
+    defaultOption: DATA,
+    events: {
+        end: function(options, e) {
+            var dataKey = "__ko_kendo_sortable_data__",
+                data = e.action !== "receive" ? ko.dataFor(e.item[0]) : e.draggableEvent[dataKey],
+                items = options.data,
+                underlyingArray = options.data;
+
+            //remove item from its original position
+            if (e.action === "sort" || e.action === "remove") {
+                underlyingArray.splice(e.oldIndex, 1);
+
+                //keep track of the item between remove and receive
+                if (e.action === "remove") {
+                    e.draggableEvent[dataKey] = data;
+                }
+            }
+
+            //add the item to its new position
+            if (e.action === "sort" || e.action === "receive") {
+                underlyingArray.splice(e.newIndex, 0, data);
+
+                //clear the data we passed
+                delete e.draggableEvent[dataKey];
+
+                //we are moving the item ourselves via the observableArray, cancel the draggable and hide the animation
+                e.sender._cancel();
+            }
+
+            //signal that the observableArray has changed now that we are done changing the array
+            items.valueHasMutated();
+        }
+    }
+});
+
 
 createBinding({
     name: "kendoSplitter",
@@ -686,13 +1141,21 @@ createBinding({
 });
 
 createBinding({
+    name: "kendoToolBar"
+});
+
+createBinding({
     name: "kendoTooltip",
     events: {},
     watch: {
-        content: CONTENT,
+        content: function(content) {
+            this.options.content = content;
+            this.refresh();
+        },
         filter: FILTER
     }
 });
+
 
 createBinding({
     name: "kendoTimePicker",
@@ -710,7 +1173,30 @@ createBinding({
 });
 
 createBinding({
+    name: "kendoTreeMap",
+    watch: {
+        data: function(value) {
+            ko.kendo.setDataSource(this, value);
+        }
+    }
+});
+
+createBinding({
     name: "kendoTreeView",
+    defaultOption: DATA,
+    watch: {
+        data: function(value, options) {
+            ko.kendo.setDataSource(this, value, options);
+        }
+    },
+    events: {
+        change: function(options, e) {
+            if (ko.isWriteableObservable(options.value)) {
+                var tree = e.sender;
+                options.value(tree.dataItem(tree.select()));
+            }
+        }
+    },
     async: true
 });
 
@@ -755,7 +1241,6 @@ createBinding({
 });
 
 createBinding({
-    async: true,
     name: "kendoWindow",
     events: {
         open: {
@@ -771,6 +1256,14 @@ createBinding({
         content: CONTENT,
         title: TITLE,
         isOpen: [OPEN, CLOSE]
+    },
+    async: true
+});
+
+createBinding({
+    name: "kendoBarcode",
+    watch: {
+        value: VALUE
     }
 });
 
@@ -795,6 +1288,13 @@ createBinding({
 });
 
 createBinding({
+    name: "kendoQRCode",
+    watch: {
+        value: VALUE
+    }
+});
+
+createBinding({
     name: "kendoRadialGauge",
     defaultOption: VALUE,
     watch: {
@@ -802,6 +1302,25 @@ createBinding({
         gaugeArea: extendAndRedraw("gaugeArea"),
         pointer: extendAndRedraw("pointer"),
         scale: extendAndRedraw("scale")
+    }
+});
+
+createBinding({
+    name: "kendoSparkline",
+    watch: {
+        data: function (value) {
+            ko.kendo.setDataSource(this, value);
+        }
+    }
+});
+
+
+createBinding({
+    name: "kendoStockChart",
+    watch: {
+        data: function(value) {
+            ko.kendo.setDataSource(this, value);
+        }
     }
 });
 

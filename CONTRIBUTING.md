@@ -66,4 +66,4 @@ We're not dogmatic about code style, here, but we do believe that a project shou
 - Return early
 - Be JSHint Valid
 
-Beyond these, you're best bet, when it doubt it to follow [idiomatic.js](https://github.com/rwldrn/idiomatic.js). 
+Beyond these, your best bet, when in doubt is to follow [idiomatic.js](https://github.com/rwldrn/idiomatic.js). 

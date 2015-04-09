@@ -1,5 +1,5 @@
 /*
- * knockout-kendo 0.9.2
+ * knockout-kendo 0.9.3
  * Copyright © 2013 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -1183,7 +1183,6 @@ createBinding({
 
 createBinding({
     name: "kendoTreeView",
-    defaultOption: DATA,
     watch: {
         data: function(value, options) {
             ko.kendo.setDataSource(this, value, options);

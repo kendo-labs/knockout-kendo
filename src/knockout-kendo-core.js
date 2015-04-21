@@ -197,9 +197,9 @@ ko.kendo.BindingFactory = function() {
                     if($.isArray(value) && $.isArray(existing)){
                         //If the above returns true, both the arrays are same even if the elements are in different order.
                         //http://stackoverflow.com/questions/1773069/using-jquery-to-compare-two-arrays-of-javascript-objects
-                        same = ($(existing).not(value).length === 0 && $(value).not(existing).length === 0)
+                        same = ($(existing).not(value).length === 0 && $(value).not(existing).length === 0);
                     } else {
-                        same = existing !== value
+                        same = existing === value;
                     }
 					
                     //try to avoid unnecessary updates when the new value matches the current value

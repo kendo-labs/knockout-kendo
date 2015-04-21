@@ -171,7 +171,7 @@ ko.kendo.BindingFactory = function() {
     this.watchOneValue = function(prop, widget, options, widgetConfig, element) {
         var computed = ko.computed({
             read: function() {
-                var existing, custom,
+                var existing, custom, same = false,
                     action = widgetConfig.watch[prop],
                     value = unwrap(options[prop]),
                     params = widgetConfig.parent ? [element] : []; //child bindings pass element first to APIs
@@ -193,8 +193,17 @@ ko.kendo.BindingFactory = function() {
                         params.push(value, options);
                     }
 
+					//try to avoid unnecessary updates when the new value matches the current value
+                    if($.isArray(value) && $.isArray(existing)){
+                        //If the above returns true, both the arrays are same even if the elements are in different order.
+                        //http://stackoverflow.com/questions/1773069/using-jquery-to-compare-two-arrays-of-javascript-objects
+                        same = ($(existing).not(value).length === 0 && $(value).not(existing).length === 0)
+                    } else {
+                        same = existing !== value
+                    }
+					
                     //try to avoid unnecessary updates when the new value matches the current value
-                    if (custom || existing !== value) {
+                    if (custom || !same) {
                         action.apply(widget, params);
                     }
                 }

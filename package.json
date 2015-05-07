@@ -1,6 +1,19 @@
 {
   "name": "knockout-kendo",
-  "version": "0.9.3",
+  "version": "0.9.4",
+  "homepage": "http://kendo-labs.github.com/knockout-kendo/",
+  "author": "Ryan Niemeyer",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kendo-labs/knockout-kendo.git"
+  },
+  "main": "./build/knockout-kendo.min.js",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-uglify": "0.x.x",

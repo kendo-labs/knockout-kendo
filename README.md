@@ -31,7 +31,7 @@ Now you are ready to build knockout-kendo, by calling `grunt`.
 ## Source Code and Downloads
 
 Download the plugin from here or grab the latest build from the source. Reference knockout-kendo.min.js after the scripts for Knockout and Kendo UI (requires jQuery).
-	
+
 	<script src="js/jquery.min.js"></script>
 	<script src="js/kendo.all.min.js"></script>
 	<script src="js/knockout-3.2.0.js"></script>
@@ -61,7 +61,7 @@ For change logs and release notes, see the [releases section](https://github.com
 
 This project has been released under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html), the text of which is included below. This license applies ONLY to the project-specific source of each repository and does not extend to Kendo UI itself, or any other 3rd party libraries used in a repository. For licensing information about Kendo UI, see the [License Agreements page](https://www.kendoui.com/purchase/license-agreement.aspx) at [KendoUI.com](http://www.kendoui.com).
 
-> Copyright © 2014 Telerik
+> Copyright © 2015 Telerik
 
 > Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

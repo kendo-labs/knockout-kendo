@@ -1,5 +1,5 @@
 /*
- * knockout-kendo 0.9.4
+ * knockout-kendo 0.9.5
  * Copyright © 2015 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -86,7 +86,7 @@ ko.kendo.BindingFactory = function() {
                 ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
                     if (widget.element) {
                         if (typeof kendo.destroy === "function") {
-                            kendo.destroy(widget);
+                            kendo.destroy(widget.element);
                         } else {
                             widget.destroy();
                         }

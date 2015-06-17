@@ -60,7 +60,7 @@ examples:
       js: |
         var ViewModel = function() {};
         
-        ko.bindingHandlers.kendoTabStrip.animation = false;
+        ko.bindingHandlers.kendoTabStrip.options.animation = false;
       id: three
 liveOptions:
     - name: enabled

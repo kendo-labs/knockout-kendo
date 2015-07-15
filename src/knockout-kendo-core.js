@@ -88,8 +88,12 @@ ko.kendo.BindingFactory = function() {
     };
 
     var templateRenderer = function(id, context) {
-        return function(data) {
-            return ko.renderTemplate(id, context.createChildContext((data._raw && data._raw()) || data));
+        return function (data) {
+            var rawdata = data._raw && data._raw();
+            if (rawdata && data.uid) {
+                rawdata.uid = rawdata.uid || data.uid;
+            }
+            return ko.renderTemplate(id, context.createChildContext(rawdata || data));
         };
     };
 

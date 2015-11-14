@@ -1,5 +1,5 @@
 /*
- * knockout-kendo 0.9.5
+ * knockout-kendo 0.9.6
  * Copyright © 2015 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -874,7 +874,10 @@ createBinding({
         data: function(value) {
             ko.kendo.setDataSource(this, value);
         },
-        value: VALUE
+        value: function(value) {
+            this.dataSource.filter({});
+            this.value(value);
+        }
     }
 });
 

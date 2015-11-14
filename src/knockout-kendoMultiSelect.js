@@ -17,6 +17,9 @@ createBinding({
         data: function(value) {
             ko.kendo.setDataSource(this, value);
         },
-        value: VALUE
+        value: function(value) {
+            this.dataSource.filter({});
+            this.value(value);
+        }
     }
 });

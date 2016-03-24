@@ -26,7 +26,7 @@ createBinding({
                 delete e.draggableEvent[dataKey];
 
                 //we are moving the item ourselves via the observableArray, cancel the draggable and hide the animation
-                e.sender._cancel();
+                e.sender.placeholder.remove();
             }
 
             //signal that the observableArray has changed now that we are done changing the array

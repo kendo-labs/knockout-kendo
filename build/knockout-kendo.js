@@ -912,7 +912,8 @@ createBinding({
     name: "kendoNumericTextBox",
     defaultOption: VALUE,
     events: {
-        change: VALUE
+        change: VALUE,
+        spin: VALUE
     },
     watch: {
         enabled: ENABLE,

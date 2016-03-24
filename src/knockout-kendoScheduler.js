@@ -1,6 +1,6 @@
 var schedulerUpdateModel = function(func) {
     return function(options, e) {
-        var allModels = unwrap(options.data),
+        var allModels = unwrap(options.data || options.dataSource),
             idField = unwrap(options.idField) || "id",
             model = ko.utils.arrayFirst(allModels, function(item) {
                 return unwrap(item[idField]) === e.event[idField];
@@ -17,6 +17,7 @@ var schedulerUpdateModel = function(func) {
                     }
                 }
             };
+
         if (model) {
             func(options, e, model, write);
         }
@@ -33,9 +34,25 @@ createBinding({
         save: schedulerUpdateModel(function(options, e, model, write) {
             write(e.event);
         }),
-        remove: schedulerUpdateModel(function(options, e, model, write) {
-            options.data.remove(model);
-        })
+        remove: function(options, e) {
+            var match;
+            var data = options.data || options.dataSource;
+            var unwrapped = ko.unwrap(data);
+
+            if (unwrapped && unwrapped.length) {
+                match = ko.utils.arrayFirst(ko.unwrap(data), function(item) {
+                    return item.uuid === e.event.uuid;
+                });
+
+                if (match) {
+                    ko.utils.arrayRemoveItem(unwrapped, match);
+
+                    if (ko.isWriteableObservable(data)) {
+                        data.valueHasMutated();
+                    }
+                }
+            }
+        }
     },
     watch: {
         data: function(value, options) {

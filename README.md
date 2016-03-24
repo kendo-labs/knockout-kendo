@@ -10,8 +10,8 @@ Kendo UI Labs projects are experimental and largely built and supported by the c
 knockout-kendo was designed to work with Kendo UI and Knockout.js. The project depends on the following libraries:
 
 - [jQuery](http://www.jquery.com) v1.9.1
-- [Kendo UI](http://www.kendoui.com)  v2014.2.716
-- [Knockout](http://www.knockoutjs.com) v3.2
+- [Kendo UI](http://www.kendoui.com)  v2015.3.1111
+- [Knockout](http://www.knockoutjs.com) v3.4
 
 knockout-kendo has not been tested against any other versions of these libraries. You may find that versions other than these are compatible with [Project Name], but we make no claims to support those version, nor can we troubleshoot issues that arise when using those versions.
 
@@ -34,7 +34,7 @@ Download the plugin from here or grab the latest build from the source. Referenc
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/kendo.all.min.js"></script>
-	<script src="js/knockout-3.2.0.js"></script>
+	<script src="js/knockout-3.4.0.js"></script>
 	<script src="js/knockout-kendo.min.js"></script>
 
 Note: It is fine to reference Kendo UI scripts for individual widgets rather than all widgets (kendo.all.min.js), as this plugin will only create bindings for available widgets.

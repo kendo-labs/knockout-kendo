@@ -597,7 +597,7 @@ createBinding({
             ko.kendo.setDataSource(this, value, options);
         }
     },
-    templates: ["template"]
+    templates: ["template", "editTemplate", "altTemplate"]
 });
 
 createBinding({

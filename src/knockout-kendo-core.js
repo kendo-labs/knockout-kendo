@@ -5,10 +5,10 @@ ko.kendo = ko.kendo || {};
 
 var unwrap = ko.utils.unwrapObservable; //support older 2.x KO where ko.unwrap was not defined
 
-ko.kendo.BindingFactory = function() {
+ko.kendo.BindingFactory = function () {
     var self = this;
 
-    this.createBinding = function(widgetConfig) {
+    this.createBinding = function (widgetConfig) {
         //only support widgets that are available when this script runs
         if (!$()[widgetConfig.parent || widgetConfig.name]) {
             return;
@@ -17,13 +17,13 @@ ko.kendo.BindingFactory = function() {
         var binding = {};
 
         //the binding handler's init function
-        binding.init = function(element, valueAccessor, all, vm, context) {
+        binding.init = function (element, valueAccessor, all, vm, context) {
             //step 1: build appropriate options for the widget from values passed in and global options
             var options = self.buildOptions(widgetConfig, valueAccessor);
 
             //apply async, so inner templates can finish content needed during widget initialization
             if (options.async === true || (widgetConfig.async === true && options.async !== false)) {
-                setTimeout(function() {
+                setTimeout(function () {
                     binding.setup(element, options, context);
                 }, 0);
                 return;
@@ -37,7 +37,7 @@ ko.kendo.BindingFactory = function() {
         };
 
         //build the core logic for the init function
-        binding.setup = function(element, options, context) {
+        binding.setup = function (element, options, context) {
             var widget, $element = $(element);
 
             //step 2: setup templates
@@ -54,7 +54,7 @@ ko.kendo.BindingFactory = function() {
 
             //step 6: handle disposal, if there is a destroy method on the widget
             if (widget.destroy) {
-                ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+                ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
                     if (widget.element) {
                         if (typeof kendo.destroy === "function") {
                             kendo.destroy(widget.element);
@@ -73,28 +73,28 @@ ko.kendo.BindingFactory = function() {
     };
 
     //combine options passed in binding with global options
-    this.buildOptions = function(widgetConfig, valueAccessor) {
+    this.buildOptions = function (widgetConfig, valueAccessor) {
         var defaultOption = widgetConfig.defaultOption,
             options = ko.utils.extend({}, ko.bindingHandlers[widgetConfig.name].options),
             valueOrOptions = unwrap(valueAccessor());
 
         if (valueOrOptions instanceof kendo.data.DataSource || typeof valueOrOptions !== "object" || valueOrOptions === null || (defaultOption && !(defaultOption in valueOrOptions))) {
             options[defaultOption] = valueAccessor();
-        }  else {
+        } else {
             ko.utils.extend(options, valueOrOptions);
         }
 
         return options;
     };
 
-    var templateRenderer = function(id, context) {
-        return function(data) {
+    var templateRenderer = function (id, context) {
+        return function (data) {
             return ko.renderTemplate(id, context.createChildContext((data._raw && data._raw()) || data));
         };
     };
 
     //prepare templates, if the widget uses them
-    this.setupTemplates = function(templateConfig, options, element, context) {
+    this.setupTemplates = function (templateConfig, options, element, context) {
         var i, j, option, existingHandler;
 
         if (templateConfig && options && options.useKOTemplates) {
@@ -108,7 +108,7 @@ ko.kendo.BindingFactory = function() {
 
             //initialize bindings in dataBound event
             existingHandler = options.dataBound;
-            options.dataBound = function() {
+            options.dataBound = function () {
                 ko.memoization.unmemoizeDomNodeAndDescendants(element);
                 if (existingHandler) {
                     existingHandler.apply(this, arguments);
@@ -118,7 +118,7 @@ ko.kendo.BindingFactory = function() {
     };
 
     //unless the object is a kendo datasource, get a clean object with one level unwrapped
-    this.unwrapOneLevel = function(object) {
+    this.unwrapOneLevel = function (object) {
         var prop,
             result = {};
 
@@ -138,7 +138,7 @@ ko.kendo.BindingFactory = function() {
     };
 
     //return the actual widget
-    this.getWidget = function(widgetConfig, options, $element) {
+    this.getWidget = function (widgetConfig, options, $element) {
         var widget;
         if (widgetConfig.parent) {
             //locate the actual widget
@@ -157,7 +157,7 @@ ko.kendo.BindingFactory = function() {
     };
 
     //respond to changes in the view model
-    this.watchValues = function(widget, options, widgetConfig, element) {
+    this.watchValues = function (widget, options, widgetConfig, element) {
         var watchProp, watchValues = widgetConfig.watch;
         if (watchValues) {
             for (watchProp in watchValues) {
@@ -168,9 +168,9 @@ ko.kendo.BindingFactory = function() {
         }
     };
 
-    this.watchOneValue = function(prop, widget, options, widgetConfig, element) {
+    this.watchOneValue = function (prop, widget, options, widgetConfig, element) {
         var computed = ko.computed({
-            read: function() {
+            read: function () {
                 var existing, custom,
                     action = widgetConfig.watch[prop],
                     value = unwrap(options[prop]),
@@ -209,7 +209,7 @@ ko.kendo.BindingFactory = function() {
     };
 
     //write changes to the widgets back to the model
-    this.handleEvents = function(options, widgetConfig, element, widget, context) {
+    this.handleEvents = function (options, widgetConfig, element, widget, context) {
         var prop, eventConfig, events = widgetConfig.events;
 
         if (events) {
@@ -227,20 +227,20 @@ ko.kendo.BindingFactory = function() {
     };
 
     //bind to a single event
-    this.handleOneEvent = function(eventName, eventConfig, options, element, widget, childProp, context) {
+    this.handleOneEvent = function (eventName, eventConfig, options, element, widget, childProp, context) {
         var handler = typeof eventConfig === "function" ? eventConfig : options[eventConfig.call];
 
         //call a function defined directly in the binding definition, supply options that were passed to the binding
         if (typeof eventConfig === "function") {
             handler = handler.bind(context.$data, options);
         }
-        //use function passed in binding options as handler with normal KO args
+            //use function passed in binding options as handler with normal KO args
         else if (eventConfig.call && typeof options[eventConfig.call] === "function") {
             handler = options[eventConfig.call].bind(context.$data, context.$data);
         }
-        //option is observable, determine what to write to it
+            //option is observable, determine what to write to it
         else if (eventConfig.writeTo && ko.isWriteableObservable(options[eventConfig.writeTo])) {
-            handler = function(e) {
+            handler = function (e) {
                 var propOrValue, value;
 
                 if (!childProp || !e[childProp] || e[childProp] === element) {
@@ -260,7 +260,7 @@ ko.kendo.BindingFactory = function() {
 ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 
 //utility to set the dataSource with a clean copy of data. Could be overridden at run-time.
-ko.kendo.setDataSource = function(widget, data, options) {
+ko.kendo.setDataSource = function (widget, data, options) {
     var isMapped, cleanData;
 
     if (data instanceof kendo.data.DataSource) {
@@ -277,11 +277,14 @@ ko.kendo.setDataSource = function(widget, data, options) {
 };
 
 //attach the raw data after Kendo wraps our items
-(function() {
+(function () {
     var existing = kendo.data.ObservableArray.fn.wrap;
-    kendo.data.ObservableArray.fn.wrap = function(object) {
+    kendo.data.ObservableArray.fn.wrap = function (object) {
+        if (object == null) {
+            return;
+        }
         var result = existing.apply(this, arguments);
-        result._raw = function() {
+        result._raw = function () {
             return object;
         };
 
@@ -290,8 +293,8 @@ ko.kendo.setDataSource = function(widget, data, options) {
 })();
 
 //private utility function generator for gauges
-var extendAndRedraw = function(prop) {
-    return function(value) {
+var extendAndRedraw = function (prop) {
+    return function (value) {
         if (value) {
             ko.utils.extend(this.options[prop], value);
             this.redraw();
@@ -300,7 +303,7 @@ var extendAndRedraw = function(prop) {
     };
 };
 
-var openIfVisible = function(value, options) {
+var openIfVisible = function (value, options) {
     if (!value) {
         //causes issues with event triggering, if closing programmatically, when unnecessary
         if (this.element.parent().is(":visible")) {

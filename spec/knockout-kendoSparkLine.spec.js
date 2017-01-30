@@ -7,5 +7,5 @@ describe("ko.bindingHandlers.kendoSparkline", function(){
     });
 
     //additional kendoSparkLine cases
-    
+
 });

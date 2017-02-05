@@ -1,6 +1,6 @@
 /*
- * knockout-kendo 0.9.7
- * Copyright © 2015 Ryan Niemeyer & Telerik
+ * knockout-kendo 0.9.8
+ * Copyright © 2017 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 ;(function(factory) {
     // CommonJS
     if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
@@ -309,6 +310,9 @@ ko.kendo.setDataSource = function(widget, data, options) {
 (function() {
     var existing = kendo.data.ObservableArray.fn.wrap;
     kendo.data.ObservableArray.fn.wrap = function(object) {
+        if (object === null) {
+            return;
+        }
         var result = existing.apply(this, arguments);
         result._raw = function() {
             return object;

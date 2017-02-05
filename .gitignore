@@ -4,3 +4,4 @@ test
 node_modules
 reports
 example
+.grunt

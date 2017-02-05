@@ -280,9 +280,9 @@ ko.kendo.setDataSource = function(widget, data, options) {
 (function() {
     var existing = kendo.data.ObservableArray.fn.wrap;
     kendo.data.ObservableArray.fn.wrap = function(object) {
-		if (object == null) {
-			return;
-		}
+        if (object === null) {
+            return;
+        }
         var result = existing.apply(this, arguments);
         result._raw = function() {
             return object;

@@ -1,6 +1,6 @@
 /*
  * knockout-kendo <%= pkg.version %>
- * Copyright © 2015 Ryan Niemeyer & Telerik
+ * Copyright © 2017 Ryan Niemeyer & Telerik
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

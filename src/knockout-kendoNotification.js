@@ -1,6 +1,17 @@
 var notificationHandler = function(type, value) {
     if (value || value === 0) {
-        this.show(value, type);
+		if (typeof value === "object") {
+			this.show(value, type);
+		}
+		else{
+			try{
+				this.show($.parseJSON(value), type);
+			}
+			catch(e) {
+				// JSON parsing probably failed.  Maybe just a plain string?
+				this.show(value, type);
+			}
+		}
     }
     else {
         this.hide();

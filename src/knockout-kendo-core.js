@@ -261,6 +261,11 @@ ko.kendo.bindingFactory = new ko.kendo.BindingFactory();
 
 //utility to set the dataSource with a clean copy of data. Could be overridden at run-time.
 ko.kendo.setDataSource = function(widget, data, options) {
+    if (data instanceof kendo.data.DataSource) {
+        widget.setDataSource(data);
+        return;
+    }
+    
     var isMapped, cleanData;
 
     if (data instanceof kendo.data.DataSource) {

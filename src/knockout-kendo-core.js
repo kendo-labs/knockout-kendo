@@ -140,17 +140,21 @@ ko.kendo.BindingFactory = function() {
     //return the actual widget
     this.getWidget = function(widgetConfig, options, $element) {
         var widget;
+        var unwrappedOptions = this.unwrapOneLevel(options);
+        var widgetOption = unwrappedOptions.widget;
+        delete unwrappedOptions.widget;
+        
         if (widgetConfig.parent) {
             //locate the actual widget
             var parent = $element.closest("[data-bind*='" + widgetConfig.parent + ":']");
             widget = parent.length ? parent.data(widgetConfig.parent) : null;
         } else {
-            widget = $element[widgetConfig.name](this.unwrapOneLevel(options)).data(widgetConfig.name);
+            widget = $element[widgetConfig.name](unwrappedOptions).data(widgetConfig.name);
         }
 
         //if the widget option was specified, then fill it with our widget
-        if (ko.isObservable(options.widget)) {
-            options.widget(widget);
+        if (ko.isObservable(widgetOption)) {
+            widgetOption(widget);
         }
 
         return widget;

@@ -236,6 +236,15 @@ describe("knockout-kendo-core", function(){
                expect(widget.dataSource).toEqual(options.dataSource); //not touched
            });
 
+           it("should not pass the widget options to the kendo widget", function() {
+               var options = {
+                   observable: ko.observable("observable property"),
+                   widget: ko.observable(null)
+               };
+               setup(null, null, options);
+               expect(widget.widget).toBe(undefined);
+           })
+
         });
 
         describe("when widget is really on a parent", function() {

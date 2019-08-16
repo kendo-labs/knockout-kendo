@@ -39,25 +39,6 @@ module.exports = function(grunt) {
                 options: {
                     spawn: false
                 }
-            },
-            tests: {
-                files: 'spec/*.js',
-                tasks: 'jasmine',
-                options: {
-                    spawn: false
-                }
-            }
-        },
-        jasmine : {
-            src : 'build/<%= pkg.name %>.js',
-            options : {
-                specs : 'spec/*.js',
-                vendor: 'ext/*.js',
-                template : require('grunt-template-jasmine-istanbul'),
-                templateOptions: {
-                    coverage: 'reports/coverage.json',
-                    report: 'reports/coverage'
-                }
             }
         }
     });
@@ -65,10 +46,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-includes');
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint', 'includes', 'uglify', 'jasmine']);
+    grunt.registerTask('default', ['jshint', 'includes', 'uglify']);
 
 };

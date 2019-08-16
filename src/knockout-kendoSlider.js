@@ -6,6 +6,8 @@ createBinding({
     },
     watch: {
         value: VALUE,
-        enabled: ENABLE
+        enabled: ENABLE,
+        min: MIN,
+        max: MAX
     }
 });

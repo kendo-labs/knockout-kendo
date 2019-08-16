@@ -22,16 +22,26 @@ examples:
       view: |
         <input data-bind="checked: enabled" type="checkbox" /> Enabled<br/>
         <button data-bind="click: setToDefault">Set to 50</button>
+        <button data-bind="click: increaseMax">Increase Max</button>
+        <button data-bind="click: decreaseMin">Decrease Min</button>
         <hr/>
-        <input data-bind="kendoSlider: { value: myValue, enabled: enabled, min: 0, max: 100 }" />
+        <input data-bind="kendoSlider: { value: myValue, enabled: enabled, min: min, max: max }" />
         <hr/>
         Value: <strong data-bind="text: myValue"> </strong>
       js: |
         var ViewModel = function() {
+            this.max = ko.observable( 100 );
+            this.min = ko.observable( 0 );
             this.myValue = ko.observable(40);
             this.enabled = ko.observable(true);
             this.setToDefault  = function() {
                 this.myValue(50);
+            };
+            this.increaseMax = function() {
+                this.max( this.max() + 10 );
+            };
+            this.decreaseMin = function() {
+                this.min( this.min() - 10 );
             };
         };
       id: two

@@ -29,6 +29,8 @@
 
 //import "knockout-kendoDateTimePicker.js"
 
+//import "knockout-kendoDialog.js"
+
 //import "knockout-kendoDropDownList.js"
 
 //import "knockout-kendoEditor.js"

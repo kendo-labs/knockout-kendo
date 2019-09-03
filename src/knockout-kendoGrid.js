@@ -6,5 +6,6 @@ createBinding({
             ko.kendo.setDataSource(this, value, options);
         }
     },
-    templates: ["rowTemplate", "altRowTemplate"]
+    templates: ["rowTemplate", "altRowTemplate", "template", "detailTemplate",
+            "headerTemplate", "footerTemplate", "groupHeaderTemplate", "groupFooterTemplate"]
 });

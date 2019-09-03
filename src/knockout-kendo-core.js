@@ -93,17 +93,30 @@ ko.kendo.BindingFactory = function() {
         };
     };
 
+    var updateOptionsTemplate = function(options, templateOption, context) {
+        var k;
+        if (typeof options === "object") {
+            if (options[templateOption]) {
+                options[templateOption] = templateRenderer(options[templateOption], context);
+            } else {
+                for (k in options) {
+                    if (options.hasOwnProperty(k)) {
+                        updateOptionsTemplate(options[k], templateOption, context);
+                    }
+                }
+            }
+        };
+    };
+
     //prepare templates, if the widget uses them
     this.setupTemplates = function(templateConfig, options, element, context) {
-        var i, j, option, existingHandler;
+        var i, j, templateOption, existingHandler;
 
         if (templateConfig && options && options.useKOTemplates) {
             //create a function to render each configured template
             for (i = 0, j = templateConfig.length; i < j; i++) {
-                option = templateConfig[i];
-                if (options[option]) {
-                    options[option] = templateRenderer(options[option], context);
-                }
+                templateOption = templateConfig[i];
+                updateOptionsTemplate(options, templateOption, context);
             }
 
             //initialize bindings in dataBound event

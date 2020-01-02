@@ -89,7 +89,13 @@ ko.kendo.BindingFactory = function() {
 
     var templateRenderer = function(id, context) {
         return function(data) {
-            return ko.renderTemplate(id, context.createChildContext((data._raw && data._raw()) || data));
+            var renderResult = ko.renderTemplate(id, context.createChildContext((data._raw && data._raw()) || data));
+            /* Replace html comments with div since API used by Kendo to append data does not support adding comments on IE8, we will 
+             *  replace these back with comments in databound */
+            if ($.browser.msie && ($.browser.version == "8.0" || $.browser.version == "7.0" || $.browser.version == "6.0")) {
+                return renderResult.replace("<!--[ko_memo:", "<div class='memoized' data-memoid='").replace("]-->", "' />");
+            }
+            return renderResult;
         };
     };
 
@@ -109,6 +115,16 @@ ko.kendo.BindingFactory = function() {
             //initialize bindings in dataBound event
             existingHandler = options.dataBound;
             options.dataBound = function() {
+                /* Replace divs inserted from templateRenderer with comments which is what knockout expects since API used by Kendo to append data does not support 
+                 * adding comments on IE8, hence we replace comments with divs & replace these back with comments here */
+                if ($.browser.msie && ($.browser.version == "8.0" || $.browser.version == "7.0" || $.browser.version == "6.0")) {
+                    var commentString = "";
+                    $(element).find("div.memoized").each(function(i, el) {
+                        commentString += '<!--[ko_memo:' + $(el).data("memoid") + ']-->';
+                    }).remove();
+                    $(element).append(commentString);
+                }	
+				
                 ko.memoization.unmemoizeDomNodeAndDescendants(element);
                 if (existingHandler) {
                     existingHandler.apply(this, arguments);
